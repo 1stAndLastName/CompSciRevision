@@ -19,18 +19,19 @@ The maintainer is a CS teacher who is new to Rust and to AI agents. Explain Rust
 - Format: `cargo fmt`
 
 ## Content format
-- `content/spec.toml`: OCR components and sections (e.g. `1.4`), used to group topics on the home page. A topic's section must be listed here.
+- `content/spec.toml`: every spec point from section 2c of the OCR specification (components 01 and 02): component, section, number (e.g. `1.4.3`), title, and each lettered sub-point with its text. The home page lists every point and shows which have a topic yet. Every `spec` value in content must be a point or lettered sub-point listed here; the loader rejects anything else.
 - `content/<topic-slug>/notes.md`: revision notes, with YAML front matter holding `title`, `spec` (e.g. `"1.4.3"`) and optionally `sample: true` (shows a "Sample" badge). Start headings at `##`.
 - `content/<topic-slug>/flashcards.toml`: `[[card]]` entries with `front`, `back`, `spec`
 - `content/<topic-slug>/quiz.toml`: `[[question]]` entries with `prompt`, `options` (array), `answer` (0-based index), `explanation`, `spec`, `difficulty` (1-3), and optionally `shuffle = false`
-- Item `spec` values may name a sub-point, e.g. `"1.4.3(b)"`.
+- Item `spec` values may name a lettered sub-point, e.g. `"1.4.3(b)"`. Tag each item with the most specific sub-point it covers.
 - Quiz options and question order are shuffled on every attempt. Explanations must describe the answer itself and never refer to an option by letter or position ("option B", "the first one"); the loader rejects "option B"-style phrases. Use `shuffle = false` only where order matters (numbers in sequence, "All of the above").
 - All text is Markdown. Put Boolean expressions, code, binary and hex in backticks so they use the mono font (Inter has no `∧ ∨ ⊻` glyphs). Use OCR notation: `∧ ∨ ¬ ⊻ ≡`. `<sup>` and `<sub>` are the only HTML allowed; any other HTML is shown as text.
 - Create content with the `/revision-set` skill. If a content file fails to load, fix the file, not the loader.
 
 ## Source material
-- `sources/` holds textbooks and specification PDFs. It is gitignored and must never be served by the site.
-- Content in `content/` is written in original wording. Never copy textbook passages, figures or past-paper questions into it.
+- `sources/` holds textbooks and specification PDFs (the H446 specification is `sources/ocr-h446-spec.pdf`). It is gitignored and must never be served by the site.
+- Pseudocode, Little Man Computer, SQL, HTML/CSS/JavaScript and Boolean notation in content follow OCR's conventions: see `docs/ocr-pseudocode.md` (a summary of spec appendix 5d).
+- Content in `content/` is written in original wording. Never copy textbook passages, figures or past-paper questions into it. The one exception is `content/spec.toml`, which quotes the specification's own point titles and sub-point text so they can be checked against.
 
 ## Rules
 - Pages must work well on a phone (390px wide) and a desktop.

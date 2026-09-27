@@ -8,12 +8,12 @@ sample: true
 
 OCR writes Boolean expressions with these symbols. Use them when a question asks for an expression; when it asks for a logic diagram, draw the gates instead.
 
-| Operation | Symbol | Example | True when |
-| --- | --- | --- | --- |
-| AND (conjunction) | `∧` | `A ∧ B` | both inputs are 1 |
-| OR (disjunction) | `∨` | `A ∨ B` | at least one input is 1 |
-| NOT (negation) | `¬` | `¬A` | the input is 0 |
-| XOR (exclusive OR) | `⊻` | `A ⊻ B` | exactly one input is 1 |
+| Operation | Written | True when |
+| --- | --- | --- |
+| AND (conjunction) | `A ∧ B` | both inputs are 1 |
+| OR (disjunction) | `A ∨ B` | at least one input is 1 |
+| NOT (negation) | `¬A` | the input is 0 |
+| XOR (exclusive OR) | `A ⊻ B` | exactly one input is 1 |
 
 `≡` means "is equivalent to": the two expressions give the same output for every combination of inputs.
 
@@ -43,7 +43,7 @@ To go from an expression to a diagram, draw one gate for each operator, working 
 To go from a diagram to a truth table, add a column for each gate's output, work each one out row by row, and finish with the final output:
 
 | `H` | `D` | `M` | `H ∧ D` | `F` |
-| --- | --- | --- | --- | --- |
+| :-: | :-: | :-: | :-: | :-: |
 | 0 | 0 | 0 | 0 | 0 |
 | 0 | 0 | 1 | 0 | 1 |
 | 0 | 1 | 0 | 0 | 0 |
@@ -55,13 +55,22 @@ To go from a diagram to a truth table, add a column for each gate's output, work
 
 ## Rules for simplifying
 
-| Rule | AND form | OR form |
-| --- | --- | --- |
-| Commutation | `A ∧ B ≡ B ∧ A` | `A ∨ B ≡ B ∨ A` |
-| Association | `(A ∧ B) ∧ C ≡ A ∧ (B ∧ C)` | `(A ∨ B) ∨ C ≡ A ∨ (B ∨ C)` |
-| Distribution | `A ∧ (B ∨ C) ≡ (A ∧ B) ∨ (A ∧ C)` | `A ∨ (B ∧ C) ≡ (A ∨ B) ∧ (A ∨ C)` |
-| De Morgan's laws | `¬(A ∧ B) ≡ ¬A ∨ ¬B` | `¬(A ∨ B) ≡ ¬A ∧ ¬B` |
-| Double negation | `¬¬A ≡ A` | |
+Each rule except double negation has an AND form and an OR form.
+
+- **Commutation:** the order of inputs does not matter.\
+  `A ∧ B ≡ B ∧ A`\
+  `A ∨ B ≡ B ∨ A`
+- **Association:** with the same operator throughout, the grouping does not matter.\
+  `(A ∧ B) ∧ C ≡ A ∧ (B ∧ C)`\
+  `(A ∨ B) ∨ C ≡ A ∨ (B ∨ C)`
+- **Distribution:** multiply out a bracket, or take out a common factor.\
+  `A ∧ (B ∨ C) ≡ (A ∧ B) ∨ (A ∧ C)`\
+  `A ∨ (B ∧ C) ≡ (A ∨ B) ∧ (A ∨ C)`
+- **De Morgan's laws:**\
+  `¬(A ∧ B) ≡ ¬A ∨ ¬B`\
+  `¬(A ∨ B) ≡ ¬A ∧ ¬B`
+- **Double negation:**\
+  `¬¬A ≡ A`
 
 To remove a `¬` from outside a bracket with **De Morgan's laws**: change the operator (AND becomes OR, OR becomes AND) and negate each term inside, then cancel any double negations. Students often negate the terms but forget to change the operator.
 
@@ -95,7 +104,7 @@ A Karnaugh map (K-map) is a grid with one cell for each row of the truth table. 
 **Worked example.** Output for inputs `A`, `B` and `C`:
 
 | | `BC` = 00 | 01 | 11 | 10 |
-| --- | --- | --- | --- | --- |
+| --- | :-: | :-: | :-: | :-: |
 | **`A` = 0** | 0 | 1 | 1 | 0 |
 | **`A` = 1** | 0 | 1 | 1 | 1 |
 
@@ -112,7 +121,7 @@ A **half adder** adds two bits, `A` and `B`, and has two outputs:
 - Carry: `C ≡ A ∧ B`
 
 | `A` | `B` | Carry | Sum |
-| --- | --- | --- | --- |
+| :-: | :-: | :-: | :-: |
 | 0 | 0 | 0 | 0 |
 | 0 | 1 | 0 | 1 |
 | 1 | 0 | 0 | 1 |

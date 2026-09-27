@@ -62,3 +62,23 @@ spec = "1.1.1(d)"
 front = "What is the main difference between Von Neumann and Harvard architecture?"
 back = "Von Neumann stores instructions and data in one shared memory with one set of buses. Harvard uses separate memories and buses for instructions and data, so both can be accessed at the same time."
 spec = "1.1.1(e)"
+
+[[card]]
+front = "What does the Accumulator (ACC) hold?"
+back = "The result of the most recent calculation done by the ALU. Values are loaded into it to be worked on, and stored back to memory from it."
+spec = "1.1.1(a)"
+
+[[card]]
+front = "How are the registers and buses used when the instruction `LDA 40` is executed?"
+back = "The operand 40 is copied into the MAR and sent along the address bus, with a read signal on the control bus. The value stored at address 40 comes back along the data bus into the MDR, then is copied into the ACC."
+spec = "1.1.1(a)"
+
+[[card]]
+front = "What is clock speed, and how does it affect processor performance?"
+back = "The number of clock cycles the processor completes per second, measured in hertz (e.g. 3.5 GHz). Each step of the fetch-decode-execute cycle is timed by the clock, so a higher clock speed executes more instructions per second, but produces more heat."
+spec = "1.1.1(c)"
+
+[[card]]
+front = "How do contemporary processors combine Von Neumann and Harvard architecture?"
+back = "Main memory holds both instructions and data, as in Von Neumann. Inside the processor, the L1 cache is split into separate instruction and data caches, as in Harvard, so an instruction and data can be fetched at the same time."
+spec = "1.1.1(e)"

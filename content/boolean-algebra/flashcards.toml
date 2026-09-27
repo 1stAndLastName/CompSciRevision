@@ -49,7 +49,7 @@ back = "Sum `S ≡ A ⊻ B` and carry `C ≡ A ∧ B`."
 spec = "1.4.3(e)"
 
 [[card]]
-front = "How does a full adder differ from a half adder?"
+front = "What extra input does a full adder have, and why is it needed?"
 back = "A full adder has a third input, the carry in from the previous column, so full adders can be chained to add multi-bit numbers. It can be built from two half adders and an OR gate."
 spec = "1.4.3(e)"
 
@@ -57,3 +57,13 @@ spec = "1.4.3(e)"
 front = "Describe the behaviour of a D-type flip-flop."
 back = "On the rising edge of the clock pulse, the output `Q` takes the value of the data input `D`. At all other times `Q` holds its value, so it stores one bit."
 spec = "1.4.3(e)"
+
+[[card]]
+front = "What does the symbol `≡` mean in a Boolean expression?"
+back = "Equivalence, read \"is equivalent to\" or \"if and only if\": the expressions on each side give the same output for every combination of inputs, e.g. `¬(A ∨ B) ≡ ¬A ∧ ¬B`."
+spec = "1.4.3(a)"
+
+[[card]]
+front = "Describe the logic gate symbols for AND, OR, NOT and XOR."
+back = "AND: flat back with a round, D-shaped front. OR: curved back with a pointed front. NOT: a triangle with a small circle at its point. XOR: an OR shape with an extra curved line across the inputs."
+spec = "1.4.3(d)"

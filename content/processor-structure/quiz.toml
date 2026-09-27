@@ -75,3 +75,29 @@ answer = 0
 explanation = "Harvard architecture keeps instructions and data in separate memories, each with its own buses, so an instruction and a piece of data can be accessed at the same time. A single shared memory describes Von Neumann architecture."
 spec = "1.1.1(e)"
 difficulty = 1
+
+[[question]]
+prompt = "The instruction `BRA 12` is being executed. Which register does the execute stage change?"
+options = [
+  "The Program Counter (PC), which is set to 12",
+  "The Accumulator (ACC), which is set to 12",
+  "The Memory Data Register (MDR), which receives the value stored at address 12",
+  "The Current Instruction Register (CIR), which is cleared",
+]
+answer = 0
+explanation = "A branch works by overwriting the Program Counter with the target address, so the next fetch comes from address 12 instead of the next instruction in sequence. It does not load or change any data, so the ACC and MDR are not affected."
+spec = "1.1.1(b)"
+difficulty = 2
+
+[[question]]
+prompt = "A processor stores each instruction in a 24-bit word: 8 bits for the opcode and 16 bits for the operand, which holds a memory address. What are the limits of this format?"
+options = [
+  "Up to 256 different instructions and 65 536 directly addressable memory locations",
+  "Up to 8 different instructions and 16 directly addressable memory locations",
+  "Up to 256 different instructions and 65 535 directly addressable memory locations",
+  "Up to 16 777 216 different instructions and 65 536 directly addressable memory locations",
+]
+answer = 0
+explanation = "With *n* bits there are 2<sup>n</sup> different patterns. The 8-bit opcode allows 2<sup>8</sup> = 256 instructions, and the 16-bit operand allows 2<sup>16</sup> = 65 536 addresses, numbered 0 to 65 535. The highest address is 65 535, but counting address 0 gives 65 536 locations. Only the opcode bits limit the number of instructions, not the whole 24-bit word."
+spec = "1.1.1(a)"
+difficulty = 3

@@ -21,7 +21,7 @@ prompt = "Simplify `(A ∧ B) ∨ (A ∧ ¬B)`."
 options = ["`A`", "`B`", "`A ∧ B`", "`A ∨ B`"]
 answer = 0
 explanation = "Taking out the common factor gives `A ∧ (B ∨ ¬B)`. Since `B ∨ ¬B` is always 1, this becomes `A ∧ 1`, which is `A`. The output is 1 exactly when `A` is 1, whatever `B` is."
-spec = "1.4.3(b)"
+spec = "1.4.3(c)"
 difficulty = 2
 
 [[question]]
@@ -62,3 +62,55 @@ answer = 0
 explanation = "Only groups of 1, 2, 4, 8 or 16 cells correspond to a single simplified term, because each doubling of the group size removes one variable from the term. Three 1s in a row are covered by two overlapping pairs. Groups can be long rectangles as well as squares, and they may wrap around the edges."
 spec = "1.4.3(b)"
 difficulty = 3
+
+[[question]]
+prompt = "A plant-watering pump (`P`) switches on when the soil is dry (`S`) and either the timer has run out (`R`) or the manual button is pressed (`M`). Which expression describes this?"
+options = ["`P ≡ S ∧ (R ∨ M)`", "`P ≡ (S ∧ R) ∨ M`", "`P ≡ S ∨ (R ∧ M)`", "`P ≡ S ∧ R ∧ M`"]
+answer = 0
+explanation = "The pump needs dry soil in every case, so `S` is joined by AND to the whole of the second condition. \"Either the timer or the button\" is `R ∨ M`, and the brackets make sure it is worked out first. Without them, `(S ∧ R) ∨ M` would run the pump whenever the button is pressed, even in wet soil."
+spec = "1.4.3(a)"
+difficulty = 2
+
+[[question]]
+prompt = "For `Q ≡ (A ∧ B) ∨ ¬C`, which set of inputs makes `Q` false?"
+options = [
+  "`A` = T, `B` = F, `C` = T",
+  "`A` = T, `B` = T, `C` = T",
+  "`A` = F, `B` = F, `C` = F",
+  "`A` = F, `B` = T, `C` = F",
+]
+answer = 0
+explanation = "`Q` is false only when both parts of the OR are false: `A ∧ B` must be false and `¬C` must be false, so `C` must be true. With `A` = T, `B` = F and `C` = T, `A ∧ B` is F and `¬C` is F, so `Q` is F. In the other sets, either both `A` and `B` are true or `C` is false, which makes `Q` true."
+spec = "1.4.3(d)"
+difficulty = 2
+
+[[question]]
+prompt = """What is the simplest expression for this Karnaugh map?
+
+| | `BC` = 00 | 01 | 11 | 10 |
+| --- | :-: | :-: | :-: | :-: |
+| **`A` = 0** | 1 | 0 | 0 | 1 |
+| **`A` = 1** | 0 | 0 | 1 | 1 |"""
+options = [
+  "`(¬A ∧ ¬C) ∨ (A ∧ B)`",
+  "`¬C ∨ (A ∧ B)`",
+  "`(¬A ∧ ¬B ∧ ¬C) ∨ (A ∧ B)`",
+  "`(¬A ∧ ¬C) ∨ (A ∧ B) ∨ (B ∧ ¬C)`",
+]
+answer = 0
+explanation = "In the `A` = 0 row, the 1s at `BC` = 00 and `BC` = 10 are neighbours because the map wraps around; `A` is 0 and `C` is 0 in both, giving `¬A ∧ ¬C`. In the `A` = 1 row, the 1s at 11 and 10 pair up; `A` and `B` are 1 in both, giving `A ∧ B`. These two pairs cover every 1. Grouping the 00 and 10 columns together as `¬C` would include the 0 at `A` = 1, `BC` = 00. Adding a third pair down the 10 column is not wrong, but it is not the simplest, because those 1s are already covered."
+spec = "1.4.3(b)"
+difficulty = 3
+
+[[question]]
+prompt = "A full adder has inputs `A` = 1, `B` = 1 and carry in `Cin` = 1. What are its outputs?"
+options = [
+  "Sum = 1, Carry out = 1",
+  "Sum = 0, Carry out = 1",
+  "Sum = 1, Carry out = 0",
+  "Sum = 0, Carry out = 0",
+]
+answer = 0
+explanation = "Adding three 1s gives three, which is 11 in binary. The sum bit is the right-hand 1 and the carry out is the left-hand 1. Using the expressions, `S ≡ A ⊻ B ⊻ Cin` is 1 because an odd number of inputs are 1, and `Cout` is 1 because `A ∧ B` is 1."
+spec = "1.4.3(e)"
+difficulty = 2

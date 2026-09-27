@@ -975,25 +975,30 @@ main.narrow {
     radial-gradient(farthest-side at 100% 50%, color-mix(in srgb, var(--text) 30%, transparent), transparent) right / 0.9rem 100% no-repeat scroll;
 }
 
-.prose table {
+.prose table,
+.prompt table {
   border-collapse: collapse;
   font-size: 0.95em;
   font-variant-numeric: tabular-nums;
 }
 
 .prose th,
-.prose td {
+.prose td,
+.prompt th,
+.prompt td {
   padding: 0.55rem 0.8rem;
   text-align: left;
   vertical-align: top;
   border-bottom: 1px solid var(--border);
 }
 
-.prose tr:last-child td {
+.prose tr:last-child td,
+.prompt tr:last-child td {
   border-bottom: 0;
 }
 
-.prose th {
+.prose th,
+.prompt th {
   background: var(--raised);
   font-weight: 650;
   white-space: nowrap;
@@ -1336,6 +1341,15 @@ html:not(.js) .fc-inner {
   margin-bottom: 0;
 }
 
+/* A table in a question (e.g. a Karnaugh map) uses body text, not the
+   larger bold prompt text. */
+.prompt .table-wrap {
+  margin: var(--space-4) 0 0;
+  font-size: var(--step-0);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
 .options {
   display: grid;
   gap: var(--space-3);
@@ -1391,6 +1405,14 @@ html:not(.js) .fc-inner {
 
 .option-text {
   min-width: 0;
+}
+
+/* Long expressions in an answer may wrap between symbols on a phone,
+   rather than running under the "Your answer" label. */
+.option-text code {
+  white-space: normal;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .verdict {

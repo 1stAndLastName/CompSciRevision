@@ -32,6 +32,8 @@ A bus is a set of parallel wires that connects the processor to memory and I/O c
 - **Data bus:** carries data and instructions between the processor and memory. It is **two-way**. A wider data bus moves more bits in each transfer.
 - **Control bus:** carries control signals such as memory read, memory write, the clock and interrupt requests. It is **two-way**.
 
+**How this relates to assembly language programs.** Every assembly instruction becomes a machine code word made of an **opcode** and an **operand**, and each bus limits what that word can do. When an instruction such as `LDA 7` runs, its operand travels from the CIR to the MAR and out along the **address bus**, so the width of the address bus decides the highest memory address a program can use. The **data bus** carries the instruction itself and any value being loaded or stored, so its width limits how much can move in one transfer. The number of opcode bits limits how many different instructions the processor can have: 5 bits give 2<sup>5</sup> = 32 opcodes.
+
 ## The fetch-decode-execute cycle
 
 **Fetch**

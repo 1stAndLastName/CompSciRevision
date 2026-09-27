@@ -6,24 +6,27 @@ sample: true
 
 ## Notation
 
-OCR writes Boolean expressions with these symbols. Use them when a question asks for an expression; when it asks for a logic diagram, draw the gates instead.
+OCR's questions write Boolean expressions with these symbols. In your answers OCR also accepts other common notations: `A.B` or `A AND B`, `A+B` or `A OR B`, `~A`, `NOT A` or a bar over the letter, `A ⊕ B` or `A XOR B`, and `↔` for equivalence. When a question asks for a logic diagram, draw the gates instead.
 
 | Operation | Written | True when |
 | --- | --- | --- |
-| AND (conjunction) | `A ∧ B` | both inputs are 1 |
-| OR (disjunction) | `A ∨ B` | at least one input is 1 |
-| NOT (negation) | `¬A` | the input is 0 |
-| XOR (exclusive OR) | `A ⊻ B` | exactly one input is 1 |
+| AND (conjunction) | `A ∧ B` | both inputs are true |
+| OR (disjunction) | `A ∨ B` | at least one input is true |
+| NOT (negation) | `¬A` | the input is false |
+| XOR (exclusive disjunction) | `A ⊻ B` | exactly one input is true |
+| Equivalence (iff) | `A ≡ B` | both sides have the same value |
 
-`≡` means "is equivalent to": the two expressions give the same output for every combination of inputs.
+`≡` is read "is equivalent to" or "if and only if": the two sides give the same output for every combination of inputs. So `V ≡ (H ∧ D) ∨ M` below says that `V` is true exactly when `(H ∧ D) ∨ M` is true.
+
+OCR's truth tables use **T** (true) and **F** (false). In adders, Karnaugh maps and the identities below, **1** means true and **0** means false.
 
 ## Defining problems with Boolean logic
 
 Turn each condition into a variable, then join them with the operators the wording describes.
 
-A greenhouse fan (`F`) should run when it is hot (`H`) and the door is closed (`D`), or whenever the manual switch (`M`) is on:
+A greenhouse ventilation fan (`V`) should run when it is hot (`H`) and the door is closed (`D`), or whenever the manual switch (`M`) is on:
 
-`F ≡ (H ∧ D) ∨ M`
+`V ≡ (H ∧ D) ∨ M`
 
 A truth table lists the output for every combination of inputs. With *n* inputs there are 2<sup>n</sup> rows, so three inputs need 8 rows.
 
@@ -38,20 +41,20 @@ Each operator has its own gate symbol. You need to recognise and draw them.
 | NOT | A triangle with a small circle at its point | `¬A` |
 | XOR | An OR shape with an extra curved line across the inputs | `A ⊻ B` |
 
-To go from an expression to a diagram, draw one gate for each operator, working outwards from the innermost brackets. For `F ≡ (H ∧ D) ∨ M`, `H` and `D` feed an AND gate, and its output and `M` feed an OR gate.
+To go from an expression to a diagram, draw one gate for each operator, working outwards from the innermost brackets. For `V ≡ (H ∧ D) ∨ M`, `H` and `D` feed an AND gate, and its output and `M` feed an OR gate.
 
 To go from a diagram to a truth table, add a column for each gate's output, work each one out row by row, and finish with the final output:
 
-| `H` | `D` | `M` | `H ∧ D` | `F` |
+| `H` | `D` | `M` | `H ∧ D` | `V` |
 | :-: | :-: | :-: | :-: | :-: |
-| 0 | 0 | 0 | 0 | 0 |
-| 0 | 0 | 1 | 0 | 1 |
-| 0 | 1 | 0 | 0 | 0 |
-| 0 | 1 | 1 | 0 | 1 |
-| 1 | 0 | 0 | 0 | 0 |
-| 1 | 0 | 1 | 0 | 1 |
-| 1 | 1 | 0 | 1 | 1 |
-| 1 | 1 | 1 | 1 | 1 |
+| F | F | F | F | F |
+| F | F | T | F | T |
+| F | T | F | F | F |
+| F | T | T | F | T |
+| T | F | F | F | F |
+| T | F | T | F | T |
+| T | T | F | T | T |
+| T | T | T | T | T |
 
 ## Rules for simplifying
 

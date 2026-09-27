@@ -1,0 +1,59 @@
+[[card]]
+front = "What do the symbols `∧`, `∨`, `¬` and `⊻` mean?"
+back = "`∧` is AND, `∨` is OR, `¬` is NOT and `⊻` is XOR (exclusive OR)."
+spec = "1.4.3(a)"
+
+[[card]]
+front = "How many rows does a truth table need for *n* inputs?"
+back = "2<sup>n</sup> rows, one for each combination of inputs. Three inputs need 8 rows."
+spec = "1.4.3(d)"
+
+[[card]]
+front = "State De Morgan's laws."
+back = "`¬(A ∧ B) ≡ ¬A ∨ ¬B` and `¬(A ∨ B) ≡ ¬A ∧ ¬B`. To remove a `¬` from outside a bracket, change the operator and negate each term inside."
+spec = "1.4.3(c)"
+
+[[card]]
+front = "State the rule of double negation."
+back = "`¬¬A ≡ A`. Negating a value twice gives the original value."
+spec = "1.4.3(c)"
+
+[[card]]
+front = "State the two distribution rules."
+back = "`A ∧ (B ∨ C) ≡ (A ∧ B) ∨ (A ∧ C)` and `A ∨ (B ∧ C) ≡ (A ∨ B) ∧ (A ∨ C)`."
+spec = "1.4.3(c)"
+
+[[card]]
+front = "What do the rules of commutation and association say?"
+back = "Commutation: the order of the inputs does not matter, `A ∧ B ≡ B ∧ A`. Association: the grouping does not matter when the operator is the same, `(A ∨ B) ∨ C ≡ A ∨ (B ∨ C)`."
+spec = "1.4.3(c)"
+
+[[card]]
+front = "Simplify `A ∨ (A ∧ B)`."
+back = "`A`. If `A` is 1 the whole expression is 1, and if `A` is 0 then `A ∧ B` is also 0 (absorption)."
+spec = "1.4.3(b)"
+
+[[card]]
+front = "Why are Karnaugh map rows and columns labelled 00, 01, 11, 10?"
+back = "This is Gray code order: neighbouring cells differ in only one variable, so a group of neighbouring 1s shows which variables do not affect the output."
+spec = "1.4.3(b)"
+
+[[card]]
+front = "What are the rules for grouping 1s on a Karnaugh map?"
+back = "Groups are rectangles of 1, 2, 4, 8 or 16 cells. Make them as large as possible and use as few as possible. Groups may overlap and wrap around the edges. Every 1 must be in a group, and no 0 can be. In each group's term, a variable that is 0 throughout is written with `¬`."
+spec = "1.4.3(b)"
+
+[[card]]
+front = "What are the outputs of a half adder with inputs `A` and `B`?"
+back = "Sum `S ≡ A ⊻ B` and carry `C ≡ A ∧ B`."
+spec = "1.4.3(e)"
+
+[[card]]
+front = "How does a full adder differ from a half adder?"
+back = "A full adder has a third input, the carry in from the previous column, so full adders can be chained to add multi-bit numbers. It can be built from two half adders and an OR gate."
+spec = "1.4.3(e)"
+
+[[card]]
+front = "Describe the behaviour of a D-type flip-flop."
+back = "On the rising edge of the clock pulse, the output `Q` takes the value of the data input `D`. At all other times `Q` holds its value, so it stores one bit."
+spec = "1.4.3(e)"

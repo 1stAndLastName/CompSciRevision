@@ -1,0 +1,64 @@
+[[question]]
+prompt = "How many rows does a truth table need for a logic circuit with three inputs?"
+options = ["3", "6", "8", "9"]
+answer = 2
+explanation = "Each input can be 0 or 1, so three inputs give 2 × 2 × 2 = 2<sup>3</sup> = 8 combinations, one row for each."
+spec = "1.4.3(d)"
+difficulty = 1
+# Keep the numbers in order.
+shuffle = false
+
+[[question]]
+prompt = "Which expression is equivalent to `¬(A ∧ B)`?"
+options = ["`¬A ∨ ¬B`", "`¬A ∧ ¬B`", "`A ∨ B`", "`¬A ∧ B`"]
+answer = 0
+explanation = "By De Morgan's law, negating an AND gives an OR of the negated terms: change the operator and negate each term. `¬A ∧ ¬B` negates the terms but keeps the operator, which is a common mistake; it is equivalent to `¬(A ∨ B)` instead."
+spec = "1.4.3(c)"
+difficulty = 1
+
+[[question]]
+prompt = "Simplify `(A ∧ B) ∨ (A ∧ ¬B)`."
+options = ["`A`", "`B`", "`A ∧ B`", "`A ∨ B`"]
+answer = 0
+explanation = "Taking out the common factor gives `A ∧ (B ∨ ¬B)`. Since `B ∨ ¬B` is always 1, this becomes `A ∧ 1`, which is `A`. The output is 1 exactly when `A` is 1, whatever `B` is."
+spec = "1.4.3(b)"
+difficulty = 2
+
+[[question]]
+prompt = "A half adder has inputs `A` = 1 and `B` = 1. What are its outputs?"
+options = [
+  "Sum = 0, Carry = 1",
+  "Sum = 1, Carry = 0",
+  "Sum = 1, Carry = 1",
+  "Sum = 0, Carry = 0",
+]
+answer = 0
+explanation = "In binary 1 + 1 = 10. The sum is `A ⊻ B`, which is 0 when both inputs are 1, and the carry is `A ∧ B`, which is 1."
+spec = "1.4.3(e)"
+difficulty = 2
+
+[[question]]
+prompt = "The data input `D` of a D-type flip-flop changes from 0 to 1 between two rising edges of the clock. What happens to the output `Q`?"
+options = [
+  "`Q` keeps its previous value until the next rising edge of the clock",
+  "`Q` changes to 1 straight away",
+  "`Q` becomes the opposite of `D`",
+  "`Q` changes value on every clock edge, whatever `D` is",
+]
+answer = 0
+explanation = "A D-type flip-flop only copies `D` to `Q` on the rising edge of the clock. Between edges, `Q` holds whatever it stored last, which is what lets it act as one bit of memory. Changing value on every clock edge describes a different circuit, a toggle."
+spec = "1.4.3(e)"
+difficulty = 3
+
+[[question]]
+prompt = "When simplifying with a Karnaugh map, why can three neighbouring 1s in a row not form a single group?"
+options = [
+  "Groups must contain a power-of-two number of cells: 1, 2, 4, 8 or 16",
+  "Groups must be square",
+  "Groups cannot include cells at the edge of the map",
+  "A row can only contain one group",
+]
+answer = 0
+explanation = "Only groups of 1, 2, 4, 8 or 16 cells correspond to a single simplified term, because each doubling of the group size removes one variable from the term. Three 1s in a row are covered by two overlapping pairs. Groups can be long rectangles as well as squares, and they may wrap around the edges."
+spec = "1.4.3(b)"
+difficulty = 3

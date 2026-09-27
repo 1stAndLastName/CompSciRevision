@@ -1,0 +1,77 @@
+[[question]]
+prompt = "Which register holds the address of the next instruction to be fetched?"
+options = [
+  "Program Counter (PC)",
+  "Memory Address Register (MAR)",
+  "Current Instruction Register (CIR)",
+  "Accumulator (ACC)",
+]
+answer = 0
+explanation = "The Program Counter always holds the address of the next instruction. Its value is copied into the MAR at the start of the fetch stage, but the MAR can hold the address of data as well as of instructions."
+spec = "1.1.1(a)"
+difficulty = 1
+
+[[question]]
+prompt = "Which of these happens during the fetch stage of the fetch-decode-execute cycle?"
+options = [
+  "The contents of the MDR are copied into the CIR",
+  "The instruction is split into its opcode and operand",
+  "The ALU adds a value to the accumulator",
+  "The contents of the ACC are copied into the PC",
+]
+answer = 0
+explanation = "The fetched instruction arrives in the MDR and is then copied into the CIR, which completes the fetch. Splitting it into opcode and operand is part of decoding, and ALU calculations happen during execute."
+spec = "1.1.1(b)"
+difficulty = 2
+
+[[question]]
+prompt = "A processor's address bus is widened from 16 lines to 32 lines. What is the effect?"
+options = [
+  "The number of addressable memory locations rises from 2<sup>16</sup> to 2<sup>32</sup>",
+  "The number of addressable memory locations doubles",
+  "Twice as many bits can be transferred to the processor in each operation",
+  "The processor's clock speed doubles",
+]
+answer = 0
+explanation = "Each extra address line doubles the number of possible addresses, so going from 16 to 32 lines multiplies it by 2<sup>16</sup>, not 2. The number of bits moved per transfer depends on the data bus, not the address bus."
+spec = "1.1.1(a)"
+difficulty = 2
+
+[[question]]
+prompt = "Why might a program run only slightly faster on a quad-core processor than on a single-core processor with the same clock speed?"
+options = [
+  "Most of the program cannot be split into tasks that run in parallel",
+  "Each core runs at a quarter of the clock speed",
+  "All four cores must share a single Program Counter",
+  "Only one core can use the ALU at a time, so the others wait",
+]
+answer = 0
+explanation = "Extra cores only help with work that can be divided up and run at the same time. If most of the program must run in sequence, only one core does useful work. Each core is a complete processing unit with its own ALU, control unit and registers, including its own Program Counter."
+spec = "1.1.1(c)"
+difficulty = 3
+
+[[question]]
+prompt = "In a pipelined processor, what normally happens after a branch instruction changes the Program Counter?"
+options = [
+  "The instructions already fetched and decoded are discarded and the pipeline is refilled",
+  "The pipeline carries on, because instructions are always executed in the order they were fetched",
+  "The processor stops pipelining until the program finishes",
+  "The branch is ignored until the pipeline is empty",
+]
+answer = 0
+explanation = "The instructions already in the pipeline were fetched from the addresses that follow the branch instruction in memory, so they may be the wrong ones. The pipeline is flushed and filled again from the new address, which costs some cycles."
+spec = "1.1.1(d)"
+difficulty = 3
+
+[[question]]
+prompt = "Which statement describes Harvard architecture?"
+options = [
+  "Instructions and data are held in separate memories with separate buses",
+  "Instructions and data share one memory and one set of buses",
+  "Several processor cores share one level of cache",
+  "Instructions are stored in cache and data is stored in registers",
+]
+answer = 0
+explanation = "Harvard architecture keeps instructions and data in separate memories, each with its own buses, so an instruction and a piece of data can be accessed at the same time. A single shared memory describes Von Neumann architecture."
+spec = "1.1.1(e)"
+difficulty = 1

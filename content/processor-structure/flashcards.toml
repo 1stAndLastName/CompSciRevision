@@ -1,0 +1,64 @@
+[[card]]
+front = "What does the Arithmetic and Logic Unit (ALU) do?"
+back = "It carries out arithmetic operations (such as addition and subtraction), logical operations (such as AND and OR) and comparisons. Results are usually stored in the accumulator."
+spec = "1.1.1(a)"
+
+[[card]]
+front = "What is the role of the Control Unit (CU)?"
+back = "It decodes instructions and sends control signals to coordinate the other parts of the processor, memory and I/O, managing the fetch-decode-execute cycle."
+spec = "1.1.1(a)"
+
+[[card]]
+front = "What does the Program Counter (PC) hold?"
+back = "The address of the next instruction to be fetched."
+spec = "1.1.1(a)"
+
+[[card]]
+front = "What does the Memory Address Register (MAR) hold?"
+back = "The address of the memory location that is about to be read from or written to."
+spec = "1.1.1(a)"
+
+[[card]]
+front = "What does the Memory Data Register (MDR) hold?"
+back = "The data or instruction that has just been read from memory, or that is waiting to be written to memory."
+spec = "1.1.1(a)"
+
+[[card]]
+front = "What does the Current Instruction Register (CIR) hold?"
+back = "The instruction currently being decoded and executed, split into its opcode and operand."
+spec = "1.1.1(a)"
+
+[[card]]
+front = "Which buses are one-way and which are two-way?"
+back = "The address bus is one-way (processor to memory). The data bus and control bus are two-way."
+spec = "1.1.1(a)"
+
+[[card]]
+front = "What is the effect of adding one line to the address bus?"
+back = "It doubles the number of memory locations that can be addressed, because *n* lines can carry 2<sup>n</sup> different addresses."
+spec = "1.1.1(a)"
+
+[[card]]
+front = "Describe the fetch stage of the fetch-decode-execute cycle."
+back = "The address in the PC is copied to the MAR and the PC is incremented. The instruction at that address is sent along the data bus to the MDR, then copied into the CIR."
+spec = "1.1.1(b)"
+
+[[card]]
+front = "Why does a dual-core processor not always run a program twice as fast as a single core?"
+back = "Only tasks that can be split into parts that run in parallel benefit, and the cores must spend time coordinating and sharing data."
+spec = "1.1.1(c)"
+
+[[card]]
+front = "How does cache improve processor performance?"
+back = "Cache is small, fast memory close to the processor that stores frequently used instructions and data, so they can be fetched much more quickly than from main memory."
+spec = "1.1.1(c)"
+
+[[card]]
+front = "What is pipelining, and what happens to the pipeline after a branch?"
+back = "Pipelining overlaps the fetch, decode and execute stages of different instructions. After a branch, the instructions already in the pipeline may be the wrong ones, so the pipeline is flushed and refilled."
+spec = "1.1.1(d)"
+
+[[card]]
+front = "What is the main difference between Von Neumann and Harvard architecture?"
+back = "Von Neumann stores instructions and data in one shared memory with one set of buses. Harvard uses separate memories and buses for instructions and data, so both can be accessed at the same time."
+spec = "1.1.1(e)"

@@ -1,0 +1,11 @@
+<section class="quiz-step summary" data-quiz-result="{{ topic.slug }}" data-score="{{ score }}" data-total="{{ total }}">
+  <h2 tabindex="-1" data-focus>Your score</h2>
+  <p class="big-score num">{{ score }}<span> / {{ total }}</span></p>
+  <p>{{ self.message() }}</p>
+  <p class="best num" data-best hidden></p>
+  <div class="practice-actions">
+    <a class="button primary" href="/topics/{{ topic.slug }}/quiz">Try again</a>
+    <a class="button" href="/topics/{{ topic.slug }}/flashcards">Flashcards</a>
+    <a class="button quiet" href="/topics/{{ topic.slug }}">Back to notes</a>
+  </div>
+</section>

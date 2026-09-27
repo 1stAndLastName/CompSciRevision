@@ -1,0 +1,2 @@
+{# One cell per flashcard. site.js fills each in from the saved progress. #}
+<span class="cells" aria-hidden="true">{% for card in topic.flashcards %}<i data-card="{{ card.id }}"></i>{% endfor %}</span>

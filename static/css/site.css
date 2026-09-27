@@ -1,0 +1,1553 @@
+/* ==========================================================================
+   H446 Revision: the one stylesheet.
+
+   1. Fonts
+   2. Themes: every colour is a custom property, one block per theme
+   3. Scale: type sizes, spacing, radii
+   4. Base elements
+   5. Layout: header, footer, page width
+   6. Components: buttons, badges, progress cells, theme picker
+   7. Pages: home, topic, flashcards, quiz, 404
+   8. Reduced motion
+   ========================================================================== */
+
+/* 1. Fonts ---------------------------------------------------------------- */
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/static/fonts/InterVariable.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/static/fonts/InterVariable-Italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/static/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/static/fonts/JetBrainsMono-Bold.woff2") format("woff2");
+}
+
+/* 2. Themes ----------------------------------------------------------------
+   Dark is the default. The inline script in base.html sets data-theme on
+   <html> from localStorage before the page is drawn.
+   --border is for card edges; --border-strong is for form controls, which
+   need 3:1 contrast. --again marks "Again" flashcards; --danger marks a
+   wrong quiz answer (always alongside a cross icon and the words "Not quite"). */
+
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0b1210;
+  --surface: #121c18;
+  --raised: #1a2621;
+  --border: #24332c;
+  --border-strong: #62796d;
+  --text: #e3ece7;
+  --muted: #93a79c;
+  --accent: #34d399;
+  --accent-text: #34d399;
+  --on-accent: #04130d;
+  --accent-soft: #0f2a20;
+  --danger: #ff9a85;
+  --danger-soft: #2c1714;
+  --again: #f2b85b;
+  --focus: #34d399;
+}
+
+:root[data-theme="oled"] {
+  color-scheme: dark;
+  --bg: #000000;
+  --surface: #000000;
+  --raised: #0a100d;
+  --border: #1f2c26;
+  --border-strong: #52695d;
+  --text: #e3ece7;
+  --muted: #93a79c;
+  --accent: #34d399;
+  --accent-text: #34d399;
+  --on-accent: #04130d;
+  --accent-soft: #04160e;
+  --danger: #ff9a85;
+  --danger-soft: #1c0907;
+  --again: #f2b85b;
+  --focus: #34d399;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f6faf7;
+  --surface: #ffffff;
+  --raised: #eaf3ed;
+  --border: #d5e3db;
+  --border-strong: #6f8679;
+  --text: #0f1f18;
+  --muted: #4b5f55;
+  --accent: #047857;
+  --accent-text: #047857;
+  --on-accent: #ffffff;
+  --accent-soft: #e1f3e9;
+  --danger: #b42318;
+  --danger-soft: #fdebe8;
+  --again: #945600;
+  --focus: #047857;
+}
+
+/* 3. Scale -----------------------------------------------------------------
+   Type steps follow a major third (x1.25) from a 17px body size. */
+
+:root {
+  --font-sans: "Inter", "JetBrains Mono", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Menlo, Consolas, monospace;
+
+  --step--1: 0.85rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.33rem;
+  --step-2: 1.66rem;
+  --step-3: clamp(1.9rem, 1.55rem + 1.6vw, 2.6rem);
+  --step-4: clamp(2.8rem, 2rem + 4vw, 4.4rem);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+
+  --radius-s: 6px;
+  --radius-m: 10px;
+  --radius-l: 16px;
+
+  --gutter: 1rem;
+  --page: 72rem;
+  --measure: 68ch;
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --gutter: 2rem;
+  }
+}
+
+/* 4. Base ------------------------------------------------------------------ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  /* Inter: l with a tail (cv05) and I with serifs (cv08), so I, l and 1 differ. */
+  font-feature-settings: "cv05" 1, "cv08" 1;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  text-wrap: balance;
+  margin: 0 0 var(--space-3);
+}
+
+h1 {
+  font-size: var(--step-3);
+  font-weight: 700;
+  letter-spacing: -0.022em;
+}
+
+h2 {
+  font-size: var(--step-2);
+  font-weight: 650;
+  letter-spacing: -0.017em;
+}
+
+h3 {
+  font-size: var(--step-1);
+  font-weight: 620;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0 0 var(--space-4);
+}
+
+a {
+  color: var(--accent-text);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: var(--font-mono);
+  font-feature-settings: normal;
+}
+
+code {
+  font-size: 0.9em;
+  padding: 0.08em 0.3em;
+  border-radius: 4px;
+  background: var(--raised);
+  white-space: nowrap;
+}
+
+pre {
+  background: var(--raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  padding: var(--space-4);
+  overflow-x: auto;
+  line-height: 1.5;
+}
+
+pre code {
+  padding: 0;
+  background: none;
+  white-space: pre;
+}
+
+kbd {
+  font-size: 0.8em;
+  padding: 0.05em 0.4em;
+  border: 1px solid var(--border-strong);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+}
+
+sup,
+sub {
+  line-height: 0;
+}
+
+/* Tabular figures keep scores and counts from jiggling as they change. */
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Parts of the page that need JavaScript are hidden without it. */
+html:not(.js) .js-only {
+  display: none !important;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--gutter);
+  top: -4rem;
+  padding: var(--space-2) var(--space-4);
+  background: var(--accent);
+  color: var(--on-accent);
+  border-radius: var(--radius-s);
+  font-weight: 600;
+  z-index: 10;
+}
+
+.skip-link:focus {
+  top: var(--space-2);
+}
+
+/* 5. Layout ---------------------------------------------------------------- */
+
+.wrap {
+  width: 100%;
+  max-width: calc(var(--page) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+main {
+  flex: 1;
+  padding-block: var(--space-5) var(--space-8);
+}
+
+/* Flashcards and quiz use one narrower column. */
+main.narrow {
+  max-width: calc(44rem + 2 * var(--gutter));
+}
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: 3.75rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: var(--accent);
+}
+
+.brand-mark .hollow {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.5;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: var(--step--1);
+  padding-block: var(--space-5);
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.crumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0 0 var(--space-5);
+  padding: 0;
+  font-size: var(--step--1);
+}
+
+.crumbs li + li::before {
+  content: "/";
+  color: var(--muted);
+  margin-right: var(--space-2);
+}
+
+/* 6. Components ------------------------------------------------------------ */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-m);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.button:hover {
+  background: var(--raised);
+}
+
+.button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.button svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+
+.button.primary:hover {
+  background: color-mix(in srgb, var(--accent) 85%, var(--text));
+}
+
+.button.quiet {
+  background: transparent;
+  border-color: var(--border);
+}
+
+.button.quiet:hover {
+  background: var(--raised);
+  border-color: var(--border-strong);
+}
+
+.button.small {
+  min-height: 2.5rem;
+  padding: 0.4rem 0.8rem;
+  font-size: var(--step--1);
+}
+
+.button-note {
+  font-weight: 450;
+  opacity: 0.8;
+  font-size: var(--step--1);
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.05rem 0.55rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: var(--step--1);
+  font-weight: 550;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* Progress cells: one per flashcard, like the bits of a register.
+   Filled = got it, bar across = again, hollow = not seen. The shapes differ
+   as well as the colours, so the states are clear without colour vision. */
+.cells {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.cells i {
+  width: 10px;
+  height: 14px;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 2px;
+}
+
+.cells i.got {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.cells i.again {
+  border-color: var(--again);
+  background: linear-gradient(var(--again), var(--again)) center / 100% 3px no-repeat;
+}
+
+.progress-text {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--space-4);
+  margin: var(--space-2) 0 0;
+  color: var(--muted);
+  font-size: var(--step--1);
+}
+
+.progress-text span:empty {
+  display: none;
+}
+
+.cells-key {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1) var(--space-2);
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.cells-key .key {
+  display: inline-block;
+  width: 9px;
+  height: 12px;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 2px;
+}
+
+.cells-key .key:not(:first-child) {
+  margin-left: var(--space-2);
+}
+
+.cells-key .key.got {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.cells-key .key.again {
+  border-color: var(--again);
+  background: linear-gradient(var(--again), var(--again)) center / 100% 3px no-repeat;
+}
+
+/* Theme picker: a radio group styled as a segmented control. The selected
+   segment follows data-theme on <html>, so it is right before any JS runs. */
+.theme-picker {
+  display: flex;
+  gap: 2px;
+  margin: 0;
+  padding: 3px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+}
+
+.theme-picker label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.6rem;
+  min-height: 2rem;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: var(--step--1);
+  font-weight: 550;
+  cursor: pointer;
+}
+
+.theme-picker label:hover {
+  color: var(--text);
+}
+
+.theme-picker input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.theme-picker svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+}
+
+.theme-picker svg .solid {
+  fill: currentColor;
+}
+
+.theme-picker label:has(input:focus-visible) {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+}
+
+:root[data-theme="dark"] .theme-picker label:has([value="dark"]),
+:root[data-theme="oled"] .theme-picker label:has([value="oled"]),
+:root[data-theme="light"] .theme-picker label:has([value="light"]) {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+@media (max-width: 29.99rem) {
+  /* Icons only on narrow phones; the words stay for screen readers. */
+  .theme-picker label > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .theme-picker label {
+    padding-inline: 0.55rem;
+  }
+}
+
+/* Switch (used for Focus on the flashcards page). */
+.switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 2.5rem;
+  font-size: var(--step--1);
+  font-weight: 550;
+  cursor: pointer;
+}
+
+.switch input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.switch-track {
+  position: relative;
+  flex: none;
+  width: 2.4rem;
+  height: 1.4rem;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--surface);
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.switch-track::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc(1.4rem - 7px);
+  height: calc(1.4rem - 7px);
+  border-radius: 50%;
+  background: var(--muted);
+  transition: transform 0.15s;
+}
+
+.switch input:checked + .switch-track {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.switch input:checked + .switch-track::after {
+  background: var(--on-accent);
+  transform: translateX(1rem);
+}
+
+.switch input:focus-visible + .switch-track {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* 7. Pages ------------------------------------------------------------------ */
+
+/* Home */
+
+.intro {
+  max-width: 44rem;
+  margin-bottom: var(--space-7);
+}
+
+.intro p {
+  color: var(--muted);
+  font-size: var(--step-1);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.component {
+  margin-bottom: var(--space-7);
+}
+
+.component > h2 {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding-bottom: var(--space-3);
+  border-bottom: 2px solid var(--text);
+  margin-bottom: var(--space-5);
+}
+
+.component-code {
+  color: var(--accent-text);
+}
+
+.empty {
+  color: var(--muted);
+}
+
+.section-title {
+  font-size: var(--step-0);
+  font-weight: 600;
+  color: var(--muted);
+  margin: var(--space-5) 0 var(--space-2);
+}
+
+.section-title .num {
+  color: var(--text);
+  margin-right: var(--space-1);
+}
+
+.topic-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--border);
+}
+
+.topic-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3.75rem 1fr auto;
+  align-items: start;
+  gap: var(--space-2) var(--space-3);
+  padding: var(--space-4) var(--space-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.topic-row:hover {
+  background: var(--surface);
+}
+
+.topic-link {
+  display: contents;
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* The whole row is clickable, via the link's stretched pseudo-element. */
+.topic-link .topic-title::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.topic-link:focus-visible {
+  outline: none;
+}
+
+.topic-row:has(.topic-link:focus-visible) {
+  outline: 2px solid var(--focus);
+  outline-offset: -2px;
+}
+
+.topic-row .spec {
+  color: var(--accent-text);
+  font-weight: 650;
+}
+
+.topic-title {
+  font-weight: 600;
+}
+
+.topic-row:hover .topic-title {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.topic-row .badge {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.topic-progress {
+  grid-column: 2 / -1;
+}
+
+@media (min-width: 48rem) {
+  .topic-row {
+    grid-template-columns: 4.5rem minmax(0, 1fr) auto 17rem;
+    align-items: center;
+    padding-inline: var(--space-3);
+  }
+
+  .topic-progress {
+    grid-column: 4;
+    grid-row: 1;
+  }
+}
+
+/* Topic */
+
+.topic-head {
+  margin-bottom: var(--space-6);
+}
+
+.spec-display {
+  font-size: var(--step-4);
+  font-weight: 750;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  color: var(--accent-text);
+  margin: 0 0 var(--space-3);
+}
+
+.topic-head h1 {
+  max-width: 24ch;
+}
+
+.topic-layout {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.practice-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.practice .practice-actions .button {
+  flex: 1 1 10rem;
+  flex-direction: column;
+  gap: 0;
+  padding-block: var(--space-3);
+}
+
+.progress-panel {
+  margin-top: var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-l);
+  background: var(--surface);
+}
+
+.progress-panel h3 {
+  font-size: var(--step-0);
+  font-weight: 650;
+  margin-bottom: var(--space-3);
+}
+
+.progress-panel .cells-key {
+  margin: var(--space-3) 0 var(--space-4);
+}
+
+@media (min-width: 60rem) {
+  .topic-layout {
+    grid-template-columns: minmax(0, var(--measure)) minmax(16rem, 20rem);
+    justify-content: space-between;
+    gap: var(--space-7);
+  }
+
+  .practice {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+    position: sticky;
+    top: var(--space-5);
+  }
+
+  .notes {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .practice .practice-actions {
+    flex-direction: column;
+  }
+
+  .practice .practice-actions .button {
+    flex: none;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+}
+
+/* Notes (rendered Markdown) */
+
+.prose {
+  max-width: var(--measure);
+  min-width: 0;
+}
+
+.prose > :first-child {
+  margin-top: 0;
+}
+
+.prose h2 {
+  margin-top: var(--space-7);
+}
+
+.prose h3 {
+  margin-top: var(--space-6);
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.3rem;
+  margin: 0 0 var(--space-4);
+}
+
+.prose li {
+  margin-bottom: var(--space-2);
+}
+
+.prose li::marker {
+  color: var(--muted);
+}
+
+.prose strong {
+  font-weight: 650;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin: 0 0 var(--space-5);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+}
+
+.prose table {
+  border-collapse: collapse;
+  min-width: 100%;
+  font-size: 0.95em;
+  font-variant-numeric: tabular-nums;
+}
+
+.prose th,
+.prose td {
+  padding: 0.55rem 0.8rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+}
+
+.prose tr:last-child td {
+  border-bottom: 0;
+}
+
+.prose th {
+  background: var(--raised);
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.notes-end {
+  margin-top: var(--space-7);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--border);
+}
+
+.notes-end p {
+  font-weight: 600;
+  margin-bottom: var(--space-3);
+}
+
+/* Flashcards and quiz headers */
+
+.page-head {
+  margin-bottom: var(--space-5);
+}
+
+.page-head h1 {
+  margin-bottom: var(--space-1);
+}
+
+.page-sub {
+  color: var(--muted);
+  margin: 0;
+}
+
+.page-sub .num {
+  color: var(--accent-text);
+  font-weight: 650;
+  margin-right: var(--space-1);
+}
+
+/* Flashcards */
+
+.fc-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-4);
+  margin-bottom: var(--space-3);
+}
+
+.fc-position {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  font-weight: 600;
+}
+
+.fc-chip {
+  font-size: var(--step--1);
+  font-weight: 600;
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  border: 1.5px solid currentColor;
+}
+
+.fc-chip.got {
+  color: var(--accent-text);
+}
+
+.fc-chip.again {
+  color: var(--again);
+}
+
+.fc-tools {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.fc-cells {
+  margin-bottom: var(--space-4);
+}
+
+.fc-cells .cells i.current {
+  outline: 2px solid var(--text);
+  outline-offset: 1px;
+}
+
+.fc-deck {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fc-face {
+  padding: var(--space-5);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-l);
+  background: var(--raised);
+}
+
+.fc-label {
+  color: var(--muted);
+  font-size: var(--step--1);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.fc-text > :last-child {
+  margin-bottom: 0;
+}
+
+.fc-front .fc-text {
+  font-size: var(--step-1);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.fc-back .fc-text {
+  font-size: var(--step-0);
+}
+
+/* Without JavaScript every card is listed, question then answer. */
+html:not(.js) .fc-card {
+  display: grid;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+html:not(.js) .fc-inner {
+  display: grid;
+  gap: var(--space-2);
+}
+
+/* With JavaScript one card shows at a time and flips over. */
+.js .fc-card {
+  display: none;
+  perspective: 1400px;
+  cursor: pointer;
+}
+
+.js .fc-card.is-current {
+  display: block;
+}
+
+.js .fc-inner {
+  display: grid;
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.js .fc-face {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 15rem;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.js .fc-back {
+  transform: rotateY(180deg);
+  border-color: var(--accent);
+}
+
+.js .fc-card.is-flipped .fc-inner {
+  transform: rotateY(180deg);
+}
+
+.fc-done {
+  padding: var(--space-6) var(--space-5);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-l);
+  text-align: center;
+}
+
+.fc-done .practice-actions {
+  justify-content: center;
+}
+
+.fc-done:focus {
+  outline: none;
+}
+
+.fc-controls {
+  margin-top: var(--space-4);
+  display: grid;
+  gap: var(--space-3);
+}
+
+.fc-nav {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--space-3);
+}
+
+.fc-mark {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.fc-mark .button {
+  min-height: 3.25rem;
+}
+
+.button.mark-again {
+  border-color: var(--again);
+  color: var(--again);
+  border-width: 1.5px;
+}
+
+.button.mark-got {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+
+.button.mark-got:hover {
+  background: color-mix(in srgb, var(--accent) 85%, var(--text));
+}
+
+.fc-hint {
+  color: var(--muted);
+  font-size: var(--step--1);
+  text-align: center;
+  margin: var(--space-2) 0 0;
+}
+
+@media (max-width: 29.99rem) {
+  .fc-nav .nav-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .switch-note {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+@media (hover: none) {
+  .fc-hint {
+    display: none;
+  }
+}
+
+@media (min-width: 48rem) {
+  .js .fc-face {
+    min-height: 19rem;
+    padding: var(--space-6);
+  }
+
+  .fc-front .fc-text {
+    font-size: var(--step-2);
+  }
+
+  .fc-back .fc-text {
+    font-size: var(--step-1);
+    line-height: 1.5;
+  }
+}
+
+/* Quiz */
+
+.quiz-status {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: var(--step--1);
+  font-weight: 600;
+}
+
+.quiz-status p {
+  margin: 0 0 var(--space-2);
+}
+
+.meter {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border);
+  margin-bottom: var(--space-5);
+  overflow: hidden;
+}
+
+.meter span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+
+.quiz fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.difficulty {
+  margin: 0 0 var(--space-2);
+  line-height: 1;
+}
+
+.pips {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.pips i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1.5px solid var(--muted);
+}
+
+.pips i.on {
+  background: var(--muted);
+}
+
+.prompt {
+  font-size: var(--step-1);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+.prompt:focus {
+  outline: none;
+}
+
+.prompt > :last-child {
+  margin-bottom: 0;
+}
+
+.options {
+  display: grid;
+  gap: var(--space-3);
+  margin: var(--space-5) 0;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: 0.85rem var(--space-4);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-m);
+  background: var(--surface);
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.option:hover {
+  background: var(--raised);
+}
+
+.option:has(input:checked) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.option:has(input:focus-visible) {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.option input {
+  appearance: none;
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0.15rem 0 0;
+  border: 2px solid var(--border-strong);
+  border-radius: 50%;
+  background: var(--surface);
+}
+
+.option input:checked {
+  border-color: var(--accent);
+  background: radial-gradient(var(--accent) 0 40%, transparent 45%);
+}
+
+.option input:focus-visible {
+  outline: none;
+}
+
+.option-text {
+  min-width: 0;
+}
+
+.verdict {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-5);
+  border: 1.5px solid;
+  border-radius: var(--radius-m);
+  font-size: var(--step-1);
+  font-weight: 700;
+}
+
+.verdict:focus {
+  outline: none;
+}
+
+.verdict p {
+  margin: 0;
+}
+
+.verdict svg {
+  width: 1.9rem;
+  height: 1.9rem;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.verdict.is-right {
+  color: var(--accent-text);
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.verdict.is-wrong {
+  color: var(--danger);
+  background: var(--danger-soft);
+  border-color: var(--danger);
+}
+
+.results {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-4) 0 var(--space-5);
+  display: grid;
+  gap: var(--space-2);
+}
+
+.result {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-1) var(--space-3);
+  padding: 0.75rem var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  color: var(--muted);
+}
+
+.result-icon {
+  flex: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.15rem;
+}
+
+.result-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.result .option-text {
+  flex: 1 1 12rem;
+}
+
+.result-note {
+  margin-left: auto;
+  font-size: var(--step--1);
+  font-weight: 650;
+}
+
+.result.is-answer {
+  color: var(--text);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.result.is-answer .result-icon,
+.result.is-answer .result-note {
+  color: var(--accent-text);
+}
+
+.result.is-chosen:not(.is-answer) {
+  color: var(--text);
+  border-color: var(--danger);
+  background: var(--danger-soft);
+}
+
+.result.is-chosen:not(.is-answer) .result-icon,
+.result.is-chosen:not(.is-answer) .result-note {
+  color: var(--danger);
+}
+
+.explanation {
+  margin: 0 0 var(--space-5);
+  padding: var(--space-4) var(--space-5);
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
+}
+
+.explanation h2 {
+  font-size: var(--step-0);
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+}
+
+.explanation > :last-child {
+  margin-bottom: 0;
+}
+
+.summary h2 {
+  font-size: var(--step-1);
+  color: var(--muted);
+}
+
+.summary h2:focus {
+  outline: none;
+}
+
+.big-score {
+  font-size: var(--step-4);
+  font-weight: 750;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--accent-text);
+  margin-bottom: var(--space-4);
+}
+
+.big-score span {
+  color: var(--muted);
+  font-size: 0.5em;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.best {
+  font-weight: 650;
+}
+
+.summary .practice-actions {
+  margin-top: var(--space-5);
+}
+
+/* 404 */
+
+.not-found {
+  max-width: 36rem;
+  padding-top: var(--space-6);
+}
+
+.not-found-code {
+  margin: 0 0 var(--space-3);
+  line-height: 1;
+}
+
+.not-found-code code {
+  font-size: clamp(3.5rem, 2.5rem + 6vw, 6.5rem);
+  font-weight: 700;
+  color: var(--accent-text);
+  background: none;
+  padding: 0;
+  letter-spacing: -0.04em;
+}
+
+.not-found .aside {
+  color: var(--muted);
+  font-size: var(--step--1);
+}
+
+/* 8. Reduced motion -------------------------------------------------------
+   The flashcard swaps sides instantly and nothing else moves. */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0s !important;
+    animation-duration: 0s !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}All topics{% endblock %}
+{% block main %}
+<section class="intro">
+  <h1>Revise OCR A Level Computer Science</h1>
+  <p>Notes, flashcards and a quiz for each point in the H446 specification. Pick a topic to start.</p>
+</section>
+
+{% for component in components %}
+<section class="component" aria-labelledby="component-{{ component.code }}">
+  <h2 id="component-{{ component.code }}">
+    <span class="component-code num">{{ component.code }}</span>
+    <span>{{ component.title }}</span>
+  </h2>
+  {% if component.sections.is_empty() %}
+  <p class="empty">No topics here yet.</p>
+  {% endif %}
+  {% for section in component.sections %}
+  <h3 class="section-title"><span class="num">{{ section.spec }}</span> {{ section.title }}</h3>
+  <ul class="topic-list">
+    {% for topic in section.topics %}
+    <li class="topic-row" data-topic-progress="{{ topic.slug }}">
+      <a class="topic-link" href="/topics/{{ topic.slug }}">
+        <span class="spec num">{{ topic.spec }}</span>
+        <span class="topic-title">{{ topic.title }}</span>
+      </a>
+      {% if topic.sample %}<span class="badge">Sample</span>{% endif %}
+      <div class="topic-progress js-only">
+        {% include "progress_cells.html" %}
+        <p class="progress-text num"><span data-cards-text>Not started</span><span data-quiz-text></span></p>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
+</section>
+{% endfor %}
+{% endblock %}

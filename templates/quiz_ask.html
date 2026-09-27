@@ -1,0 +1,28 @@
+<section class="quiz-step" aria-label="Question {{ number }} of {{ total }}">
+  {% include "quiz_status.html" %}
+  <form class="quiz-form" method="post" action="/topics/{{ topic.slug }}/quiz/answer"
+        hx-post="/topics/{{ topic.slug }}/quiz/answer" hx-target="#quiz" hx-swap="innerHTML">
+    <input type="hidden" name="order" value="{{ order }}">
+    <input type="hidden" name="opts" value="{{ option_order }}">
+    <input type="hidden" name="pos" value="{{ number - 1 }}">
+    <input type="hidden" name="score" value="{{ score }}">
+    <fieldset aria-labelledby="question-prompt">
+      <div class="question-head">
+        <p class="difficulty" title="Difficulty {{ question.difficulty }} of 3">
+          <span class="pips" aria-hidden="true">{% for level in 1..=3 %}<i{% if level <= question.difficulty %} class="on"{% endif %}></i>{% endfor %}</span>
+          <span class="visually-hidden">Difficulty {{ question.difficulty }} of 3</span>
+        </p>
+        <div id="question-prompt" class="prompt" tabindex="-1" data-focus>{{ question.prompt_html|safe }}</div>
+      </div>
+      <div class="options">
+        {% for (index, html) in options %}
+        <label class="option">
+          <input type="radio" name="choice" value="{{ index }}" required>
+          <span class="option-text">{{ html|safe }}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </fieldset>
+    <button type="submit" class="button primary">Check answer</button>
+  </form>
+</section>

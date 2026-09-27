@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}{{ topic.title }}{% endblock %}
+{% block main %}
+<nav class="crumbs" aria-label="Breadcrumb">
+  <ol><li><a href="/">All topics</a></li></ol>
+</nav>
+<header class="topic-head">
+  <p class="spec-display num"><span class="visually-hidden">Specification point </span>{{ topic.spec }}</p>
+  <h1>{{ topic.title }}</h1>
+  {% if topic.sample %}<p class="badge">Sample topic</p>{% endif %}
+</header>
+
+<div class="topic-layout">
+  <aside class="practice" aria-labelledby="practice-heading">
+    <h2 id="practice-heading" class="visually-hidden">Practise this topic</h2>
+    <div class="practice-actions">
+      <a class="button primary" href="/topics/{{ topic.slug }}/flashcards">
+        Flashcards <span class="button-note num">{{ topic.flashcards.len() }} cards</span>
+      </a>
+      <a class="button" href="/topics/{{ topic.slug }}/quiz">
+        Quiz <span class="button-note num">{{ topic.quiz.len() }} questions</span>
+      </a>
+    </div>
+    <section class="progress-panel js-only" data-topic-progress="{{ topic.slug }}" aria-labelledby="progress-heading">
+      <h3 id="progress-heading">Your progress</h3>
+      {% include "progress_cells.html" %}
+      <p class="progress-text num"><span data-cards-text>Not started</span><span data-quiz-text></span></p>
+      <p class="cells-key"><span class="key got"></span>Got it <span class="key again"></span>Again <span class="key"></span>Not seen</p>
+      <button type="button" class="button quiet small" data-reset="{{ topic.slug }}">Reset progress</button>
+    </section>
+  </aside>
+
+  <article class="notes prose" aria-label="Notes">
+    {{ topic.notes_html|safe }}
+    <div class="notes-end">
+      <p>Ready to test yourself?</p>
+      <div class="practice-actions">
+        <a class="button primary" href="/topics/{{ topic.slug }}/flashcards">Flashcards</a>
+        <a class="button" href="/topics/{{ topic.slug }}/quiz">Quiz</a>
+      </div>
+    </div>
+  </article>
+</div>
+{% endblock %}

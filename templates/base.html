@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en-GB" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{% endblock %} | H446 Revision</title>
+  <meta name="description" content="Revision notes, flashcards and quizzes for OCR A Level Computer Science (H446).">
+  {# Runs before the page is drawn, so the saved theme shows with no flash of the default one. #}
+  <script>
+    document.documentElement.classList.add("js");
+    try {
+      var theme = localStorage.getItem("h446:theme");
+      if (theme === "oled" || theme === "light") document.documentElement.dataset.theme = theme;
+    } catch (e) {}
+  </script>
+  <link rel="preload" href="/static/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/static/css/site.css">
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <script src="/static/vendor/htmx-2.0.11.min.js" defer></script>
+  <script src="/static/js/site.js" defer></script>
+  {% block scripts %}{% endblock %}
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/">
+        <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5" class="hollow"/><rect x="3" y="13" width="8" height="8" rx="1.5" class="hollow"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>
+        <span>H446 Revision</span>
+      </a>
+      <fieldset class="theme-picker js-only">
+        <legend class="visually-hidden">Theme</legend>
+        <label title="Dark">
+          <input type="radio" name="theme" value="dark">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M15.5 12.2A6.5 6.5 0 0 1 7.8 4.5a6.5 6.5 0 1 0 7.7 7.7Z"/></svg>
+          <span>Dark</span>
+        </label>
+        <label title="OLED black">
+          <input type="radio" name="theme" value="oled">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="6.5" class="solid"/></svg>
+          <span>OLED<span class="visually-hidden"> black</span></span>
+        </label>
+        <label title="Light">
+          <input type="radio" name="theme" value="light">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.5"/><path d="M10 2v2.5M10 15.5V18M2 10h2.5M15.5 10H18M4.3 4.3l1.8 1.8M13.9 13.9l1.8 1.8M4.3 15.7l1.8-1.8M13.9 6.1l1.8-1.8"/></svg>
+          <span>Light</span>
+        </label>
+      </fieldset>
+    </div>
+  </header>
+  <main id="main" class="wrap {% block main_class %}{% endblock %}">
+    {% block main %}{% endblock %}
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>OCR A Level Computer Science (H446). Your progress is saved in this browser only.</p>
+    </div>
+  </footer>
+</body>
+</html>

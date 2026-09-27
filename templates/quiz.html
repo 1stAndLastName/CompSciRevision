@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Quiz: {{ topic.title }}{% endblock %}
+{% block main_class %}narrow{% endblock %}
+{% block main %}
+<nav class="crumbs" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="/">All topics</a></li>
+    <li><a href="/topics/{{ topic.slug }}">{{ topic.title }}</a></li>
+  </ol>
+</nav>
+<header class="page-head">
+  <h1>Quiz</h1>
+  <p class="page-sub"><span class="num">{{ topic.spec }}</span> {{ topic.title }}</p>
+</header>
+<div id="quiz" class="quiz">
+  {{ step_html|safe }}
+</div>
+{% endblock %}

@@ -1,43 +1,697 @@
-# The OCR A Level Computer Science (H446) outline used to group topics on the
-# home page. A topic's spec point (e.g. "1.4.3") puts it in section "1.4".
-# Add a section here before adding a topic in it.
+# OCR A Level Computer Science (H446): the detailed content from section 2c
+# of the specification (version 3.0), components 01 and 02.
+#
+# Every `spec` value in content/ must be a point listed here ("1.4.3") or one
+# of its lettered sub-points ("1.4.3(b)"). The home page lists every point and
+# shows which ones have a topic yet.
+#
+# Layout:
+#   [[component]]  code and title
+#   [[section]]    component, number ("1.4") and title
+#   [[point]]      component, section, number ("1.4.3") and title
+#   [[point.sub]]  one lettered sub-point: letter and text, plus `items` if the
+#                  spec lists bullets under it
+# 1.5.2 has no lettered sub-points, so its text and bullets sit on the point.
+
+# ===========================================================================
+# Component 01: Computer systems
+# ===========================================================================
 
 [[component]]
 code = "01"
 title = "Computer systems"
 
-[[component.section]]
-spec = "1.1"
+[[section]]
+component = "01"
+number = "1.1"
 title = "The characteristics of contemporary processors, input, output and storage devices"
 
-[[component.section]]
-spec = "1.2"
+[[section]]
+component = "01"
+number = "1.2"
 title = "Software and software development"
 
-[[component.section]]
-spec = "1.3"
+[[section]]
+component = "01"
+number = "1.3"
 title = "Exchanging data"
 
-[[component.section]]
-spec = "1.4"
+[[section]]
+component = "01"
+number = "1.4"
 title = "Data types, data structures and algorithms"
 
-[[component.section]]
-spec = "1.5"
+[[section]]
+component = "01"
+number = "1.5"
 title = "Legal, moral, cultural and ethical issues"
+
+# --- 1.1 -------------------------------------------------------------------
+
+[[point]]
+component = "01"
+section = "1.1"
+number = "1.1.1"
+title = "Structure and function of the processor"
+
+[[point.sub]]
+letter = "a"
+text = "The Arithmetic and Logic Unit; ALU, Control Unit and Registers (Program Counter; PC, Accumulator; ACC, Memory Address Register; MAR, Memory Data Register; MDR, Current Instruction Register; CIR). Buses: data, address and control: how this relates to assembly language programs."
+
+[[point.sub]]
+letter = "b"
+text = "The Fetch-Decode-Execute Cycle; including its effects on registers."
+
+[[point.sub]]
+letter = "c"
+text = "The factors affecting the performance of the CPU: clock speed, number of cores, cache."
+
+[[point.sub]]
+letter = "d"
+text = "The use of pipelining in a processor to improve efficiency."
+
+[[point.sub]]
+letter = "e"
+text = "Von Neumann, Harvard and contemporary processor architecture."
+
+[[point]]
+component = "01"
+section = "1.1"
+number = "1.1.2"
+title = "Types of processor"
+
+[[point.sub]]
+letter = "a"
+text = "The differences between and uses of CISC and RISC processors."
+
+[[point.sub]]
+letter = "b"
+text = "GPUs and their uses (including those not related to graphics)."
+
+[[point.sub]]
+letter = "c"
+text = "Multicore and Parallel systems."
+
+[[point]]
+component = "01"
+section = "1.1"
+number = "1.1.3"
+title = "Input, output and storage"
+
+[[point.sub]]
+letter = "a"
+text = "How different input, output and storage devices can be applied to the solution of different problems."
+
+[[point.sub]]
+letter = "b"
+text = "The uses of magnetic, flash and optical storage devices."
+
+[[point.sub]]
+letter = "c"
+text = "RAM and ROM."
+
+[[point.sub]]
+letter = "d"
+text = "Virtual storage."
+
+# --- 1.2 -------------------------------------------------------------------
+
+[[point]]
+component = "01"
+section = "1.2"
+number = "1.2.1"
+title = "Systems Software"
+
+[[point.sub]]
+letter = "a"
+text = "The need for, function and purpose of operating systems."
+
+[[point.sub]]
+letter = "b"
+text = "Memory Management (paging, segmentation and virtual memory)."
+
+[[point.sub]]
+letter = "c"
+text = "Interrupts, the role of interrupts and Interrupt Service Routines (ISR), role within the Fetch-Decode-Execute Cycle."
+
+[[point.sub]]
+letter = "d"
+text = "Scheduling: round robin, first come first served, multi-level feedback queues, shortest job first and shortest remaining time."
+
+[[point.sub]]
+letter = "e"
+text = "Distributed, embedded, multi-tasking, multi-user and Real Time operating systems."
+
+[[point.sub]]
+letter = "f"
+text = "BIOS."
+
+[[point.sub]]
+letter = "g"
+text = "Device drivers."
+
+[[point.sub]]
+letter = "h"
+text = "Virtual machines, any instance where software is used to take on the function of a machine, including executing intermediate code or running an operating system within another."
+
+[[point]]
+component = "01"
+section = "1.2"
+number = "1.2.2"
+title = "Applications Generation"
+
+[[point.sub]]
+letter = "a"
+text = "The nature of applications, justifying suitable applications for a specific purpose."
+
+[[point.sub]]
+letter = "b"
+text = "Utilities."
+
+[[point.sub]]
+letter = "c"
+text = "Open source vs closed source."
+
+[[point.sub]]
+letter = "d"
+text = "Translators: Interpreters, compilers and assemblers."
+
+[[point.sub]]
+letter = "e"
+text = "Stages of compilation (lexical analysis, syntax analysis, code generation and optimisation)."
+
+[[point.sub]]
+letter = "f"
+text = "Linkers and loaders and use of libraries."
+
+[[point]]
+component = "01"
+section = "1.2"
+number = "1.2.3"
+title = "Software Development"
+
+[[point.sub]]
+letter = "a"
+text = "Understand the waterfall lifecycle, agile methodologies, extreme programming, the spiral model and rapid application development."
+
+[[point.sub]]
+letter = "b"
+text = "The relative merits and drawbacks of different methodologies and when they might be used."
+
+[[point.sub]]
+letter = "c"
+text = "Writing and following algorithms."
+
+[[point]]
+component = "01"
+section = "1.2"
+number = "1.2.4"
+title = "Types of Programming Language"
+
+[[point.sub]]
+letter = "a"
+text = "Need for and characteristics of a variety of programming paradigms."
+
+[[point.sub]]
+letter = "b"
+text = "Procedural languages."
+
+[[point.sub]]
+letter = "c"
+text = "Assembly language (including following and writing simple programs with the Little Man Computer instruction set). See appendix 5d."
+
+[[point.sub]]
+letter = "d"
+text = "Modes of addressing memory (immediate, direct, indirect and indexed)."
+
+[[point.sub]]
+letter = "e"
+text = "Object-oriented languages (see appendix 5d for pseudocode style) with an understanding of classes, objects, methods, attributes, inheritance, encapsulation and polymorphism."
+
+# --- 1.3 -------------------------------------------------------------------
+
+[[point]]
+component = "01"
+section = "1.3"
+number = "1.3.1"
+title = "Compression, Encryption and Hashing"
+
+[[point.sub]]
+letter = "a"
+text = "Lossy vs Lossless compression."
+
+[[point.sub]]
+letter = "b"
+text = "Run length encoding and dictionary coding for lossless compression."
+
+[[point.sub]]
+letter = "c"
+text = "Symmetric and asymmetric encryption."
+
+[[point.sub]]
+letter = "d"
+text = "Different uses of hashing."
+
+[[point]]
+component = "01"
+section = "1.3"
+number = "1.3.2"
+title = "Databases"
+
+[[point.sub]]
+letter = "a"
+text = "Relational database, flat file, primary key, foreign key, secondary key, entity relationship modelling, normalisation and indexing. See appendix 5f."
+
+[[point.sub]]
+letter = "b"
+text = "Methods of capturing, selecting, managing and exchanging data."
+
+[[point.sub]]
+letter = "c"
+text = "Normalisation to 3NF."
+
+[[point.sub]]
+letter = "d"
+text = "SQL - Interpret and modify. See appendix 5d."
+
+[[point.sub]]
+letter = "e"
+text = "Referential integrity."
+
+[[point.sub]]
+letter = "f"
+text = "Transaction processing, ACID (Atomicity, Consistency, Isolation, Durability), record locking and redundancy."
+
+[[point]]
+component = "01"
+section = "1.3"
+number = "1.3.3"
+title = "Networks"
+
+[[point.sub]]
+letter = "a"
+text = "Characteristics of networks and the importance of protocols and standards."
+
+[[point.sub]]
+letter = "b"
+text = "The internet structure:"
+items = [
+  "The TCP/IP Stack.",
+  "DNS",
+  "Protocol layering.",
+  "LANs and WANs.",
+  "Packet and circuit switching.",
+]
+
+[[point.sub]]
+letter = "c"
+text = "Network security and threats, use of firewalls, proxies and encryption."
+
+[[point.sub]]
+letter = "d"
+text = "Network hardware."
+
+[[point.sub]]
+letter = "e"
+text = "Client-server and peer to peer."
+
+[[point]]
+component = "01"
+section = "1.3"
+number = "1.3.4"
+title = "Web Technologies"
+
+[[point.sub]]
+letter = "a"
+text = "HTML, CSS and JavaScript. See appendix 5d."
+
+[[point.sub]]
+letter = "b"
+text = "Search engine indexing."
+
+[[point.sub]]
+letter = "c"
+text = "PageRank algorithm."
+
+[[point.sub]]
+letter = "d"
+text = "Server and client side processing."
+
+# --- 1.4 -------------------------------------------------------------------
+
+[[point]]
+component = "01"
+section = "1.4"
+number = "1.4.1"
+title = "Data Types"
+
+[[point.sub]]
+letter = "a"
+text = "Primitive data types, integer, real/floating point, character, string and Boolean."
+
+[[point.sub]]
+letter = "b"
+text = "Represent positive integers in binary."
+
+[[point.sub]]
+letter = "c"
+text = "Use of sign and magnitude and two's complement to represent negative numbers in binary."
+
+[[point.sub]]
+letter = "d"
+text = "Addition and subtraction of binary integers."
+
+[[point.sub]]
+letter = "e"
+text = "Represent positive integers in hexadecimal."
+
+[[point.sub]]
+letter = "f"
+text = "Convert positive integers between binary hexadecimal and denary."
+
+[[point.sub]]
+letter = "g"
+text = "Representation and normalisation of floating point numbers in binary."
+
+[[point.sub]]
+letter = "h"
+text = "Floating point arithmetic, positive and negative numbers, addition and subtraction."
+
+[[point.sub]]
+letter = "i"
+text = "Bitwise manipulation and masks: shifts, combining with AND, OR, and XOR."
+
+[[point.sub]]
+letter = "j"
+text = "How character sets (ASCII and UNICODE) are used to represent text."
+
+[[point]]
+component = "01"
+section = "1.4"
+number = "1.4.2"
+title = "Data Structures"
+
+[[point.sub]]
+letter = "a"
+text = "Arrays (of up to 3 dimensions), records, lists, tuples."
+
+[[point.sub]]
+letter = "b"
+text = "The following structures to store data: linked-list, graph (directed and undirected), stack, queue, tree, binary search tree, hash table."
+
+[[point.sub]]
+letter = "c"
+text = "How to create, traverse, add data to and remove data from the data structures mentioned above. (NB this can be either using arrays and procedural programming or an object-oriented approach)."
+
+[[point]]
+component = "01"
+section = "1.4"
+number = "1.4.3"
+title = "Boolean Algebra"
+
+[[point.sub]]
+letter = "a"
+text = "Define problems using Boolean logic. See appendix 5d."
+
+[[point.sub]]
+letter = "b"
+text = "Manipulate Boolean expressions, including the use of Karnaugh maps to simplify Boolean expressions."
+
+[[point.sub]]
+letter = "c"
+text = "Use the following rules to derive or simplify statements in Boolean algebra: De Morgan's Laws, distribution, association, commutation, double negation."
+
+[[point.sub]]
+letter = "d"
+text = "Using logic gate diagrams and truth tables. See appendix 5d."
+
+[[point.sub]]
+letter = "e"
+text = "The logic associated with D type flip flops, half and full adders."
+
+# --- 1.5 -------------------------------------------------------------------
+
+[[point]]
+component = "01"
+section = "1.5"
+number = "1.5.1"
+title = "Computing related legislation"
+
+[[point.sub]]
+letter = "a"
+text = "The Data Protection Act 1998."
+
+[[point.sub]]
+letter = "b"
+text = "The Computer Misuse Act 1990."
+
+[[point.sub]]
+letter = "c"
+text = "The Copyright Design and Patents Act 1988."
+
+[[point.sub]]
+letter = "d"
+text = "The Regulation of Investigatory Powers Act 2000."
+
+[[point]]
+component = "01"
+section = "1.5"
+number = "1.5.2"
+title = "Moral and ethical Issues"
+text = "The individual moral, social, ethical and cultural opportunities and risks of digital technology:"
+items = [
+  "Computers in the workforce.",
+  "Automated decision making.",
+  "Artificial intelligence.",
+  "Environmental effects.",
+  "Censorship and the Internet.",
+  "Monitor behaviour.",
+  "Analyse personal information.",
+  "Piracy and offensive communications.",
+  "Layout, colour paradigms and character sets.",
+]
+
+# ===========================================================================
+# Component 02: Algorithms and programming
+# ===========================================================================
 
 [[component]]
 code = "02"
 title = "Algorithms and programming"
 
-[[component.section]]
-spec = "2.1"
+[[section]]
+component = "02"
+number = "2.1"
 title = "Elements of computational thinking"
 
-[[component.section]]
-spec = "2.2"
+[[section]]
+component = "02"
+number = "2.2"
 title = "Problem solving and programming"
 
-[[component.section]]
-spec = "2.3"
+[[section]]
+component = "02"
+number = "2.3"
 title = "Algorithms"
+
+# --- 2.1 -------------------------------------------------------------------
+
+[[point]]
+component = "02"
+section = "2.1"
+number = "2.1.1"
+title = "Thinking abstractly"
+
+[[point.sub]]
+letter = "a"
+text = "The nature of abstraction."
+
+[[point.sub]]
+letter = "b"
+text = "The need for abstraction."
+
+[[point.sub]]
+letter = "c"
+text = "The differences between an abstraction and reality."
+
+[[point.sub]]
+letter = "d"
+text = "Devise an abstract model for a variety of situations."
+
+[[point]]
+component = "02"
+section = "2.1"
+number = "2.1.2"
+title = "Thinking ahead"
+
+[[point.sub]]
+letter = "a"
+text = "Identify the inputs and outputs for a given situation."
+
+[[point.sub]]
+letter = "b"
+text = "Determine the preconditions for devising a solution to a problem."
+
+[[point.sub]]
+letter = "c"
+text = "The nature, benefits and drawbacks of caching."
+
+[[point.sub]]
+letter = "d"
+text = "The need for reusable program components."
+
+[[point]]
+component = "02"
+section = "2.1"
+number = "2.1.3"
+title = "Thinking procedurally"
+
+[[point.sub]]
+letter = "a"
+text = "Identify the components of a problem."
+
+[[point.sub]]
+letter = "b"
+text = "Identify the components of a solution to a problem."
+
+[[point.sub]]
+letter = "c"
+text = "Determine the order of the steps needed to solve a problem."
+
+[[point.sub]]
+letter = "d"
+text = "Identify sub-procedures necessary to solve a problem."
+
+[[point]]
+component = "02"
+section = "2.1"
+number = "2.1.4"
+title = "Thinking logically"
+
+[[point.sub]]
+letter = "a"
+text = "Identify the points in a solution where a decision has to be taken."
+
+[[point.sub]]
+letter = "b"
+text = "Determine the logical conditions that affect the outcome of a decision."
+
+[[point.sub]]
+letter = "c"
+text = "Determine how decisions affect flow through a program."
+
+[[point]]
+component = "02"
+section = "2.1"
+number = "2.1.5"
+title = "Thinking concurrently"
+
+[[point.sub]]
+letter = "a"
+text = "Determine the parts of a problem that can be tackled at the same time."
+
+[[point.sub]]
+letter = "b"
+text = "Outline the benefits and trade offs that might result from concurrent processing in a particular situation."
+
+# --- 2.2 -------------------------------------------------------------------
+
+[[point]]
+component = "02"
+section = "2.2"
+number = "2.2.1"
+title = "Programming techniques"
+
+[[point.sub]]
+letter = "a"
+text = "Programming constructs: sequence, iteration, branching."
+
+[[point.sub]]
+letter = "b"
+text = "Recursion, how it can be used and compares to an iterative approach."
+
+[[point.sub]]
+letter = "c"
+text = "Global and local variables."
+
+[[point.sub]]
+letter = "d"
+text = "Modularity, functions and procedures, parameter passing by value and by reference."
+
+[[point.sub]]
+letter = "e"
+text = "Use of an IDE to develop/debug a program."
+
+[[point.sub]]
+letter = "f"
+text = "Use of object oriented techniques."
+
+[[point]]
+component = "02"
+section = "2.2"
+number = "2.2.2"
+title = "Computational methods"
+
+[[point.sub]]
+letter = "a"
+text = "Features that make a problem solvable by computational methods."
+
+[[point.sub]]
+letter = "b"
+text = "Problem recognition."
+
+[[point.sub]]
+letter = "c"
+text = "Problem decomposition."
+
+[[point.sub]]
+letter = "d"
+text = "Use of divide and conquer."
+
+[[point.sub]]
+letter = "e"
+text = "Use of abstraction."
+
+[[point.sub]]
+letter = "f"
+text = "Learners should apply their knowledge of:"
+items = [
+  "backtracking",
+  "data mining",
+  "heuristics",
+  "performance modelling",
+  "pipelining",
+  "visualisation to solve problems.",
+]
+
+# --- 2.3 -------------------------------------------------------------------
+
+[[point]]
+component = "02"
+section = "2.3"
+number = "2.3.1"
+title = "Algorithms"
+
+[[point.sub]]
+letter = "a"
+text = "Analysis and design of algorithms for a given situation."
+
+[[point.sub]]
+letter = "b"
+text = "The suitability of different algorithms for a given task and data set, in terms of execution time and space."
+
+[[point.sub]]
+letter = "c"
+text = "Measures and methods to determine the efficiency of different algorithms, Big O notation (constant, linear, polynomial, exponential and logarithmic complexity)."
+
+[[point.sub]]
+letter = "d"
+text = "Comparison of the complexity of algorithms."
+
+[[point.sub]]
+letter = "e"
+text = "Algorithms for the main data structures, (stacks, queues, trees, linked lists, depth-first (post-order) and breadth-first traversal of trees)."
+
+[[point.sub]]
+letter = "f"
+text = "Standard algorithms (bubble sort, insertion sort, merge sort, quick sort, Dijkstra's shortest path algorithm, A* algorithm, binary search and linear search)."

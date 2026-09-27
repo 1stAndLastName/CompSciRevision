@@ -59,6 +59,22 @@ async fn pages_return_200() {
 }
 
 #[actix_web::test]
+async fn home_lists_every_spec_point() {
+    let (status, body) = get("/").await;
+    assert_eq!(status, StatusCode::OK);
+    let library = content::load(Path::new("content")).unwrap();
+    for point in library.spec.points() {
+        assert!(
+            body.contains(&point.number),
+            "home should list {}",
+            point.number
+        );
+    }
+    // 2.3.1 has no topic yet, so it is listed without a link.
+    assert!(body.contains("Not written yet"));
+}
+
+#[actix_web::test]
 async fn unknown_pages_return_404() {
     for uri in [
         "/no-such-page",

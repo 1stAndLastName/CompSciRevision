@@ -706,8 +706,10 @@ main.narrow {
   color: var(--accent-text);
 }
 
-.empty {
+.component-count {
   color: var(--muted);
+  font-size: var(--step--1);
+  margin: calc(-1 * var(--space-3)) 0 var(--space-4);
 }
 
 .section-title {
@@ -777,6 +779,38 @@ main.narrow {
 .topic-row:hover .topic-title {
   text-decoration: underline;
   text-underline-offset: 0.2em;
+}
+
+/* Spec points with no topic yet: quieter, not clickable, and labelled in
+   words so the difference does not depend on colour. */
+.topic-row.is-missing {
+  padding-block: var(--space-3);
+  color: var(--muted);
+}
+
+.topic-row.is-missing:hover {
+  background: none;
+}
+
+.topic-row.is-missing .spec,
+.topic-row.is-missing .topic-title {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.missing-note {
+  margin: 0;
+  font-size: var(--step--1);
+}
+
+@media (max-width: 47.99rem) {
+  /* On phones the note sits beside the title, keeping each row to one line. */
+  .topic-row.is-missing .missing-note {
+    grid-column: 3;
+    grid-row: 1;
+    white-space: nowrap;
+    padding-top: 0.15em;
+  }
 }
 
 .topic-row .badge {

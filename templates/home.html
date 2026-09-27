@@ -3,7 +3,7 @@
 {% block main %}
 <section class="intro">
   <h1>Revise OCR A Level Computer Science</h1>
-  <p>Notes, flashcards and a quiz for each point in the H446 specification. Pick a topic to start.</p>
+  <p>Notes, flashcards and quizzes, organised by the points in the H446 specification. Pick a topic to start.</p>
 </section>
 
 {% for component in components %}
@@ -12,16 +12,22 @@
     <span class="component-code num">{{ component.code }}</span>
     <span>{{ component.title }}</span>
   </h2>
-  {% if component.sections.is_empty() %}
-  <p class="empty">No topics here yet.</p>
-  {% endif %}
+  <p class="component-count num">{{ component.written }} of {{ component.total }} spec points have revision material so far.</p>
   {% for section in component.sections %}
-  <h3 class="section-title"><span class="num">{{ section.spec }}</span> {{ section.title }}</h3>
+  <h3 class="section-title"><span class="num">{{ section.number }}</span> {{ section.title }}</h3>
   <ul class="topic-list">
-    {% for topic in section.topics %}
+    {% for point in section.points %}
+    {% if point.topics.is_empty() %}
+    <li class="topic-row is-missing">
+      <span class="spec num">{{ point.number }}</span>
+      <span class="topic-title">{{ point.title }}</span>
+      <p class="topic-progress missing-note">Not written yet</p>
+    </li>
+    {% else %}
+    {% for topic in point.topics %}
     <li class="topic-row" data-topic-progress="{{ topic.slug }}">
       <a class="topic-link" href="/topics/{{ topic.slug }}">
-        <span class="spec num">{{ topic.spec }}</span>
+        <span class="spec num">{{ point.number }}</span>
         <span class="topic-title">{{ topic.title }}</span>
       </a>
       {% if topic.sample %}<span class="badge">Sample</span>{% endif %}
@@ -30,6 +36,8 @@
         <p class="progress-text num"><span data-cards-text>Not started</span><span data-quiz-text></span></p>
       </div>
     </li>
+    {% endfor %}
+    {% endif %}
     {% endfor %}
   </ul>
   {% endfor %}

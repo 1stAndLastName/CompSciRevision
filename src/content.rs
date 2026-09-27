@@ -5,6 +5,7 @@
 //! structs the rest of the site uses, with Markdown already rendered to HTML.
 //! Any problem becomes a `ContentError` that names the file and the problem.
 
+use crate::spec::{self, Spec};
 use pulldown_cmark::{Event, Options, Parser, Tag, TagEnd, html};
 use serde::Deserialize;
 use std::fmt;
@@ -17,7 +18,7 @@ use std::path::{Path, PathBuf};
 
 /// All loaded content: the spec outline plus every topic, sorted by spec point.
 pub struct Library {
-    pub components: Vec<Component>,
+    pub spec: Spec,
     pub topics: Vec<Topic>,
 }
 
@@ -52,24 +53,6 @@ pub struct Question {
     pub shuffle: bool,
 }
 
-/// One OCR component (01 or 02), read from `content/spec.toml`.
-#[derive(Deserialize)]
-#[serde(deny_unknown_fields)]
-pub struct Component {
-    pub code: String,
-    pub title: String,
-    #[serde(rename = "section")]
-    pub sections: Vec<Section>,
-}
-
-/// One spec section such as "1.4", read from `content/spec.toml`.
-#[derive(Deserialize)]
-#[serde(deny_unknown_fields)]
-pub struct Section {
-    pub spec: String,
-    pub title: String,
-}
-
 impl Library {
     pub fn topic(&self, slug: &str) -> Option<&Topic> {
         self.topics.iter().find(|t| t.slug == slug)
@@ -77,9 +60,9 @@ impl Library {
 }
 
 impl Topic {
-    /// The section this topic belongs to, e.g. "1.4" for "1.4.3".
-    pub fn section(&self) -> &str {
-        section_of(&self.spec)
+    /// The spec point this topic covers, e.g. "1.4.3" for "1.4.3" or "1.4.3(b)".
+    pub fn point(&self) -> &str {
+        point_of(&self.spec)
     }
 }
 
@@ -103,7 +86,7 @@ impl fmt::Display for ContentError {
 impl std::error::Error for ContentError {}
 
 /// Shorthand for building an error about `file`.
-fn problem(file: &Path, message: impl Into<String>) -> ContentError {
+pub(crate) fn problem(file: &Path, message: impl Into<String>) -> ContentError {
     ContentError {
         file: file.to_path_buf(),
         problem: message.into(),
@@ -116,13 +99,6 @@ fn problem(file: &Path, message: impl Into<String>) -> ContentError {
 
 // `deny_unknown_fields` turns a typo such as `anwser = 2` into an error
 // instead of silently ignoring it.
-
-#[derive(Deserialize)]
-#[serde(deny_unknown_fields)]
-struct SpecFile {
-    #[serde(rename = "component")]
-    components: Vec<Component>,
-}
 
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -178,18 +154,7 @@ fn default_true() -> bool {
 
 /// Load and check everything under `dir` (normally `content/`).
 pub fn load(dir: &Path) -> Result<Library, ContentError> {
-    let spec_path = dir.join("spec.toml");
-    let spec_file: SpecFile = parse_toml(&spec_path)?;
-    for component in &spec_file.components {
-        for section in &component.sections {
-            if !is_valid_section(&section.spec) {
-                return Err(problem(
-                    &spec_path,
-                    format!("section \"{}\" should look like \"1.4\"", section.spec),
-                ));
-            }
-        }
-    }
+    let spec = spec::load(&dir.join("spec.toml"))?;
 
     let entries =
         fs::read_dir(dir).map_err(|e| problem(dir, format!("cannot read folder: {e}")))?;
@@ -203,36 +168,16 @@ pub fn load(dir: &Path) -> Result<Library, ContentError> {
 
     let mut topics = Vec::new();
     for topic_dir in topic_dirs {
-        let topic = load_topic(&topic_dir)?;
-        let known_section = spec_file
-            .components
-            .iter()
-            .flat_map(|c| &c.sections)
-            .any(|s| s.spec == topic.section());
-        if !known_section {
-            return Err(problem(
-                &topic_dir.join("notes.md"),
-                format!(
-                    "spec \"{}\" is in section {}, which is not listed in {}",
-                    topic.spec,
-                    topic.section(),
-                    spec_path.display()
-                ),
-            ));
-        }
-        topics.push(topic);
+        topics.push(load_topic(&topic_dir, &spec)?);
     }
 
     // Sort by spec point, comparing the numbers so that 1.10 comes after 1.9.
     topics.sort_by_key(|topic| spec_sort_key(&topic.spec));
 
-    Ok(Library {
-        components: spec_file.components,
-        topics,
-    })
+    Ok(Library { spec, topics })
 }
 
-fn load_topic(dir: &Path) -> Result<Topic, ContentError> {
+fn load_topic(dir: &Path, spec: &Spec) -> Result<Topic, ContentError> {
     let slug = dir
         .file_name()
         .and_then(|name| name.to_str())
@@ -259,7 +204,7 @@ fn load_topic(dir: &Path) -> Result<Topic, ContentError> {
     if meta.title.trim().is_empty() {
         return Err(problem(&notes_path, "title is empty"));
     }
-    check_spec(&notes_path, "front matter", &meta.spec)?;
+    check_spec(&notes_path, "front matter", &meta.spec, spec)?;
     if body.trim().is_empty() {
         return Err(problem(
             &notes_path,
@@ -267,8 +212,8 @@ fn load_topic(dir: &Path) -> Result<Topic, ContentError> {
         ));
     }
 
-    let flashcards = load_flashcards(&dir.join("flashcards.toml"))?;
-    let quiz = load_quiz(&dir.join("quiz.toml"))?;
+    let flashcards = load_flashcards(&dir.join("flashcards.toml"), spec)?;
+    let quiz = load_quiz(&dir.join("quiz.toml"), spec)?;
 
     Ok(Topic {
         slug,
@@ -281,7 +226,7 @@ fn load_topic(dir: &Path) -> Result<Topic, ContentError> {
     })
 }
 
-fn load_flashcards(path: &Path) -> Result<Vec<Flashcard>, ContentError> {
+fn load_flashcards(path: &Path, spec: &Spec) -> Result<Vec<Flashcard>, ContentError> {
     let file: FlashcardFile = parse_toml(path)?;
     if file.card.is_empty() {
         return Err(problem(path, "has no [[card]] entries"));
@@ -292,7 +237,7 @@ fn load_flashcards(path: &Path) -> Result<Vec<Flashcard>, ContentError> {
         let label = format!("card {}", i + 1);
         check_not_empty(path, &label, "front", &raw.front)?;
         check_not_empty(path, &label, "back", &raw.back)?;
-        check_spec(path, &label, &raw.spec)?;
+        check_spec(path, &label, &raw.spec, spec)?;
 
         let id = card_id(&raw.front);
         if cards.iter().any(|c| c.id == id) {
@@ -311,7 +256,7 @@ fn load_flashcards(path: &Path) -> Result<Vec<Flashcard>, ContentError> {
     Ok(cards)
 }
 
-fn load_quiz(path: &Path) -> Result<Vec<Question>, ContentError> {
+fn load_quiz(path: &Path, spec: &Spec) -> Result<Vec<Question>, ContentError> {
     let file: QuizFile = parse_toml(path)?;
     if file.question.is_empty() {
         return Err(problem(path, "has no [[question]] entries"));
@@ -322,7 +267,7 @@ fn load_quiz(path: &Path) -> Result<Vec<Question>, ContentError> {
         let label = format!("question {}", i + 1);
         check_not_empty(path, &label, "prompt", &raw.prompt)?;
         check_not_empty(path, &label, "explanation", &raw.explanation)?;
-        check_spec(path, &label, &raw.spec)?;
+        check_spec(path, &label, &raw.spec, spec)?;
 
         if raw.options.len() < 2 {
             return Err(problem(path, format!("{label}: needs at least 2 options")));
@@ -390,7 +335,7 @@ fn read_file(path: &Path) -> Result<String, ContentError> {
 
 /// Read and parse a TOML file into any struct that derives `Deserialize`.
 /// (`T` is a generic type: the caller decides which struct to parse into.)
-fn parse_toml<T: for<'de> Deserialize<'de>>(path: &Path) -> Result<T, ContentError> {
+pub(crate) fn parse_toml<T: for<'de> Deserialize<'de>>(path: &Path) -> Result<T, ContentError> {
     let text = read_file(path)?;
     toml::from_str(&text).map_err(|e| problem(path, e.to_string()))
 }
@@ -415,15 +360,16 @@ fn check_not_empty(path: &Path, label: &str, field: &str, value: &str) -> Result
     }
 }
 
-fn check_spec(path: &Path, label: &str, spec: &str) -> Result<(), ContentError> {
-    if is_valid_spec(spec) {
-        Ok(())
-    } else {
-        Err(problem(
+/// Check a `spec` value looks right and names a point in `spec.toml`.
+fn check_spec(path: &Path, label: &str, reference: &str, spec: &Spec) -> Result<(), ContentError> {
+    if !is_valid_spec(reference) {
+        return Err(problem(
             path,
-            format!("{label}: spec \"{spec}\" should look like \"1.4.3\" or \"1.4.3(a)\""),
-        ))
+            format!("{label}: spec \"{reference}\" should look like \"1.4.3\" or \"1.4.3(a)\""),
+        ));
     }
+    spec.check_reference(reference)
+        .map_err(|message| problem(path, format!("{label}: {message}")))
 }
 
 /// True for spec points like "1.4.3" or "1.4.3(a)".
@@ -446,20 +392,14 @@ pub fn is_valid_spec(spec: &str) -> bool {
     parts.len() == 3 && parts.iter().all(|p| is_number(p))
 }
 
-/// True for spec sections like "1.4".
-fn is_valid_section(section: &str) -> bool {
-    let parts: Vec<&str> = section.split('.').collect();
-    parts.len() == 2 && parts.iter().all(|p| is_number(p))
-}
-
 fn is_number(s: &str) -> bool {
     !s.is_empty() && s.chars().all(|c| c.is_ascii_digit())
 }
 
-/// "1.4.3(a)" -> "1.4"
-fn section_of(spec: &str) -> &str {
-    match spec.match_indices('.').nth(1) {
-        Some((i, _)) => &spec[..i],
+/// "1.4.3(a)" -> "1.4.3"
+pub fn point_of(spec: &str) -> &str {
+    match spec.split_once('(') {
+        Some((point, _)) => point,
         None => spec,
     }
 }
@@ -571,7 +511,8 @@ mod tests {
         assert!(!is_valid_spec("1.4.x"));
         assert!(!is_valid_spec("1.4.3(A)"));
         assert!(!is_valid_spec(""));
-        assert_eq!(section_of("1.4.3(a)"), "1.4");
+        assert_eq!(point_of("1.4.3(a)"), "1.4.3");
+        assert_eq!(point_of("1.4.3"), "1.4.3");
     }
 
     #[test]

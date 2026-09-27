@@ -2,6 +2,7 @@
 
 pub mod content;
 pub mod routes;
+pub mod spec;
 
 use actix_web::web;
 

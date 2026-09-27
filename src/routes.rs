@@ -52,42 +52,66 @@ struct HomePage<'a> {
     components: Vec<ComponentGroup<'a>>,
 }
 
-// The `'a` below is a lifetime: these structs borrow topics from the
-// `Library` instead of copying them, and Rust checks the borrow is safe.
+// The `'a` below is a lifetime: these structs borrow from the `Library`
+// instead of copying it, and Rust checks the borrow is safe.
 struct ComponentGroup<'a> {
     code: &'a str,
     title: &'a str,
+    /// How many of this component's spec points have at least one topic.
+    written: usize,
+    total: usize,
     sections: Vec<SectionGroup<'a>>,
 }
 
 struct SectionGroup<'a> {
-    spec: &'a str,
+    number: &'a str,
+    title: &'a str,
+    points: Vec<PointRow<'a>>,
+}
+
+/// One spec point, with the topics written for it (often none yet).
+struct PointRow<'a> {
+    number: &'a str,
     title: &'a str,
     topics: Vec<&'a Topic>,
 }
 
+/// Every spec point from spec.toml, grouped by component and section.
 pub async fn home(library: web::Data<Library>) -> HttpResponse {
     let components = library
+        .spec
         .components
         .iter()
-        .map(|component| ComponentGroup {
-            code: &component.code,
-            title: &component.title,
-            sections: component
+        .map(|component| {
+            let sections: Vec<SectionGroup> = component
                 .sections
                 .iter()
                 .map(|section| SectionGroup {
-                    spec: &section.spec,
+                    number: &section.number,
                     title: &section.title,
-                    topics: library
-                        .topics
+                    points: section
+                        .points
                         .iter()
-                        .filter(|t| t.section() == section.spec)
+                        .map(|point| PointRow {
+                            number: &point.number,
+                            title: &point.title,
+                            topics: library
+                                .topics
+                                .iter()
+                                .filter(|t| t.point() == point.number)
+                                .collect(),
+                        })
                         .collect(),
                 })
-                // Only show sections that have at least one topic.
-                .filter(|s| !s.topics.is_empty())
-                .collect(),
+                .collect();
+            let rows = sections.iter().flat_map(|s| &s.points);
+            ComponentGroup {
+                code: &component.code,
+                title: &component.title,
+                written: rows.clone().filter(|p| !p.topics.is_empty()).count(),
+                total: rows.count(),
+                sections,
+            }
         })
         .collect();
     ok(&HomePage { components })

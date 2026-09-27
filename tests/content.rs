@@ -57,9 +57,31 @@ const SPEC: &str = r#"
 code = "01"
 title = "Computer systems"
 
-[[component.section]]
-spec = "1.4"
+[[section]]
+component = "01"
+number = "1.4"
 title = "Data types, data structures and algorithms"
+
+[[point]]
+component = "01"
+section = "1.4"
+number = "1.4.3"
+title = "Boolean Algebra"
+
+[[point.sub]]
+letter = "a"
+text = "Define problems using Boolean logic."
+
+[[point.sub]]
+letter = "b"
+text = "Manipulate Boolean expressions."
+
+[[point]]
+component = "01"
+section = "1.4"
+number = "1.4.4"
+title = "A point with no lettered sub-points"
+text = "Some text."
 "#;
 
 const NOTES: &str = "---\ntitle: Test topic\nspec: \"1.4.3\"\n---\n\n## Heading\n\nSome notes.\n";
@@ -201,14 +223,112 @@ fn option_letter_in_explanation_is_rejected() {
     );
 }
 
+// ---------------------------------------------------------------------------
+// Spec references must be in spec.toml
+// ---------------------------------------------------------------------------
+
 #[test]
-fn unknown_section_is_rejected() {
+fn topic_spec_not_in_spec_toml_is_rejected() {
     let notes = NOTES.replace("1.4.3", "2.1.1");
     assert_error(
-        load_with("section", "notes.md", &notes),
+        load_with("topic-point", "notes.md", &notes),
         "notes.md",
-        "section 2.1",
+        "\"2.1.1\" is not a point",
     );
+}
+
+#[test]
+fn item_spec_not_in_spec_toml_is_rejected() {
+    let cards = CARDS.replace("spec = \"1.4.3\"", "spec = \"1.4.9\"");
+    assert_error(
+        load_with("card-point", "flashcards.toml", &cards),
+        "flashcards.toml",
+        "card 1: spec \"1.4.9\" is not a point",
+    );
+}
+
+#[test]
+fn known_sub_point_is_accepted() {
+    let quiz = QUIZ.replace("spec = \"1.4.3\"", "spec = \"1.4.3(b)\"");
+    assert_eq!(load_with("sub-ok", "quiz.toml", &quiz), Ok(()));
+}
+
+#[test]
+fn unknown_sub_point_is_rejected() {
+    let quiz = QUIZ.replace("spec = \"1.4.3\"", "spec = \"1.4.3(c)\"");
+    assert_error(
+        load_with("sub-letter", "quiz.toml", &quiz),
+        "quiz.toml",
+        "only has sub-points (a) to (b)",
+    );
+}
+
+#[test]
+fn sub_point_of_point_without_letters_is_rejected() {
+    let quiz = QUIZ.replace("spec = \"1.4.3\"", "spec = \"1.4.4(a)\"");
+    assert_error(
+        load_with("no-letters", "quiz.toml", &quiz),
+        "quiz.toml",
+        "1.4.4 has no lettered sub-points",
+    );
+}
+
+// ---------------------------------------------------------------------------
+// Mistakes in spec.toml itself
+// ---------------------------------------------------------------------------
+
+#[test]
+fn spec_point_in_unknown_section_is_rejected() {
+    let spec = SPEC.replacen("section = \"1.4\"", "section = \"1.9\"", 1);
+    assert_error(
+        load_with("spec-section", "spec.toml", &spec),
+        "spec.toml",
+        "section \"1.9\" is not listed",
+    );
+}
+
+#[test]
+fn spec_sub_letters_out_of_order_are_rejected() {
+    let spec = SPEC.replace("letter = \"b\"", "letter = \"c\"");
+    assert_error(
+        load_with("spec-letters", "spec.toml", &spec),
+        "spec.toml",
+        "should have letter \"b\"",
+    );
+}
+
+#[test]
+fn spec_point_listed_twice_is_rejected() {
+    let spec = SPEC.replace("number = \"1.4.4\"", "number = \"1.4.3\"");
+    assert_error(
+        load_with("spec-twice", "spec.toml", &spec),
+        "spec.toml",
+        "point 1.4.3 is listed twice",
+    );
+}
+
+#[test]
+fn spec_point_without_sub_points_or_text_is_rejected() {
+    let spec = SPEC.replace("text = \"Some text.\"", "");
+    assert_error(
+        load_with("spec-empty", "spec.toml", &spec),
+        "spec.toml",
+        "needs [[point.sub]] entries or a text",
+    );
+}
+
+#[test]
+fn real_spec_toml_has_both_components() {
+    let library = content::load(Path::new("content")).unwrap();
+    let codes: Vec<&str> = library
+        .spec
+        .components
+        .iter()
+        .map(|c| c.code.as_str())
+        .collect();
+    assert_eq!(codes, ["01", "02"]);
+    let point = library.spec.point("1.1.1").expect("1.1.1 should be listed");
+    assert_eq!(point.subs.len(), 5, "1.1.1 has sub-points (a) to (e)");
 }
 
 #[test]

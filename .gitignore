@@ -1,0 +1,7 @@
+/target
+/sources
+/screenshots
+.env
+.env.*
+.claude/settings.local.json
+.playwright-mcp/

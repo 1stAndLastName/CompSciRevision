@@ -230,7 +230,7 @@ samp {
 }
 
 code {
-  font-size: 0.9em;
+  font-size: 0.93em;
   padding: 0.08em 0.3em;
   border-radius: 4px;
   background: var(--raised);
@@ -926,15 +926,23 @@ main.narrow {
 }
 
 .table-wrap {
+  width: fit-content;
+  max-width: 100%;
   overflow-x: auto;
   margin: 0 0 var(--space-5);
   border: 1px solid var(--border);
   border-radius: var(--radius-m);
+  /* Scroll shadows: a soft shade appears at an edge while there is more
+     table to scroll to, so students can see a wide table scrolls. */
+  background:
+    linear-gradient(to right, var(--bg) 30%, transparent) left / 2.5rem 100% no-repeat local,
+    linear-gradient(to left, var(--bg) 30%, transparent) right / 2.5rem 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%, color-mix(in srgb, var(--text) 30%, transparent), transparent) left / 0.9rem 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, color-mix(in srgb, var(--text) 30%, transparent), transparent) right / 0.9rem 100% no-repeat scroll;
 }
 
 .prose table {
   border-collapse: collapse;
-  min-width: 100%;
   font-size: 0.95em;
   font-variant-numeric: tabular-nums;
 }

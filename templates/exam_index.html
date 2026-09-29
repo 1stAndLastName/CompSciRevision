@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Exam questions{% endblock %}
+{% block scripts %}<script src="{{ base }}/static/js/exam.js" defer></script>{% endblock %}
+{% block main %}
+<nav class="crumbs" aria-label="Breadcrumb">
+  <ol><li><a href="{{ base }}/">All topics</a></li></ol>
+</nav>
+<section class="intro">
+  <h1>Exam questions</h1>
+  <p><span class="num">{{ questions }}</span> past-paper questions with their mark schemes, by spec point. Write your answer, open the mark scheme, then give yourself a mark.</p>
+</section>
+{% include "exam_note.html" %}
+
+{% for component in components %}
+<section class="component" aria-labelledby="component-{{ component.code }}">
+  <h2 id="component-{{ component.code }}">
+    <span class="component-code num">{{ component.code }}</span>
+    <span>{{ component.title }}</span>
+  </h2>
+  {% for section in component.sections %}
+  <h3 class="section-title"><span class="num">{{ section.number }}</span> {{ section.title }}</h3>
+  <ul class="topic-list">
+    {% for exam in section.topics %}
+    <li class="topic-row" data-exam-progress="{{ exam.spec }}">
+      <a class="topic-link" href="{{ base }}/exam/{{ exam.spec }}">
+        <span class="spec num">{{ exam.spec }}</span>
+        <span class="topic-title">{{ exam.title }}</span>
+      </a>
+      <p class="topic-progress progress-text num">
+        <span>{{ exam.questions.len() }} questions, {{ exam.marks() }} marks</span>
+        <span data-exam-text></span>
+      </p>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
+</section>
+{% endfor %}
+{% endblock %}

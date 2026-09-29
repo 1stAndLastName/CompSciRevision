@@ -10,6 +10,7 @@
 //! when it is exported for GitHub Pages, which serves it from that folder.
 
 use crate::content::{Library, Topic};
+use crate::exam::ExamTopic;
 use actix_web::http::StatusCode;
 use actix_web::{HttpResponse, web};
 use askama::Template;
@@ -23,6 +24,8 @@ use askama::Template;
 struct HomePage<'a> {
     base: &'a str,
     components: Vec<ComponentGroup<'a>>,
+    /// How many exam questions there are in total.
+    exam_questions: usize,
 }
 
 // The `'a` below is a lifetime: these structs borrow from the `Library`
@@ -87,7 +90,12 @@ pub fn render_home(library: &Library, base: &str) -> askama::Result<String> {
             }
         })
         .collect();
-    HomePage { base, components }.render()
+    HomePage {
+        base,
+        components,
+        exam_questions: library.exam.iter().map(|e| e.questions.len()).sum(),
+    }
+    .render()
 }
 
 // ---------------------------------------------------------------------------
@@ -99,10 +107,17 @@ pub fn render_home(library: &Library, base: &str) -> askama::Result<String> {
 struct TopicPage<'a> {
     base: &'a str,
     topic: &'a Topic,
+    /// The exam questions for this topic's spec point, if there are any.
+    exam: Option<&'a ExamTopic>,
 }
 
-pub fn render_topic(topic: &Topic, base: &str) -> askama::Result<String> {
-    TopicPage { base, topic }.render()
+pub fn render_topic(library: &Library, topic: &Topic, base: &str) -> askama::Result<String> {
+    TopicPage {
+        base,
+        topic,
+        exam: library.exam_topic(topic.point()),
+    }
+    .render()
 }
 
 #[derive(Template)]
@@ -129,6 +144,88 @@ struct QuizPage<'a> {
 
 pub fn render_quiz(topic: &Topic, base: &str) -> askama::Result<String> {
     QuizPage { base, topic }.render()
+}
+
+// ---------------------------------------------------------------------------
+// Exam questions
+// ---------------------------------------------------------------------------
+
+/// Every spec point that has exam questions, grouped by component and section.
+#[derive(Template)]
+#[template(path = "exam_index.html")]
+struct ExamIndexPage<'a> {
+    base: &'a str,
+    components: Vec<ExamComponent<'a>>,
+    questions: usize,
+}
+
+struct ExamComponent<'a> {
+    code: &'a str,
+    title: &'a str,
+    sections: Vec<ExamSection<'a>>,
+}
+
+struct ExamSection<'a> {
+    number: &'a str,
+    title: &'a str,
+    topics: Vec<&'a ExamTopic>,
+}
+
+pub fn render_exam_index(library: &Library, base: &str) -> askama::Result<String> {
+    let components = library
+        .spec
+        .components
+        .iter()
+        .map(|component| ExamComponent {
+            code: &component.code,
+            title: &component.title,
+            sections: component
+                .sections
+                .iter()
+                .map(|section| ExamSection {
+                    number: &section.number,
+                    title: &section.title,
+                    topics: section
+                        .points
+                        .iter()
+                        .filter_map(|point| library.exam_topic(&point.number))
+                        .collect(),
+                })
+                .filter(|section| !section.topics.is_empty())
+                .collect(),
+        })
+        .filter(|component: &ExamComponent| !component.sections.is_empty())
+        .collect();
+    ExamIndexPage {
+        base,
+        components,
+        questions: library.exam.iter().map(|e| e.questions.len()).sum(),
+    }
+    .render()
+}
+
+/// All the questions for one spec point, each part with its mark scheme in a
+/// "Mark scheme" box, and a box to write in your own mark (saved by exam.js).
+#[derive(Template)]
+#[template(path = "exam.html")]
+struct ExamPage<'a> {
+    base: &'a str,
+    exam: &'a ExamTopic,
+    /// Revision topics for the same spec point, to link to their notes.
+    topics: Vec<&'a Topic>,
+}
+
+pub fn render_exam(library: &Library, exam: &ExamTopic, base: &str) -> askama::Result<String> {
+    ExamPage {
+        base,
+        exam,
+        topics: library
+            .topics
+            .iter()
+            .filter(|t| t.point() == exam.spec)
+            .collect(),
+    }
+    .render()
 }
 
 #[derive(Template)]
@@ -166,7 +263,7 @@ pub async fn home(library: web::Data<Library>) -> HttpResponse {
 
 pub async fn topic(library: web::Data<Library>, slug: web::Path<String>) -> HttpResponse {
     match library.topic(&slug) {
-        Some(topic) => respond(render_topic(topic, ""), StatusCode::OK),
+        Some(topic) => respond(render_topic(&library, topic, ""), StatusCode::OK),
         None => not_found_page(),
     }
 }
@@ -181,6 +278,17 @@ pub async fn flashcards(library: web::Data<Library>, slug: web::Path<String>) ->
 pub async fn quiz(library: web::Data<Library>, slug: web::Path<String>) -> HttpResponse {
     match library.topic(&slug) {
         Some(topic) => respond(render_quiz(topic, ""), StatusCode::OK),
+        None => not_found_page(),
+    }
+}
+
+pub async fn exam_index(library: web::Data<Library>) -> HttpResponse {
+    respond(render_exam_index(&library, ""), StatusCode::OK)
+}
+
+pub async fn exam(library: web::Data<Library>, point: web::Path<String>) -> HttpResponse {
+    match library.exam_topic(&point) {
+        Some(exam) => respond(render_exam(&library, exam, ""), StatusCode::OK),
         None => not_found_page(),
     }
 }

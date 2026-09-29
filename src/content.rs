@@ -5,6 +5,7 @@
 //! structs the rest of the site uses, with Markdown already rendered to HTML.
 //! Any problem becomes a `ContentError` that names the file and the problem.
 
+use crate::exam::ExamTopic;
 use crate::spec::{self, Spec};
 use pulldown_cmark::{Event, Options, Parser, Tag, TagEnd, html};
 use serde::Deserialize;
@@ -16,10 +17,12 @@ use std::path::{Path, PathBuf};
 // What the rest of the site uses
 // ---------------------------------------------------------------------------
 
-/// All loaded content: the spec outline plus every topic, sorted by spec point.
+/// All loaded content: the spec outline plus every topic, sorted by spec point,
+/// and the OCR exam questions (filled in by `revision_site::load_site`).
 pub struct Library {
     pub spec: Spec,
     pub topics: Vec<Topic>,
+    pub exam: Vec<ExamTopic>,
 }
 
 pub struct Topic {
@@ -56,6 +59,11 @@ pub struct Question {
 impl Library {
     pub fn topic(&self, slug: &str) -> Option<&Topic> {
         self.topics.iter().find(|t| t.slug == slug)
+    }
+
+    /// The exam questions for a spec point such as "1.4.3", if there are any.
+    pub fn exam_topic(&self, point: &str) -> Option<&ExamTopic> {
+        self.exam.iter().find(|e| e.spec == point)
     }
 }
 
@@ -159,7 +167,8 @@ fn default_true() -> bool {
 // Loading
 // ---------------------------------------------------------------------------
 
-/// Load and check everything under `dir` (normally `content/`).
+/// Load and check everything under `dir` (normally `content/`). The exam
+/// questions live in their own folder: see `revision_site::load_site`.
 pub fn load(dir: &Path) -> Result<Library, ContentError> {
     let spec = spec::load(&dir.join("spec.toml"))?;
 
@@ -181,7 +190,11 @@ pub fn load(dir: &Path) -> Result<Library, ContentError> {
     // Sort by spec point, comparing the numbers so that 1.10 comes after 1.9.
     topics.sort_by_key(|topic| spec_sort_key(&topic.spec));
 
-    Ok(Library { spec, topics })
+    Ok(Library {
+        spec,
+        topics,
+        exam: Vec::new(),
+    })
 }
 
 fn load_topic(dir: &Path, spec: &Spec) -> Result<Topic, ContentError> {

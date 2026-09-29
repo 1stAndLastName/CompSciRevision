@@ -20,6 +20,11 @@
       <a class="button" href="{{ base }}/topics/{{ topic.slug }}/quiz">
         Quiz <span class="button-note num">{{ topic.quiz.len() }} questions</span>
       </a>
+      {% if let Some(exam) = exam %}
+      <a class="button" href="{{ base }}/exam/{{ exam.spec }}">
+        Exam questions <span class="button-note num">{{ exam.questions.len() }} from past papers</span>
+      </a>
+      {% endif %}
     </div>
     <section class="progress-panel js-only" data-topic-progress="{{ topic.slug }}" aria-labelledby="progress-heading">
       <h3 id="progress-heading">Your progress</h3>
@@ -37,6 +42,7 @@
       <div class="practice-actions">
         <a class="button primary" href="{{ base }}/topics/{{ topic.slug }}/flashcards">Flashcards</a>
         <a class="button" href="{{ base }}/topics/{{ topic.slug }}/quiz">Quiz</a>
+        {% if let Some(exam) = exam %}<a class="button" href="{{ base }}/exam/{{ exam.spec }}">Exam questions</a>{% endif %}
       </div>
     </div>
   </article>

@@ -1807,6 +1807,371 @@ html:not(.js) .fc-inner {
   margin-top: var(--space-5);
 }
 
+/* Exam questions */
+
+.intro .intro-actions {
+  margin-top: var(--space-5);
+  font-size: var(--step-0);
+}
+
+.intro-actions .button {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  padding-block: var(--space-3);
+}
+
+.exam-source {
+  max-width: 44rem;
+  margin: calc(-1 * var(--space-5)) 0 var(--space-6);
+  padding: var(--space-3) var(--space-4);
+  border-left: 3px solid var(--border-strong);
+  color: var(--muted);
+  font-size: var(--step--1);
+}
+
+.exam-source p {
+  margin: 0;
+}
+
+.exam-side .exam-source {
+  margin: 0 0 var(--space-4);
+}
+
+.exam-notes-links {
+  margin: var(--space-2) 0 0;
+}
+
+.exam-notes-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-weight: 600;
+}
+
+.exam-layout {
+  display: grid;
+  /* minmax(0, ...) lets the column shrink to the screen, so the scrolling
+     strip of question numbers cannot widen the page. */
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+}
+
+.exam-side {
+  min-width: 0;
+}
+
+.exam-side h2 {
+  font-size: var(--step-0);
+  font-weight: 650;
+  margin-bottom: var(--space-3);
+}
+
+.exam-side .progress-panel {
+  margin: 0 0 var(--space-4);
+}
+
+.exam-score {
+  margin: 0 0 var(--space-3);
+}
+
+.exam-jump ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.exam-jump a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-s);
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.exam-jump a:hover {
+  background: var(--raised);
+  border-color: var(--border-strong);
+}
+
+/* A question you have marked: filled, with a tick, so it does not rely on colour. */
+.exam-jump a.is-marked {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.exam-jump a.is-marked::after {
+  content: "✓";
+  margin-left: 0.15em;
+  font-size: 0.8em;
+  color: var(--accent-text);
+}
+
+/* On phones the list of question numbers sits in a scrolling strip. */
+@media (max-width: 59.99rem) {
+  .exam-jump ol {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: var(--space-2);
+  }
+
+  .exam-jump li {
+    flex: none;
+  }
+}
+
+.exam-questions {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+.exam-q {
+  min-width: 0;
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-l);
+  background: var(--surface);
+  scroll-margin-top: var(--space-4);
+}
+
+.exam-q-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-4);
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-4);
+  border-bottom: 1px solid var(--border);
+}
+
+.exam-q-head h2 {
+  font-size: var(--step-1);
+  margin: 0;
+}
+
+.exam-q-head p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.exam-diagram-note {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin: 0 0 var(--space-4);
+  padding: var(--space-3);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-m);
+  color: var(--muted);
+  font-size: var(--step--1);
+}
+
+.exam-diagram-note svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+
+.exam-part + .exam-part {
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px dashed var(--border);
+}
+
+.exam-part-head {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-2);
+  font-weight: 700;
+}
+
+.exam-label {
+  color: var(--accent-text);
+}
+
+.exam-marks {
+  color: var(--muted);
+}
+
+.exam-text,
+.mark-scheme .prose {
+  max-width: none;
+  overflow-wrap: anywhere;
+}
+
+/* Long bits of code in a sentence may wrap on a phone (code blocks still scroll). */
+.exam-text :not(pre) > code,
+.mark-scheme :not(pre) > code {
+  white-space: normal;
+}
+
+.exam-text > :last-child,
+.ms-answer > :last-child,
+.ms-guidance .prose > :last-child {
+  margin-bottom: 0;
+}
+
+.exam-text pre,
+.mark-scheme pre {
+  font-size: 0.85em;
+}
+
+.mark-scheme {
+  margin-top: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  background: var(--bg);
+}
+
+.mark-scheme summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  padding: var(--space-2) var(--space-4);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.mark-scheme summary::-webkit-details-marker {
+  display: none;
+}
+
+/* The same chevron as "Add to your home screen": right when closed, down when open. */
+.mark-scheme summary::before {
+  content: "";
+  flex: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: var(--space-1);
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 0.15s;
+}
+
+.mark-scheme[open] summary::before {
+  transform: rotate(45deg);
+}
+
+.mark-scheme summary span {
+  color: var(--muted);
+}
+
+.mark-scheme[open] summary {
+  border-bottom: 1px solid var(--border);
+}
+
+.ms-row {
+  padding: var(--space-4);
+}
+
+.ms-row + .ms-row {
+  border-top: 1px solid var(--border);
+}
+
+.ms-label {
+  margin: 0 0 var(--space-2);
+  font-weight: 700;
+  color: var(--accent-text);
+}
+
+.ms-label span {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.ms-guidance {
+  margin-top: var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-s);
+  background: var(--raised);
+  font-size: var(--step--1);
+}
+
+.ms-guidance-head {
+  margin: 0 0 var(--space-2);
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.75rem;
+}
+
+.self-mark {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-4);
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+}
+
+.self-mark label {
+  font-weight: 600;
+}
+
+.self-mark-input {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--muted);
+}
+
+.self-mark input {
+  width: 4.5rem;
+  min-height: 2.75rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-s);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+@media (min-width: 48rem) {
+  .exam-q {
+    padding: var(--space-5) var(--space-6);
+  }
+}
+
+@media (min-width: 60rem) {
+  .exam-layout {
+    grid-template-columns: minmax(14rem, 17rem) minmax(0, 1fr);
+    gap: var(--space-7);
+    align-items: start;
+  }
+
+  .exam-side {
+    position: sticky;
+    top: var(--space-5);
+    max-height: calc(100vh - 2 * var(--space-5));
+    max-height: calc(100dvh - 2 * var(--space-5));
+    overflow-y: auto;
+  }
+}
+
 /* 404 */
 
 .not-found {

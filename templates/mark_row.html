@@ -1,0 +1,13 @@
+{# One row of a mark scheme. `row` is set by the loop that includes this. #}
+<div class="ms-row">
+  {% if show_label %}
+  <p class="ms-label num">{{ row.label }}{% if let Some(text) = row.marks_text() %} <span>({{ text }})</span>{% endif %}</p>
+  {% endif %}
+  <div class="prose ms-answer">{{ row.answer_html|safe }}</div>
+  {% if let Some(guidance) = row.guidance_html %}
+  <div class="ms-guidance">
+    <p class="ms-guidance-head">Guidance</p>
+    <div class="prose">{{ guidance|safe }}</div>
+  </div>
+  {% endif %}
+</div>

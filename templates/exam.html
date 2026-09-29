@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}Exam questions: {{ exam.title }}{% endblock %}
+{% block scripts %}<script src="{{ base }}/static/js/exam.js" defer></script>{% endblock %}
+{% block main %}
+<nav class="crumbs" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="{{ base }}/">All topics</a></li>
+    <li><a href="{{ base }}/exam">Exam questions</a></li>
+  </ol>
+</nav>
+<header class="topic-head">
+  <p class="spec-display num"><span class="visually-hidden">Specification point </span>{{ exam.spec }}</p>
+  <h1>{{ exam.title }}</h1>
+  <p class="page-sub num">Exam questions: {{ exam.questions.len() }} questions, {{ exam.marks() }} marks</p>
+  {% if !topics.is_empty() %}
+  <p class="exam-notes-links">
+    {% for topic in topics %}<a href="{{ base }}/topics/{{ topic.slug }}">Revision notes: {{ topic.title }}</a>{% endfor %}
+  </p>
+  {% endif %}
+</header>
+
+<div class="exam-layout" data-exam="{{ exam.spec }}">
+  <aside class="exam-side">
+    {% include "exam_note.html" %}
+    <section class="progress-panel js-only" aria-labelledby="marks-heading">
+      <h2 id="marks-heading">Your marks</h2>
+      <p class="exam-score num" data-exam-score>No questions marked yet</p>
+      <button type="button" class="button quiet small" data-exam-clear>Clear my marks</button>
+    </section>
+    <nav class="exam-jump" aria-label="Questions">
+      <h2>Questions</h2>
+      <ol>
+        {% for question in exam.questions %}
+        <li><a class="num" href="#q{{ question.number }}" data-jump="{{ question.number }}" aria-label="Question {{ question.number }}">{{ question.number }}</a></li>
+        {% endfor %}
+      </ol>
+    </nav>
+  </aside>
+
+  <div class="exam-questions">
+    {% for question in exam.questions %}
+    <article class="exam-q" id="q{{ question.number }}" data-exam-q="{{ question.number }}" data-marks="{{ question.marks }}" aria-labelledby="q{{ question.number }}-title">
+      <header class="exam-q-head">
+        <h2 id="q{{ question.number }}-title">Question {{ question.number }}</h2>
+        <p class="num">{{ question.marks_text() }}</p>
+      </header>
+      {% if question.diagram %}
+      <p class="exam-diagram-note">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2.5" y="4" width="15" height="12" rx="2"/><path d="m2.5 13 4-4 3.5 3.5 2.5-2.5 5 4.5"/></svg>
+        <span>This question uses a diagram that is not shown here.</span>
+      </p>
+      {% endif %}
+
+      {% for part in question.parts %}
+      <section class="exam-part" aria-label="Part {{ part.label }}">
+        <p class="exam-part-head num">
+          <span class="exam-label">{{ part.label }}</span>
+          {% if let (Some(marks), Some(text)) = (part.marks, part.marks_text()) %}<span class="exam-marks"><span aria-hidden="true">[{{ marks }}]</span><span class="visually-hidden">{{ text }}</span></span>{% endif %}
+        </p>
+        <div class="prose exam-text">{{ part.text_html|safe }}</div>
+        {% if !part.mark_scheme.is_empty() %}
+        <details class="mark-scheme">
+          <summary>Mark scheme <span class="num">{{ part.label }}</span></summary>
+          {% for row in part.mark_scheme %}
+          {% let show_label = part.mark_scheme.len() > 1 || row.label != part.label %}
+          {% include "mark_row.html" %}
+          {% endfor %}
+        </details>
+        {% endif %}
+      </section>
+      {% endfor %}
+
+      {% if !question.other_mark_scheme.is_empty() %}
+      <details class="mark-scheme">
+        <summary>Mark scheme: other parts</summary>
+        {% for row in question.other_mark_scheme %}
+        {% let show_label = true %}
+        {% include "mark_row.html" %}
+        {% endfor %}
+      </details>
+      {% endif %}
+
+      <div class="self-mark js-only">
+        <label for="mark-{{ question.number }}">Your mark for question {{ question.number }}</label>
+        <div class="self-mark-input">
+          <input id="mark-{{ question.number }}" type="number" inputmode="numeric" min="0" max="{{ question.marks }}" step="1" data-self-mark>
+          <span class="num">out of {{ question.marks }}</span>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

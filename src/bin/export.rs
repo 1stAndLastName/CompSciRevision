@@ -4,8 +4,8 @@
 //! `--base` is the folder the site is served from ("" for the root of a
 //! domain); `--out` is where the files go (default: dist).
 
-use revision_site::{CONTENT_DIR, content, export};
-use std::path::{Path, PathBuf};
+use revision_site::{export, load_site};
+use std::path::PathBuf;
 
 fn main() {
     let mut base = String::new();
@@ -29,7 +29,7 @@ fn main() {
         format!("/{base}")
     };
 
-    let library = match content::load(Path::new(CONTENT_DIR)) {
+    let library = match load_site() {
         Ok(library) => library,
         Err(error) => {
             eprintln!("Could not load content.\n  {error}");

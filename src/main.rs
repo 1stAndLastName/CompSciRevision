@@ -1,7 +1,6 @@
 use actix_web::{App, HttpServer, middleware, web};
-use revision_site::{CONTENT_DIR, configure, content};
+use revision_site::{configure, load_site};
 use std::net::{IpAddr, UdpSocket};
-use std::path::Path;
 
 const PORT: u16 = 8080;
 
@@ -34,7 +33,7 @@ fn local_network_ip() -> Option<IpAddr> {
 async fn main() -> std::io::Result<()> {
     // Load all content before starting. A broken file stops the server here
     // with a message naming the file, rather than breaking a page later.
-    let library = match content::load(Path::new(CONTENT_DIR)) {
+    let library = match load_site() {
         Ok(library) => library,
         Err(error) => {
             eprintln!("Could not load content.\n  {error}");
@@ -43,7 +42,11 @@ async fn main() -> std::io::Result<()> {
     };
 
     let address = listen_address();
-    println!("Loaded {} topics.", library.topics.len());
+    println!(
+        "Loaded {} topics and exam questions for {} spec points.",
+        library.topics.len(),
+        library.exam.len()
+    );
     println!("  On this computer: http://localhost:{PORT}");
     // `&& let Some(ip) = ...` only runs the block if the address was found.
     if address == "0.0.0.0"

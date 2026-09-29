@@ -51,7 +51,7 @@ pub fn export_site(library: &Library, base: &str, out: &Path) -> io::Result<usiz
         let folder = format!("topics/{}", topic.slug);
         write(
             &format!("{folder}/index.html"),
-            routes::render_topic(topic, base),
+            routes::render_topic(library, topic, base),
         )?;
         write(
             &format!("{folder}/flashcards/index.html"),
@@ -60,6 +60,13 @@ pub fn export_site(library: &Library, base: &str, out: &Path) -> io::Result<usiz
         write(
             &format!("{folder}/quiz/index.html"),
             routes::render_quiz(topic, base),
+        )?;
+    }
+    write("exam/index.html", routes::render_exam_index(library, base))?;
+    for exam in &library.exam {
+        write(
+            &format!("exam/{}/index.html", exam.spec),
+            routes::render_exam(library, exam, base),
         )?;
     }
     write("404.html", routes::render_not_found(base))?;

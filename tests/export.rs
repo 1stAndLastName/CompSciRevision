@@ -1,13 +1,13 @@
 //! The static export used for GitHub Pages writes every page, with links that
 //! start with the base path.
 
-use revision_site::{content, export};
+use revision_site::{export, load_site};
 use std::fs;
-use std::path::{Path, PathBuf};
+use std::path::PathBuf;
 
 fn export_to(name: &str, base: &str) -> PathBuf {
     let out = PathBuf::from(env!("CARGO_TARGET_TMPDIR")).join(name);
-    let library = content::load(Path::new("content")).unwrap();
+    let library = load_site().unwrap();
     export::export_site(&library, base, &out).expect("export should work");
     out
 }
@@ -15,7 +15,7 @@ fn export_to(name: &str, base: &str) -> PathBuf {
 #[test]
 fn every_page_is_written() {
     let out = export_to("export-pages", "/CompSciRevision");
-    let library = content::load(Path::new("content")).unwrap();
+    let library = load_site().unwrap();
     assert!(out.join("index.html").exists());
     assert!(out.join("404.html").exists());
     assert!(out.join(".nojekyll").exists());
@@ -26,6 +26,11 @@ fn every_page_is_written() {
             let path = out.join("topics").join(&topic.slug).join(page);
             assert!(path.exists(), "{} should exist", path.display());
         }
+    }
+    assert!(out.join("exam/index.html").exists());
+    for exam in &library.exam {
+        let path = out.join("exam").join(&exam.spec).join("index.html");
+        assert!(path.exists(), "{} should exist", path.display());
     }
 }
 
@@ -38,6 +43,9 @@ fn links_start_with_the_base_path() {
     // No link may skip the base path (the skip link "#main" is fine).
     assert!(!home.contains("href=\"/static"));
     assert!(!home.contains("href=\"/topics"));
+    let exam = fs::read_to_string(out.join("exam/1.4.3/index.html")).unwrap();
+    assert!(exam.contains("href=\"/CompSciRevision/exam\""));
+    assert!(!exam.contains("href=\"/exam"));
 }
 
 #[test]
@@ -46,7 +54,7 @@ fn a_folder_not_made_by_the_export_is_left_alone() {
     let _ = fs::remove_dir_all(&out);
     fs::create_dir_all(&out).unwrap();
     fs::write(out.join("keep-me.txt"), "important").unwrap();
-    let library = content::load(Path::new("content")).unwrap();
+    let library = load_site().unwrap();
     assert!(export::export_site(&library, "", &out).is_err());
     assert!(
         out.join("keep-me.txt").exists(),

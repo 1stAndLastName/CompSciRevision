@@ -4,6 +4,11 @@
 <section class="intro">
   <h1>Revise OCR A Level Computer Science</h1>
   <p>Notes, flashcards and quizzes, organised by the points in the H446 specification. Pick a topic to start.</p>
+  {% if exam_questions > 0 %}
+  <p class="intro-actions">
+    <a class="button" href="{{ base }}/exam">Exam questions <span class="button-note num">{{ exam_questions }} with mark schemes</span></a>
+  </p>
+  {% endif %}
 </section>
 
 <details class="install-note">

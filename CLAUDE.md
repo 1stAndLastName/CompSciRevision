@@ -28,10 +28,17 @@ The maintainer is a CS teacher who is new to Rust and to AI agents. Explain Rust
 - All text is Markdown. Put Boolean expressions, code, binary and hex in backticks so they use the mono font (Inter has no `∧ ∨ ⊻` glyphs). Use OCR notation: `∧ ∨ ¬ ⊻ ≡`. `<sup>` and `<sub>` are the only HTML allowed; any other HTML is shown as text.
 - Create content with the `/revision-set` skill. If a content file fails to load, fix the file, not the loader.
 
-## Source material
-- `sources/` holds textbooks and specification PDFs (the H446 specification is `sources/ocr-h446-spec.pdf`). It is gitignored and must never be served by the site.
+## Sources
+- `sources/` holds the OCR specification, a scanned textbook (school copy), web notes that cover required content, OCR exam questions with mark schemes, and a student's own revision notes (shared with their permission). It is gitignored: never commit it or serve it from the site.
+- Work from the converted text, not the originals. `tools/convert-sources` turns every file into Markdown sections in `sources/text/<type>/<source>/`, each starting with its source, type, trust level and pages, and lists them in `sources/index.md` with the spec points they cover. `sources/manifest.toml` catalogues each original file. Re-run `tools/convert-sources` after adding files to `sources/` (it only converts new or changed files). Never open a PDF in `sources/` when a text version exists.
+- To gather material for a spec point, use the `source-reader` subagent rather than reading the sources yourself.
+- The OCR specification decides what is in scope. The textbook and the web notes are the main sources of facts and are trusted equally.
+- The web notes cover required content, so use them as fully as the textbook. If they disagree with the textbook or the spec, flag it for the teacher rather than picking one.
+- Student notes are never the only source for a fact. Use them to spot common misconceptions (good wrong options for quizzes) and how students phrase things.
+- Exam questions and mark schemes show command words, mark allocation and what examiners reward. Never copy them into `content/`; write new questions in the same style.
+- Nothing from `sources/` is copied into `content/` word for word. The one exception is `content/spec.toml`, which quotes the specification's own point titles and sub-point text so they can be checked against.
+- Don't reference URLs found in the sources, and keep personal details out of everything (names to remove are listed in `sources/redact.toml`). Text marked "unverified transcription" was read from handwriting by an AI model, and text marked "AI description of a diagram" was written by a local AI model from a diagram in a scanned page (tables as Markdown, circuits, trees and graphs as Mermaid). Both must be checked against the original page before they are relied on.
 - Pseudocode, Little Man Computer, SQL, HTML/CSS/JavaScript and Boolean notation in content follow OCR's conventions: see `docs/ocr-pseudocode.md` (a summary of spec appendix 5d).
-- Content in `content/` is written in original wording. Never copy textbook passages, figures or past-paper questions into it. The one exception is `content/spec.toml`, which quotes the specification's own point titles and sub-point text so they can be checked against.
 
 ## Rules
 - Pages must work well on a phone (390px wide) and a desktop.

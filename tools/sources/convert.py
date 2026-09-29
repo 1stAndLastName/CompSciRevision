@@ -38,6 +38,8 @@ RAW = WORK / "raw"
 IMAGES = WORK / "images"
 PAGES = WORK / "pages"
 DIAGRAMS = WORK / "diagrams"
+SECOND_OCR = WORK / "tesseract"
+WORDLISTS = [Path("/usr/share/dict/british-english"), Path("/usr/share/dict/american-english")]
 CACHE_FILE = WORK / "cache.json"
 TEXT = SOURCES / "text"
 MANIFEST = SOURCES / "manifest.toml"
@@ -237,6 +239,34 @@ def layout_text(path: Path) -> str:
     return "\n".join(out)
 
 
+def second_ocr(path: Path, entry: dict) -> None:
+    """Read every page of a scan with Tesseract too. Marker sometimes drops text
+    blocks (boxed quotes, sidebars, the book's index); comparing with this second
+    reading lets the split stage put that text back. Cached per page."""
+    from concurrent.futures import ThreadPoolExecutor
+
+    folder = SECOND_OCR / entry["id"]
+    folder.mkdir(parents=True, exist_ok=True)
+    info = subprocess.run(["pdfinfo", str(path)], capture_output=True, text=True, check=True).stdout
+    pages = int(re.search(r"^Pages:\s+(\d+)", info, re.M).group(1))
+
+    def read(number: int) -> None:
+        out = folder / f"p{number:03d}.txt"
+        if out.exists():
+            return
+        image = folder / f"p{number:03d}"
+        subprocess.run(["pdftoppm", "-f", str(number), "-l", str(number), "-r", "150", "-gray", "-png",
+                        "-singlefile", str(path), str(image)], check=True)
+        text = subprocess.run(["tesseract", f"{image}.png", "-", "--psm", "3"],
+                              capture_output=True, text=True).stdout
+        Path(f"{image}.png").unlink()
+        out.write_text(text)
+
+    say(f"  second OCR (Tesseract) of {pages} pages")
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        list(pool.map(read, range(1, pages + 1)))
+
+
 def html_to_markdown(html: str) -> str:
     from markdownify import markdownify
 
@@ -318,6 +348,7 @@ def convert_file(entry: dict, entries: list[dict]) -> str:
     if method == "markdown":
         return convert_markdown_note(path, entries)
     if method == "ocr":
+        second_ocr(path, entry)
         return marker_convert(path, force_ocr=True)
     if method == "text":
         if ext in (".html", ".htm"):
@@ -639,6 +670,47 @@ def latex_to_text(text: str) -> str:
     return re.sub(r"\$\$(.+?)\$\$|\$(.+?)\$", replace, text, flags=re.S)
 
 
+_known_words: set[str] | None = None
+
+
+def known_words(book_text: str) -> set[str]:
+    """English words plus every word in the main OCR text: used to tell real text from OCR noise."""
+    global _known_words
+    if _known_words is None:
+        words = set()
+        for wordlist in WORDLISTS:
+            if wordlist.exists():
+                words.update(w.strip().lower() for w in wordlist.read_text(errors="ignore").split())
+        _known_words = words
+    return _known_words | set(re.findall(r"[a-z]+", book_text.lower()))
+
+
+def recovered_lines(entry_id: str, number: int, page_text: str, vocabulary: set[str]) -> list[str]:
+    """Lines from the second OCR that the main OCR missed and that are made of real words."""
+    path = SECOND_OCR / entry_id / f"p{number:03d}.txt"
+    if not path.exists():
+        return []
+    have = set(re.findall(r"[a-z]{4,}", page_text.lower()))
+    lines = []
+    for line in path.read_text().split("\n"):
+        line = line.strip()
+        tokens = re.findall(r"[A-Za-z]+|\d+", line)
+        words = [w.lower() for w in re.findall(r"[A-Za-z]+", line)]
+        long_words = [w for w in words if len(w) >= 4]
+        index_entry = re.fullmatch(r"[A-Za-z][\w\s'()/-]*,\s*\d+(\s*[,-]\s*\d+)*", line)
+        if (len(tokens) < 3 and not index_entry) or not long_words or re.match(r"(CHAPTER|SECTION)\s+\d+", line):
+            continue
+        # Web addresses and phone numbers (e.g. in screenshots of search results),
+        # which OCR often breaks up so the URL filter would not catch them.
+        if re.search(r"(?i)\b(www|https?|htips|htitp)\b|\bco\.? ?u[kl]\b|\.com\b|@|\d{4,5} ?\d{6}", line):
+            continue
+        real = sum(1 for w in words if w in vocabulary) / len(words)
+        missing = sum(1 for w in long_words if w not in have) / len(long_words)
+        if real >= 0.8 and missing >= 0.6:
+            lines.append(line)
+    return lines
+
+
 def load_redactions() -> list[str]:
     if not REDACT.exists():
         REDACT.write_text(
@@ -802,11 +874,22 @@ def base_fields(entry: dict, title: str, pages: str, spec: list[str]) -> dict:
 def cleaned_pages(entry: dict, redactions: list[str], flatten: bool = True) -> tuple[list[tuple[int, str]], dict[int, int]]:
     raw = (RAW / f"{entry['id']}.md").read_text()
     pages = split_pages(raw)
+    scanned = entry.get("method") == "ocr"
+    if scanned:
+        pages = drop_repeated_pages(pages, entry["id"])
+        vocabulary = known_words(raw)
     furniture = furniture_lines(pages)
     textbook = entry["type"] == "textbook"
     result, printed = [], {}
     for number, body in pages:
         text, book_page = clean_page(body, furniture, textbook)
+        if scanned:
+            missed = recovered_lines(entry["id"], number, body, vocabulary)
+            if missed:
+                text += (
+                    "\n\n**[Text on this page that the main OCR missed, recovered by a second OCR "
+                    "(Tesseract): check the original]**\n\n" + URL.sub("", "\n".join(missed))
+                )
         if entry.get("method") == "ocr":
             diagrams = diagram_block(entry["id"], number)
             if diagrams:
@@ -821,6 +904,20 @@ def cleaned_pages(entry: dict, redactions: list[str], flatten: bool = True) -> t
     if textbook:
         printed = infer_printed_pages(printed, [n for n, _ in pages])
     return result, printed
+
+
+def drop_repeated_pages(pages: list[tuple[int, str]], entry_id: str) -> list[tuple[int, str]]:
+    """A scan can contain the same page twice. Drop a page whose words are 90% the same as the page before."""
+    kept: list[tuple[int, str]] = []
+    for number, body in pages:
+        if kept:
+            a = set(re.findall(r"[a-z]{4,}", kept[-1][1].lower()))
+            b = set(re.findall(r"[a-z]{4,}", body.lower()))
+            if len(a) > 30 and len(b) > 30 and len(a & b) / len(a | b) >= 0.9:
+                say(f"  note: {entry_id} PDF page {number} repeats page {kept[-1][0]}; skipped")
+                continue
+        kept.append((number, body))
+    return kept
 
 
 def join_pages(pages: list[tuple[int, str]]) -> str:
@@ -865,15 +962,16 @@ def split_textbook(entry, pages, printed, chapters, folder, index_book_page=None
     )
     # Book page numbers: each chapter's first page from the contents page, counted on from its title page.
     book_pages = {}
+    position = {n: i for i, n in enumerate(numbers)}  # skips repeated scan pages
     for chapter, title, spec, *rest in chapters:
         if rest and chapter in titles:
             for n in numbers:
                 if n >= starts[chapter]:
-                    book_pages[n] = rest[0] + (n - titles[chapter])
+                    book_pages[n] = rest[0] + (position[n] - position[titles[chapter]])
     if index_start and index_book_page:
         for n in numbers:
             if n >= index_start:
-                book_pages[n] = index_book_page + (n - index_start)
+                book_pages[n] = index_book_page + (position[n] - position[index_start])
     printed = book_pages or printed
     boundaries = [(0, 1, "Front matter and contents", [])]
     for chapter, title, spec, *_ in chapters:

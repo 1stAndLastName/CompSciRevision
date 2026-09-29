@@ -44,7 +44,7 @@
     {% else %}
     {% for topic in point.topics %}
     <li class="topic-row" data-topic-progress="{{ topic.slug }}">
-      <a class="topic-link" href="/topics/{{ topic.slug }}">
+      <a class="topic-link" href="{{ base }}/topics/{{ topic.slug }}">
         <span class="spec num">{{ point.number }}</span>
         <span class="topic-title">{{ topic.title }}</span>
       </a>

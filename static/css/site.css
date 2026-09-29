@@ -18,7 +18,7 @@
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url("/static/fonts/InterVariable.woff2") format("woff2");
+  src: url("../fonts/InterVariable.woff2") format("woff2");
 }
 
 @font-face {
@@ -26,7 +26,7 @@
   font-style: italic;
   font-weight: 100 900;
   font-display: swap;
-  src: url("/static/fonts/InterVariable-Italic.woff2") format("woff2");
+  src: url("../fonts/InterVariable-Italic.woff2") format("woff2");
 }
 
 @font-face {
@@ -34,7 +34,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("/static/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+  src: url("../fonts/JetBrainsMono-Regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -42,7 +42,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("/static/fonts/JetBrainsMono-Bold.woff2") format("woff2");
+  src: url("../fonts/JetBrainsMono-Bold.woff2") format("woff2");
 }
 
 /* 2. Themes ----------------------------------------------------------------
@@ -1483,6 +1483,48 @@ html:not(.js) .fc-inner {
   display: block;
   height: 100%;
   background: var(--accent);
+}
+
+/* The list of questions: what shows without JavaScript. quiz.js hides it
+   and shows one question at a time instead. */
+.js .quiz-list {
+  display: none;
+}
+
+.quiz-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-5);
+}
+
+.quiz-q {
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  background: var(--surface);
+}
+
+.quiz-options {
+  margin: var(--space-3) 0;
+  padding-left: 1.6rem;
+}
+
+.quiz-options li {
+  margin-bottom: var(--space-2);
+}
+
+.quiz-answer summary {
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.quiz-answer > :last-child {
+  margin-bottom: 0;
 }
 
 .quiz fieldset {

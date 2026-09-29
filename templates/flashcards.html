@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block title %}Flashcards: {{ topic.title }}{% endblock %}
-{% block scripts %}<script src="/static/js/flashcards.js" defer></script>{% endblock %}
+{% block scripts %}<script src="{{ base }}/static/js/flashcards.js" defer></script>{% endblock %}
 {% block main_class %}narrow fc-page{% endblock %}
 {% block main %}
 <nav class="crumbs" aria-label="Breadcrumb">
   <ol>
-    <li><a href="/">All topics</a></li>
-    <li><a href="/topics/{{ topic.slug }}">{{ topic.title }}</a></li>
+    <li><a href="{{ base }}/">All topics</a></li>
+    <li><a href="{{ base }}/topics/{{ topic.slug }}">{{ topic.title }}</a></li>
   </ol>
 </nav>
 <header class="page-head">
@@ -54,7 +54,7 @@
     <p class="num" data-done-summary></p>
     <div class="practice-actions">
       <button type="button" class="button primary" data-restart>Go through again</button>
-      <a class="button" href="/topics/{{ topic.slug }}/quiz">Take the quiz</a>
+      <a class="button" href="{{ base }}/topics/{{ topic.slug }}/quiz">Take the quiz</a>
     </div>
   </div>
 

@@ -1,6 +1,7 @@
 //! The revision site as a library, so `main.rs` and the tests build the same app.
 
 pub mod content;
+pub mod export;
 pub mod routes;
 pub mod spec;
 
@@ -20,11 +21,6 @@ pub fn configure(cfg: &mut web::ServiceConfig) {
             "/topics/{slug}/flashcards",
             web::get().to(routes::flashcards),
         )
-        .route("/topics/{slug}/quiz", web::get().to(routes::quiz_start))
-        .route(
-            "/topics/{slug}/quiz/answer",
-            web::post().to(routes::quiz_answer),
-        )
-        .route("/topics/{slug}/quiz/next", web::get().to(routes::quiz_next))
+        .route("/topics/{slug}/quiz", web::get().to(routes::quiz))
         .default_service(web::to(routes::not_found));
 }

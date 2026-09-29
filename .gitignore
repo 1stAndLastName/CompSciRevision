@@ -9,3 +9,4 @@
 __pycache__/
 /tools/.hf-cache
 /tools/llama.cpp
+/dist

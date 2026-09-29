@@ -1,7 +1,6 @@
 // Shared JavaScript for every page:
 // - the theme picker
 // - saving and showing progress (kept in this browser's localStorage only)
-// - moving keyboard focus after htmx swaps in the next quiz step
 //
 // Everything in localStorage starts with "h446:". Each topic's progress is one
 // JSON value under "h446:progress:<topic-slug>":
@@ -135,43 +134,10 @@
     });
   }
 
-  // After the quiz summary appears, save the best score and say how it compares.
-  function handleQuizResult(root) {
-    var result = root.querySelector("[data-quiz-result]");
-    if (!result) return;
-    var score = Number(result.getAttribute("data-score"));
-    var total = Number(result.getAttribute("data-total"));
-    var saved = Progress.saveQuiz(result.getAttribute("data-quiz-result"), score, total);
-    var message = result.querySelector("[data-best]");
-    if (!message) return;
-    if (saved.isNewBest && saved.hadBest) {
-      message.textContent = "New best score for this topic.";
-    } else if (!saved.isNewBest) {
-      message.textContent = "Your best: " + saved.best.score + "/" + saved.best.total;
-    } else {
-      return;
-    }
-    message.hidden = false;
-  }
-
-  // When htmx swaps in the next quiz step, move focus to its heading so
-  // keyboard and screen reader users continue from the right place.
-  document.addEventListener("htmx:afterSwap", function (event) {
-    var target = event.detail.target;
-    var focusTarget = target.querySelector("[data-focus]");
-    if (focusTarget) {
-      focusTarget.focus({ preventScroll: true });
-      var top = target.getBoundingClientRect().top;
-      if (top < 0) target.scrollIntoView({ block: "start" });
-    }
-    handleQuizResult(target);
-  });
-
   window.Store = Store;
   window.Progress = Progress;
 
   setUpThemePicker();
   setUpResetButtons();
   document.querySelectorAll("[data-topic-progress]").forEach(showProgress);
-  handleQuizResult(document);
 })();

@@ -1168,7 +1168,6 @@ dependencies = [
  "actix-web",
  "askama",
  "pulldown-cmark",
- "rand",
  "serde",
  "serde-saphyr",
  "toml",

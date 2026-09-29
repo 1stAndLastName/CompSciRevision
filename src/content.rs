@@ -59,6 +59,13 @@ impl Library {
     }
 }
 
+impl Question {
+    /// The HTML of the correct option.
+    pub fn correct_html(&self) -> &str {
+        &self.options_html[self.answer]
+    }
+}
+
 impl Topic {
     /// The spec point this topic covers, e.g. "1.4.3" for "1.4.3" or "1.4.3(b)".
     pub fn point(&self) -> &str {

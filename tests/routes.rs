@@ -24,34 +24,23 @@ async fn get(uri: &str) -> (StatusCode, String) {
     send(test::TestRequest::get().uri(uri)).await
 }
 
-/// The first topic, and the numbers needed to answer its first question.
-fn first_topic() -> (String, usize, usize, usize) {
-    let library = content::load(Path::new("content")).unwrap();
-    let topic = &library.topics[0];
-    // Question order "0,1,2,..." so position 0 is question 0 in the file.
-    let question = &topic.quiz[0];
-    (
-        topic.slug.clone(),
-        topic.quiz.len(),
-        question.options_html.len(),
-        question.answer,
-    )
-}
-
-fn numbers(n: usize) -> String {
-    (0..n).map(|i| i.to_string()).collect::<Vec<_>>().join(",")
+/// The slug of the first topic.
+fn first_slug() -> String {
+    content::load(Path::new("content")).unwrap().topics[0]
+        .slug
+        .clone()
 }
 
 #[actix_web::test]
 async fn pages_return_200() {
-    let (slug, ..) = first_topic();
+    let slug = first_slug();
     for uri in [
         "/".to_string(),
         format!("/topics/{slug}"),
         format!("/topics/{slug}/flashcards"),
         format!("/topics/{slug}/quiz"),
         "/static/css/site.css".to_string(),
-        "/static/vendor/htmx-2.0.11.min.js".to_string(),
+        "/static/js/quiz.js".to_string(),
         "/static/manifest.webmanifest".to_string(),
         "/static/icons/icon-192.png".to_string(),
         "/static/icons/icon-512.png".to_string(),
@@ -102,71 +91,18 @@ async fn unknown_pages_return_404() {
 }
 
 #[actix_web::test]
-async fn right_and_wrong_answers_get_feedback() {
-    let (slug, total, option_count, answer) = first_topic();
-    let wrong = (answer + 1) % option_count;
-    for (choice, expected) in [(answer, "Correct"), (wrong, "Not quite")] {
-        let form = [
-            ("order", numbers(total)),
-            ("opts", numbers(option_count)),
-            ("pos", "0".to_string()),
-            ("score", "0".to_string()),
-            ("choice", choice.to_string()),
-        ];
-        let req = test::TestRequest::post()
-            .uri(&format!("/topics/{slug}/quiz/answer"))
-            .set_form(form);
-        let (status, body) = send(req).await;
+async fn quiz_page_carries_every_question_and_answer() {
+    let library = content::load(Path::new("content")).unwrap();
+    for topic in &library.topics {
+        let (status, body) = get(&format!("/topics/{}/quiz", topic.slug)).await;
         assert_eq!(status, StatusCode::OK);
-        assert!(
-            body.contains(expected),
-            "choice {choice} should say {expected}"
+        assert_eq!(
+            body.matches("class=\"quiz-q\"").count(),
+            topic.quiz.len(),
+            "{}: every question should be on the page",
+            topic.slug
         );
-    }
-}
-
-#[actix_web::test]
-async fn htmx_requests_get_a_fragment() {
-    let (slug, total, ..) = first_topic();
-    let uri = format!(
-        "/topics/{slug}/quiz/next?order={}&pos=1&score=1",
-        numbers(total)
-    );
-    let (status, full_page) = get(&uri).await;
-    assert_eq!(status, StatusCode::OK);
-    assert!(full_page.contains("<html"));
-
-    let req = test::TestRequest::get()
-        .uri(&uri)
-        .insert_header(("HX-Request", "true"));
-    let (status, fragment) = send(req).await;
-    assert_eq!(status, StatusCode::OK);
-    assert!(!fragment.contains("<html"));
-    assert!(fragment.contains("Question 2 of"));
-}
-
-#[actix_web::test]
-async fn last_step_shows_the_score() {
-    let (slug, total, ..) = first_topic();
-    let uri = format!(
-        "/topics/{slug}/quiz/next?order={}&pos={total}&score=2",
-        numbers(total)
-    );
-    let (status, body) = get(&uri).await;
-    assert_eq!(status, StatusCode::OK);
-    assert!(body.contains("Your score"));
-}
-
-#[actix_web::test]
-async fn tampered_quiz_links_return_400() {
-    let (slug, total, ..) = first_topic();
-    for query in [
-        "order=0,0,0&pos=0&score=0".to_string(),
-        format!("order={}&pos={}&score=0", numbers(total), total + 1),
-        format!("order={}&pos=1&score=5", numbers(total)),
-        "pos=0&score=0".to_string(),
-    ] {
-        let (status, _) = get(&format!("/topics/{slug}/quiz/next?{query}")).await;
-        assert_eq!(status, StatusCode::BAD_REQUEST, "{query}");
+        assert_eq!(body.matches("Show answer").count(), topic.quiz.len());
+        assert!(body.contains("static/js/quiz.js"));
     }
 }

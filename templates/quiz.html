@@ -1,18 +1,37 @@
 {% extends "base.html" %}
 {% block title %}Quiz: {{ topic.title }}{% endblock %}
 {% block main_class %}narrow{% endblock %}
+{% block scripts %}<script src="{{ base }}/static/js/quiz.js" defer></script>{% endblock %}
 {% block main %}
 <nav class="crumbs" aria-label="Breadcrumb">
   <ol>
-    <li><a href="/">All topics</a></li>
-    <li><a href="/topics/{{ topic.slug }}">{{ topic.title }}</a></li>
+    <li><a href="{{ base }}/">All topics</a></li>
+    <li><a href="{{ base }}/topics/{{ topic.slug }}">{{ topic.title }}</a></li>
   </ol>
 </nav>
 <header class="page-head">
   <h1>Quiz</h1>
   <p class="page-sub"><span class="num">{{ topic.spec }}</span> {{ topic.title }}</p>
 </header>
-<div id="quiz" class="quiz">
-  {{ step_html|safe }}
+<div class="quiz" data-quiz="{{ topic.slug }}" data-topic-url="{{ base }}/topics/{{ topic.slug }}">
+  {# quiz.js builds the one-question-at-a-time quiz here from the list below. #}
+  <div id="quiz-app" class="js-only"></div>
+
+  {# Without JavaScript, every question is listed with a "Show answer" box. #}
+  <ol class="quiz-list">
+    {% for question in topic.quiz %}
+    <li class="quiz-q" data-answer="{{ question.answer }}" data-shuffle="{{ question.shuffle }}" data-difficulty="{{ question.difficulty }}">
+      <div class="prompt">{{ question.prompt_html|safe }}</div>
+      <ol class="quiz-options" type="A">
+        {% for option in question.options_html %}<li>{{ option|safe }}</li>{% endfor %}
+      </ol>
+      <details class="quiz-answer">
+        <summary>Show answer</summary>
+        <p class="quiz-correct"><strong>Answer:</strong> {{ question.correct_html()|safe }}</p>
+        <div class="quiz-explanation">{{ question.explanation_html|safe }}</div>
+      </details>
+    </li>
+    {% endfor %}
+  </ol>
 </div>
 {% endblock %}

@@ -2,7 +2,7 @@
 {% block title %}{{ topic.title }}{% endblock %}
 {% block main %}
 <nav class="crumbs" aria-label="Breadcrumb">
-  <ol><li><a href="/">All topics</a></li></ol>
+  <ol><li><a href="{{ base }}/">All topics</a></li></ol>
 </nav>
 <header class="topic-head">
   <p class="spec-display num"><span class="visually-hidden">Specification point </span>{{ topic.spec }}</p>
@@ -14,10 +14,10 @@
   <aside class="practice" aria-labelledby="practice-heading">
     <h2 id="practice-heading" class="visually-hidden">Practise this topic</h2>
     <div class="practice-actions">
-      <a class="button primary" href="/topics/{{ topic.slug }}/flashcards">
+      <a class="button primary" href="{{ base }}/topics/{{ topic.slug }}/flashcards">
         Flashcards <span class="button-note num">{{ topic.flashcards.len() }} cards</span>
       </a>
-      <a class="button" href="/topics/{{ topic.slug }}/quiz">
+      <a class="button" href="{{ base }}/topics/{{ topic.slug }}/quiz">
         Quiz <span class="button-note num">{{ topic.quiz.len() }} questions</span>
       </a>
     </div>
@@ -35,8 +35,8 @@
     <div class="notes-end">
       <p>Ready to test yourself?</p>
       <div class="practice-actions">
-        <a class="button primary" href="/topics/{{ topic.slug }}/flashcards">Flashcards</a>
-        <a class="button" href="/topics/{{ topic.slug }}/quiz">Quiz</a>
+        <a class="button primary" href="{{ base }}/topics/{{ topic.slug }}/flashcards">Flashcards</a>
+        <a class="button" href="{{ base }}/topics/{{ topic.slug }}/quiz">Quiz</a>
       </div>
     </div>
   </article>

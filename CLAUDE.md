@@ -6,13 +6,14 @@ Exam board: OCR A Level Computer Science (H446). Every piece of content maps to 
 The maintainer is a CS teacher who is new to Rust and to AI agents. Explain Rust-specific choices in a sentence or two and prefer simple, readable code over clever code.
 
 ## Stack
-- Backend: Rust + actix-web, pages rendered on the server with Askama templates
-- Interactivity: htmx plus small amounts of vanilla JS. No SPA framework and no Node build step
-- Styling: one hand-written CSS file (`static/css/site.css`), mobile first. Every colour is a CSS custom property, with one block per theme: Dark (default), OLED black and Light. Calm emerald/mint accent, not neon. Theme is picked in the header, saved in localStorage and applied by an inline script in `<head>` before paint. Fonts are self-hosted in `static/fonts`: Inter (variable, with `cv05`/`cv08` so I, l and 1 differ) for text, and JetBrains Mono for code, pseudocode, binary, hex and Boolean expressions. Tabular numbers for scores and progress. htmx is served from `static/vendor`. No CDNs or Google Fonts, because school networks block them. Quiz feedback never relies on colour alone: it shows a tick or cross plus "Correct" or "Not quite". Animations respect `prefers-reduced-motion`.
+- Backend: Rust + actix-web, pages rendered with Askama templates. The live site is a static export of the same pages, published to GitHub Pages (https://1standlastname.github.io/CompSciRevision/) by `.github/workflows/pages.yml` on every push to main. Every page must therefore work as a plain file: no server-side logic beyond rendering, and every link in a template starts with `{{ base }}` ("" locally, "/CompSciRevision" on Pages); files in `static/` refer to each other with relative paths.
+- Interactivity: small amounts of vanilla JS (`static/js/`): theme and progress (`site.js`), flashcards (`flashcards.js`) and the quiz (`quiz.js`, which marks answers in the browser from the questions on the page). No SPA framework and no Node build step
+- Styling: one hand-written CSS file (`static/css/site.css`), mobile first. Every colour is a CSS custom property, with one block per theme: Dark (default), OLED black and Light. Calm emerald/mint accent, not neon. Theme is picked in the header, saved in localStorage and applied by an inline script in `<head>` before paint. Fonts are self-hosted in `static/fonts`: Inter (variable, with `cv05`/`cv08` so I, l and 1 differ) for text, and JetBrains Mono for code, pseudocode, binary, hex and Boolean expressions. Tabular numbers for scores and progress. No CDNs or Google Fonts, because school networks block them. Quiz feedback never relies on colour alone: it shows a tick or cross plus "Correct" or "Not quite". Animations respect `prefers-reduced-motion`.
 - Content: files in `content/` (Markdown + TOML), loaded at startup
 - Student progress: kept in the browser (localStorage) for v1. No student accounts and no personal data stored on the server
 
 ## Commands
+- Export the static site: `cargo run --bin export -- --base /CompSciRevision --out dist` (the Pages workflow does this; `dist/` is gitignored)
 - Run: `cargo run`, then open http://localhost:8080. Debug builds listen on 0.0.0.0 so a phone on the same Wi-Fi can open the address printed at startup; release builds listen only on 127.0.0.1
 - Test: `cargo test`
 - Lint: `cargo clippy -- -D warnings`

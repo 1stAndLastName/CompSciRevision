@@ -13,7 +13,7 @@ The maintainer is a CS teacher who is new to Rust and to AI agents. Explain Rust
 - Student progress: kept in the browser (localStorage) for v1. No student accounts and no personal data stored on the server
 
 ## Commands
-- Run: `cargo run`, then open http://localhost:8080
+- Run: `cargo run`, then open http://localhost:8080. Debug builds listen on 0.0.0.0 so a phone on the same Wi-Fi can open the address printed at startup; release builds listen only on 127.0.0.1
 - Test: `cargo test`
 - Lint: `cargo clippy -- -D warnings`
 - Format: `cargo fmt`
@@ -35,6 +35,7 @@ The maintainer is a CS teacher who is new to Rust and to AI agents. Explain Rust
 
 ## Rules
 - Pages must work well on a phone (390px wide) and a desktop.
+- Phones: every tap target is at least 44x44px (links in running text excepted), full-height layouts use `dvh` with a `vh` fallback, and swipe gestures sit alongside buttons, never replacing them. The site has a web app manifest and icons in `static/` for Add to Home Screen.
 - Accessibility: semantic HTML, labelled form controls, visible focus, WCAG AA contrast.
 - After a UI change, open the page with the Playwright MCP server at phone and desktop widths and check it visually.
 - A task is only done when `cargo fmt`, `cargo clippy -- -D warnings` and `cargo test` all pass.

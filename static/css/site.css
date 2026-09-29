@@ -159,6 +159,8 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  /* The flash a phone shows on whatever you tap: a faint mint, not blue. */
+  -webkit-tap-highlight-color: color-mix(in srgb, var(--accent) 18%, transparent);
 }
 
 body {
@@ -171,7 +173,11 @@ body {
   /* Inter: l with a tail (cv05) and I with serifs (cv08), so I, l and 1 differ. */
   font-feature-settings: "cv05" 1, "cv08" 1;
   -webkit-font-smoothing: antialiased;
+  /* dvh ("dynamic viewport height") is the height actually visible, which
+     changes as a phone's address bar shows and hides. vh is the fallback for
+     older browsers, which ignore the dvh line. */
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
 }
@@ -338,6 +344,7 @@ main.narrow {
 .brand {
   display: inline-flex;
   align-items: center;
+  min-height: 2.75rem;
   gap: var(--space-2);
   color: var(--text);
   font-weight: 700;
@@ -371,11 +378,22 @@ main.narrow {
 .crumbs ol {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
+  column-gap: var(--space-2);
   list-style: none;
-  margin: 0 0 var(--space-5);
+  margin: calc(-1 * var(--space-3)) 0 var(--space-3);
   padding: 0;
   font-size: var(--step--1);
+}
+
+.crumbs a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+}
+
+.crumbs li {
+  display: flex;
+  align-items: center;
 }
 
 .crumbs li + li::before {
@@ -446,7 +464,7 @@ main.narrow {
 }
 
 .button.small {
-  min-height: 2.5rem;
+  min-height: 2.75rem;
   padding: 0.4rem 0.8rem;
   font-size: var(--step--1);
 }
@@ -555,8 +573,10 @@ main.narrow {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.3rem 0.6rem;
-  min-height: 2rem;
+  justify-content: center;
+  padding: 0.3rem 0.7rem;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
   border-radius: 999px;
   color: var(--muted);
   font-size: var(--step--1);
@@ -612,7 +632,7 @@ main.narrow {
   }
 
   .theme-picker label {
-    padding-inline: 0.55rem;
+    padding-inline: 0;
   }
 }
 
@@ -622,7 +642,7 @@ main.narrow {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  min-height: 2.5rem;
+  min-height: 2.75rem;
   font-size: var(--step--1);
   font-weight: 550;
   cursor: pointer;
@@ -687,6 +707,71 @@ main.narrow {
   font-size: var(--step-1);
   line-height: 1.45;
   margin: 0;
+}
+
+.install-note {
+  max-width: 44rem;
+  margin: calc(-1 * var(--space-5)) 0 var(--space-7);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  background: var(--surface);
+}
+
+.install-note summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  padding: var(--space-2) var(--space-4);
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.install-note summary::-webkit-details-marker {
+  display: none;
+}
+
+/* A chevron that turns when the note opens. */
+.install-note summary::before {
+  content: "";
+  flex: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 0.15s;
+}
+
+.install-note[open] summary::before {
+  transform: rotate(45deg);
+}
+
+.install-steps {
+  padding: 0 var(--space-4) var(--space-2);
+  font-size: var(--step--1);
+}
+
+.install-steps p {
+  margin-bottom: var(--space-2);
+}
+
+.install-steps ol {
+  margin: 0 0 var(--space-3);
+  padding-left: 1.3rem;
+}
+
+.install-aside {
+  color: var(--muted);
+}
+
+/* Not shown on computers with a mouse, or once the site is opened from the
+   home screen icon (it is then running "standalone"). */
+@media (hover: hover) and (pointer: fine), (display-mode: standalone) {
+  .install-note {
+    display: none;
+  }
 }
 
 .component {
@@ -1136,6 +1221,9 @@ html:not(.js) .fc-inner {
 /* With JavaScript one card shows at a time and flips over. */
 .js .fc-card {
   display: none;
+  /* Let the browser handle vertical scrolling, and give horizontal swipes
+     to flashcards.js. */
+  touch-action: pan-y;
   perspective: 1400px;
   cursor: pointer;
 }
@@ -1160,6 +1248,12 @@ html:not(.js) .fc-inner {
   -webkit-backface-visibility: hidden;
 }
 
+.js .fc-front {
+  /* Safari only hides the back of a flipped face if the face has a
+     transform of its own, even one that does nothing. */
+  transform: rotateY(0deg);
+}
+
 .js .fc-back {
   transform: rotateY(180deg);
   border-color: var(--accent);
@@ -1169,7 +1263,24 @@ html:not(.js) .fc-inner {
   transform: rotateY(180deg);
 }
 
+/* Belt and braces for browsers that ignore backface-visibility: the hidden
+   face is also made invisible, switching exactly halfway through the 0.5s
+   turn, when the card is edge-on. With reduced motion the switch is instant. */
+.js .fc-face {
+  transition: visibility 0s linear 0.25s;
+}
+
+.js .fc-back,
+.js .fc-card.is-flipped .fc-front {
+  visibility: hidden;
+}
+
+.js .fc-card.is-flipped .fc-back {
+  visibility: visible;
+}
+
 .fc-done {
+  touch-action: pan-y;
   padding: var(--space-6) var(--space-5);
   border: 1px dashed var(--border-strong);
   border-radius: var(--radius-l);
@@ -1248,9 +1359,85 @@ html:not(.js) .fc-inner {
   }
 }
 
-@media (hover: none) {
+/* Keyboard hint on computers, swipe hint on touch screens. */
+.fc-hint-touch {
+  display: none;
+}
+
+@media (hover: none) and (pointer: coarse) {
   .fc-hint {
     display: none;
+  }
+
+  .fc-hint.fc-hint-touch {
+    display: block;
+  }
+
+  /* A long press to swipe should not start selecting text. */
+  .js .fc-card {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+}
+
+/* On phones the flashcards page fills exactly the visible height (100dvh via
+   body): the card stretches to fill the space, so the Got it / Again buttons
+   sit just above the bottom of the screen instead of under the address bar.
+   On a short screen the card keeps its minimum height and the page scrolls. */
+@media (max-width: 47.99rem) {
+  .fc-page {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: var(--space-4);
+  }
+
+  .fc-page .page-head {
+    margin-bottom: var(--space-3);
+  }
+
+  /* Give the card the room: the breadcrumb already names the topic, and the
+     footer note is on every other page. */
+  .js .fc-page .page-sub {
+    display: none;
+  }
+
+  .js body:has(.fc-page) .site-footer {
+    display: none;
+  }
+
+  .js .fc-page .flashcards {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .js .fc-page .fc-deck {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .js .fc-page .fc-card.is-current {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .js .fc-page .fc-inner {
+    flex: 1;
+  }
+
+  .js .fc-page .fc-face {
+    min-height: 12rem;
+  }
+
+  .js .fc-page .fc-cells {
+    margin-bottom: var(--space-3);
+  }
+
+  .js .fc-page .fc-controls {
+    margin-top: var(--space-3);
   }
 }
 
@@ -1352,13 +1539,14 @@ html:not(.js) .fc-inner {
 
 .options {
   display: grid;
-  gap: var(--space-3);
+  gap: 0.875rem;
   margin: var(--space-5) 0;
 }
 
 .option {
   display: flex;
   align-items: flex-start;
+  min-height: 3.25rem;
   gap: var(--space-3);
   padding: 0.85rem var(--space-4);
   border: 1px solid var(--border-strong);
@@ -1611,6 +1799,7 @@ html:not(.js) .fc-inner {
   *::before,
   *::after {
     transition-duration: 0s !important;
+    transition-delay: 0s !important;
     animation-duration: 0s !important;
     scroll-behavior: auto !important;
   }

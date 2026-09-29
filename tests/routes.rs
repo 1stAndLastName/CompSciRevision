@@ -52,6 +52,11 @@ async fn pages_return_200() {
         format!("/topics/{slug}/quiz"),
         "/static/css/site.css".to_string(),
         "/static/vendor/htmx-2.0.11.min.js".to_string(),
+        "/static/manifest.webmanifest".to_string(),
+        "/static/icons/icon-192.png".to_string(),
+        "/static/icons/icon-512.png".to_string(),
+        "/static/icons/icon-maskable-512.png".to_string(),
+        "/static/icons/apple-touch-icon.png".to_string(),
     ] {
         let (status, _) = get(&uri).await;
         assert_eq!(status, StatusCode::OK, "{uri}");

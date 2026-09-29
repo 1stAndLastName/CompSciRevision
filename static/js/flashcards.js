@@ -245,12 +245,54 @@
     goTo(stillThere >= 0 ? stillThere : 0);
   });
 
+  // Set while a finger is on the card (see the swipe code below).
+  var swipeStart = null;
+  var justSwiped = false;
+
   // Clicking or tapping the card itself flips it (unless text is being selected).
   deck.addEventListener("click", function (event) {
+    if (justSwiped) return;
     var card = event.target.closest(".fc-card");
     if (!card || card !== currentCard()) return;
     if (window.getSelection && String(window.getSelection()).length > 0) return;
     flip();
+  });
+
+  // Swipes on a touch screen: left for the next card, right for the previous
+  // one. A swipe must be mostly sideways and at least 50px long, so a slightly
+  // wobbly tap still flips the card. The CSS (touch-action: pan-y) leaves
+  // up-and-down movement to the browser, so the page still scrolls. Mouse
+  // drags are ignored, so on a computer you can still select text.
+  function onPointerDown(event) {
+    if (event.pointerType === "mouse") return;
+    swipeStart = { x: event.clientX, y: event.clientY };
+  }
+
+  function onPointerUp(event) {
+    if (!swipeStart) return;
+    var dx = event.clientX - swipeStart.x;
+    var dy = event.clientY - swipeStart.y;
+    swipeStart = null;
+    if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+    // Stop the tap that ends a swipe from also flipping the new card.
+    justSwiped = true;
+    setTimeout(function () {
+      justSwiped = false;
+    }, 400);
+    if (dx < 0) {
+      if (currentCard()) next();
+    } else {
+      goTo(index - 1);
+    }
+  }
+
+  // The "End of the deck" box takes swipes too, so a right swipe goes back.
+  [deck, doneBox].forEach(function (area) {
+    area.addEventListener("pointerdown", onPointerDown);
+    area.addEventListener("pointerup", onPointerUp);
+    area.addEventListener("pointercancel", function () {
+      swipeStart = null;
+    });
   });
 
   // Keys: Space flips, left and right arrows move. They are ignored while

@@ -5,17 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}{% endblock %} | H446 Revision</title>
   <meta name="description" content="Revision notes, flashcards and quizzes for OCR A Level Computer Science (H446).">
+  {# The phone's browser bar takes this colour. The script below changes it to match the saved theme. #}
+  <meta name="theme-color" content="#121c18">
   {# Runs before the page is drawn, so the saved theme shows with no flash of the default one. #}
   <script>
     document.documentElement.classList.add("js");
     try {
       var theme = localStorage.getItem("h446:theme");
-      if (theme === "oled" || theme === "light") document.documentElement.dataset.theme = theme;
+      if (theme === "oled" || theme === "light") {
+        document.documentElement.dataset.theme = theme;
+        document.querySelector('meta[name="theme-color"]').content = theme === "oled" ? "#000000" : "#ffffff";
+      }
     } catch (e) {}
   </script>
   <link rel="preload" href="/static/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/static/css/site.css">
   <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  {# "Add to Home Screen": the manifest describes the app; iPhones use the apple-touch-icon. #}
+  <link rel="manifest" href="/static/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/static/icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="H446">
   <script src="/static/vendor/htmx-2.0.11.min.js" defer></script>
   <script src="/static/js/site.js" defer></script>
   {% block scripts %}{% endblock %}

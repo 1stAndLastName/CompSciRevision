@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Flashcards: {{ topic.title }}{% endblock %}
 {% block scripts %}<script src="/static/js/flashcards.js" defer></script>{% endblock %}
-{% block main_class %}narrow{% endblock %}
+{% block main_class %}narrow fc-page{% endblock %}
 {% block main %}
 <nav class="crumbs" aria-label="Breadcrumb">
   <ol>
@@ -83,6 +83,7 @@
       </button>
     </div>
     <p class="fc-hint">Keys: <kbd>Space</kbd> flips, <kbd>←</kbd> <kbd>→</kbd> move between cards.</p>
+    <p class="fc-hint fc-hint-touch">Tap the card to flip it. Swipe to change card.</p>
   </div>
 </div>
 {% endblock %}

@@ -110,6 +110,10 @@
       input.addEventListener("change", function () {
         document.documentElement.setAttribute("data-theme", input.value);
         Store.write("theme", input.value);
+        // Match the phone's browser bar to the header colour of the new theme.
+        var barColour = { dark: "#121c18", oled: "#000000", light: "#ffffff" }[input.value];
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta && barColour) meta.content = barColour;
       });
     });
   }

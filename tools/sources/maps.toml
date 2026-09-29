@@ -1,0 +1,144 @@
+# Hand-checked maps used by tools/convert-sources to split long sources into
+# sections and link them to spec points. Keyed by the source `id` in
+# sources/manifest.toml. Page numbers are PDF page numbers (1 = first page of
+# the file). A source with no map here is split by its headings instead.
+
+# --- The specification: split by its own contents page -----------------------
+
+[[spec_sections]]
+source = "ocr-h446-spec"
+slug = "why-choose-ocr"
+title = "1 Why choose an OCR A Level in Computer Science?"
+pages = [7, 9]
+spec = []
+
+[[spec_sections]]
+source = "ocr-h446-spec"
+slug = "specification-overview"
+title = "2a-2b Specification overview and content"
+pages = [10, 11]
+spec = []
+
+[[spec_sections]]
+source = "ocr-h446-spec"
+slug = "content-component-01-computer-systems"
+title = "2c Content of Computer systems (Component 01)"
+pages = [12, 16]
+spec = ["1.1.1", "1.1.2", "1.1.3", "1.2.1", "1.2.2", "1.2.3", "1.2.4", "1.3.1", "1.3.2", "1.3.3", "1.3.4", "1.4.1", "1.4.2", "1.4.3", "1.5.1", "1.5.2"]
+
+[[spec_sections]]
+source = "ocr-h446-spec"
+slug = "content-component-02-algorithms-and-programming"
+title = "2c Content of Algorithms and programming (Component 02)"
+pages = [17, 18]
+spec = ["2.1.1", "2.1.2", "2.1.3", "2.1.4", "2.1.5", "2.2.1", "2.2.2", "2.3.1"]
+
+[[spec_sections]]
+source = "ocr-h446-spec"
+slug = "content-programming-project"
+title = "2c-2d Programming project (Component 03/04) and prior learning"
+pages = [19, 21]
+spec = []
+
+[[spec_sections]]
+source = "ocr-h446-spec"
+slug = "assessment"
+title = "3 Assessment, including assessment objectives (AO1-AO3)"
+pages = [22, 32]
+spec = []
+
+[[spec_sections]]
+source = "ocr-h446-spec"
+slug = "admin"
+title = "4 Admin: what you need to know"
+pages = [33, 37]
+spec = []
+
+[[spec_sections]]
+source = "ocr-h446-spec"
+slug = "appendix-5d-languages-and-boolean-logic"
+title = "5a-5d Appendices: pseudocode, LMC, HTML/CSS/JavaScript, SQL and Boolean logic guide"
+pages = [38, 49]
+spec = ["1.2.4", "1.3.2", "1.3.4", "1.4.3", "2.2.1"]
+
+[[spec_sections]]
+source = "ocr-h446-spec"
+slug = "appendix-5e-5f-and-updates"
+title = "5e-5f Appendices: programming languages, entity relationship diagrams, updates"
+pages = [50, 52]
+spec = ["1.3.2"]
+
+# --- The textbook: chapters from its contents page ---------------------------
+# Each entry: [chapter, title, spec points, first book page (from the contents page)].
+# Lettered sub-points are worked out from the chapter's headings when the index is built.
+# Book page numbers come from the contents page, not from OCR of the page footers.
+
+[[chapters]]
+source = "heathcote-textbook"
+index_book_page = 364
+list = [
+  [1, "Processor components", ["1.1.1"], 2],
+  [2, "Processor performance", ["1.1.1"], 7],
+  [3, "Types of processor", ["1.1.1", "1.1.2"], 10],
+  [4, "Input devices", ["1.1.3"], 16],
+  [5, "Output devices", ["1.1.3"], 20],
+  [6, "Storage devices", ["1.1.3"], 25],
+  [7, "Functions of an operating system", ["1.2.1"], 30],
+  [8, "Types of operating system", ["1.2.1"], 36],
+  [9, "The nature of applications", ["1.2.2"], 39],
+  [10, "Programming language translators", ["1.2.2"], 44],
+  [11, "Systems analysis methods", ["1.2.3"], 52],
+  [12, "Writing and following algorithms", ["1.2.3"], 57],
+  [13, "Programming paradigms", ["1.2.4"], 64],
+  [14, "Assembly language", ["1.2.4"], 69],
+  [15, "Compression, encryption and hashing", ["1.3.1"], 76],
+  [16, "Database concepts", ["1.3.2"], 82],
+  [17, "Relational databases and normalisation", ["1.3.2"], 88],
+  [18, "Introduction to SQL", ["1.3.2"], 95],
+  [19, "Defining and updating tables using SQL", ["1.3.2"], 101],
+  [20, "Transaction processing", ["1.3.2"], 106],
+  [21, "Structure of the Internet", ["1.3.3"], 111],
+  [22, "Internet communication", ["1.3.3"], 119],
+  [23, "Network security and threats", ["1.3.3"], 126],
+  [24, "HTML and CSS", ["1.3.4"], 130],
+  [25, "Web forms and JavaScript", ["1.3.4"], 136],
+  [26, "Search engine indexing", ["1.3.4"], 142],
+  [27, "Client-server and peer-to-peer", ["1.3.3", "1.3.4"], 147],
+  [28, "Primitive data types, binary and hexadecimal", ["1.4.1"], 155],
+  [29, "ASCII and Unicode", ["1.4.1"], 159],
+  [30, "Binary arithmetic", ["1.4.1"], 162],
+  [31, "Floating point arithmetic", ["1.4.1"], 167],
+  [32, "Bitwise manipulation and masks", ["1.4.1"], 174],
+  [33, "Arrays, tuples and records", ["1.4.2"], 179],
+  [34, "Queues", ["1.4.2", "2.3.1"], 184],
+  [35, "Lists and linked lists", ["1.4.2", "2.3.1"], 190],
+  [36, "Stacks", ["1.4.2", "2.3.1"], 200],
+  [37, "Hash tables", ["1.4.2"], 204],
+  [38, "Graphs", ["1.4.2"], 209],
+  [39, "Trees", ["1.4.2", "2.3.1"], 214],
+  [40, "Logic gates and truth tables", ["1.4.3"], 223],
+  [41, "Simplifying Boolean expressions", ["1.4.3"], 228],
+  [42, "Karnaugh maps", ["1.4.3"], 233],
+  [43, "Adders and D-type flip-flops", ["1.4.3"], 238],
+  [44, "Computing related legislation", ["1.5.1"], 243],
+  [45, "Ethical, moral and cultural issues", ["1.5.2"], 249],
+  [46, "Privacy and censorship", ["1.5.2"], 255],
+  [47, "Thinking abstractly", ["2.1.1"], 260],
+  [48, "Thinking ahead", ["2.1.2"], 265],
+  [49, "Thinking procedurally", ["2.1.3"], 268],
+  [50, "Thinking logically, thinking concurrently", ["2.1.4", "2.1.5"], 272],
+  [51, "Problem recognition", ["2.2.2"], 277],
+  [52, "Problem solving", ["2.2.2"], 282],
+  [53, "Programming basics", ["2.2.1"], 288],
+  [54, "Selection", ["2.2.1"], 294],
+  [55, "Iteration", ["2.2.1"], 299],
+  [56, "Subroutines and recursion", ["2.2.1"], 303],
+  [57, "Use of an IDE", ["2.2.1"], 313],
+  [58, "Use of object-oriented techniques", ["2.2.1", "1.2.4"], 319],
+  [59, "Analysis and design of algorithms", ["2.3.1"], 328],
+  [60, "Searching algorithms", ["2.3.1"], 334],
+  [61, "Bubble sort and insertion sort", ["2.3.1"], 340],
+  [62, "Merge sort and quick sort", ["2.3.1"], 345],
+  [63, "Graph traversal algorithms", ["2.3.1"], 351],
+  [64, "Optimisation algorithms", ["2.3.1"], 358],
+]

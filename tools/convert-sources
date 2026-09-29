@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# Convert everything in sources/ to Markdown, split it into sections and
+# rebuild sources/index.md. Only new or changed files are converted again.
+#
+#   tools/convert-sources              convert new/changed files, then split and index
+#   tools/convert-sources --no-convert just re-split and re-index
+#   tools/convert-sources --only PMT   convert only files whose path contains "PMT"
+#
+# First-time setup (about 6 GB, needs an NVIDIA GPU for OCR):
+#   pipx install uv
+#   uv venv tools/.venv --python 3.12
+#   uv pip install --python tools/.venv/bin/python "marker-pdf==1.10.2" mammoth beautifulsoup4
+#
+#   tools/convert-sources --diagrams   also describe diagrams in scanned sources with a local
+#                                      vision model (resumable). It needs, in tools/llama.cpp/:
+#     the llama.cpp release build "llama-b11239-bin-ubuntu-cuda-13.4-x64" plus its matching
+#     "cudart-..." package (from the ggml-org/llama.cpp GitHub releases), and in models/
+#     gemma-4-12B-it-Q4_0.gguf and mmproj-gemma-4-12B-it-Q8_0.gguf (ggml-org/gemma-4-12B-it-GGUF).
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+if [ ! -x tools/.venv/bin/python ]; then
+  echo "tools/.venv is missing. See the setup steps at the top of tools/convert-sources." >&2
+  exit 1
+fi
+
+# Number GPUs the same way as nvidia-smi, and use the RTX 4070 (not the GTX 1660).
+export CUDA_DEVICE_ORDER=PCI_BUS_ID
+if [ -z "${CUDA_VISIBLE_DEVICES:-}" ] && command -v nvidia-smi >/dev/null; then
+  gpu=$(nvidia-smi --query-gpu=index,name --format=csv,noheader | awk -F', ' '/4070/ {print $1; exit}')
+  export CUDA_VISIBLE_DEVICES="${gpu:-0}"
+fi
+
+exec tools/.venv/bin/python tools/sources/convert.py "$@"

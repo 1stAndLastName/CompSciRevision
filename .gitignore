@@ -5,3 +5,7 @@
 .env.*
 .claude/settings.local.json
 .playwright-mcp/
+/tools/.venv
+__pycache__/
+/tools/.hf-cache
+/tools/llama.cpp

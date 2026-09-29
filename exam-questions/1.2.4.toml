@@ -1,0 +1,2167 @@
+# OCR exam questions for 1.2.4 Types of Programming Language.
+# Copied as text from the question paper and mark scheme PDFs in sources/
+# by tools/extract-exam-questions. Diagrams are not copied. Corrections by
+# hand are fine: the tool will not overwrite this file without --force.
+spec = "1.2.4"
+
+[[question]]
+number = 1
+marks = 5
+
+[[question.part]]
+label = "1"
+marks = 5
+text = '''
+OCR DogCare look after dogs while their owners are at work. They use a program developed in an object- oriented paradigm to store details about each dog.
+
+Each dog is declared by using an instance of the class `Dog`. This has these private attributes:
+
+```
+• name
+• breed
+• height
+• weight
+```
+
+The constructor method sets all the attributes to the values passed in as parameters.
+
+Write pseudocode or program code to define the class `Dog`. You should include the attributes and constructor method.
+
+You **do not** need to write the set or get methods.
+'''
+
+[[question.mark_scheme]]
+label = "1"
+marks = 5
+answer = '''
+1 mark per bullet to max 5:
+
+- Suitable logic for class dog declaration
+- Suitable logic to define the 4 (private) attributes: `name,`
+
+```
+breed, height, weight
+```
+
+- Suitable logic to declare a public method for constructor (e.g. new or class name)...
+- ....taking only 4 different parameters in any order.
+- Suitable logic to set the values of each attribute
+
+MP4 - if it is obvious the candidate has used Pythonic syntax: allow the additional 5th parameter representing the object e.g. `self, turtle` but this must be the **first** parameter listed.
+
+MP2 - If they have done the above BP2 can be considered implicitly met (Python doesn’t require attributes to be declared outside the constructor)
+'''
+guidance = '''
+Mark in a vertical line against each MP.
+
+Ignore data types in attribute names
+
+Allow colon/empty brackets at the end of class def
+
+**Example Solutions**\
+Pseudocode style
+
+```
+class Dog
+private name
+private breed
+private height
+private weight
+public procedure new
+(nameIn,
+breedIn, heightIn, weightIn)
+name = nameIn
+breed = breedIn
+height = heightIn
+weight = weightIn
+endclass
+```
+
+Java / C# Style\
+Class Dog
+
+```
+{
+private String name
+private String breed
+private float height
+private float weight
+
+public void Dog(String name,
+String
+breed, float height, float
+weight)
+{
+this.name = name
+this.breed = breed
+this.height = height
+this.weight = weight
+}
+}
+```
+
+Python Style
+
+```
+class Dog:
+```
+
+```
+def __init__(self, name,
+breed, height, weight):
+self.name = name
+self.breed = breed
+self.height = height
+self.weight = weight
+```
+
+**Examiner’s Comments**
+
+There were a range of responses to this question with the most common responses being written in\
+pseudocode or python. There was a clear division between candidates who were comfortable writing Object Oriented Programming (OOP) code and class constructors and those that were not.
+
+Less successful candidates with little OOP experience often confused the class declaration with the constructor declaration. A few input the values rather than setting the attributes to the values passed in the parameters.
+'''
+
+[[question]]
+number = 2
+marks = 9
+
+[[question.part]]
+label = "2"
+marks = 9
+text = '''
+An embedded system is often a small device that is designed to carry out a limited number of specialised tasks. Professional athletes sometimes wear small embedded systems called fitness trackers in their shirts. These can be used to track their speed, position, heart rate and other performance data during an event. The tracker transmits this data to a pitch-side server which collates the data from all the athletes.
+
+The fitness trackers will send athletes' performance data to a pitch-side server. A program needs to be developed to analyse this data and display the results.
+
+Different words, colours and charts will be displayed to indicate how well athletes are performing.
+
+The program will be used by athletes from different cultures all over the world.
+
+Discuss the layout considerations that the programmer needs to consider when creating the program user interface for different cultures.
+
+You should include the following in your answer:
+
+- layout considerations
+- colour considerations
+- character set considerations.
+'''
+
+[[question.mark_scheme]]
+label = "2"
+marks = 9
+answer = '''
+**Mark Band 3-High Level (7-9 marks)** The candidate demonstrates a thorough knowledge and\
+understanding of each of the cultural issues. The material is generally accurate and detailed.
+
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+A mark band 3 answer will cover all three points relating to layout, colour and character sets and the cultural impacts of these on the design of the program. The examples will be relevant to the pitch-side program and the needs of the athletes and will go on to evaluate why it is important to
+
+ensure these considerations are made.
+
+**Mark Band 2-Mid Level (4-6 marks)** The candidate demonstrates reasonable knowledge and\
+understanding of most cultural issues; the material is generally accurate but at times underdeveloped.
+
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+A mark band 2 answer will cover at least two of layout, colour and character sets and will expand the points, relating these to cultural considerations, the pitch-side program and/or the needs of the athletes although these may not be balanced.
+
+**Mark Band 1-Low Level (1-3 marks)** The candidate demonstrates a basic knowledge of some cultural issues; the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided.
+
+The candidate provides nothing more than an unsupported assertion.
+
+The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+A mark band 1 answer will contain some basic, relevant points related to layout, colour and/or character sets. It may not be linked to cultural considerations or the context of the pitch-side program or athlete’s needs.
+
+**0 mark**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+Points may include but **aren’t limited** **to**:
+
+**AO1 Knowledge and**\
+**Understanding**Accessibility, colour blindness etc are not relevant to context.
+
+Cultural issues are about how different groups of people with particular beliefs, practices or languages may be affected by something.
+
+The layout is an important factor to consider. This will determine where items will be placed on the screen. Where items are placed on the screen can massively impact how easily people can use them. The layout which is suitable for one country may not be suitable for another.
+
+Colour should be carefully considered. Humans have their own personal perception of different colours and will use this to determine what it means.
+
+Colour can be used to confirm messages to the audience, e.g. if our interactions with the software has been successful or not. However, colours can mean different things in different cultures.
+
+A character set is a list of characters that can be recognised by the hardware and software. There are various different character sets such as ASCII and UNICODE.
+
+**AO2 Application**\
+Western audiences will often read from left to right and top to bottom. However, other countries around the world read from right to left. Athletes are from around the world and this needs to be considered.
+
+Traditionally, green often indicates that something is positive or that an interaction with the computer has been successful. Red often indicates something negative or that an interaction with the computer has not been successful. However, these colours may have different meanings and could be seen as offensive in different cultures. Designers therefore need to ensure they don’t offend any particular culture as the app is for international athletes.
+
+There are many different character sets. The ASCII character set can only represent 128/256 characters which would be suitable for English and European languages. However, this would not be a suitable character set for other world-wide languages and if used, it would mean that characters could not be displayed which would affect the athletes’ use of the app.
+
+**AO3 Evaluation**\
+As the software is being used by different cultures, it is important that the user interface can be used and understood by all audiences otherwise people may choose not to use the fitness trackers e.g. using icons rather
+
+than words could be more universally understood by the athletes.
+
+The programmer needs to consider the typical layout, colours and characters used in different cultures and ensure these are taken into consideration to ensure that groups of people are not offended and will still understand the words, data and charts.
+
+Designers could release different versions of the software for different parts of the world or make sure the program has the ability for settings to be changed to overcome any potential issues and allow the athletes to customise their experience.
+
+**Examiner’s Comments**
+
+There were a good range of Level 2 responses with good discussions for at least two of the bullet points and related to different cultures. Some candidates were unable to apply their knowledge to different cultures and instead discussed accessibility concerns. The candidates with Level 3 responses gave good discussions of all three bullet points and related it to different cultures and the athletes. They were also able to discuss how the programmer could go about this.
+
+*[Image in the original mark scheme, not shown here.]*
+
+**Assessment for learning**
+
+Candidates should be aware that in level of response questions application of knowledge to the scenario is needed to get into the Level 2 and Level 3 mark bands.
+'''
+
+[[question]]
+number = 3
+marks = 12
+
+[[question.part]]
+label = "3(a)"
+text = '''
+The Fibonacci sequence is a series of numbers. It starts with the number 0 and then 1. Each number after that is a sum of the two numbers before it.
+
+The first seven numbers in the series are:\
+0\
+1\
+1 (i.e. 1 + 0)\
+2 (i.e. 1 + 1)\
+3 (i.e. 1 + 2)\
+5 (i.e. 2 + 3)\
+8 (i.e. 3 + 5)
+
+Orla has written some code to show the first five numbers in the Fibonacci sequence (0,1,1,2,3) using the Little Man Computer (LMC) instruction set.
+
+The LMC code that Orla has written contains an error.
+
+```
+START         LDA         MAX
+  BRZ         END
+  LDA         A
+  OUT
+  ADD         B
+  STA         B
+  LDA         B
+  STA         A
+  LDA         MAX
+  SUB         ONE
+  STA         MAX
+  BRA         START
+END           HLT
+A             DAT         0
+B             DAT         1
+MAX           DAT         5
+ ONE           DAT         1
+```
+'''
+
+[[question.part]]
+label = "3(a)(i)"
+marks = 3
+text = '''
+State the **five** outputs that Orla's code would give.
+
+Output 1
+
+Output 2
+
+Output 3
+
+Output 4
+
+Output 5
+'''
+
+[[question.part]]
+label = "3(a)(ii)"
+marks = 4
+text = '''
+Orla has rewritten her LMC code to fix the error and added an additional `DAT`.
+
+Complete the LMC code to output the first five correct numbers in the Fibonacci sequence (0,1,1,2,3).
+
+```
+START               LDA              MAX
+  BRZ              END
+  LDA              A
+  OUT
+    ……
+  STA              TEMP
+  ……
+  ADD              B
+  STA              B
+   ……
+```
+
+```
+  STA              A
+  LDA              MAX
+  SUB              ONE
+  STA              MAX
+  BRA              START
+END                 HLT
+A                   DAT              0
+B                   DAT              1
+…… DAT              0
+MAX                 DAT              5
+ ONE                 DAT              1
+```
+'''
+
+[[question.part]]
+label = "3(b)"
+marks = 3
+text = '''
+In Orla's LMC code, she used direct memory addressing.
+
+Give **three** other modes of memory addressing.
+
+1
+
+2
+
+3
+'''
+
+[[question.part]]
+label = "3(c)"
+marks = 2
+text = '''
+Since the development of high level languages, the use of assembly languages has reduced.
+
+Give **two** reasons why in some circumstances programmers will choose to write code in assembly language.
+
+1
+
+2
+'''
+
+[[question.mark_scheme]]
+label = "3(a)(i)"
+marks = 3
+answer = '''
+1 mark per bullet to max 3:
+
+- 0
+- 1, 2, 4
+
+- 8 with no numbers after it
+'''
+guidance = '''
+CAO
+
+**Examiner’s Comments**
+
+Most candidates were able to gain at
+
+least one mark for the first output on this question with many gaining full marks. A small minority of candidates simply copied the outputs given in the question stem.
+'''
+
+[[question.mark_scheme]]
+label = "3(a)(ii)"
+marks = 4
+answer = '''
+1 mark for each correct line.
+
+```
+START      LDA      MAX
+  BRZ      END
+  LDA      A
+  OUT
+```
+
+**LDA B**
+
+```
+STA      TEMP
+```
+
+**LDA A**
+
+```
+ADD      B
+STA      B
+```
+
+**LDA TEMP**
+
+```
+  STA      A
+  LDA      MAX
+  SUB      ONE
+  STA      MAX
+  BRA      START
+END        HLT
+A          DAT      0
+B          DAT      1
+```
+
+**TEMP** `DAT 0`
+
+```
+MAX        DAT      5
+  ONE        DAT      1
+```
+'''
+guidance = '''
+CAO
+
+Case for mnemonics can be ignored.
+
+Case for A, B, TEMP must be all caps. Penalise first error and allow FT.
+
+**Examiner’s Comments**
+
+Most candidates were able to get the mark for the final answer gap and there was a good range of marks across the cohort.
+'''
+
+[[question.mark_scheme]]
+label = "3(b)"
+marks = 3
+answer = '''
+1 mark per bullet to max 3:
+
+- Immediate
+- Indirect
+- Indexed
+'''
+guidance = '''
+DNA direct
+
+BOD ‘index’ for MP3
+
+**Examiner’s Comments**
+
+Most candidates were able to give indirect as a mode of memory addressing and there were many candidates who gained full marks on this question. A small number of candidates gave responses like by reference or value, and some gave direct which was mentioned in the question stem.
+'''
+
+[[question.mark_scheme]]
+label = "3(c)"
+marks = 2
+answer = '''
+1 mark per bullet to max 2:
+
+- **Quicker/more efficient** to translate
+
+- Makes more efficient use of the CPU / memory / system resources / where a system may have limited resources
+- The programmer wants direct control over hardware/memory / to access machine specific functionality
+- Code might be written for a specific architecture
+- Compilers/interpreters may not be available
+'''
+guidance = '''
+MP1 must be a comparison e.g. faster/quicker not just fast/quick
+
+**Examiner’s Comments**
+
+More successful candidates were able to give two valid reasons. Less successful candidates tended to give responses like it is easier to read or easier for the computer to understand. Some candidates were confused between an assembler and\
+compilers/interpreters. The most common correct responses were the programmer wanting direct control over the hardware and it needing to be written for specific hardware.
+'''
+
+[[question]]
+number = 4
+marks = 13
+
+[[question.part]]
+label = "4(a)"
+text = '''
+A treasure game is being programmed using an object-oriented paradigm.
+
+A class, `Treasure`, is used to store the treasure objects.
+
+The design for the `Treasure` class, its attributes and methods is shown here.
+
+```
+class: Treasure
+```
+
+```
+attributes:
+private value : integer
+private level : string
+```
+
+```
+methods:
+new()
+function getValue()
+function getLevel()
+```
+'''
+
+[[question.part]]
+label = "4(a)(i)"
+marks = 5
+text = '''
+The constructor method takes a value as an integer, e.g. 100, and a level, e.g. "bronze", as parameters and assigns these to the attributes.
+
+Write pseudocode or program code to declare the class `Treasure`.
+
+You should define the attributes and constructor method in your answer.
+
+You do **not** need to write the get methods.
+'''
+
+[[question.part]]
+label = "4(a)(ii)"
+marks = 2
+text = '''
+The get method `getLevel()` will return the appropriate attribute.
+
+Write the method `getLevel()` using either pseudocode or program code.
+'''
+
+[[question.part]]
+label = "4(a)(iii)"
+marks = 2
+text = '''
+Describe the object-oriented programming technique being used in part **9(b)(ii)**.
+'''
+
+[[question.part]]
+label = "4(b)"
+marks = 4
+text = '''
+Describe **two** benefits of using an object-oriented paradigm rather than a procedural paradigm.
+
+1
+
+2
+'''
+
+[[question.mark_scheme]]
+label = "4(a)(i)"
+marks = 5
+answer = '''
+1 mark each
+
+- Defining class Treasure
+- Defining the private attributes value and level
+- Defining a new public procedure…
+- …Taking two parameters (integer and string)
+- Correctly assigning both parameters to the attributes
+
+e.g.
+
+```
+class Treasure
+
+   private value
+   private level
+
+   public procedure
+new(valueP, levelP)
+    value = valueP
+    level = levelP
+   endprocedure
+endclass
+```
+'''
+guidance = '''
+Allow use of this/self or equivalent dependent on language
+
+```
+public procedure new(value,
+level)
+ this.value = value
+ this.level = level
+endprocedure
+```
+
+Python answers must either use comments to indicate private attributes or use the double underscore private attribute convention to be credited. self.\_\_level\
+self.level # private
+
+**Examiner’s Comments**
+
+This question either tended to be very poorly answered or very well answered. There was a clear division between candidates who were comfortable writing OOP code and class constructors and those that were not.
+
+Weaker candidates with little OOP experience often confused the class declaration with the instantiation method or offered no response. Many candidates often assigned the parameters to the private attribute values rather than setting the attributes to the parameters being passed in.
+
+Where candidates gave responses in programming languages and the intent
+
+of the response was clear, marks were given. However, sometimes Python programmers did not make it clear (by convention/comment) that class attributes were private.
+'''
+
+[[question.mark_scheme]]
+label = "4(a)(ii)"
+marks = 2
+answer = '''
+1 mark each
+
+- get level method header with no parameter
+- Returning `level` attribute
+
+e.g.
+
+```
+public function getLevel()
+ return level
+endfunction
+```
+'''
+guidance = '''
+Note Python self will appear, but no other parameters
+
+```
+def getLevel(self):
+```
+
+**Examiner’s Comments**
+
+While there were many good responses it was also noted that a significant number of candidates erroneously tried to send a parameter to a getter() function and then return the same parameter. Some candidates did not return a value or simply tried to print the value. Other errors included writing the getter method as a function call by omitting any indication that a function was being defined.
+'''
+
+[[question.mark_scheme]]
+label = "4(a)(iii)"
+marks = 2
+answer = '''
+1 mark each
+
+- Encapsulation
+- Allowing an attribute to only be accessed/changed via a method
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Some candidates randomly picked an erroneous OOP term like\
+polymorphism. Those candidates who could correctly identify the use of encapsulation did not always go on to specifically state that this meant access was controlled by a public getter() method.
+'''
+
+[[question.mark_scheme]]
+label = "4(b)"
+marks = 4
+answer = '''
+1 mark each to max 4 e.g.
+
+- Code can easily be reused…
+- …classes can be used in other programs
+- …inheritance can be to extend upon existing classes
+- …as a class can be based on an existing class
+- Easier to maintain….
+- ….as classes can be modified or extended
+- …debugging can be easier as encapsulation limits how attibutes are changed.
+- Code can be more secure…
+- … as access to attributes can be restricted to being via methods.
+
+- Better for coding as part of a team…
+- …as classes can be distributed between team members.
+'''
+guidance = '''
+1 mark per benefit identified and 1 mark per expansion. Max 2 benefits and 1 expansion per benefit.
+
+**Examiner’s Comments**
+
+Many candidates were more successful on this part of Section B as it was an AO1 book learnt topic rather than the preceding AO2 OOP programming application elements. However, benefits were often poorly described, or OOP components were just named without a relevant expansion as to how they could be used.
+'''
+
+[[question]]
+number = 5
+marks = 4
+
+[[question.part]]
+label = "5"
+marks = 4
+text = '''
+Describe **two** differences between assembly language and high-level languages.
+
+Difference 1
+
+Difference 2
+'''
+
+[[question.mark_scheme]]
+label = "5"
+marks = 4
+answer = '''
+- Assembly language uses mnemonics
+- HLL uses English-like words
+- Assembly language uses an assembler toconvert to machine code
+- HLL uses a translator (compiler/interpreter) toconvert to machine code
+- Assembly language is a one-to- one conversionto machine code
+- HLL may produce multiple lines of machine codeper line of code / one-to-many
+- Assembly language requires more knowledge ofthe processor / allows direct control of theprocessor
+- HLL provides more abstraction / requires lessknowledge of the processor
+- Assembly language is likely to be specific to theprocessor type used / is machine dependent
+- HLL is portable / can be used for multipleprocessor types / programmer can pick from anumber of HLLs and paradigms / is machineindependent
+'''
+guidance = '''
+Mark in pairs.
+
+Allow examples (e.g. JMP, print) for MP1 and 2
+
+**Examiner’s Comments**
+
+There was a range of marks candidates could access for this question. The question asked for two differences and those candidates with a good understanding of language paradigms were able to gain full marks by giving the difference for both. Candidates tended to lose marks on this question by only giving one side of the difference, e.g. saying a high level language is translated using an interpreter or compiler but then not giving the other side that assembly language is translated using an assembler.
+
+Exemplar 2
+
+*[Image in the original mark scheme, not shown here.]*
+
+In this response the candidate has given two clear differences and has explained what the difference is for both.
+'''
+
+[[question]]
+number = 6
+marks = 9
+
+[[question.part]]
+label = "6"
+text = '''
+A program is written using an object-oriented programming paradigm and uses a class called `video` to organise videos that are streamed to customers.
+
+The class `video` has these attributes:
+
+- name
+- number of views
+- star rating.
+
+The constructor method will set the name attribute to the name that is passed in as a parameter. The constructor will also initially set the number of views to 0 and the star rating to 3.
+'''
+
+[[question.part]]
+label = "6(i)"
+marks = 7
+text = '''
+Write program code or pseudocode to declare the class `video` and initialise the required attributes as private.
+
+You should include **both** the attribute definitions and the constructor method in your answer.
+'''
+
+[[question.part]]
+label = "6(ii)"
+marks = 2
+text = '''
+A public method called `updateviews()` will update the number of views after a video has been viewed. This method is defined inside the `video` class.
+
+Write program code or pseudocode for the method `updateviews()` to increase the number of views by one.
+'''
+
+[[question.mark_scheme]]
+label = "6(i)"
+marks = 7
+answer = '''
+- Class definition with identifier video
+- name, number of views and star rating attributes defined…
+- …As private
+- Constructor method definition inside class definition…
+
+- …that accepts only one parameter
+- …Name attribute set to parameter passed in
+- Views set to 0 and rating set to 3 **either** when initialised or in constructor.
+'''
+guidance = '''
+Accept implementations in high-level languages (e.g. \_\_ for private, class name used for constructor, no need for end of class definition in Python)
+
+BP1 - allow empty brackets. Do not allow anything in the brackets BP5 - ignore self if included as
+
+parameter
+
+```
+class video
+   private name
+   private views
+   private starrating
+```
+
+```
+   public procedure new(newname)
+     name = NewName
+     views = 0
+     starrating = 3
+   end procedure
+end class
+```
+
+**Examiner’s Comments**\
+This question was well answered by some candidates. The question asks for pseudocode or program code and candidates should be encouraged to do one or the other if given a choice, rather than a combination of the two. Many candidates did not use the information in the question stem to help them structure their answer and gave more than one parameter in the constructor.
+
+**Exemplar 3**
+
+*[Image in the original mark scheme, not shown here.]*
+
+This was a good clear example of an answer given in pseudocode. The candidate has declared the 3 given attributes as private, shown a constructor with one parameter and set name to the parameter and views and rating to 0 and 3. The candidate gained 7 marks.
+'''
+
+[[question.mark_scheme]]
+label = "6(ii)"
+marks = 2
+answer = '''
+- Method definition that is public
+- View attribute incremented by one
+'''
+guidance = '''
+```
+public procedure
+updateviews()
+   views = views + 1
+end procedure
+```
+
+View attribute must have the same name as part i
+
+**Examiner’s Comments**\
+Most candidates were able to gain at least 1 mark for this question. Those who were not given marks used pseudocode but did not state that the procedure was public, or they did not use the same attribute they had declared in Question 2 (g) (i).
+'''
+
+[[question]]
+number = 7
+marks = 12
+diagram = true
+
+[[question.part]]
+label = "7"
+text = '''
+**Fig. 1** shows assembly code written using the Little Man Computer (LMC). The program calculates and outputs the total amount that is donated to a charity in any particular day.\
+Depending on the amount, an additional bonus may be added to each amount donated.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 1**
+'''
+
+[[question.part]]
+label = "7(i)"
+marks = 3
+text = '''
+The program shown in **Fig. 1** is run **once** using **three** different inputs. Therefore, while the program is running once, it will output the updated total three times.
+
+Give the total values that are output when the values **10**, **50** and **120** are input into this program.
+
+Output for 10
+
+Output for 50
+
+Output for 120
+'''
+
+[[question.part]]
+label = "7(ii)"
+marks = 4
+text = '''
+Write LMC code that will reset the value of the memory location labelled `total` to zero and then stop the program.
+'''
+
+[[question.part]]
+label = "7(iii)"
+marks = 3
+text = '''
+This program is run on a processor that allows pipelining.
+
+Define the term ‘pipelining’.
+'''
+
+[[question.part]]
+label = "7(iv)"
+marks = 2
+text = '''
+Explain **one** benefit to a charity of using a processor that allows pipelining.
+'''
+
+[[question.mark_scheme]]
+label = "7(i)"
+marks = 3
+answer = '''
+- 10
+- 60
+- 200
+'''
+guidance = '''
+1 mark per number
+
+**Examiner’s Comments**\
+This was generally well answered by candidates who had a good understanding of LMC. Candidates should be encouraged to trace through LMC programs with different values as well as writing them.
+'''
+
+[[question.mark_scheme]]
+label = "7(ii)"
+marks = 4
+answer = '''
+- Loads a value into the accumulator
+- Establishes a zero value (by use of DAT / SUB)
+- Stores a zero value into total
+- Program stops
+'''
+guidance = '''
+Example 1
+
+```
+LDA zero
+STA total
+HLT
+zero DAT 0
+```
+
+Example 2
+
+```
+LDA total
+SUB total
+STA total
+HLT
+```
+
+BP1 can be given for any value being loaded into the accumulator e.g. INP
+
+If candidate writes LDA donation/total (case sensitive) they can get BP2 as they’ve used the labels from the question
+
+BP3 - total is case sensitive as given in the question
+
+BP4 - must not be given if the zero value will be attempted to be fetched e.g. HLT is placed after DAT
+
+**Examiner’s Comments**\
+This was generally answered well, and the majority of students were able to gain marks with most gaining 3 or 4 marks. Less successful responses over complicated the program leading to them making mistakes. A small
+
+number of candidates attempted to answer in pseudocode rather than LMC. Candidates should be encouraged to use the commands in Appendix 5d of the specification.
+'''
+
+[[question.mark_scheme]]
+label = "7(iii)"
+marks = 3
+answer = '''
+- One **instruction** can be fetched while another is being decoded…
+- …and another is executed
+- The output of one process/instruction is the input of the next.
+- Concurrent processing of multiple instructions / completing multiple FDE cycles at once
+'''
+guidance = '''
+For BP1, allow any 2 of the 3 parts of the FDE cycle\
+For BP2, must give the other part of the FDE cycle not given in BP1
+
+Do not award if explaining multiple cores working on different parts of FDE cycle
+
+**Examiner’s Comments**\
+Many candidates were able to gain at least 2 marks on this question. Some candidates were not awarded marks as they wrote about multiple cores or programs being fetched instead, of instructions.
+
+**Exemplar 1**
+
+*[Image in the original mark scheme, not shown here.]*
+
+The candidate has clearly described pipelining with correct terminology. They gained full marks for the description of one instruction being decoded while another is fetched and another is executed, as well as describing that it allows multiple instructions to be processed at the same time.
+'''
+
+[[question.mark_scheme]]
+label = "7(iv)"
+marks = 2
+answer = '''
+- More instructions can be carried out in a **set amount of** **time** / **less time** to execute the same number of instructions
+- Increasing the speed/performance/efficiency of the computer/program / quicker for the program to complete
+'''
+guidance = '''
+Do not allow “each instruction is quicker to execute”.
+
+BP2 has to be specific to the charity e.g. processing more donations
+
+**Examiner’s Comments**\
+Many candidates gained 1 mark for giving a benefit to the charity, but they did not go on to say why pipelining enabled that. Some candidates did not apply their answer to the charity, so were not awarded the mark for the benefit.
+'''
+
+[[question]]
+number = 8
+marks = 8
+
+[[question.part]]
+label = "8"
+text = '''
+An object-oriented system is implemented to organize a company’s information about staff attendance. Classes, objects, methods and attributes are used in this system.
+'''
+
+[[question.part]]
+label = "8(i)"
+marks = 3
+text = '''
+State the meaning of each of the following terms:
+
+Object
+
+Method
+
+Attribute
+'''
+
+[[question.part]]
+label = "8(ii)"
+marks = 5
+text = '''
+Each worker has a name and an attendance figure which can be between 0 and 100.
+
+Write a definition for a fully encapsulated worker class, providing both get and set methods for all attributes. You do **not** have to write code for the constructor method.
+'''
+
+[[question.mark_scheme]]
+label = "8(i)"
+marks = 3
+answer = '''
+- Object – instantiated from class
+- Method – action object performs / link to procedure/functions
+- Attribute – value held by object / link to variable
+'''
+
+[[question.mark_scheme]]
+label = "8(ii)"
+marks = 5
+answer = '''
+- Class definition statement
+- Defining name and attendance attributes
+- Appropriate get methods for name **and** attendance that return a value and have no parameter
+- Appropriate set methods for name **and** attendance that take a parameter
+- …that restricts attendance to be 0 to 100.
+'''
+guidance = '''
+Example answer
+
+```
+class Worker
+  private name
+  private attendance
+
+  public function getName()
+     return name
+  end function
+
+  public function
+  getAttendance()
+     return attendance
+  end function
+
+  public procedure
+  setName(newName)
+     name = newName
+  end procedure
+
+  public procedure
+  setAttendance(newAttend)
+     if newAttend >=0 and
+     newAttend <=100 then
+        attendance =
+        newAttend
+     end if
+  end procedure
+end class
+```
+'''
+
+[[question]]
+number = 9
+marks = 16
+diagram = true
+
+[[question.part]]
+label = "9(a)"
+marks = 12
+text = '''
+\* In assembly language, different modes of addressing memory can be used.
+
+Discuss the different modes used. You should include:
+
+- How the operand value is determined
+- What an operand of `27` would refer to in that mode
+- The reasons for requiring multiple modes of addressing
+'''
+
+[[question.part]]
+label = "9(b)"
+marks = 4
+text = '''
+A program written using the Little Man Computer instruction set is shown in **Fig. 1**.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 1**
+
+Complete the table below to show the output(s) from this program given the inputs.
+
+| **Inputs** | **Output(s)** |
+|---|---|
+| **12, 5** |   |
+| **18, 2** |   |
+| **16, 4** |   |
+| **3, 7** |   |
+'''
+
+[[question.mark_scheme]]
+label = "9(a)"
+marks = 12
+answer = '''
+**Mark Band 3–High Level (9-12** **marks)**\
+The candidate demonstrates a thorough knowledge and\
+understanding of different modes of addressing. The material is generally accurate and detailed.
+
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation.
+
+The candidate provides a thorough discussion which is well balanced. Evaluative comments are consistently relevant and well-considered.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2-Mid Level (5-8 marks)** The candidate demonstrates reasonable knowledge and\
+understanding of different modes of addressing; the material is generally accurate but at times underdeveloped.
+
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.
+
+The candidate provides a sound discussion, the majority of which is focused. Evaluative comments are for the most part appropriate, although one or two opportunities for\
+development are missed.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1-Low Level (1-4 marks)** The candidate demonstrates a basic knowledge of different modes of addressing; the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided.
+
+The candidate provides a limited discussion which is narrow in focus. Judgments if made are weak and unsubstantiated. The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be
+
+clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+AO1Immediate addressing is where the operand holds the actual data to be used; no address referenced Direct addressing is where the operand holds the address that holds the data to be used.\
+Indirect addressing is where the operand holds an address which is where the data to be used is stored Indexed addressing is where the operand holds an address which is offset using the Index Register to find the true address of the data to be used
+
+AO2\
+Immediate addressing; operand of 27 would refer to the value 27\
+Direct addressing; operand of 27 would tell the processor to fetch the data held at address 27.\
+Indirect addressing; operand of 27 would tell the processor to fetch the data held at address 27, which itself would then be used an address to fetch data from.\
+Indexed addressing; operand of 27 would be added to the value of the Index register and this would then be used as the address to fetch data from.\
+AO3\
+Immediate addressing allows simple access to data with no fetch required, but limited by the data size of the operand.\
+Direct addressing allows data to be fetched from memory. Data can potentially be larger in size that with immediate addressing but address range limited by size of operand. Indirect addressing allows a larger range of addresses to be accessed as address fetched. However, multiple fetches required to access data. Indexed addressing allows the Index register to be manipulated to access data stored sequentially e.g. in an array.
+'''
+
+[[question.mark_scheme]]
+label = "9(b)"
+marks = 4
+answer = '''
+- 2, 2
+- 9,0
+- 4,0
+- 0,3
+'''
+guidance = '''
+Code finds integer division and remainder.
+'''
+
+[[question]]
+number = 10
+marks = 22
+diagram = true
+
+[[question.part]]
+label = "10(a)"
+marks = 2
+text = '''
+Christoff is writing a program to simulate a city using object-oriented programming. He is designing classes to store different types of buildings and their location on the road. He has created the following plan for some of the buildings:
+
+*[Diagram in the original paper, not shown here.]*
+
+The classes `office` and `house` inherit from `building`.
+
+Describe what is meant by inheritance with reference to these classes.
+'''
+
+[[question.part]]
+label = "10(b)"
+marks = 5
+text = '''
+Part of the declaration for the class `building` is shown.
+
+Complete the pseudocode declaration by filling in the missing statements.
+
+```
+class building
+   private numberFloors
+   private width
+   private ……
+   public procedure new(pFloors, pWidth, pHeight)
+     numberFloors = ……
+     width = pWidth
+     height = pHeight
+   endprocedure
+   public function getNumberFloors()
+     return ……
+   endfunction
+   public function setNumberFloors(pFloors)
+     /sets the value of numberFloors when the parameter is >= 1
+     /returns true if numberFloors is successfully changed,
+     /returns false otherwise
+     if pFloors >= 1 then
+      numberFloors = ……
+      return true
+     else
+      return ……
+     endif
+   endfunction
+endclass
+```
+'''
+
+[[question.part]]
+label = "10(c)"
+marks = 6
+text = '''
+Write program code or pseudocode to declare the class house.\
+Define the attributes and constructor method in your answer. You do **not** need to write the get or set methods.
+'''
+
+[[question.part]]
+label = "10(d)"
+marks = 4
+text = '''
+Christoff develops a new class to store the houses in one road. His class design is shown:
+
+class : houseRoad
+
+attributes:\
+private buildings(100) /array of class house private numberBuildings /records the number /of houses currently stored in the array /buildings
+
+methods:\
+new(building)\
+function getBuilding(buildingNum)\
+procedure newbuilding(pBuilding)
+
+The method `newbuilding()` takes a new building as a parameter, and stores this in the next free space in the array `buildings`.
+
+Write pseudocode or program code for the method `newbuilding()`.
+'''
+
+[[question.part]]
+label = "10(e)"
+marks = 4
+text = '''
+Christoff wants to create a new `house` called `houseOne`. It has the properties: 2 floors, 8(m) width, 10(m) height, 3 bedrooms and 2 bathrooms.
+
+The house is located on a road with the identifier `limeAvenue` of type `houseRoad`, `houseOne` is the first house in this road.
+
+Write pseudocode or program code to declare the house `houseOne`, road `limeAvenue` and assign `houseOne` to the first array position in the road.
+'''
+
+[[question.part]]
+label = "10(f)"
+marks = 1
+text = '''
+The method `new` is used to denote the constructor for each class.
+
+State the purpose of the constructor.
+'''
+
+[[question.mark_scheme]]
+label = "10(a)"
+marks = 9
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g:
+
+- When the child/derived/subclass class office/house takes on attributes/methods…
+- … from building / parent/base/superclass/ class
+'''
+
+[[question.mark_scheme]]
+label = "10(b)"
+marks = 5
+answer = '''
+1 mark for each completed statement up to a maximum of 5 marks:
+
+```
+   private numberFloors
+   private width
+   private height
+   public procedure
+new(pFloors, pWidth,
+pHeight)
+     numberFloors = pFloors
+     width = pWidth
+     height = pHeight
+   endprocedure
+   public function
+getNumberFloors()
+     return numberFloors
+   endfunction
+   public function
+setNumberFloors(pFloors)
+     if pFloors >= 1 then
+      numberFloors =
+pFloors
+      return true
+     else
+      return false
+     endif
+   endfunction
+endclass
+```
+'''
+guidance = '''
+Accept other specific language conventions that would correctly achieve the same outcomes.
+'''
+
+[[question.mark_scheme]]
+label = "10(c)"
+marks = 6
+answer = '''
+1 mark per bullet up to a maximum of 6 marks:
+
+- Class declaration for house with inherits building
+- Declaring bedrooms and bathrooms as private
+- New declaration …
+- … with all **five** parameters
+- Calling super constructor / equivalent with floors, width and height set
+- Setting bedrooms and bathrooms
+
+**e.g.**
+
+```
+class house inherits building
+  private bedrooms,
+bathrooms
+  public procedure
+new(pFloors,
+  pWidth, pHeight,
+pBedrooms,
+  pBathrooms)
+   super.new(pFloors,
+pWidth,
+   pHeight)
+   bedrooms = pBedrooms
+   bathrooms = pBathrooms
+  endprocedure
+endclass
+```
+'''
+
+[[question.mark_scheme]]
+label = "10(d)"
+marks = 4
+answer = '''
+1 mark per bullet up to a maximum of 4 marks:
+
+- Procedure header taking parameter
+- Adding parameter to array
+- …at position
+
+```
+numberBuildings
+```
+
+- Incrementing
+
+```
+numberBuilding
+```
+
+**e.g.**
+
+```
+procedure
+newbuilding(pBuilding)
+ buildings[numberBuildings]
+=
+ pBuilding
+ numberBuildings =
+ numberBuildings + 1
+endprocedure
+```
+'''
+
+[[question.mark_scheme]]
+label = "10(e)"
+marks = 4
+answer = '''
+1 mark per bullet up to a maximum of 4 marks:
+
+- Creating a new instance of house with identifier `houseOne`
+- …with the correct parameters
+- Creating a new instance of houseRoad named
+
+```
+limeAvenue
+```
+
+- …sending `houseOne` as parameter to the constructor
+
+**e.g.**
+
+```
+houseOne = new house(2, 8,
+10, 3, 2)
+limeAvenue = new
+houseRoad(houseOne)
+```
+'''
+
+[[question.mark_scheme]]
+label = "10(f)"
+marks = 1
+answer = '''
+To create an instance of an object from a class
+'''
+
+[[question]]
+number = 11
+marks = 7
+
+[[question.part]]
+label = "11"
+text = '''
+The pseudocode function `binarySearch()` performs a binary search on the array `dataArray` that is passed as a parameter. The function returns the array index of `searchValue` within the array, and `-1` if it is not in the array.
+
+The pseudocode binary search algorithm is incomplete.
+'''
+
+[[question.part]]
+label = "11(i)"
+marks = 6
+text = '''
+Complete the algorithm by filling in the missing statements.
+
+```
+function binarySearch(dataArray:byref, upperbound, lowerbound, ……)
+  while true
+   middle = lowerbound + ((upperbound – lowerbound) ……)
+   if upperbound < lowerbound then
+    return ……
+   else
+    if dataArray[middle] < searchValue then
+     lowerbound = ……
+    elseif dataArray[middle] > searchValue then
+     upperbound = ……
+    else
+     return ……
+    endif
+   endif
+  endwhile
+endfunction
+```
+'''
+
+[[question.part]]
+label = "11(ii)"
+marks = 1
+text = '''
+The algorithm uses a while loop.
+
+State a different type of loop that could be used instead of the while loop in the given algorithm.
+'''
+
+[[question.mark_scheme]]
+label = "11(i)"
+marks = 6
+answer = '''
+**1 mark for each number/statement** **up to a maximum of 6 marks:**
+
+```
+function
+binarySearch(dataArray:byref,
+upperbound, lowerbound,
+searchValue)
+  while true
+   middle = lowerbound +)
+   ((upperbound –
+lowerbound))
+   DIV 2)
+   if upperbound <
+lowerbound
+   then
+    return -1
+   else
+    if dataArray[middle] <
+    searchValue then
+     lowerbound = middle +
+1
+    elseif
+dataArray[middle] >
+    searchValue then
+     upperbound = middle -
+1
+    else
+     return middle
+    endif
+   endif
+  endwhile
+endfunction
+```
+'''
+
+[[question.mark_scheme]]
+label = "11(ii)"
+marks = 1
+answer = '''
+Do…until / repeat…until / post condition
+'''
+
+[[question]]
+number = 12
+marks = 17
+
+[[question.part]]
+label = "12(a)"
+text = '''
+A supermarket uses an object-oriented approach to organise items that it offers for sale. Part of the class definition for the `ItemForSale` class is shown below.
+
+```
+class ItemForSale
+    public itemName
+    public price
+    public discount
+
+    …
+
+endclass
+```
+
+The `discount` attribute represents a percentage discount on the price. The discount can be between 0 and 50 (inclusive). All new items for sale initially have a discount value of 0.
+'''
+
+[[question.part]]
+label = "12(a)(i)"
+marks = 4
+text = '''
+Write the constructor method for the `ItemForSale` class.
+'''
+
+[[question.part]]
+label = "12(a)(ii)"
+marks = 3
+text = '''
+Write a line of code to create an object of type `ItemForSale` called `mushypeas` that has a name of “mushy peas” and a price of £0.89
+'''
+
+[[question.part]]
+label = "12(a)(iii)"
+marks = 3
+text = '''
+Write the `calculatePrice()` method, which applies the percentage discount to the price and returns the new value.
+'''
+
+[[question.part]]
+label = "12(b)"
+marks = 3
+text = '''
+The supermarket has previously had issues with discounts being set as values above 50.
+
+Explain how encapsulation could be applied to the `ItemForSale` class to stop this problem from occurring.
+
+You are **not** expected to write any code in your answer to this question.
+'''
+
+[[question.part]]
+label = "12(c)"
+marks = 4
+text = '''
+Some items in the supermarket are only available through home delivery. These items are the same as `ItemsForSale` with the following exceptions:
+
+- the supermarket also stores the location of the stock
+- the percentage discount allowed is up to 75 rather than the standard 50.
+
+Explain how inheritance can be used to implement the above requirements.
+'''
+
+[[question.mark_scheme]]
+label = "12(a)(i)"
+marks = 4
+answer = '''
+- Constructor method definition (.e.g `new`)
+- itemname, price passed in as parameters (must use different identifier names to the ones in the question)
+- …and assigned to attributes
+- `discount` attribute assigned to 0.
+'''
+guidance = '''
+Example answer
+
+```
+public procedure
+new(nItemName, nPrice)
+   itemname = nItemname
+   price = nPrice
+   discount = 0
+endprocedure
+```
+
+Look out for alternative notation e.g.
+
+this.itemname = itemName
+'''
+
+[[question.mark_scheme]]
+label = "12(a)(ii)"
+marks = 3
+answer = '''
+- 1 mark for creating object with identifier `mushypeas =`
+- 1 mark for creating object as type `ItemForSale`
+- mark for parameters passed in as needed
+'''
+guidance = '''
+Example answers
+
+```
+mushypeas=new
+ItemForSale("mushy peas",
+0.89)
+
+ItemForSale mushypeas =
+ItemForSale(“mushy
+peas”,0.89);
+
+mushypeas=ItemForSale((“mushy
+peas”,0.89);
+```
+
+Do not penalise for use of self parameter as used by languages such as Python.\
+Must be correct case and spelling
+'''
+
+[[question.mark_scheme]]
+label = "12(a)(iii)"
+marks = 3
+answer = '''
+- method definition for
+
+```
+calculatePrice()
+```
+
+- applies percentage discount
+- …returns calculated value
+'''
+guidance = '''
+Percentage discount must be applied correctly.
+
+Example answer
+
+```
+function calculatePrice()
+   newPrice = price –
+(price * discount/100)
+   return newPrice
+end function
+```
+'''
+
+[[question.mark_scheme]]
+label = "12(b)"
+marks = 3
+answer = '''
+- `discount` attribute made private
+- Set method created
+- …that restricts value to maximum 50%
+'''
+
+[[question.mark_scheme]]
+label = "12(c)"
+marks = 4
+answer = '''
+- Create new class
+- …inheriting from / subclass of **ItemsForSale**
+- new attribute for stock location
+
+- `calculatePrice()` method overridden / new version of
+
+```
+calculatePrice()
+```
+
+implemented in subclass.
+'''
+
+[[question]]
+number = 13
+marks = 6
+diagram = true
+
+[[question.part]]
+label = "13"
+text = '''
+The Little Man Computer (LMC) instruction set can be used to write programs using assembly language.
+
+**Fig. 3** shows assembly code written using the LMC instruction set.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 3**
+'''
+
+[[question.part]]
+label = "13(i)"
+marks = 1
+text = '''
+Tick **one** box to indicate the programming construct that is **not** used in **Fig. 3**.
+
+Sequence
+
+Selection
+
+Iteration
+'''
+
+[[question.part]]
+label = "13(ii)"
+marks = 1
+text = '''
+When the program is run, 7 is input by the user.
+
+State the value that will be in the memory location `Z` when the program has run with this input.
+'''
+
+[[question.part]]
+label = "13(iii)"
+marks = 4
+text = '''
+Write an equivalent version of the LMC assembly code shown in **Fig. 3** for a procedural programming language.
+
+You should write your code using pseudocode or program code.
+'''
+
+[[question.mark_scheme]]
+label = "13(i)"
+marks = 1
+answer = '''
+- Iteration
+'''
+
+[[question.mark_scheme]]
+label = "13(ii)"
+marks = 1
+answer = '''
+- 5
+'''
+
+[[question.mark_scheme]]
+label = "13(iii)"
+marks = 4
+answer = '''
+1 mark per bullet up to a maximum of 4 marks, e.g:
+
+- Initialise Y and Z AND set X
+- Correct use of IF
+- Correct condition (e.g. if X \>= Y then)
+- Assignment of Z in correct places
+'''
+guidance = '''
+X Y Z variable alternatives are acceptable\
+Solution:
+
+```
+X = input()
+Y = 5
+Z = 0
+if X >= Y then
+   Z = Y
+else
+   Z = X
+Endif
+```
+'''
+
+[[question]]
+number = 14
+marks = 32
+diagram = true
+
+[[question.part]]
+label = "14(a)"
+marks = 2
+text = '''
+A printer buffer is a storage area that holds the data, known as jobs, that are to be printed by a printer.
+
+A simulation of the printer buffer uses a queue data structure to store jobs that are waiting to be printed. The queue is not circular.
+
+The printer buffer is represented as a zero-indexed 1D array with the identifier `buffer`.
+
+**Fig. 2** shows the current contents of the queue `buffer` and its pointers.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 2**
+
+State the purpose of the pointers `queueHead` and `queueTail`.
+
+```
+queueHead
+```
+
+```
+queueTail
+```
+'''
+
+[[question.part]]
+label = "14(b)"
+marks = 5
+text = '''
+The function `dequeue` outputs and removes the next data item in the queue.
+
+The procedure `enqueue` adds the job passed as a parameter to the queue.
+
+Show the final contents of the queue and pointer values after the following instructions have been run on the queue `buffer` shown in **Fig. 2**.
+
+```
+dequeue()
+
+dequeue()
+
+enqueue(job-128)
+
+dequeue()
+
+enqueue(job-129)
+```
+
+*[Diagram in the original paper, not shown here.]*
+'''
+
+[[question.part]]
+label = "14(c)"
+text = '''
+The array, `buffer` and pointer values are declared with global scope.
+'''
+
+[[question.part]]
+label = "14(c)(i)"
+marks = 5
+text = '''
+The function `dequeue` returns `null` if the array is empty, and the contents of the next element if not empty. The queue is not circular.
+
+Write an algorithm, using pseudocode or program code, for the function `dequeue()`.
+'''
+
+[[question.part]]
+label = "14(c)(ii)"
+marks = 6
+text = '''
+The function `enqueue` returns -1 if there is no space at the end of the queue to add data, and returns 1 if the parameter was added to `buffer`. The array `buffer` contains a maximum of 100 elements.
+
+Write an algorithm, using pseudocode or program code, for the function `enqueue()`.
+'''
+
+[[question.part]]
+label = "14(c)(iii)"
+marks = 8
+text = '''
+In the main program of the simulation the user is asked whether they want to add an item to the queue or remove an item.
+
+If they choose to add an item they have to input the job name, and the function `enqueue` is called.
+
+If they choose to remove an item, the function `dequeue` is called and the job name is output.
+
+Appropriate messages are output if either action cannot be run because the queue is either empty or full.
+
+Write, using pseudocode or program code, an algorithm for the main program of the simulation.
+'''
+
+[[question.part]]
+label = "14(d)"
+marks = 3
+text = '''
+The queue is changed to make it a circular queue.
+
+Describe how the functions `enqueue` and `dequeue` will need to be changed to allow `buffer` to work as a circular queue.
+'''
+
+[[question.part]]
+label = "14(e)"
+marks = 3
+text = '''
+Some print jobs can have different priorities. The higher the priority the sooner the job needs to be printed.
+
+Describe how the program could be changed to deal with different priorities.
+'''
+
+[[question.mark_scheme]]
+label = "14(a)"
+marks = 2
+answer = '''
+1 mark per pointer
+
+- queueHead: Point to the first element in the queue / next element to remove
+- queueTail: Point to the last element in the queue
+'''
+
+[[question.mark_scheme]]
+label = "14(b)"
+marks = 5
+answer = '''
+1 mark per bullet up to max 5
+
+- first 3 jobs removed
+- 128 and 129 added in positions 4 and 5 respectively
+- no additional jobs
+- queueHead being 3 (FT errors)
+- queueTail being 5 (FT errors)
+
+*[Image in the original mark scheme, not shown here.]*
+'''
+guidance = '''
+The underlying implementation of the queue has not been specified, so allow alternative valid answers.\
+e.g.\
+queueHead = 0\
+queueTail = 2\
+Location 2: 129\
+Location 1: 128\
+Location 0: 127
+'''
+
+[[question.mark_scheme]]
+label = "14(c)(i)"
+marks = 5
+answer = '''
+1 mark per bullet to max 5
+
+- Function declaration
+- Checking if queue is empty
+- …returning `null`
+- (Otherwise) incrementing
+
+```
+queueHead
+```
+
+- …returning
+
+```
+buffer[queueHead-1]
+```
+
+e.g.
+
+```
+function dequeue()
+  if queueHead > queueTail
+then
+   return null
+  else
+   queueHead = queueHead + 1
+   return buffer[queueHead-
+1]
+  endif
+endfunction
+```
+'''
+guidance = '''
+Note: Accept alternative valid underlying implementation answers e.g. Shifting all elements in queue forward.
+'''
+
+[[question.mark_scheme]]
+label = "14(c)(ii)"
+marks = 6
+answer = '''
+1 mark per bullet to max 6
+
+- Function declaration taking parameter
+- Checking if queue is full
+- …returning -1
+- (Otherwise) incrementing queueTail
+- Adding newJob to buffer(queueTail)
+- Returning 1
+
+e.g.
+
+```
+function enqueue(newJob)
+  if queueTail == 99 then
+   return -1
+  else
+   queueTail = queueTail + 1
+   buffer[queueTail] =
+newJob
+   return 1
+  endif
+endfunction
+```
+'''
+
+[[question.mark_scheme]]
+label = "14(c)(iii)"
+marks = 8
+answer = '''
+1 mark per bullet to max 8
+
+- Inputting user choice
+- If enqueue chosen input job name
+- …call enqueue with input value as parameter
+
+- …check if return value is -1 and output full
+- …otherwise output message that item is added
+- If dequeue chosen
+- …call dequeue **and** save returned value
+- …output returned value (jobname) if not null
+- …or output queue is empty
+
+e.g.
+
+```
+main()
+  choice = input("Add or remove?")
+  if choice == "ADD" then
+   jobname = input("Enter job name")
+   returnValue = enqueue(jobname)
+   if returnValue == -1 then
+    print("Queue full")
+   else
+    print("Job added")
+   endif
+  else
+   returnValue = dequeue()
+   if returnValue == null then
+    print("Queue empty")
+   else
+    output returnValue
+   endif
+  endif
+endmain
+```
+'''
+guidance = '''
+Allow equivalent checks / logic
+'''
+
+[[question.mark_scheme]]
+label = "14(d)"
+marks = 3
+answer = '''
+1 mark per bullet to 3
+
+- Check if either head or tail are incremented to above 99
+- … set to be 0 instead
+- When checking if array is full check if (queueTail == queueHead – 1) OR (queueTail==99 AND queueHead==0)
+'''
+guidance = '''
+Credit equivalent modulo arithmetic solution
+'''
+
+[[question.mark_scheme]]
+label = "14(e)"
+marks = 3
+answer = '''
+1 mark per bullet to max 3, e.g.
+
+- Use a different structure e.g. a linked list
+- …items can be added at different points in the linked list depending on priority
+- …by changing the pointers to items needing priority
+- Have different queues for different priorities
+
+- …add the job to the queue relevant to its priority
+- …print all the jobs in the highest priority queue first
+'''
+guidance = '''
+Allow other suitable descriptions that show how the program could be amended.
+'''
+
+[[question]]
+number = 15
+marks = 8
+
+[[question.part]]
+label = "15"
+marks = 8
+text = '''
+Two people play a counting game. The rules of the game are as follows:
+
+- The first player starts at 1 Each player may choose one, two or three numbers on their turn and the numbers must be in
+-  ascending order
+- Players take it in turns to choose
+- The player who chooses “15” loses the game.
+
+For example, if the first player chooses three numbers (1, 2, 3) then the second player could choose one number (4), two numbers (4, 5) or three numbers (4, 5, 6). The first player then takes another go.
+
+Write an algorithm using pseudocode that allows two players to play this game. The algorithm should:
+
+- Alternate between player 1 and player 2
+- Ask the player how many numbers they would like to choose, ensuring that this is between 1 and 3
+- Display the numbers that the player has chosen
+- Display a suitable message to say which player has won once the number 15 has been displayed.
+'''
+
+[[question.mark_scheme]]
+label = "15"
+marks = 8
+answer = '''
+- Stores current player
+- …and alternates between player on each go
+- Allows a number to be input
+- …and validates that this is between 1 and 3
+- Outputs numbers chosen (e.g. 4, 5, 6)
+- Checks if number 15 has been reached
+- …and displays winning message
+- …and stops
+'''
+guidance = '''
+Example answer
+
+*[Image in the original mark scheme, not shown here.]*
+'''
+
+[[question]]
+number = 16
+marks = 12
+
+[[question.part]]
+label = "16"
+marks = 12
+text = '''
+\* Procedural programming and object-oriented programming are two paradigms commonly used by programmers when developing computer games.
+
+Discuss the advantages of using object-oriented programming over procedural programming when developing computer games. You should refer to inheritance, encapsulation and polymorphism in your answer.
+
+**END OF QUESTION PAPER**
+'''
+
+[[question.mark_scheme]]
+label = "16"
+marks = 12
+answer = '''
+**Mark Band 3–High Level (9-12** **marks)**
+
+The candidate demonstrates a thorough knowledge and\
+understanding of procedural and object oriented programming. The material is generally accurate and detailed.
+
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation.
+
+The candidate provides a thorough discussion which is well balanced. Evaluative comments are consistently relevant and well-considered.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2-Mid Level (5-8 marks)**
+
+The candidate demonstrates reasonable knowledge and\
+understanding of procedural and object
+
+oriented programming; the material is generally accurate but at times underdeveloped.
+
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.
+
+The candidate provides a sound discussion, the majority of which is focused. Evaluative comments are for the most part appropriate, although one or two opportunities for\
+development are missed.\
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1-Low Level (1-4 marks)**
+
+The candidate demonstrates a basic knowledge of procedural or object oriented programming; the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided.
+'''
+guidance = '''
+AO1\
+Object oriented programming makes use of classes (templates) from which objects are made.\
+Classes have attributes and methods Classes can be encapsulated by making attributes private and providing public access methods\
+Object oriented programming supports inheritance which allows classes to use attributes and methods of parent classes.\
+Object oriented programming supports polymorphism meaning that class attributes and methods can take on many different forms if required.
+
+AO2\
+OO approach would call on classes per type of player or enemy object Objects made from these classes, so one enemy class may generate many enemy objects, each with different values for their attributes (e.g. speed, energy)\
+Special types of Player or Enemy objects could be instantiated from classes that inherit from the original Player/Enemy classes, but have attributes/methods of their own.
+
+Polymorphism would allow for the attributes/methods of Player/Enemy objects to behave differently from normal if required.
+
+AO3\
+OO promotes a modular approach (procedural through use of\
+subroutines, OO through classes). OO is an abstraction of a real world problem, with classes for each type of things to be modelled and objects for each instance of these.\
+OO has advantages in data security in that encapsulation forces\
+developers/users to use methods (with their built in validation) to access/amend data stored in attributes.\
+OO has advantages in efficiency of design where classes can be reused and can inherit from one another. Procedural programming struggles to support this.\
+OO also offers flexibility through polymorphism.
+'''

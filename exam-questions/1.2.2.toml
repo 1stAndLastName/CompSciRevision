@@ -1,0 +1,1249 @@
+# OCR exam questions for 1.2.2 Applications Generation.
+# Copied as text from the question paper and mark scheme PDFs in sources/
+# by tools/extract-exam-questions. Diagrams are not copied. Corrections by
+# hand are fine: the tool will not overwrite this file without --force.
+spec = "1.2.2"
+
+[[question]]
+number = 1
+marks = 9
+
+[[question.part]]
+label = "1(a)"
+marks = 5
+text = '''
+State the most appropriate application software for each task in the table.
+
+| **Task** | **Application Software** |
+|---|---|
+| Creating graphics such as a logo |   |
+| Writing letters to clients to confirm their appointment date and time |   |
+| Calculating the company profits at the end of each month |   |
+| Storing, searching and updating client details and purchases |   |
+| Creating brochures and flyers about the organisation |   |
+'''
+
+[[question.part]]
+label = "1(b)"
+text = '''
+OCR Solutions make use of software libraries when writing their programming code. They also make use of linkers and loaders to compile and run the program.
+'''
+
+[[question.part]]
+label = "1(b)(i)"
+marks = 2
+text = '''
+Describe what **linker** means.
+'''
+
+[[question.part]]
+label = "1(b)(ii)"
+marks = 2
+text = '''
+Describe what **loader** means.
+'''
+
+[[question.mark_scheme]]
+label = "1(a)"
+marks = 5
+answer = '''
+1 mark for each correct application software
+
+**Task**
+
+**Application Software**
+
+Creating
+
+graphics such as
+
+a logo
+
+Graphics/image editing
+
+software
+
+Writing letters to
+
+clients to confirm
+
+their appointment
+
+date and time
+
+Word processing software
+
+Calculating the
+
+company profits
+
+at the end of
+
+each month
+
+Spreadsheet/Accounting
+
+software
+
+Storing,
+
+searching and
+
+updating client
+
+details and
+
+purchases
+
+Database software
+
+Creating
+
+brochures and
+
+flyers about the
+
+organisation
+
+Desktop publishing
+
+software / DTP
+'''
+guidance = '''
+Allow any sensible software. e.g. text editor for WP\
+e.g. photo/image editor for row 1
+
+BOD publication editor for DTP
+
+DNA brand names - ignore brand name if application type is also given.
+
+**Examiner’s Comments**
+
+Many candidates were able to score at least 4 marks on this question. Those who gave brand names were not given marks as is standard for these types of question. Few candidates were able to give DTP for the fifth application type. Many gave email for the second application type which would not be the most appropriate for writing letters to clients.
+'''
+
+[[question.mark_scheme]]
+label = "1(b)(i)"
+marks = 2
+answer = '''
+1 mark per bullet to max 2:
+
+- Combines/links code/programs to files/software libraries...
+- ...to form a single executable file
+'''
+guidance = '''
+Allow one mark for valid description of static and/or dynamic linkers e.g. Static linkers combine code and libraries into one file / Dynamic linkers link/add addresses to libraries
+
+**Examiner’s Comments**
+
+The majority of candidates were able to gain one mark on this question for stating that a linker links code with libraries but few went on to then describe it forming a single executable file.
+'''
+
+[[question.mark_scheme]]
+label = "1(b)(ii)"
+marks = 2
+answer = '''
+1 mark per bullet to max 2:
+
+- It is part of the operating system
+- Loads an executable file (into memory)...
+- ...from secondary storage
+- Loads the required software libraries
+'''
+guidance = '''
+MP2 - Allow loads\
+applications/programs
+
+**Examiner’s Comments**
+
+Many candidates confused loaders with compilers and IDEs and talked about being able to use libraries in source code or loading code into the compiler.
+'''
+
+[[question]]
+number = 2
+marks = 2
+
+[[question.part]]
+label = "2"
+marks = 2
+text = '''
+All source code needs to be translated into object code using a translator.
+
+A software development company has written a new computer game in a high-level language.
+
+Identify which type of translator would be the most suitable for the computer game and give a reason why.
+
+Type
+
+Reason
+'''
+
+[[question.mark_scheme]]
+label = "2"
+marks = 2
+answer = '''
+- Compiler ...
+- ... Would protect their source code / keep their IP secret
+- ... meaning competitors cannot steal their ideas
+- ... Protect their money making ideas
+- ...would mean the game would run quicker (than if it were interpreted).
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Although many candidates correctly selected ‘compiler’ for the type of translator, this was often not followed up with a suitable reason.
+'''
+
+[[question]]
+number = 3
+marks = 11
+
+[[question.part]]
+label = "3(a)"
+text = '''
+A secondary school is upgrading their computers. They decide to install "thin client" computers. A thin client computer is when users access their computer in the usual way with a keyboard, mouse and monitor. However, all processing takes place on the virtual machine on a server rather than the computer at their desk.
+
+The virtual machines will have utility software and application software installed.
+'''
+
+[[question.part]]
+label = "3(a)(i)"
+marks = 2
+text = '''
+Describe the difference between utility software and application software.
+'''
+
+[[question.part]]
+label = "3(a)(ii)"
+marks = 4
+text = '''
+The application software installed will be used by students to complete their school work.
+
+Name **two** different types of application software that may be used by students, giving an example of how each may be used.
+
+**TYPE 1**
+
+Name
+
+Example
+
+**TYPE 2**
+
+Name
+
+Example
+'''
+
+[[question.part]]
+label = "3(a)(iii)"
+marks = 2
+text = '''
+The application software installed on the virtual machines can be closed source software or open source software.
+
+Explain **one** advantage to the school of using open source software.
+'''
+
+[[question.part]]
+label = "3(b)"
+marks = 3
+text = '''
+Name **three** different types of utility software.
+
+1
+
+2
+
+3
+'''
+
+[[question.mark_scheme]]
+label = "3(a)(i)"
+marks = 2
+answer = '''
+- Application software allows the **user** to solve a problem / complete a task.
+- Utility software is designed to monitor / manage / maintain a computer system
+'''
+guidance = '''
+**Examiner’s Comments**
+
+This question was generally answered well.
+'''
+
+[[question.mark_scheme]]
+label = "3(a)(ii)"
+marks = 2
+answer = '''
+- Word Processor ...
+
+E.g
+
+- Allows students to write essays / reports
+- Spreadsheets ...
+
+E.g.
+
+- Allow students to track/aggregate/calculate data
+- Create charts
+- Model situations / experiments
+
+- Presentation ...
+
+E.g.
+
+- Allows students to create presentations on a particular topic
+'''
+guidance = '''
+Allow any sensible application that could be used in a school\
+environment as part of a student’s workflow (e.g. photo editor, email client, web-browser).
+
+Example must be specific to a school environment
+
+Do not allow brand names for type of application
+
+If a brand name is used, allow follow through mark for a valid example
+
+**Examiner’s Comments**
+
+Although this question was generally answered well, some candidates have used brand names for applications
+
+which is not allowed. Where a valid application was given, this was generally followed up with an appropriate example.
+'''
+
+[[question.mark_scheme]]
+label = "3(a)(iii)"
+marks = 2
+answer = '''
+- Open Source Software allows access/modification to/of the **source code**... ...can tailor the software to their specific needs ...may be more widely bug fixed ...there may be a wider pool of support available in the community
+
+Or
+
+- There will likely be no cost to purchasing a **license** to use the software... ...saving the school money
+'''
+guidance = '''
+**Examiner’s Comments**
+
+This question was generally answered well although some candidates stated that the software can be modified rather than stating that the source code can be modified.
+'''
+
+[[question.mark_scheme]]
+label = "3(b)"
+marks = 3
+answer = '''
+e.g.
+
+- Disk defragmentation
+- File management
+- Device driver
+- System cleanup
+- Anti-virus/Anti-malware
+- Firewall
+- Backup
+- Compression
+'''
+guidance = '''
+Allow other examples if valid (no duplicates)
+
+**Examiner’s Comments**
+
+The majority of candidates have selected three utilities correctly in their response.
+'''
+
+[[question]]
+number = 4
+marks = 4
+
+[[question.part]]
+label = "4"
+marks = 4
+text = '''
+All source code needs to be translated into object code using a translator.
+
+Tick **one** box in each row to indicate which type of translator is being used.
+
+|   | Compiler | Interpreter | Assembler |
+|---|---|---|---|
+| Creates an executable file |   |   |   |
+| Creates one line of object code for each line of source code |   |   |   |
+| Translates all the high-level code at once |   |   |   |
+| A program needs to be translated each time it is run |   |   |   |
+'''
+
+[[question.mark_scheme]]
+label = "4"
+marks = 4
+answer = '''
+Compiler
+
+Interpreter
+
+Assembler
+
+Creates
+
+an
+
+executable
+
+file
+
+X
+
+(X)
+
+Creates
+
+one line of
+
+object
+
+code for
+
+each line
+
+of source
+
+code
+
+X
+
+Translates
+
+all the
+
+high-level
+
+code at
+
+once
+
+A program
+
+needs to
+
+be
+
+translated
+
+each time
+
+it is run
+
+X
+
+X
+'''
+guidance = '''
+For “creates an executable file”, accept any of the following\
+combinations:
+
+- Compiler
+- Assembler
+- Compiler and assembler
+
+**Examiner’s Comments**
+
+Most candidates gained all four marks for this question. Although the question states to tick ‘one box’, candidates were given a mark if they
+
+selected either assembler or compiler or both options for ‘creates an executable file’.
+'''
+
+[[question]]
+number = 5
+marks = 8
+
+[[question.part]]
+label = "5"
+text = '''
+A small manufacturing business uses networked computers with closed source application software installed.
+
+A spreadsheet application package is used to calculate employee’s wages.
+'''
+
+[[question.part]]
+label = "5(i)"
+marks = 1
+text = '''
+Give **one** benefit of using a spreadsheet application for this task compared to calculating wages manually.
+'''
+
+[[question.part]]
+label = "5(ii)"
+marks = 4
+text = '''
+Give **two** other types of application packages that the small business could use, giving an example of a task that the business could use each application for.
+
+Application 1
+
+Example of task 1
+
+Application 2
+
+Example of task 2
+'''
+
+[[question.part]]
+label = "5(ii)"
+marks = 3
+text = '''
+Describe a drawback of using closed source software (rather than open source software) for the small business.
+'''
+
+[[question.mark_scheme]]
+label = "5(i)"
+marks = 1
+answer = '''
+e.g.
+
+- **Fewer** mistakes (likely to be made) / **More** accurate
+- Faster as you can apply the same formula to multiple cells / By example
+- What-if analysis can be performed
+- Values can be changed and results **automatically(re)calculated** (by using formulas)
+- Can be shared electronically
+'''
+guidance = '''
+Do not accept “faster” on its own without clarification of what/why it is faster.
+
+**Examiner’s Comments**
+
+Candidates who had a good knowledge of software were able to gain the mark on this question although many gave answers like faster or easier without saying what made it faster or easier.
+'''
+
+[[question.mark_scheme]]
+label = "5(ii)"
+marks = 4
+answer = '''
+e.g.
+
+- Database/DBMS
+- …to store/query/sort data about customers/staff/stock
+
+- Word processor
+- …to create documents / letters / invoices for clients/staff
+
+- Presentation software
+- …to create presentations for clients/staff
+
+- Email software
+- …for staff to communicate with each other or with customers
+
+- Graphics manipulation
+- …to produce adverts / images for sales
+
+- Web browser
+
+- …to view websites to purchase materials/stock/ view competitor’s website
+'''
+guidance = '''
+Mark in pairs – one mark for naming type of application software, one for the example. Application type must be correct to give example.
+
+Do not accept brand names for first mark but FT for example.
+
+Ignore brand names if description given after\
+E.g. Outlook / Email application
+
+Accept other sensible application software (such as CAD, Desktop Publishing). Do not accept special purpose / bespoke / utility software.
+
+Do not accept spreadsheet (given in question)
+
+Example must be relevant to the business
+
+**Examiner’s Comments**
+
+Many candidates were able to identify application packages and could give valid tasks that a business could use them for. Less successful candidates tended to give utility software or were not able to apply the use to the business.
+
+Exemplar 1
+
+*[Image in the original mark scheme, not shown here.]*
+
+The candidate has correctly identified 2 different applications and given a valid use for a business.
+'''
+
+[[question.mark_scheme]]
+label = "5(iii)"
+marks = 3
+answer = '''
+- No access to source code
+- Cannot modify/improve to meet business needs
+- Cannot fix bugs
+- (Usually) cost to purchase licences / licenceconditions to meet/ongoing fees
+'''
+guidance = '''
+Do not award a reverse of the mark point by describing open source
+
+**Examiner’s Comments**
+
+Candidates who understood that the source code is not available did well on this question as they were then able to expand their answer and gain full marks. Some candidates described open source without giving a drawback of closed source.
+'''
+
+[[question]]
+number = 6
+marks = 12
+diagram = true
+
+[[question.part]]
+label = "6(a)"
+text = '''
+A programmer creates this function shown in **Fig. 5** using a high-level language.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 5**
+
+Before the code in **Fig. 5** can be executed, a translator must be used.
+'''
+
+[[question.part]]
+label = "6(a)(i)"
+marks = 1
+text = '''
+State the purpose of a translator.
+'''
+
+[[question.part]]
+label = "6(a)(ii)"
+marks = 4
+text = '''
+Explain **two** differences between a compiler and an interpreter.
+
+Difference 1
+
+Difference 2
+'''
+
+[[question.part]]
+label = "6(b)"
+marks = 5
+text = '''
+For each statement shown in **Table 5**, tick (✓) **one** box in each row to indicate which stage of compilation each action takes place at.
+
+|   | **Lexical** **analysis** | **Syntax** **analysis** | **Code** **generation** |
+|---|---|---|---|
+| Comments and whitespace are removed |   |   |   |
+| Keywords are replaced with tokens |   |   |   |
+| Object code is created |   |   |   |
+| Symbol table created for variables |   |   |   |
+| Builds an abstract syntax tree |   |   |   |
+
+**Table 5**
+'''
+
+[[question.part]]
+label = "6(c)"
+marks = 2
+text = '''
+Describe the purpose of code optimisation.
+'''
+
+[[question.mark_scheme]]
+label = "6(a)(i)"
+marks = 1
+answer = '''
+- To convert (high-level or assembly) code to low level/machine code
+'''
+guidance = '''
+Do not allow answers referring to making the program executable, given in question.
+
+**Examiner’s Comments**\
+This question was generally well answered, though some candidates thought that a translator translated machine code into source code or that it translated code into something the computer could understand, without specifying what that was.
+'''
+
+[[question.mark_scheme]]
+label = "6(a)(ii)"
+marks = 4
+answer = '''
+- Compiler translates code all at once/before it’s executed
+
+- Interpreter translates code line by line / during runtime
+
+- Compiler produces executable file for reuse / Doesn’t need to be translated everytime it is run
+- Interpreter needs to re- translate next time program is run
+
+- Compiler lists all errors/Compiled code doesn’t run if there are any errors
+- Interpreter stops at the first error
+
+- Compiled programs have the source code hidden
+- Interpreted programs have the source code visible
+'''
+guidance = '''
+Mark answers in pairs
+
+Max 2 marks per answer space
+
+**Examiner’s Comments**\
+This question was well answered by many candidates who showed two distinct differences.
+'''
+
+[[question.mark_scheme]]
+label = "6(b)"
+marks = 5
+answer = '''
+**Lexical**
+
+**analysis**
+
+**Syntax**
+
+**analysis**
+
+**Code**
+
+**generation**
+
+Comments
+
+and
+
+white-
+
+space
+
+are
+
+removed
+
+x
+
+Keywords
+
+are
+
+replaced
+
+with
+
+tokens
+
+x
+
+Object code
+
+is
+
+created
+
+x
+
+Symbol
+
+table
+
+created
+
+for
+
+variables
+
+x
+
+Builds an
+
+abstract
+
+syntax tree
+
+x
+'''
+guidance = '''
+One mark per row. No mark if more than one/no box is ticked.
+
+Accept other marks that clearly indicate choice (e.g. X)
+'''
+
+[[question.mark_scheme]]
+label = "6(c)"
+marks = 2
+answer = '''
+- To make the program run faster/ code is more efficient
+- To make the program use fewer resources/less memory
+'''
+guidance = '''
+**Examiner’s Comments**\
+Many candidates gave good descriptions of how code is optimised, but they did not answer the question which asked what the purpose of optimisation is.
+'''
+
+[[question]]
+number = 7
+marks = 15
+
+[[question.part]]
+label = "7(a)"
+marks = 2
+text = '''
+Charlie owns a veterinary surgery in her local town. She has purchased a new computer for her business so she can complete her accounts, write letters to her customers and keep a record of her customers’ personal and appointment details.
+
+She intends to install application software and utility software.
+
+Charlie will install database application software on her computer.
+
+State **one** additional type of application software Charlie could install and give an example of what she might use it for.
+'''
+
+[[question.part]]
+label = "7(b)"
+marks = 4
+text = '''
+Charlie’s computer has firewall utility software already installed.
+
+Explain **two** other pieces of utility software that Charlie should install on her computer.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "7(c)"
+marks = 9
+text = '''
+\* Charlie will use database management software to store customers’ personal and appointment details. Charlie is considering both open source and closed source database software.
+
+Compare the differences between open source software and closed source software and recommend which type of database software Charlie should use.
+
+You should refer to the following in your answer:
+
+- Cost
+- Usability
+- Extensibility
+- Security
+- Support available
+'''
+
+[[question.mark_scheme]]
+label = "7(a)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g:
+
+- Word Processing `o` Writing letters to customers
+- Spreadsheets `o` Completing accounts
+- Presentation Software `o` Create\\Show business plans
+- DTP `o` Creating marketing literature
+- Graphics Package `o` Editing photographs of procedures/marketing photos
+'''
+guidance = '''
+1 Mark for a suitable package and 1 mark for a relevant example for that package.
+
+Do not allow:
+
+- Non-business software (E.g. games)
+- Brand names (e.g Word/ Excel)
+- Database software
+
+**Examiner’s Comments**\
+This question was generally answered well. Several candidates wrote brand names which was not an acceptable answer. Some candidates gave an example of a utility which was required for Question 2 (b).
+
+To gain both marks, candidates were required to choose a suitable application type which would be useful in the given scenario.
+
+Candidates are reminded not to use brand names for questions of this type.
+'''
+
+[[question.mark_scheme]]
+label = "7(b)"
+marks = 4
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g:
+
+- Disk Defragmentation…
+- …To keep optimal r/w speed for her HDD
+- File management…
+- …To allow easy access to her file system
+- Disk Drivers…
+- … To allow her to use new peripheral devices
+- System Clean-up…
+
+- … to keep her system free of redundant files
+- Anti-Virus/Malware…
+- … to find and remove/quarantine viruses/malware (A worms/trojans etc)
+'''
+guidance = '''
+1 Mark for a suitable utility and 1 mark for a relevant example for that utility.
+
+Do not accept task manager
+
+Accept:
+
+- Compression Software …
+- … to make the file size smaller
+- Backup Software …
+- … to make copies of files
+
+**Examiner’s Comments**\
+This question was generally answered well although many candidates achieved 2 rather than 4 marks. Commonly, two utilities were correctly identified but the explanation to accompany the utility was too vague. Candidates were required to give examples of how the utilities could be used with the given scenario.
+'''
+
+[[question.mark_scheme]]
+label = "7(c)"
+marks = 9
+answer = '''
+**Mark Band 3–High Level**\
+**(7-9 marks)**\
+The candidate demonstrates a thorough knowledge and\
+understanding of open and closed source software; the material is generally accurate and detailed. The candidate has covered all 4 sections of cost, usability, security and Support available and for the top of this mark band will have covered all 4 well. Evidence/examples will be explicitly relevant to the explanation.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2-Mid Level**\
+**(4-6 marks)**\
+The candidate demonstrates reasonable knowledge and\
+understanding of open and closed source software; the material is generally accurate but at times underdeveloped.\
+The candidate has covered all at least 2 of the 4 sections of cost, usability, security and Support available. Evidence/examples are for the most part implicitly relevant to the explanation.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1-Low Level**\
+**(1-3 marks)**
+
+The candidate demonstrates a basic knowledge of how the layers of open and closed source software; the material is basic and contains some inaccuracies.\
+The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided.\
+The candidate provides nothing more than an unsupported assertion.
+
+The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+**Knowledge:**\
+**Cost**\
+Open Source
+
+- (generally) free to use
+- May have to purchase maintenance contracts
+- Staff training if “non-standard”
+
+Closed Source
+
+- (sometimes) have to pay to license the software
+- If paid will (usually) it will come with some level of support
+
+**Usability/extensibility**\
+Open Source
+
+- Tends to have a lower focus on UI
+- Source code released (under license)
+- Source can be edited
+- Can be redistributed (under license)
+
+Closed Source
+
+- Professionally developed
+- Distributed with a restrictive license
+- Only executable/object code is distributed/source code not distributed
+- Cannot be redistributed
+
+**Security**\
+Open Source
+
+- potentially massive bank of volunteer developers working on the product
+- Many of the contributors may not be professional
+- Code available to be scrutinised by anyone…
+- …but this may include people with malicious intentions
+
+Closed Source
+
+- Closed teams of developers
+- More work scrutiny for code
+- security fixes usually addressed quicker
+
+**Support Available**\
+Open Source
+
+- Source code released (under license)
+- Source can be edited
+- Open communities mean lots of support options could be available
+
+**Closed Source**
+
+- Support may be available from the company producing the software.
+
+**Application:**\
+**Cost**\
+Open Source
+
+- Lower overheads to company
+- Extra staff training and hardware cost could lead to total cost of ownership being higher
+
+Closed Source
+
+- Support from vendor can lead to quicker fixes.
+
+**Usability**\
+Open Source
+
+- The ability to edit source code means bespoke functionality can be developed in house
+- Lower focus on UI can mean a harder to use product (leading to higher training costs)
+
+Closed Source
+
+- Due to professional development, finish tends to be a higher standard
+- As the organisation protects their IP they generally tend to be less buggy as the organisation reputation/business model will rely on it
+- Lack of source code means extra features can only be developed by the vendor.
+
+**Security**\
+Open Source
+
+- Tends to be less secure as more people working on it, not always under rigorous oversight
+- No paid developers mean people may not work on security fixes straight away
+
+Closed Source
+
+- Developers work under tighter standards
+- Code being scrutinised more will mean less likely to be ship with bugs
+- Professional standards lead to quicker turnaround of bugs
+
+**Support Available**\
+Open Source
+
+- Editable source code means could self-support
+- Open communities mean there is vast amounts of knowledge available.
+
+**Evaluation:**\
+**Open Source**
+
+- Open source would lead to potential cost savings if Charlie looked to self support by using online communities or handling the code herself.
+
+**Closed Source**
+
+- If Charlie lacked technical skills, the better UI design from professional developers may make the UX smoother
+- Charlies would have a legal obligation to the data stored for her business. Closed source tighter security may strengthen this
+- Charlies business will rely on the uptime of her system. Professional support offered by the developers may mean less downtime in the case of software issues.
+
+**Examiner’s Comments**\
+Candidates were assessed on the quality of their extended response in this question. Most of the candidates were clear on the basic difference between open and closed source software but did not link this in with the scenario. Mid-level responses were common with few candidates having a balanced discussion with coverage of all four of the required sections.
+'''
+
+[[question]]
+number = 8
+marks = 7
+diagram = true
+
+[[question.part]]
+label = "8(a)"
+marks = 1
+text = '''
+The Little Man Computer (LMC) instruction set can be used to write programs using assembly language.
+
+State the type of translator that is used to convert assembly language into machine readable code.
+'''
+
+[[question.part]]
+label = "8(b)"
+text = '''
+**Fig. 3** shows assembly code written using the LMC instruction set.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 3**
+'''
+
+[[question.part]]
+label = "8(b)(i)"
+marks = 1
+text = '''
+Tick **one** box to indicate the programming construct that is **not** used in **Fig. 3**.
+
+Sequence
+
+Selection
+
+Iteration
+'''
+
+[[question.part]]
+label = "8(b)(ii)"
+marks = 1
+text = '''
+When the program is run, 7 is input by the user.
+
+State the value that will be in the memory location `Z` when the program has run with this input.
+'''
+
+[[question.part]]
+label = "8(b)(iii)"
+marks = 4
+text = '''
+Write an equivalent version of the LMC assembly code shown in **Fig. 3** for a procedural programming language.
+
+You should write your code using pseudocode or program code.
+'''
+
+[[question.mark_scheme]]
+label = "8(a)"
+marks = 1
+answer = '''
+- Assembler
+'''
+
+[[question.mark_scheme]]
+label = "8(b)(i)"
+marks = 1
+answer = '''
+- Iteration
+'''
+
+[[question.mark_scheme]]
+label = "8(b)(ii)"
+marks = 1
+answer = '''
+- 5
+'''
+
+[[question.mark_scheme]]
+label = "8(b)(iii)"
+marks = 4
+answer = '''
+1 mark per bullet up to a maximum of 4 marks, e.g:
+
+- Initialise Y and Z AND set X
+- Correct use of IF
+- Correct condition (e.g. if X \>= Y then)
+- Assignment of Z in correct places
+'''
+guidance = '''
+X Y Z variable alternatives are acceptable\
+Solution:
+
+```
+X = input()
+Y = 5
+Z = 0
+if X >= Y then
+   Z = Y
+else
+   Z = X
+Endif
+```
+'''
+
+[[question]]
+number = 9
+marks = 13
+
+[[question.part]]
+label = "9(a)"
+text = '''
+Imogen installs a compiler for a high-level programming language onto her computer and makes use of an open source IDE (Integrated Development Environment).
+'''
+
+[[question.part]]
+label = "9(a)(i)"
+marks = 2
+text = '''
+State what is meant by the term ‘open source software’.
+'''
+
+[[question.part]]
+label = "9(a)(ii)"
+marks = 1
+text = '''
+Give **one** benefit to Imogen of using an open source IDE rather than a closed source IDE.
+'''
+
+[[question.part]]
+label = "9(b)"
+text = '''
+When Imogen creates programs in a high-level language, she makes use of libraries.
+'''
+
+[[question.part]]
+label = "9(b)(i)"
+marks = 3
+text = '''
+Explain what is meant by a library, giving **one** example of when **one** may be used.
+'''
+
+[[question.part]]
+label = "9(b)(ii)"
+marks = 2
+text = '''
+Describe **one** advantage of the use of library files to programmers.
+'''
+
+[[question.part]]
+label = "9(b)(iii)"
+marks = 2
+text = '''
+Describe **one** disadvantage of the use of library files to programmers.
+'''
+
+[[question.part]]
+label = "9(b)(iv)"
+marks = 3
+text = '''
+Explain how linkers are used during the compilation process.
+
+**END OF QUESTION PAPER**
+'''
+
+[[question.mark_scheme]]
+label = "9(a)(i)"
+marks = 2
+answer = '''
+- Source code / program code is freely available
+- …to edit/amend recompile.
+'''
+
+[[question.mark_scheme]]
+label = "9(a)(ii)"
+marks = 1
+answer = '''
+e.g.
+
+- Can modify code and adapt IDE to her needs
+- Is likely to be financially free of cost.
+- Can recompile to work on different systems
+- Has the benefit of a community potentiallyimproving the system
+- Can learn from others
+- Can ensure no backdoors / malware
+'''
+guidance = '''
+Do not accept simply seeing the code (previous question).
+'''
+
+[[question.mark_scheme]]
+label = "9(b)(i)"
+marks = 3
+answer = '''
+- Sections of code / program file
+- Written by other authors / already written
+- Containing useful routines
+- Suitable example (e.g. GUI routines, databaseaccess routine, encryption, graphics)
+'''
+guidance = '''
+Maximum 2 for definition, 1 for example
+'''
+
+[[question.mark_scheme]]
+label = "9(b)(ii)"
+marks = 2
+answer = '''
+- Save time…
+- …because no need to rewrite code
+- Use expertise of others..
+- …to complete tasks that require specialistknowledge / abstract away complexity.
+- Has already been tested/the programmer doesn’thave to test it themselves
+
+- Making debugging easier/saving time
+'''
+
+[[question.mark_scheme]]
+label = "9(b)(iii)"
+marks = 2
+answer = '''
+- May (significantly) increase size of compiled file…
+- …as library contains many routines that aren‘t beingused.
+- Not written by the programmer
+- …so introduces uncertainty / require further testing /programmer needs to spend time familiarisingthemselves with it
+'''
+
+[[question.mark_scheme]]
+label = "9(b)(iv)"
+marks = 3
+answer = '''
+- Links the main program to libraries
+- ..can either include them in the final executablecode
+- ..or get the executable code to point to the externallibraries
+'''
+guidance = '''
+Accept terms static and dynamic for bullets 2 and 3, but only if these are explained.
+'''

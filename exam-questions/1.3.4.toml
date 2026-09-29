@@ -1,0 +1,708 @@
+# OCR exam questions for 1.3.4 Web Technologies.
+# Copied as text from the question paper and mark scheme PDFs in sources/
+# by tools/extract-exam-questions. Diagrams are not copied. Corrections by
+# hand are fine: the tool will not overwrite this file without --force.
+spec = "1.3.4"
+
+[[question]]
+number = 1
+marks = 16
+
+[[question.part]]
+label = "1(a)"
+marks = 4
+text = '''
+A company wants more customers to be able to find their website on the internet.
+
+The company would like to start selling their products on their website. They will use both client side and server side processing to do this.
+
+Tick (✓) **one** box on each row to identify whether each task would be best performed on the client side or the server side.
+
+| **Task** | **Client Side** | **Server Side** |
+|---|---|---|
+| Loading the website HTML code |   |   |
+| Applying CSS styles to a website |   |   |
+| Running JavaScript code to check that the customer surname has been entered on the order form |   |   |
+| Running queries on the database to check if an item is available in stock |   |   |
+'''
+
+[[question.part]]
+label = "1(b)"
+marks = 12
+text = '''
+Discuss why search engine indexing and page ranking will be important in achieving this.
+
+You should include the following in your answer:
+
+- what search engine indexing means and what information is collected
+- what PageRank means and possible factors that can affect a PageRank score of a website
+- possible ways for the company to improve the PageRank score of pages on its website.
+'''
+
+[[question.mark_scheme]]
+label = "1(a)"
+marks = 4
+answer = '''
+1 mark for each correct row.
+
+| **Task** | **Client Side** | **Server Side** |
+|---|---|---|
+| Loading the website HTML code | ✓ |   |
+| Applying CSS styles to a website | ✓ |   |
+| Running JavaScript code to check that the customer surname has been entered on the order form | ✓ |   |
+| Running queries on the database to check if an item is available in stock |   | ✓ |
+'''
+guidance = '''
+Accept alternatives to ticks in the boxes so long as it is clear which side is marked.
+
+**Examiner’s Comments**
+
+Most candidates were able to gain 2 or 3 marks on this question with many gaining all 4 marks. The most common error was ticking server side for Running JavaScript to check the surname.
+'''
+
+[[question.mark_scheme]]
+label = "1(b)"
+marks = 12
+answer = '''
+**Mark Band 3-High Level (9-12 marks)**\
+The candidate demonstrates a thorough knowledge and understanding of search indexing and page rank. The material is generally accurate and detailed.
+
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation.
+
+The candidate is able to assess the extent to which page rank and search engine optimization is important to online visibility.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+A mark band 3 answer will explain in detail how search indexing happens and the factors affecting PageRank scores. There will be clear evaluative points that identify how to improve PageRank score.
+
+**Mark Band 2-Mid Level (5-8 marks)** The candidate demonstrates reasonable knowledge and understanding of search indexing and page rank; the material is generally accurate but at times underdeveloped.
+
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed.
+
+Evidence/examples are for the most part implicitly relevant to the explanation.
+
+The candidate makes a reasonable attempt to come to a conclusion as to why page rank and search engine optimisation are important to online visibility.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+A mark band 2 answer will cover both search indexing and page ranking and will expand the points, explaining what information is collected during indexing and factors that affect PageRank scores although these may not be balanced. There should be some attempt to identify how to improve PageRank score.
+
+**Mark Band 1-Low Level (1-4 marks)**\
+The candidate demonstrates a basic knowledge of search indexing or page rank; the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided.
+
+The candidate provides nothing more than an unsupported assertion.
+
+The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+A mark band 1 answer will contain some basic, relevant facts about what search indexing is and/or what PageRank means. They may not discuss how the company can improve PageRank.
+
+**0 mark**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+Points may include but aren’t limited to:
+
+**AO1 Knowledge and** **Understanding**\
+Search engine indexing:
+
+- Search engine indexing is where a database of key words is kept with links to relevant pages stored with the keyword
+- Words are stored along with their position on a page
+- Bots (spider/crawlers) will “crawl” the web finding web pages and looking for key words on them
+- The will navigate from page to page following hyperlinks
+- They are then sent back to the search engine’s database
+- When you search for a website, you are not searching on the web, you are searching in the
+
+search providers database
+
+PageRank:
+
+- Used to find and rank website pages and then list the results in a search engine. If a website has a higher score, it will appear higher in the list of search results.
+- More links from more important pages, ranks a page higher
+- Stored as a weighted, directed graph `o` Pages are nodes `o` Hyperlinks are edges in one direction `o` Weightings are calculated by page rank
+
+**AO2 Application**\
+To get more of presence they will need to...
+
+- Make effective use of meta tags that effectively describe the contents of the website.
+- Make effective use of H1 tags using suitable headings that describes the content of the website
+- Increase the number of quality of incoming links from other websites, ideally those with a high PageRank score themselves
+- Increase the number of outgoing links
+- Key words can be stored in meta tags, title tags or header tags (h1, h2 etc)
+- Damping factor is used to quash a PageRank based on the idea that a
+
+user will only click through a certain number of links
+
+**AO3 Evaluation**
+
+- PageRank algorithm is only one algorithm that is used to Rank websites.
+- To get a better presence on the internet, the company will need to consider who links to their page, the more popular the better
+- They could potentially work with other companies who have established websites and get incoming links from those sites
+- It’s important that a company ensures their site is malware free/secure as this can impact on their PageRank score
+
+**Examiner’s Comments**
+
+Many candidates were able to discuss some factors that affect PageRank and how the website could improve it. Far less were able to discuss search engine indexing correctly. Some were able to apply their knowledge to the scenario. More successful candidates were able to give a good description of both search engine indexing and PageRank as well as relevant suggestions for how the website could improve their PageRank.
+'''
+
+[[question]]
+number = 2
+marks = 5
+
+[[question.part]]
+label = "2"
+marks = 5
+text = '''
+An online shop uses a website to sell its products. Part of the HTML code that is used for a login form on the website is shown here.
+
+```
+<p>
+ <label>Username:</label>
+ <input type="text" id="userName">
+</p>
+<p>
+ <label>Password: </label>
+ <input type="text" id="Password" onchange="errorCheck()">
+</p>
+<p>
+ <label id="errorText">
+</p>
+```
+
+The `<label>` tag will instruct the user what information they need to enter. The code `onchange` will run a function called `errorCheck` automatically after a password has been entered. The function `errorCheck` will check that the password is a suitable length.
+
+Write JavaScript code for the function `errorCheck` which:
+
+- checks the length of the password is between 8 and 12 characters (including 8 and 12) displays the message "Password Length Error" in the HTML `label` tag identified by the id `errorText`
+-  if the length is not between 8 and 12 characters.
+'''
+
+[[question.mark_scheme]]
+label = "2"
+answer = '''
+- Correctly declared **function errorCheck ()** (CAO)
+- Use `getElementById` and assign to a variable
+- Use `if` statement to check if password length \< 8 / password length \> 12 ...
+
+AO3. 2 (5)
+
+- ... `if` statement checks both password length \< 8 and password length \> 12
+- Inside if statement set `innerHTML` of `errorText` to “Password Length Error” (CAO)
+
+**POSSIBLE SOLUTION:**
+
+```
+function errorCheck() {
+
+var pass =
+document.getElementById("Password").value;
+
+if (pass.length > 12 || pass.length < 8)
+{
+
+document.getElementById("errorText").innerH
+TML = "Password Length Error";
+}
+}
+```
+'''
+guidance = '''
+Award 0 marks if it is clear JavaScript has not been used
+
+Allow nested if statements
+
+**Examiner’s Comments**
+
+Although candidates were required to write this response in JavaScript, marks were still given if the syntax was close, and the logic was generally correct. A number of candidates didn’t use JavaScript and gave responses in alternative scripts or Python. The question states that JavaScript code must be written, therefore any other code received no marks.
+
+Exemplar 3
+
+*[Image in the original mark scheme, not shown here.]*
+
+This candidate response was given full marks. The second part of the ‘if’ statement is not entirely correct, but the overall code provided is very close to each mark scheme point and was therefore given full marks.
+
+*[Image in the original mark scheme, not shown here.]*
+
+**Assessment for** **learning**
+
+Appendices 5d in the specification gives guidance on what students are expected to know regarding JavaScript with examples.
+'''
+
+[[question]]
+number = 3
+marks = 13
+diagram = true
+
+[[question.part]]
+label = "3(a)"
+text = '''
+A team of programmers create a robot that will be used in a factory. The robot will be able to do the work of multiple humans.
+
+The programmers discuss whether to write the instructions for the robot in assembly language or a high-level language.
+
+The robot provides a web-based interface for users. The home screen webpage for this interface is shown in **Fig.**
+
+**4**.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 4**
+'''
+
+[[question.part]]
+label = "3(a)(i)"
+marks = 5
+text = '''
+Complete this HTML code that will display the webpage shown in **Fig. 4**.
+
+```
+<html>
+   <head>
+       <title>Robot User Interface</title>
+   </head>
+   <body>
+       <h1>Robot prime directives</h1>
+       ……
+           <li>Serve the company trust</li>
+           <li>Protect data</li>
+           <li>Uphold standards</li>
+       ……
+   <a …… = "updates.html">Updates</a>
+   <p>……</p>
+   <form action="dologin.php">
+       Password
+       <input type = "……" name="pw">
+       <input type = "……">
+   </form>
+   </body>
+</html>
+```
+'''
+
+[[question.part]]
+label = "3(a)(ii)"
+marks = 3
+text = '''
+Write CSS code that could be used in an external stylesheet to format all text using the \<h1\> tag as white with a red background.
+'''
+
+[[question.part]]
+label = "3(b)"
+text = '''
+The robot’s web interface uses images that show the robot in action. These photographs have been taken using a digital camera.
+
+The programmers do not want other people to download and use these images.
+'''
+
+[[question.part]]
+label = "3(b)(i)"
+marks = 3
+text = '''
+State the name of **one** relevant piece of legislation and describe how this would protect these images.
+
+Legislation
+
+Description
+'''
+
+[[question.part]]
+label = "3(b)(ii)"
+marks = 2
+text = '''
+For other areas of the web interface, the programmers need to use images that they have not created themselves.
+
+Give **two** ways that they could make sure these images are used legally.
+
+1
+
+2
+'''
+
+[[question.mark_scheme]]
+label = "3(a)(i)"
+marks = 5
+answer = '''
+- \<ul\> and \</ul\>
+- href
+- Login
+- text/password
+- submit
+'''
+guidance = '''
+\<html\>\
+\<head\>\
+\<title\>Robot User Interface\</title\>\
+\</head\>\
+\<body\>\
+\<h1\>Robot\
+directives\</h1\>\
+\<ul\>\
+\<li\>Serve the company
+
+trust\</li\>\
+\<li\>Protect data\</li\> \<li\>Uphold standards\</li\> \</ul\>\
+\<a\
+href="updates.html"\>Updates\</ a\>\
+\<p\>Login\</p\>\
+\<form\
+action="dologin.php"\> Password\
+\<input type = "text" name="pw"\>\
+\<input type = "submit"\> \</form\>\
+\</body\>\
+\</html\>
+
+HTML tags are not case sensitive
+
+Correct answer only
+
+**Examiner’s Comments**
+
+Generally well answered and many candidates gained full marks with most being able to gain at least two.
+'''
+
+[[question.mark_scheme]]
+label = "3(a)(ii)"
+marks = 3
+answer = '''
+- h1 and other code contained in { }
+- color :white;
+- background-color : red; /background: red;
+'''
+guidance = '''
+Ignore presence or lack of \<style\> tags. Ignore lack of semicolons
+
+Penalise misspelling of "color" once and then FT
+
+h1 {\
+color:white;\
+background-color: red; }
+
+White can be #FFFFFF or #FFF Red can be #FF0000 or #F00
+
+**Examiner’s Comments**
+
+Many candidates were able to gain full marks. The most common reasons candidates lost marks was through the use of quotes around the colour equals instead of colons and for misspelling colour
+'''
+
+[[question.mark_scheme]]
+label = "3(b)(i)"
+marks = 3
+answer = '''
+- Copyright Designs and Patents Act
+
+Any two from:
+
+- Gives the author (the programmers)ownership/copyright of the photographs
+- …no need to apply / this is automatic
+- Others cannot use/distribute / can beprosecuted/fined for using/distributing…
+- …without permission
+- Permission can be granted / bought / licenced
+'''
+guidance = '''
+Must be full name of Act for MP1\
+FT for versions of Copyright or nothing for MP2-6
+
+**Examiner’s Comments**
+
+Many candidates were able to gain 2 marks but many did not give the full name of the legislation.
+'''
+
+[[question.mark_scheme]]
+label = "3(b)(ii)"
+marks = 2
+answer = '''
+- Ask permission of **author / photographer /owner**
+- Use images marked as copyright free (e.g.Creative Commons Licence)
+- Purchase (licence to use) image
+'''
+guidance = '''
+Do not accept just "ask permission"
+
+**Examiner’s Comments**
+
+Many candidates were able to gain 2 marks. It was surprising to see how many believed that you could use copyright images for your business just by crediting the artist. Candidates should be made aware that although crediting the artist may help avoid plagiarism it does not allow you free use of a copyright image.
+'''
+
+[[question]]
+number = 4
+marks = 23
+
+[[question.part]]
+label = "4(a)"
+marks = 3
+text = '''
+One page in the website contains a hyperlink on an image. When the image stored as “ticket.png” is clicked, the user is hyperlinked to the page stored as “booking.htm”.
+
+Write the HTML code to implement this hyperlink.
+'''
+
+[[question.part]]
+label = "4(b)"
+marks = 4
+text = '''
+A website charges a booking fee of £2.99 on each ticket sold. In addition, if the tickets are purchased from outside of the UK, £4.99 is added to the booking fee. The booking fee is calculated using a JavaScript function named `bookingfee()`.
+
+Complete the definition of the `bookingfee()` function below.
+
+```
+function bookingfee(numtickets, country) {
+
+  var nonUKprice = 4.99;
+
+  var perTicketPrice = ……;
+
+  var total = 0;
+
+  if (country!="UK") {
+
+     total = total + ……;
+
+  }
+
+  total = total + (…… * perTicketPrice);
+
+  …… total;
+
+}
+```
+'''
+
+[[question.part]]
+label = "4(c)"
+text = '''
+The JavaScript function above is used to show users the booking fee. When users click to buy the tickets, the booking fee is calculated again on the server.
+'''
+
+[[question.part]]
+label = "4(c)(i)"
+marks = 3
+text = '''
+Explain why server side processing is used to recalculate the booking fee.
+'''
+
+[[question.part]]
+label = "4(c)(ii)"
+marks = 2
+text = '''
+Explain **one** advantage of client side processing to either the customer buying the tickets, or to company who own the website.
+'''
+
+[[question.part]]
+label = "4(d)"
+text = '''
+Users are able to search for and find the ticket website using a search engine. Search engines can use indexing and ranking.
+'''
+
+[[question.part]]
+label = "4(d)(i)"
+marks = 4
+text = '''
+Describe how a website is indexed by a search engine.
+'''
+
+[[question.part]]
+label = "4(d)(ii)"
+marks = 1
+text = '''
+A search engine can use the PageRank algorithm to determine a website’s ranking. The PageRank algorithm utilises a damping factor.
+
+State what is meant by the term ‘damping factor’.
+'''
+
+[[question.part]]
+label = "4(d)(iii)"
+marks = 2
+text = '''
+Give **two** other factors that affect the output value given by the PageRank algorithm for a website.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "4(e)"
+marks = 4
+text = '''
+A website sells tickets for sporting events. The website uses HTML, CSS and JavaScript.
+
+Describe the purpose of HTML and CSS within the code of the website.
+
+HTML
+
+CSS
+'''
+
+[[question.mark_scheme]]
+label = "4(a)"
+marks = 3
+answer = '''
+- Correct \<a\> with close
+- href property to correct page
+- correct \<img\> tag with src property to correct file
+'''
+guidance = '''
+\<a href=”booking.htm”\>\<img src=”ticket.png”\>\</a\>
+'''
+
+[[question.mark_scheme]]
+label = "4(b)"
+marks = 4
+answer = '''
+- 2.99
+- nonUKprice
+- numtickets
+- return
+'''
+guidance = '''
+Correct answer only. Penalise spelling if incorrect.
+
+Do not accept £ sign in first bullet point.
+'''
+
+[[question.mark_scheme]]
+label = "4(c)(i)"
+marks = 3
+answer = '''
+- processing done away from the user’s control/Client side processing could be altered
+- Browser may not support client-side language/ scripting could be turned off
+- Booking fee calculation needs to be correct for all locations
+'''
+
+[[question.mark_scheme]]
+label = "4(c)(ii)"
+marks = 2
+answer = '''
+To the customer any 2x1:
+
+- No need to submit to server and wait for response
+
+- Website will work more quickly for user
+
+To the company any 2x1:
+
+- Reduces load on the server
+- Will need to spend less on processing power/bandwidth
+'''
+
+[[question.mark_scheme]]
+label = "4(d)(i)"
+marks = 4
+answer = '''
+- Web crawler /spider visits site
+- Either be selecting it from an existing list or following a link.
+- Records information
+- …such as text / metatags / etc
+- Records the position of each word within the page
+- Storing them in an index
+- Follows links to other sites
+- Robots.txt file can be used to instruct web crawlers
+'''
+
+[[question.mark_scheme]]
+label = "4(d)(ii)"
+marks = 1
+answer = '''
+- A value between 0 and 1
+- Probability that a user will not follow a link
+'''
+
+[[question.mark_scheme]]
+label = "4(d)(iii)"
+marks = 2
+answer = '''
+- Number of links to target site
+- PageRank score of those sites (linking inwards)
+'''
+
+[[question.mark_scheme]]
+label = "4(e)"
+marks = 4
+answer = '''
+- HTML defines the structure of a web page
+- HTML defines the content of a web page
+- Using tags (enclosed in \<\>)
+
+- CSS defines the style / appearance
+- Using selectors such as classes / IDs / etc
+- Can be placed within HTML or externally in a file
+- Multiple pieces of CSS can be combined (the more local instances overriding)
+'''
+guidance = '''
+Do not accept layout/format for HTML as this is too vague and can be used to describe CSS
+'''
+
+[[question]]
+number = 5
+marks = 6
+diagram = true
+
+[[question.part]]
+label = "5"
+marks = 6
+text = '''
+Shreya is a web developer who creates webpages for a variety of different companies.
+
+Shreya has received a webpage written in HTML shown in **Fig. 2.1**.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 2.1**
+
+Some of the formatting requirements for this webpage are shown in **Fig. 2.2**.
+
+|   |   | **Formatting Requirements** |   |
+|---|---|---|---|
+|   |   |   |   |
+| **font-family** | **colour** |   |   |
+| **Class/ID** | **Text** |   |   |
+|   |   |   |   |
+| Beeb | History of the BBC Micro Computer | times | green |
+| model | Model A Model B | arial | red |
+
+**Fig. 2.2**
+
+Write the CSS Shreya needs to display the webpage so that it meets the formatting requirements stated in **Fig** **2.2**.
+
+**END OF QUESTION PAPER**
+'''
+
+[[question.mark_scheme]]
+label = "5"
+marks = 6
+answer = '''
+1 mark per bullet up to a maximum of 6 marks:
+
+- Correct syntax for css class for “model”(including opening and closing curly brackets)
+- Correct syntax for css id for “beeb” (including opening and closing curly brackets)
+- Correct syntax for setting the font family to arial for class “model”
+- Correct syntax for setting the font colour to red on class “model”
+- Correct syntax for setting colour to green for id “beeb”
+
+- Correct syntax for setting font family to times for id “beeb”
+'''
+guidance = '''
+Example:
+
+```
+li.model {
+      color: red;
+      font-family:
+arial;
+}
+#Beeb {
+    color: green;
+    font-family:
+times;
+}
+```
+
+**Ignore** if `li` is not put in front of
+
+```
+.model
+```
+
+**Reject** if any other tag is put in front of `.model`
+
+Responses written in HTML mark as NAQ
+'''

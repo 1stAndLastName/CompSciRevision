@@ -1,0 +1,216 @@
+# OCR exam questions for 1.3.1 Compression, Encryption and Hashing.
+# Copied as text from the question paper and mark scheme PDFs in sources/
+# by tools/extract-exam-questions. Diagrams are not copied. Corrections by
+# hand are fine: the tool will not overwrite this file without --force.
+spec = "1.3.1"
+
+[[question]]
+number = 1
+marks = 3
+
+[[question.part]]
+label = "1"
+marks = 3
+text = '''
+Application software is run on thin client computers. A thin client computer is a very low-powered computer connected to a powerful central server. The operating system and all the applications run within a virtual machine on the server. The thin client computer will only display the output of the virtual machine and capture and send input to the virtual machine.
+
+The thin client computer needs to send data that is input by the user to the server so that the virtual machine can process it. For example, it will send text entered by the user on the thin client computer to the application software running on the virtual machine.
+
+Data is compressed in order to improve the speed of data transmission between the client and the server.
+
+Explain why lossless compression should be used instead of lossy compression.
+'''
+
+[[question.mark_scheme]]
+label = "1"
+marks = 3
+answer = '''
+1 mark per bullet to max 3:
+
+- Lossless will not **permanently** remove data
+- Lossless can be fully reconstructed/restored
+- Quality (of text/graphics/sound) is not lost
+- Any loss of text would be noticeable/would make it unreadable/unusable
+- Lossless rewrites data in a more efficient format
+'''
+guidance = '''
+Accept reverse points\
+e.g. lossy will delete data\
+**permanently**
+
+**Examiner’s Comments**
+
+This is a common topic in previous papers and most candidates were able to gain at least one mark with more successful candidates gaining all three. Some candidates gave responses that were too vague and did not relate to the question stem.
+'''
+
+[[question]]
+number = 2
+marks = 9
+
+[[question.part]]
+label = "2"
+marks = 9
+text = '''
+A team of programmers create a robot that will be used in a factory. The robot will be able to do the work of multiple humans.
+
+The programmers discuss whether to write the instructions for the robot in assembly language or a high-level language.
+
+The robot stores data internally and also communicates with other robots and users via a wireless network which is password protected. All data for these tasks is secured using either encryption or hashing.
+
+Compare the robot’s use of encryption and hashing for storing and communicating data.
+
+You should include the following in your answer:
+
+- the different types of encryption that could be used and how this would secure data
+- how hashing could be used to secure data and which data would be suitable
+- why encryption and hashing are used by the robot for stored data and communications.
+'''
+
+[[question.mark_scheme]]
+label = "2"
+marks = 9
+answer = '''
+**Mark Band 3 – High Level (7–9** **marks)**\
+The candidate demonstrates a thorough knowledge and\
+understanding of encryption **and** hashing and how they can be used to store data and communicate securely. The material is generally accurate and detailed.
+
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation.
+
+The candidate is able to weigh up both technologies which results in a supported and realistic judgement covering when each can be used. This is well balanced.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2 – Mid Level (4–6** **marks)**\
+The candidate demonstrates
+
+reasonable knowledge and\
+understanding of encryption **and** hashing and how they can be used to store data and communicate securely; the material is generally accurate but at times underdeveloped.
+
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence / examples are for the most part implicitly relevant to the explanation.
+
+The candidate makes a reasonable attempt to come to a conclusion showing some recognition of either technology. This may not be well- balanced, covering one side significantly more than the other, although both sides will be present.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1 – Low Level (1–3** **marks)**\
+The candidate demonstrates a basic knowledge of encryption or/and hashing and how they can be used to store data and communicate securely; the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and\
+understanding to the context provided.
+
+The candidate provides nothing more than unsupported assertions. Any discussion will be almost entirely one- sided.
+
+The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 mark**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+The following shows example content that may form part of a candidate’s answer. It is not intended to be an exhaustive resource, nor should a candidate be expected to specifically cover any particular amount of this.
+
+**Knowledge (AO1)**
+
+- Encryption converts data into data that cannot beunderstood (ciphertext) using a key.
+- Symmetric encryption uses the same key for bothencryption and decryption
+- Asymmetric encryption uses two keys, one forencryption, one for decryption
+- Encryption is two-way, so data can be restored tooriginal form, but key is required.
+- Hashing is a one-way (non- reversible) mathematicalprocess that produces a value from the input value.
+
+**Application (AO2)**
+
+- For robot’s data storage, symmetric encryption isuseful as no keys to share/transmit.
+- For robot-robot/user communication, asymmetricencryption / public key encryption means that onlythe public key needs to be shared. Data can beencrypted/decrypted with this while the private key iskept secure
+- Also possible to verify identity of sender / origin ofdata using asymmetric encryption.
+- Hashing is useful for information (e.g. password) thatneeds to be verified but does not need to be knownat any point; once hashed, it is impossible to returnto it.
+
+**Evaluation (AO3)**
+
+- Encryption useful for most data storage as anyonehacking into the robot will not be able toread/understand the data.
+- Hashing is useful for data storage of password /other items that need to be verified, hash of inputcompared against hash stored to confirmcorrectness.
+- Hashing is not useful for data that needs to bereturned to the user as impossible to return to.
+- Encryption useful for data transmission as dataintercepted cannot be decrypted without the key.
+
+**Examiner’s Comments**
+
+Most candidates could name symmetric and asymmetric encryption and state how the keys in each were used as well as being able to show a basic understanding of hashing being irreversible but few could apply that to the question. Many talked about hash
+
+tables although the question states that hashing is used to secure the data.
+'''
+
+[[question]]
+number = 3
+marks = 5
+
+[[question.part]]
+label = "3"
+marks = 5
+text = '''
+All videos that are streamed are compressed. Customers have the option to choose from watching the videos with lossy compression or lossless compression.
+
+Explain how this choice will impact the customer.
+'''
+
+[[question.mark_scheme]]
+label = "3"
+marks = 5
+answer = '''
+- Lossy **permanently** removes data
+- Lossless rewrites original data in more efficient format
+- Lossless is able to recreate the original file / Lossy is not able to recreate the original file
+- Lossy reduces quality of videos / Lossless keeps original quality
+- Lossy file size is smaller than if lossless were used
+- Lossy: compression ratio may be adjusted depending on bandwidth
+- Resulting in a noticeable decrease in quality on slower connections.
+- Lossy: the video will buffer less / quicker to start watching the video / Lossless: the video will buffer more / slower to start watching the video
+'''
+guidance = '''
+Do not allow answers relating to speed of download unless this clearly refers to the video starting or reduction in buffering – scenario is video being streamed, not\
+downloaded.
+
+**Examiner’s Comments**\
+Candidates tended to write at length for this question, but often made the same point twice. Many missed marks for not making the comparison between lossy and lossless and only gave one side. Some candidates discussed the videos being downloaded rather than streamed.
+'''
+
+[[question]]
+number = 4
+marks = 3
+
+[[question.part]]
+label = "4"
+text = '''
+Shreya is a web developer who creates webpages for a variety of different companies.
+
+Photographs on a webpage are usually compressed.
+'''
+
+[[question.part]]
+label = "4(i)"
+marks = 1
+text = '''
+State which method of compression is most likely to be used for this purpose.
+'''
+
+[[question.part]]
+label = "4(ii)"
+marks = 2
+text = '''
+Explain the need to compress photographs in this situation.
+
+**END OF QUESTION PAPER**
+'''
+
+[[question.mark_scheme]]
+label = "4(i)"
+marks = 1
+answer = '''
+Lossy
+'''
+
+[[question.mark_scheme]]
+label = "4(ii)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g.:
+
+- Reduces the size of the image file
+- Uses lower bandwidth in transmission
+- Takes up less storage (on the HTTP server)
+'''

@@ -1,0 +1,800 @@
+# OCR exam questions for 1.1.3 Input, output and storage.
+# Copied as text from the question paper and mark scheme PDFs in sources/
+# by tools/extract-exam-questions. Diagrams are not copied. Corrections by
+# hand are fine: the tool will not overwrite this file without --force.
+spec = "1.1.3"
+
+[[question]]
+number = 1
+marks = 3
+
+[[question.part]]
+label = "1"
+marks = 3
+text = '''
+The performance of a computer system can be improved by adding more RAM.
+
+Explain why adding more RAM will improve the performance of a computer system.
+'''
+
+[[question.mark_scheme]]
+label = "1"
+marks = 3
+answer = '''
+1 mark per bullet to max 3:
+
+- Allows **more** **active/running/temporary** data in RAM
+- It reduces the need to use virtual memory
+- RAM is faster to access than VM/secondary storage...
+- ...because **data** in VM/SS has to be swapped with **data** in RAM first
+- Use of RAM rather than VM reduces the risk of disk thrashing
+- Faster bootup/ shutdown time / reduces load/access time
+'''
+guidance = '''
+MP1 must imply more/larger amount of data
+
+Allow\
+‘instructions/programs/apps/processes/tasks’ for data.
+
+MP2 - BOD ‘no need for Virtual Memory’.
+
+**Examiner’s Comments**
+
+Most candidates were able to gain 1 or 2 marks on this question. Some confused primary with secondary saying that adding more RAM meant there was less need to use primary memory. Some confused RAM with Cache.
+'''
+
+[[question]]
+number = 2
+marks = 11
+
+[[question.part]]
+label = "2(a)"
+marks = 2
+text = '''
+An embedded system is often a small device that is designed to carry out a limited number of specialised tasks. Professional athletes sometimes wear small embedded systems called fitness trackers in their shirts. These can be used to track their speed, position, heart rate and other performance data during an event. The tracker transmits this data to a pitch-side server which collates the data from all the athletes.
+
+State the name of **one** input device that might be used in this embedded system and state what it would be used for.
+
+Device
+
+Use
+'''
+
+[[question.part]]
+label = "2(b)"
+marks = 4
+text = '''
+The fitness tracker manufacturers had to decide which type of secondary storage to use.
+
+Explain **two** reasons why flash (solid state) storage would be the best type of secondary storage for the fitness tracker system.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "2(c)"
+text = '''
+One use of ROM is to store the Basic Input Output System (BIOS). The BIOS is used when the computer is first turned on.
+'''
+
+[[question.part]]
+label = "2(c)(i)"
+marks = 3
+text = '''
+Describe what the BIOS will do to start up the computer.
+'''
+
+[[question.part]]
+label = "2(c)(ii)"
+marks = 2
+text = '''
+Apart from storing the BIOS, ROM can also be used in other ways.
+
+Describe how an embedded system can make a different use of ROM and why it is an advantage.
+'''
+
+[[question.mark_scheme]]
+label = "2(a)"
+marks = 2
+answer = '''
+1 mark max for input device and 1 mark max for reason:
+
+- Heart rate sensor
+- Detects athlete’s electrical activity / heart rate
+
+- GPS (receiver)
+- Mapping the athlete’s **movement / position/ speed**
+
+- Accelerometer/gyroscope/motion sensor
+- To track the players acceleration/speed/movement/ counting steps/measuring orientation
+
+- Button
+- To allow the athlete to turn it on/off
+'''
+guidance = '''
+Allow other suitable input devices as long as they are suitable for the scenario and an input device\
+e.g.\
+thermometers, light and UV sensors, skin response sensors, magnetometers, gyrometer, ECG
+
+No FT for use if incorrect device
+
+Use must be related to the fitness tracker scenario
+
+**Examiner’s Comments**
+
+The majority of candidates were able to state the name of a device, but many did not apply the use of their named input device to the scenario and gave responses related to a generic use of the device for example giving a heart rate sensor or monitor and then saying the use was to monitor the heart rate with no reference to the fitness tracker. A few gave devices which were unsuitable for an embedded system carried in a shirt such as keyboard and touchscreen.
+'''
+
+[[question.mark_scheme]]
+label = "2(b)"
+marks = 4
+answer = '''
+1 mark for reason and 1 mark for expansion up to a maximum of 4 marks.
+
+- Durable/flash has no moving parts...
+- ...so will be resistant to damage if the player runs/falls/collides with something
+- Low power usage...
+- ...won’t need recharging/will last during an event
+- Small **physical size**/portable...
+- ...so it can fit on a shirt/be unobtrusive/be worn / won’t affect the athlete’s performance
+- Fast/real-time read/write speed...
+- ...needed to rapidly record athlete’s data
+'''
+guidance = '''
+Mark across whole answer space
+
+Expansion must relate to scenario
+
+DNA ‘small’ on its own
+
+DNA anything to do with capacity
+
+**Examiner’s Comments**
+
+The majority of candidates were able to give a reason such as durable/no moving parts/ small physical size. Candidates who related the reason to why it would be suitable for the fitness tracker were able to gain full marks. Some candidates did not apply their response to the question stem well and instead talked about things like smart watches.
+
+Exemplar 2
+
+*[Image in the original mark scheme, not shown here.]*
+
+The candidate has clearly given two reasons with good application to the scenario.
+'''
+
+[[question.mark_scheme]]
+label = "2(c)(i)"
+marks = 3
+answer = '''
+1 mark per bullet to max 3:
+
+- Contains the computer start up instructions
+- Loads **settings/configuration** (CMOS/NVRAM)
+- Initialises/checks hardware/peripheral devices are available/work / carry out a POST check...
+- ...and **reports** errors
+- Determines the drive on which the OS is stored
+- Finds/loads the bootstrap/operating system/kernel (into main memory)
+'''
+guidance = '''
+DNA ‘boots up’ on its own
+
+**Examiner’s Comments**
+
+Many candidates were able to gain at least one or two marks for saying the BIOS finds/loads the operating system and/or checks hardware.
+'''
+
+[[question.mark_scheme]]
+label = "2(c)(ii)"
+marks = 2
+answer = '''
+Mark from one group to max 2:
+
+- Storing firmware/ config/ operation instructions/ operating system/ device drivers...
+- ...that can’t be overwritten / doesn’t need to be updated
+- ...so that access is faster
+
+OR
+
+- Storing security settings/encryption keys/digital signatures...
+- ...that must be maintained/can’t be changed
+
+OR
+
+- Could be used as primary storage...
+- ...so no need to load programs into memory
+- ...so would save time loading up the program
+
+OR
+
+- Could be used as secondary storage...
+- ....so the device will not need additional storage...
+- ....to reduce the size of the device
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Strong candidates were able to give a use such as store the operating system and an advantage. Many though, gave a very good description of what ROM is but did not give a different use and so were unable to gain any marks. A few candidates said it could store the BIOS which had already been given in the question. A few candidates talked about microwaves and washing machines which was not relevant to this scenario
+'''
+
+[[question]]
+number = 3
+marks = 3
+
+[[question.part]]
+label = "3(a)"
+marks = 1
+text = '''
+State the role of RAM in a computer system.
+'''
+
+[[question.part]]
+label = "3(b)"
+marks = 2
+text = '''
+Amaya is an amateur photographer and has bought an old second-hand computer to edit her photographs. The specifications of this computer are shown below.
+
+| Processor: Dual Core 1.8 GHz |
+|---|
+| RAM: 1 GB |
+| HDD: 500 GB |
+
+Explain what is meant by the term ‘virtual memory’ and why this may be needed when Amaya is editing her photographs.
+'''
+
+[[question.mark_scheme]]
+label = "3(a)"
+marks = 1
+answer = '''
+- Stores instructions / programs **currently running**
+- Stores data currently **in use**
+'''
+guidance = '''
+**Examiner’s Comments**
+
+This question was answered well, although some candidates stated the role of cache rather than RAM.
+
+*[Image in the original mark scheme, not shown here.]*
+
+**Misconception**
+
+That RAM and cache are the same thing within a computer system.
+'''
+
+[[question.mark_scheme]]
+label = "3(b)"
+marks = 2
+answer = '''
+- If the amount of RAM available is insufficient…
+- …Used to store instructions/data
+
+- …Using secondary storage.
+- Likely to be loading large image files (which may exceed her RAM)
+- Likely to be loading large programs (which may exceed her RAM)
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Most candidates achieved both of the
+
+available marks for this question and linked the scenario in well when writing their response.
+'''
+
+[[question]]
+number = 4
+marks = 3
+
+[[question.part]]
+label = "4"
+text = '''
+A team of programmers create a robot that will be used in a factory. The robot will be able to do the work of multiple humans.
+
+The programmers discuss whether to write the instructions for the robot in assembly language or a high-level language.
+
+The robot uses a multi-core processor. The programmers assume that this means that the robot will execute programs more quickly than using a single core processor.
+'''
+
+[[question.part]]
+label = "4(i)"
+marks = 1
+text = '''
+Give **one** reason why this assumption can sometimes be true.
+'''
+
+[[question.part]]
+label = "4(ii)"
+marks = 2
+text = '''
+Explain why this assumption is not always true.
+'''
+
+[[question.mark_scheme]]
+label = "4(i)"
+marks = 1
+answer = '''
+- Can execute multiple **instructions** / FDE cycles **at** **the same time** / some **instructions** in the program can be run **in parallel**
+'''
+guidance = '''
+Do not accept just "multiple instructions"
+
+Do not accept tasks/programs for\
+instructions
+
+**Examiner’s Comments**
+
+Many candidates were able to gain the mark here. Candidates who did not tended to be vague or repeated the question.
+'''
+
+[[question.mark_scheme]]
+label = "4(ii)"
+marks = 2
+answer = '''
+- Some instructions may not be able to be run in parallel
+- An instruction may be dependent / waiting for otherinstructions to be completed
+- Other factors influence processing speed – clockspeed / cache / bottlenecks / etc
+- Program / OS needs to be written to specifically usemultiple cores
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Most candidates were able to access one mark but many gave only one point. Candidates should be encouraged to look at how many marks there are for a question and make sure they provide enough points to be able to access those marks.
+'''
+
+[[question]]
+number = 5
+marks = 18
+
+[[question.part]]
+label = "5(a)"
+marks = 2
+text = '''
+OCRSystems are designing a new CPU for a computer system that will be used for video rendering. Part of the video rendering process is when the video is exported. This is when the computer combines all of the separate video elements together to form the final video.
+
+An important design consideration is whether OCRSystems use a CISC processor type or a RISC processor type.
+
+Describe **one** difference between a CISC processor and a RISC processor.
+'''
+
+[[question.part]]
+label = "5(b)"
+marks = 3
+text = '''
+OCRSystems are considering using parallel processing in a computer system that will be used for video rendering.
+
+Describe how parallel processing would increase the performance of this computer system.
+'''
+
+[[question.part]]
+label = "5(c)"
+marks = 2
+text = '''
+A computer system will contain several input and output devices.
+
+Explain the role of device drivers when using input and output devices on a computer system.
+'''
+
+[[question.part]]
+label = "5(d)"
+text = '''
+Before a video is rendered, the user will first capture and edit the individual video elements before they are combined together to form the final video.
+'''
+
+[[question.part]]
+label = "5(d)(i)"
+marks = 2
+text = '''
+State **two** different output devices that could be used when editing the videos.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "5(d)(ii)"
+marks = 9
+text = '''
+A storage device is used to store the individual video elements while they are being captured in different locations and during the video editing process.
+
+Discuss the suitability of a flash storage device **and** a magnetic storage device for storing the different video elements while they are being collected and edited.
+
+You should refer to the following in your answer:
+
+- the benefits of each type of storage
+- the drawbacks of each type of storage
+- the suitability of each type of storage.
+'''
+
+[[question.mark_scheme]]
+label = "5(a)"
+marks = 2
+answer = '''
+- CISC has a larger instruction set
+- RISC has a smaller instruction set
+- CISC is difficult to pipeline
+- RISC is easier to pipeline
+- CISC tends to have more addressing modes
+- RISC tends to have fewer addressing modes
+- CISC **instructions** may take multiple clock cycles to execute
+- RISC **instructions** take one clock cycle to execute
+- CISC has complex circuitry/more transistors.
+- RISC has less complex/simple circuitry
+
+- CISC uses less RAM
+- RISC uses more RAM
+'''
+guidance = '''
+Accept any other valid pointsbr/\>\
+Mark in pairs
+
+**Examiner’s Comments**
+
+This question was generally answered well with many candidates describing the number of clock cycles required to execute instructions for RISC and CISC. Some candidates were not given the marks because they did not use the correct terminology.
+'''
+
+[[question.mark_scheme]]
+label = "5(b)"
+marks = 1
+answer = '''
+- Parallel processing will allow multiple separate jobs/instructions/FDE cycles to run concurrently.
+- Longer rendering jobs can be split, shortening the overall time taken.
+- Different CPUs/cores can tackle different frames/sections/components of the video simultaneously.
+'''
+guidance = '''
+**Examiner’s Comments**
+
+To achieve all 3 marks for this question, candidates needed to describe what parallel processing is, and then be clear as to how this would affect the computer system in the question. Many candidates were not given all the available marks as they did not make clear links between parallel processing and the scenario.
+'''
+
+[[question.mark_scheme]]
+label = "5(c)"
+marks = 2
+answer = '''
+- A piece of software which allows **hardware/device to** **communicate**…
+- …with the **operating system**
+'''
+guidance = '''
+**Examiner’s Comments**
+
+This question was generally answered well. Some candidates were not given the second mark as they did not make reference to the operating system.
+'''
+
+[[question.mark_scheme]]
+label = "5(d)(i)"
+marks = 2
+answer = '''
+- Monitor
+- Speakers/Headphones
+'''
+guidance = '''
+Must be output devices.
+
+Must be suitable for video editing.
+
+**Examiner’s Comments**
+
+Many candidates answered this question correctly, with most selecting a\
+monitor/screen and headphones/speakers which were both valid responses.
+'''
+
+[[question.mark_scheme]]
+label = "5(d)(ii)"
+marks = 2
+answer = '''
+**Mark Band 3–High Level**\
+**(7–9 marks)**\
+The candidate will provide a range of accurate benefits and drawbacks of both magnetic and flash devices. The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation. The candidate will come to a clear conclusion that must be justified by their comments
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2-Mid Level**
+
+**(4–6 marks)**\
+The candidate will provide drawbacks or benefits about both magnetic and flash methods. These will be for the most part relevant. The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the\
+explanation.\
+The candidate will attempt to come to a conclusion, although it may not be fully justified by their answer.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1-Low Level**\
+**(1–3 marks)**\
+The candidate has provided some drawbacks or benefits of magnetic or flash methods. The material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided. The candidate provides nothing more than an unsupported assertion.
+
+The information is basic and\
+communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 mark**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+AO1\
+Magnetic Benefits:
+
+- Lower price per GB
+- As standard comes in high capacity
+
+Magnetic Drawbacks:
+
+- Lower R/W speed
+- Higher power consumption
+- Moving parts /less durable
+
+Flash Benefits:
+
+- Higher R/W speed
+- No moving parts/more durable
+- Lower power consumption
+- Can have a higher capacity.
+
+Flash Drawbacks:
+
+- Higher cost per GB
+- At higher capacities prices rise exponentially.
+
+AO2:\
+Suitability of Magnetic:
+
+- Video files are very large, benefiting magnetics low cost per GB
+- Can be used to archive the different video elements after it’s been rendered
+- Could possibly get damaged while being transported between the different filming sites
+- Slow R/W speeds may take it longer to load into the software
+
+Suitability of flash:
+
+- Very fast R/W speeds therefore reducing the amount of loading time during the editing process/giving smoother playback
+- If money is not a barrier, flash can be bought in sufficient capacities for videos.
+
+AO3:\
+Candidates can conclude either method, but to score in the top MB must have a clear line of reasoning to justify their choice.
+
+**Examiner’s Comments**
+
+Candidates were assessed on the quality of their extended response in this question. Most candidates understood the basic differences between flash storage and magnetic storage devices, but did not make clear links to the scenario. Mid-level responses were common, with few candidates giving a balanced discussion and a conclusion with suitable justifications.
+
+*[Image in the original mark scheme, not shown here.]*
+
+**Assessment for learning**
+
+Questions with the command word ‘discuss’ require candidates to give a balanced discussion and provided a suitable
+
+conclusion which justifies their comments. Opportunities to practise these questions will support candidates to do better on these style questions.
+'''
+
+[[question]]
+number = 6
+marks = 12
+
+[[question.part]]
+label = "6"
+marks = 12
+text = '''
+\* A charity has several desktop computers in their office that use a CISC processor. They are considering buying mobile devices for their staff to use when they are not in the office.
+
+Discuss whether these mobile devices should use the same CISC processors that are used in their desktop computers or if they should use a RISC processor instead.
+
+You should include the following in your answer:
+
+- the difference between each processor type
+- the suitability of each processor type for mobile devices.
+'''
+
+[[question.mark_scheme]]
+label = "6"
+answer = '''
+**Mark Band 3–High Level (9-12 marks)** The candidate demonstrates a thorough knowledge and understanding of both CISC and RISC. The material is generally accurate and detailed.
+
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation.
+
+The candidate provides a thorough discussion which is well balanced. Evaluative comments are consistently relevant and well-considered.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2-Mid Level (5-8 marks)** The candidate demonstrates\
+reasonable knowledge and\
+understanding of CISC and/or RISC; the material is generally accurate but at times underdeveloped.
+
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the\
+explanation.
+
+The candidate provides a sound discussion, the majority of which is focused. Evaluative comments are for the most part appropriate, although one or two opportunities for development are missed.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant
+
+12 (AO1.1) (2), (AO1.2) (2), (AO2.1) (3), (AO3.3). (5)
+
+and supported by some evidence.
+
+**Mark Band 1-Low Level (1-4 marks)** The candidate demonstrates a basic knowledge of CISC or RISC; the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided.
+
+The candidate provides a limited discussion which is narrow in focus. Judgments if made are weak and unsubstantiated. The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+AO1\
+CISC is a complex instruction set. The traditional approach to processor design. Lots of instructions available although some instructions in CISC will rarely get used. RISC is a reduced instruction set. A smaller number of instructions available, several instructions can be combined to perform the same tasks as CISC processors. RISC instructions are used regularly.\
+RISC has fewer transistors/less complex circuitry whereas CISC integrated circuits are more expensive/complicated. RISC instructions take one cycle whereas CISC may take several. RISC can only do complex things by combining multiple instructions whereas CISC is done in one line. Compilers for RISC need to be more complex than compilers for CISC
+
+AO2\
+CISC processors would run the same software as the desktop machines. Would be less power efficient and require larger battery and cooling mechanisms. More expensive to purchase.\
+RISC processor requires software to be written specifically for it (cannot use CISC instructions). More power efficient and so requires less/no cooling and smaller battery/longer battery life. RISC devices may require greater RAM as programs tend to be larger than their CISC equivalents.
+
+AO3\
+Mobile use of CISC would save money on software and increase compatibility but cost more to purchase and be physically larger (heat sink/larger battery) and/or have a shorter battery life.\
+RISC would require investment in software but be cheaper to purchase and give a better performance out of the office (lighter/longer battery life). Some\
+compatibility issues may be reduced with emulators and translators.
+
+**Examiner’s Comments**\
+Many candidates were able to discuss the difference in reduced or complex instruction sets and gave some discussion of the increase in hardware requirements for CISC. Few talked about the software differences, and some assumed the charity would need to be programming the devices which was not relevant to the question.
+'''
+
+[[question]]
+number = 7
+marks = 9
+
+[[question.part]]
+label = "7"
+marks = 9
+text = '''
+\* OCR Insurance’s computer system uses secondary storage across the company in servers, client machines and for backup purposes.
+
+For each of these, discuss whether magnetic storage or solid state storage would be most suitable, taking into account the advantages and disadvantages of both.
+'''
+
+[[question.mark_scheme]]
+label = "7"
+answer = '''
+**Mark Band 3–High Level (7-9 marks)** The candidate demonstrates a thorough knowledge and understanding of magnetic and solid state storage. The material is generally accurate and detailed.
+
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation.
+
+The candidate provides a thorough discussion which is well balanced. Evaluative comments are consistently relevant and well-considered.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2-Mid Level (4-6 marks)** The candidate demonstrates\
+reasonable knowledge and\
+understanding of magnetic and solid
+
+AO1.1 (2), AO1.2 (2), AO2.1 (2), AO3.3. (3)
+
+state storage; the material is generally accurate but at times underdeveloped.
+
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the\
+explanation.
+
+The candidate provides a sound discussion, the majority of which is focused. Evaluative comments are for the most part appropriate, although one or two opportunities for development are missed.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1-Low Level (1-3 marks)** The candidate demonstrates a basic knowledge of magnetic and solid state storage; the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided.
+
+The candidate provides a limited discussion which is narrow in focus. Judgments if made are weak and unsubstantiated. The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+Data stored by altering the magnetic field of a small section of the tape or disk; one orientation represents a binary value of 1, the opposite orientation represents a binary value of 0. Written to using a read head. Read head can then read the magnetic field and retrieve the data.\
+These read and write heads move across the disk or the tape moves under the heads. Solid state devices store data using semiconductors; drives can be based on NAND Flash or DRAM. No moving parts are required.\
+Backup involves copying potentially large amounts of data to and from storage devices at regular intervals.\
+Servers distribute data to client devices.
+
+AO2\
+Magnetic hard drives entirely suitable for storing operating system, software and data. Large capacity, cheap (by comparison) purchasing price and reliability make them idea for heavy use in an insurance office. Solid state drives have no moving parts and offer an increase in speed and quicker access to customer records. However,
+
+smaller capacity (in comparison) may be an issue for larger data sets.\
+Backup systems may be required to maximise storage whereas access speed is not so much of an issue\
+Limited lifespan of SSDs due to limited read/writes may restrict use in data heavy applications.\
+Servers will require quick access to data to serve multiple client machines but will also be extremely read/write heavy.
+
+AO3\
+Both suitable for the insurance office but for different purposes.\
+SSDs to store operating system and program files will ensure quicker boot up and loading of programs. May be useful for both client and servers to store operating systems Magnetic hard drives to store large quantities of data provides reliability and large capacity at small (by comparison) cost. May be most suitable for storing large amounts of data on client devices and for backup systems.\
+Magnetic tape device may be suitable for backing up customer data as too slow for use on day-to-day basis.\
+Use of solid state devices for storing customer data that is frequently accessed means needing to plan for replacement of drives when read/write limit reached. Solid state devices better if used in mobile devices (e.g. for mobile insurance workers) as relatively small chance of damage if dropped as no moving parts.
+'''
+
+[[question]]
+number = 8
+marks = 2
+
+[[question.part]]
+label = "8"
+marks = 2
+text = '''
+CPUs can be designed to take a Complex Instruction Set Computer (CISC) or a Reduced Instruction Set Computer (RISC) approach.
+
+Describe **one** difference between CISC and RISC.
+'''
+
+[[question.mark_scheme]]
+label = "8"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g:
+
+- Some instructions in CISC will rarely get used …
+
+- … In RISC instructions are used regularly
+- In assembly for CISC, a statement that takes one mnemonic …
+- … (may) take multiple mnemonics in RISC
+- Compilers for RISC need to be more complex …
+- … than compilers for CISC
+- CISC architecture has complex circuitry and is therefore more expensive to manufacture…
+- …RISC architecture has simple circuitry minimising manufacture cost.
+'''
+guidance = '''
+Accept\
+More than one clock cycle for each instruction in CISC …\
+…one clock cycle for each instruction in RISC\
+For BP’s 3 and 4
+'''
+
+[[question]]
+number = 9
+marks = 8
+
+[[question.part]]
+label = "9"
+text = '''
+Imogen buys a desktop computer. It comes with an operating system installed.
+'''
+
+[[question.part]]
+label = "9(i)"
+marks = 4
+text = '''
+Describe **two** ways that an operating system could manage physical memory.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "9(ii)"
+marks = 2
+text = '''
+Explain **one** benefit of memory management to the user.
+'''
+
+[[question.part]]
+label = "9(iii)"
+marks = 2
+text = '''
+Describe how virtual memory allows a user to run programs when physical memory is full.
+
+**END OF QUESTION PAPER**
+'''
+
+[[question.mark_scheme]]
+label = "9(i)"
+marks = 4
+answer = '''
+- Paging
+- …blocks of memory of equal size / fixed size
+- Segmentation
+- …blocks of memory split logically /variable size
+'''
+
+[[question.mark_scheme]]
+label = "9(ii)"
+marks = 2
+answer = '''
+e.g.
+
+- Security
+- …does not let programs access memory reserved for other programs.
+- Multitasking
+- ...allows multiple programs to run at once
+'''
+
+[[question.mark_scheme]]
+label = "9(iii)"
+marks = 2
+answer = '''
+- (Currently unneeded) pages moved from memory to secondary storage
+- …to create room in memory
+- pages moved back to memory when required
+'''

@@ -1,0 +1,245 @@
+# OCR exam questions for 1.1.2 Types of processor.
+# Copied as text from the question paper and mark scheme PDFs in sources/
+# by tools/extract-exam-questions. Diagrams are not copied. Corrections by
+# hand are fine: the tool will not overwrite this file without --force.
+spec = "1.1.2"
+
+[[question]]
+number = 1
+marks = 3
+
+[[question.part]]
+label = "1"
+text = '''
+A team of programmers create a robot that will be used in a factory. The robot will be able to do the work of multiple humans.
+
+The programmers discuss whether to write the instructions for the robot in assembly language or a high-level language.
+
+The robot uses a multi-core processor. The programmers assume that this means that the robot will execute programs more quickly than using a single core processor.
+'''
+
+[[question.part]]
+label = "1(i)"
+marks = 1
+text = '''
+Give **one** reason why this assumption can sometimes be true.
+'''
+
+[[question.part]]
+label = "1(ii)"
+marks = 2
+text = '''
+Explain why this assumption is not always true.
+'''
+
+[[question.mark_scheme]]
+label = "1(i)"
+marks = 1
+answer = '''
+- Can execute multiple **instructions** / FDE cycles **at the same time** / some **instructions** in the program can be run **in parallel**
+'''
+guidance = '''
+Do not accept just "multiple instructions"
+
+Do not accept\
+tasks/programs for instructions
+
+**Examiner’s Comments**
+
+Many candidates were able to gain the mark here. Candidates who did not tended to be vague or repeated the question.
+'''
+
+[[question.mark_scheme]]
+label = "1(ii)"
+marks = 2
+answer = '''
+- Some instructions may not be able to be run in parallel
+- An instruction may be dependent / waiting for otherinstructions to be completed
+- Other factors influence processing speed – clockspeed / cache / bottlenecks / etc
+- Program / OS needs to be written to specifically usemultiple cores
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Most candidates were able to access one mark but many gave only one point. Candidates should be encouraged to look at how many marks there are for a question and make sure they provide enough points to be able to access those marks.
+'''
+
+[[question]]
+number = 2
+marks = 5
+
+[[question.part]]
+label = "2(a)"
+marks = 2
+text = '''
+OCRSystems are designing a new CPU for a computer system that will be used for video rendering. Part of the video rendering process is when the video is exported. This is when the computer combines all of the separate video elements together to form the final video.
+
+An important design consideration is whether OCRSystems use a CISC processor type or a RISC processor type.
+
+Describe **one** difference between a CISC processor and a RISC processor.
+'''
+
+[[question.part]]
+label = "2(b)"
+marks = 3
+text = '''
+OCRSystems are considering using parallel processing in a computer system that will be used for video rendering.
+
+Describe how parallel processing would increase the performance of this computer system.
+'''
+
+[[question.mark_scheme]]
+label = "2(a)"
+marks = 2
+answer = '''
+- CISC has a larger instruction set
+- RISC has a smaller instruction set
+- CISC is difficult to pipeline
+- RISC is easier to pipeline
+- CISC tends to have more addressing modes
+- RISC tends to have fewer addressing modes
+- CISC **instructions** may take multiple clock cycles to execute
+
+- RISC **instructions** take one clock cycle to execute
+- CISC has complex circuitry/more transistors.
+- RISC has less complex/simple circuitry
+- CISC uses less RAM
+- RISC uses more RAM
+'''
+guidance = '''
+Accept any other valid pointsbr/\>\
+Mark in pairs
+
+**Examiner’s Comments**
+
+This question was generally answered well with many candidates describing the number of clock cycles required to execute instructions for RISC and CISC. Some
+
+candidates were not given the marks because they did not use the correct terminology.
+'''
+
+[[question.mark_scheme]]
+label = "2(b)"
+marks = 1
+answer = '''
+- Parallel processing will allow multiple separate jobs/instructions/FDE cycles to run concurrently.
+- Longer rendering jobs can be split, shortening the overall time taken.
+- Different CPUs/cores can tackle different frames/sections/components of the video simultaneously.
+'''
+guidance = '''
+**Examiner’s Comments**
+
+To achieve all 3 marks for this question, candidates needed to describe what parallel processing is, and then be clear as to how this would affect the computer system in the question. Many candidates were not given all the available marks as they did not make clear links between parallel processing and the scenario.
+'''
+
+[[question]]
+number = 3
+marks = 12
+
+[[question.part]]
+label = "3"
+marks = 12
+text = '''
+\* A charity has several desktop computers in their office that use a CISC processor. They are considering buying mobile devices for their staff to use when they are not in the office.
+
+Discuss whether these mobile devices should use the same CISC processors that are used in their desktop computers or if they should use a RISC processor instead.
+
+You should include the following in your answer:
+
+- the difference between each processor type
+- the suitability of each processor type for mobile devices.
+'''
+
+[[question.mark_scheme]]
+label = "3"
+answer = '''
+**Mark Band 3–High Level (9-12** **marks)**\
+The candidate demonstrates a thorough knowledge and understanding of both CISC and RISC. The material is generally accurate and detailed.
+
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided.\
+Evidence/examples will be explicitly relevant to the explanation.
+
+The candidate provides a thorough discussion which is well balanced. Evaluative comments are consistently relevant and well- considered.
+
+There is a well-developed line of reasoning which is clear and
+
+12 (AO1.1) (2), (AO1.2) (2), (AO2.1) (3), (AO3.3). (5)
+
+logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2-Mid Level (5-8** **marks)**\
+The candidate demonstrates reasonable knowledge and understanding of CISC and/or RISC; the material is generally accurate but at times\
+underdeveloped.
+
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.
+
+The candidate provides a sound discussion, the majority of which is focused. Evaluative comments are for the most part appropriate, although one or two opportunities for development are missed.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1-Low Level (1-4** **marks)**\
+The candidate demonstrates a basic knowledge of CISC or RISC; the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and\
+understanding to the context provided.
+
+The candidate provides a limited discussion which is narrow in focus. Judgments if made are weak and unsubstantiated. The information is basic and communicated in an unstructured way. The information
+
+is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+AO1\
+CISC is a complex instruction set. The traditional approach to processor design. Lots of instructions available although some\
+instructions in CISC will rarely get used. RISC is a reduced instruction set. A smaller number of instructions available, several instructions can be combined to perform the same tasks as CISC processors. RISC instructions are used regularly.\
+RISC has fewer transistors/less complex circuitry whereas CISC integrated circuits are
+
+more\
+expensive/complicated. RISC instructions take one cycle whereas CISC may take several. RISC can only do complex things by combining multiple instructions whereas CISC is done in one line. Compilers for RISC need to be more complex than compilers for CISC
+
+AO2\
+CISC processors would run the same software as the desktop machines. Would be less power efficient and require larger battery and cooling mechanisms. More expensive to purchase. RISC processor requires software to be written specifically for it (cannot use CISC instructions). More power efficient and so requires less/no cooling and smaller battery/longer battery life. RISC devices may require greater RAM as programs tend to be larger than their CISC equivalents.
+
+AO3\
+Mobile use of CISC would save money on software and increase compatibility but cost more to purchase and be physically larger (heat sink/larger battery) and/or have a shorter battery life.\
+RISC would require investment in software but be cheaper to purchase and give a better performance out of the office (lighter/longer
+
+battery life). Some compatibility issues may be reduced with emulators and translators.
+
+**Examiner’s Comments** Many candidates were able to discuss the difference in reduced or complex instruction sets and gave some discussion of the increase in hardware requirements for CISC. Few talked about the software differences, and some assumed the charity would need to be programming the devices which was not relevant to the question.
+'''
+
+[[question]]
+number = 4
+marks = 2
+
+[[question.part]]
+label = "4"
+marks = 2
+text = '''
+CPUs can be designed to take a Complex Instruction Set Computer (CISC) or a Reduced Instruction Set Computer (RISC) approach.
+
+Describe **one** difference between CISC and RISC.
+
+**END OF QUESTION PAPER**
+'''
+
+[[question.mark_scheme]]
+label = "4"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g:
+
+- Some instructions in CISC will rarely get used …
+- … In RISC instructions are used regularly
+- In assembly for CISC, a statement that takes one mnemonic …
+- … (may) take multiple mnemonics in RISC
+- Compilers for RISC need to be more complex …
+- … than compilers for CISC
+- CISC architecture has complex circuitry and is therefore more expensive to manufacture…
+- …RISC architecture has simple circuitry minimising manufacture cost.
+'''
+guidance = '''
+Accept\
+More than one clock cycle for each instruction in CISC …\
+…one clock cycle for each instruction in RISC For BP’s 3 and 4
+'''

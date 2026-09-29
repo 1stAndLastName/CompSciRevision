@@ -10,6 +10,7 @@
 #   pipx install uv
 #   uv venv tools/.venv --python 3.12
 #   uv pip install --python tools/.venv/bin/python "marker-pdf==1.10.2" mammoth beautifulsoup4
+#   uv pip install --python tools/.venv/bin/python pdfplumber "pypdfium2==4.30.0" "pillow<11"   (for tools/extract-exam-questions)
 #
 #   tools/convert-sources --diagrams   also describe diagrams in scanned sources with a local
 #                                      vision model (resumable). It needs, in tools/llama.cpp/:

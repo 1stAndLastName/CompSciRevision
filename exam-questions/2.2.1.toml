@@ -1,0 +1,5595 @@
+# OCR exam questions for 2.2.1 Programming techniques.
+# Copied as text from the question paper and mark scheme PDFs in sources/
+# by tools/extract-exam-questions. Diagrams are not copied. Corrections by
+# hand are fine: the tool will not overwrite this file without --force.
+spec = "2.2.1"
+
+[[question]]
+number = 1
+marks = 15
+
+[[question.part]]
+label = "1"
+text = '''
+A programmer is designing a program that will store data.
+
+The programmer is deciding whether to store the data in a stack or a queue.
+
+The pseudocode function, `enqueue`, inserts an item into a queue.
+
+```
+01 function enqueue(item)
+02   if tailPointer >= queue.length then
+03    return false
+04   else
+05    queue[tailPointer] = item
+06    tailPointer = tailPointer + 1
+07    return true
+08   endif
+09 endfunction
+```
+'''
+
+[[question.part]]
+label = "1(i)"
+marks = 1
+text = '''
+Give the name of the parameter in the function `enqueue`.
+'''
+
+[[question.part]]
+label = "1(ii)"
+marks = 1
+text = '''
+Give the name of **one** global variable that is used in the function `enqueue`.
+'''
+
+[[question.part]]
+label = "1(iii)"
+marks = 4
+text = '''
+Describe **one** benefit and **one** drawback of using global variables instead of parameter passing in a subroutine.
+
+Benefit
+
+Drawback
+'''
+
+[[question.part]]
+label = "1(iv)"
+marks = 3
+text = '''
+The function `enqueue` can be called by the main program.
+
+Explain why the function `enqueue` returns true or false values, and how this can be used by the main program that calls the function.
+'''
+
+[[question.part]]
+label = "1(v)"
+marks = 3
+text = '''
+The pseudocode function, `dequeue`, removes and returns the first item in the queue. If the queue is empty, the function returns the string `"EMPTY"`.
+
+```
+01 function dequeue(data)
+02   if headPointer != tailPointer then
+03    return "EMPTY"
+04   elseif
+05    value = queue[headPointer]
+06    return value
+07    headPointer = headPointer + 1
+08   endif
+09 endfunction
+```
+
+The function dequeue has **several** errors.
+
+Identify the line number of any **three** errors **and** state the correction required.
+
+Error 1 Line Number
+
+Error 1 Correction
+
+Error 2 Line Number
+
+Error 2 Correction
+
+Error 3 Line Number
+
+Error 3 Correction
+'''
+
+[[question.part]]
+label = "1(vi)"
+marks = 3
+text = '''
+The programmer has corrected all of the errors in the function `dequeue`.
+
+The main program repeatedly calls the function `dequeue` until all of the elements in the queue have been output.
+
+Write the main program using pseudocode or program code.
+'''
+
+[[question.mark_scheme]]
+label = "1(i)"
+marks = 1
+answer = '''
+```
+item
+```
+'''
+guidance = '''
+Allow queue can be circular or linear, stack can only be linear
+
+**Examiner’s Comments**
+
+The vast majority of candidates identified that `item` was the paramete
+'''
+
+[[question.mark_scheme]]
+label = "1(ii)"
+marks = 1
+answer = '''
+```
+tailPointer
+```
+'''
+guidance = '''
+Allow `queue`
+
+**Examiner’s Comments**
+
+Many candidates identified that `tailPointer` was an example of a global variable in the code.
+'''
+
+[[question.mark_scheme]]
+label = "1(iii)"
+marks = 4
+answer = '''
+1 mark for benefit and 1 mark for expansion:\
+e.g.
+
+- Simpler to program ...
+- ... because values do not need to be passed/renamed/moved between different subroutines
+- Do not need to worry about returning values / do not need to decide between byval/byref ...
+- ... all parts of the program can access the (same) value (in the same way)
+
+1 mark for drawback and 1 mark for expansion:
+
+- Uses more memory ...
+- ... because the memory space is declared when the program starts and remains in use throughout
+- Makes testing / debugging more difficult ...
+- .... as it’s difficult to test an individual block of code
+- Reduces data accuracy / integrity ...
+- .... changing a global variable may have an impact on another module
+'''
+guidance = '''
+2 marks max for benefit\
+2 marks max for drawback
+
+**Examiner’s Comments**
+
+The majority of candidates struggled to describe the implications of using global variables, and this highlighted a lack of appreciation of parameter passing and variable scope. At AS Level candidates should become more adept at using parameters and develop an understanding of why this is beneficial – both in theoretical terms and
+
+within their personal programming practice. There were few responses that were able to give complete descriptions.
+'''
+
+[[question.mark_scheme]]
+label = "1(iv)"
+marks = 3
+answer = '''
+1 mark per bullet to max 3
+
+- False is returned if the queue is full ...
+- ... the main will not attempt to add another item
+- True is returned if the item is successfully added ...
+- ... so the main program can try to add another item
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Some candidates thought that if `enqueue()` returned `True` it meant that there would be space to add additional values. This was not the case; it meant that the item had been enqueued successfully, but it could have been the last item that then filled the queue to capacity.
+
+Sometimes candidates did explain the reasons why `True` and `False` would be returned but were then unable to go on to say how they could be used. Good responses were seen such as ‘the main program can give an error message if the operation didn’t work if the queue was full’.
+
+Exemplar 1
+
+*[Image in the original mark scheme, not shown here.]*
+
+This response showed clear understanding of the need to store the result returned by `dequeue()` to be used in the conditional loop test.
+'''
+
+[[question.mark_scheme]]
+label = "1(v)"
+marks = 3
+answer = '''
+1 mark for error **and** correction to max 3
+
+- **Line 01** There is no need to pass in a parameter
+- **Line 02** has != instead of **==** **Line 04** has elseif and no condition / replace with **else**
+- **Line 06** should be `headpointer` = `headpointer` + 1 / Swap lines 06 and 07
+- **Line 07** should be `return value`
+'''
+guidance = '''
+Do not award marks for the line number. The error must be related to the line number stated.
+
+**Examiner’s Comments**
+
+Many candidates identified at least one logical error, but few were able to identify three errors. The most common error identified was the error in line `02.`
+'''
+
+[[question.mark_scheme]]
+label = "1(vi)"
+marks = 3
+answer = '''
+1 mark per bullet to max 3
+
+- Use of loop to call dequeue()....
+- ...to output the return value...
+- ...until “EMPTY” is returned
+
+e.g.
+
+```
+elementsLeft = true
+while elementsLeft == true
+value = dequeue()
+if not(value = “EMPTY”) then
+print(value)
+else
+elementsLeft = false
+```
+
+```
+endif
+endwhile
+```
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Some candidates mistakenly gave a definition for the dequeue() function instead of answering the question set. Candidates need to be mindful to read the question carefully.
+
+Some candidates used a count-controlled loop whereas a conditional loop was required. Those who made a good attempt at a response often did not assign the result of `dequeue()` to a variable,
+
+so could not effectively use the return value from the function as well as print the value returned.
+'''
+
+[[question]]
+number = 2
+marks = 40
+
+[[question.part]]
+label = "2(a)"
+marks = 3
+text = '''
+A game is being written that makes use of object-oriented programming. A prototype for one part of the game is being designed that includes a character, a road and a prize to collect.
+
+The road will have 50 spaces that a character can move along. Each space on the road will store a null value or a prize object for the user to collect. Each space is numbered sequentially from the first space (position 0) to the last space (position 49) and will not change during the game. As the player travels down the road, the position the player is on the road will be output.
+
+The road is designed to be a 1-dimensional array with the identifier `road`.
+
+Explain why an array is a suitable data structure to represent the road.
+'''
+
+[[question.part]]
+label = "2(b)"
+text = '''
+The characters and prizes are designed as separate classes. 10 of the spaces on the road will contain an instance of the class `Prize`. The other spaces will be empty.
+
+The class design for `Prize` is here.
+
+```
+class: Prize
+```
+
+```
+attributes:
+private name : string
+private type : string
+private value : integer
+```
+
+```
+methods:
+new()
+getName()
+getType()
+getValue()
+```
+
+`new()` is the constructor method. The name, type and value are passed to the constructor as parameters which then assigns these to the attributes.
+'''
+
+[[question.part]]
+label = "2(b)(i)"
+marks = 2
+text = '''
+The method `getName()` returns the data in the attribute `name`.\
+Write the method `getName()` using pseudocode or program code.
+'''
+
+[[question.part]]
+label = "2(b)(ii)"
+marks = 3
+text = '''
+A global 1-dimensional array, `allPrizes`, stores 10 objects of type `Prize`.
+
+The prize in index 3 has the name “Box”, the type is “money” and the value is 25.
+
+Write pseudocode or program code to create a new object for this prize and store it in index 3 of
+
+```
+allPrizes.
+```
+'''
+
+[[question.part]]
+label = "2(b)(iii)"
+marks = 3
+text = '''
+The game starts with 10 prizes. Each prize is allocated to one space on the road.
+
+An algorithm needs designing that will generate a random space on the road for each prize. Each road space can only store one prize.
+
+Describe the decisions that will need to be made in this algorithm and how these will affect the program flow.
+'''
+
+[[question.part]]
+label = "2(c)"
+text = '''
+The class design for `Character` is here.
+
+```
+class: Character
+```
+
+```
+attributes:
+private name : string
+private money : integer
+private experience : integer
+private roadPosition : integer
+```
+
+```
+methods:
+new()
+getName()
+getMoney()
+getExperience()
+getRoadPosition()
+changePosition()
+updateValues()
+```
+
+The four get methods return the associated attribute.
+
+The number of moves is passed to `changePosition()` as a parameter. The method adds this value to the character’s position on the road.
+
+The type and value of an object are passed to `updateValues()` as parameters. If the object is money the value is added to the character’s money. If the type is experience the value is added to experience. If the type is neither money or experience no changes are made.
+'''
+
+[[question.part]]
+label = "2(c)(i)"
+marks = 5
+text = '''
+`new()` is the constructor method. The name of the character is passed into the constructor as a parameter. The constructor then initialises both the experience and road position of the character to 0 and initialises the amount of money to 5.
+
+Write the constructor method for `Character` using either pseudocode or program code.
+
+You do not need to declare the class, the attributes or any other methods.
+'''
+
+[[question.part]]
+label = "2(c)(ii)"
+marks = 5
+text = '''
+The type and value of a prize are passed as parameters to the method `updateValues`. If the type is money the value is added to the character’s money. If the type is experience then the value is added to the experience. If the type is neither money or experience no changes are made.
+
+For example, for the Character `player1:`
+
+`player1.updateValues("money",10)` updates player1’s money by 10
+
+`player1.updateValues("experience",5)` updates player1’s experience by 5
+
+`player1.updateValues("foo",9)` has no effect on player1.
+
+Write pseudocode or program code for the method `updateValues()`.
+'''
+
+[[question.part]]
+label = "2(d)"
+marks = 6
+text = '''
+This incomplete pseudocode algorithm:
+
+- creates a new character with the name Jamal
+- loops until the character reaches the end of the road
+- generates a random number of spaces to move between 1 and 4 (including 1 and 4)
+- moves the character and checks if the new space has a prize
+- updates the character attributes if there is a prize
+- outputs the character’s new attribute values.
+
+Complete the pseudocode algorithm.
+
+```
+character1 = new …… ("Jamal")
+newPosition = 0
+while newPosition < ……
+  move = random(1, 4) /this will generate a random number between 1 and 4
+  character1.changePosition(move)
+  newPosition = character1.getRoadPosition()
+  if newPosition < 50 and road[……] != null then
+    prizeType = road[newPosition].getType()
+    valueAmount = road[newPosition].getValue()
+    character1.updateValues(……, valueAmount)
+    print("Congratulations you are in position", newPosition, "and found",
+      road[newPosition].getName())
+    print("Money =", character1.getMoney(), "and experience =",
+      character1. …… ())
+  endif
+……
+print("You reached the end of the road")
+```
+'''
+
+[[question.part]]
+label = "2(e)"
+marks = 4
+text = '''
+The procedure `displayRoad()` outputs the contents of each space in the road. The number of each space is output with either:
+
+- the word “empty” if there is no prize
+- the name of the prize if there is a prize.
+
+```
+01  procedure displayRoad()
+02     for x = 0 to 60
+03        print("Space", y)
+04        if road[x] == null then
+05         print("empty")
+06        elseif
+07         print(road[x].getValue())
+08        endif
+09     next x
+10  endprocedure
+```
+
+The algorithm contains errors.
+
+Give the line number of **four** different errors and write the corrected line for each error.
+
+**Error 1**
+
+Error line 1
+
+Correction
+
+**Error 2**
+
+Error line 2
+
+Correction
+
+**Error 3**
+
+Error line 3
+
+Correction
+
+**Error 4**
+
+Error line 4
+
+Correction
+'''
+
+[[question.part]]
+label = "2(f)"
+marks = 9
+text = '''
+A programmer is going to create a prototype for one small part of the game. Both `road` and `allPrizes` will be needed throughout the whole prototype. The programmer is considering making these global arrays as she thinks it will reduce the development time. Another programmer has suggested that doing this may create some problems when the rest of the game is created at a later stage.
+
+Compare the use of global and local variables in this program.
+
+You should include the following in your answer:
+
+- the use of local and global variables
+- alternative methods to using global variables
+- the appropriateness of each to this program design.
+'''
+
+[[question.mark_scheme]]
+label = "2(a)"
+marks = 3
+answer = '''
+1 mark each to max 3. Max 2 for generic answers with no relation to scenario. e.g.
+
+- Has a set/fixed number of values
+- …and the number of spaces in the road will not change
+- Stores data of one type
+- … as the array is only made up of prize objects
+- Stores data linearly
+- … match the linear nature of the road
+- Array contents are mutable
+- … so prizes can be added/removed from the road
+- A single indentifier is used to directly index
+- … any position in the road
+- Can be iterated by index
+- … to perform an operation on all road positions
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many responses were too vague, showing little knowledge of the properties of arrays. Relatively few candidates appeared to be able to make explicit links to the scenario to achieve full marks.
+'''
+
+[[question.mark_scheme]]
+label = "2(b)(i)"
+marks = 2
+answer = '''
+1 mark each
+
+- Function/subroutine with identifier `getName` taking **no** parameters
+- Returning `name`
+
+e.g.
+
+```
+public function
+def getName(self):
+getName()
+return name              return self.__name
+endfunction
+public getName(){        function getName() {
+return name              return this.name
+```
+
+} }
+'''
+guidance = '''
+BP1 Do not award procedure or method
+
+BP1 Allow self as an additional parameter if Python is used.
+
+BP1 If an access modifier is given for the method, it must be public and not private.
+
+BP2 Do not allow any modified name attribute to be returned.
+
+**Examiner’s Comments**
+
+While many candidates had little difficulty giving code for a `getter()` there were a number of common errors. Some candidates used a private access modifier when a `getter()` needs to be public. There was often erroneous use of ‘procedure’ whereas a `getter()` is a function that must return a value.\
+Some candidates tried to set values within the `getter()` function when it should only have returned the class attribute value.
+'''
+
+[[question.mark_scheme]]
+label = "2(b)(ii)"
+marks = 3
+answer = '''
+1 mark each
+
+- New instance of `prize` …
+- … with “Box”, “money” and 25 as parameters
+- Assigned to `allPrizes` index 3
+
+e.g.
+
+```
+allPrizes[3] = new prize("Box", "money", 25)
+allPrizes[3] = prize.new("Box", "money", 25)
+allPrizes[3] = prize("Box", "money", 25)
+```
+'''
+guidance = '''
+MP2 allow any order of parameters
+
+"`Box`" and "`Money`" must be strings and `25` must be an integer
+
+Allow `prize.new()` as new is given as the constructor method in the class diagram
+
+**Examiner’s Comments**
+
+Many candidates struggled with the instantiation of an object. Where candidates made an attempt to instantiate some did not use a string for “box” and “money” or did not give 25 as an integer but instead gave the string “25”.
+'''
+
+[[question.mark_scheme]]
+label = "2(b)(iii)"
+marks = 3
+answer = '''
+1 mark for each bullet to maximum 3 e.g.
+
+- **Decision** - check whether the space already has a prize allocated …
+
+- **Action if true** - another space/number will need to be generated
+- **Action if false** - the prize will be stored here
+
+- **Decision** - check if all 10 prizes have been allocated …
+- **Action if true** - the algorithm needs to stop generating numbers
+- **Action if false** - a new number/space needs to be generated and checked
+'''
+guidance = '''
+Give:
+
+- 1 mark for stating a decision
+- 1 mark for the action required if true
+
+- 1 mark for the action required if false
+
+**Examiner’s Comments**
+
+There were only two reasonable decisions that could be given from the scenario details. Candidates needed to make it clear that a decision with a Boolean output was present that would dictate two potential outcomes. Some candidates quoted actions such as ‘randomly assign space for prize’ which did not represent a decision. Many responses described the mechanics of setting up the game and the random spaces but did not highlight the program conditions/decisions as required.
+'''
+
+[[question.mark_scheme]]
+label = "2(c)(i)"
+marks = 5
+answer = '''
+1 mark each
+
+- Constructor header (any suitable name e.g. new, constructor, create, init)
+- …taking **one** parameter only
+- Initialising name to the parameter
+- Initialising money to 5
+- Initialising experience to 0 and roadPosition to 0
+
+e.g.
+
+```
+public procedure new(pName)
+name = pName
+```
+
+**Pseudocode** `experience = 0`\
+**example:** `roadPosition = 0`
+
+```
+money = 5
+endprocedure
+def __init__(self, pName):
+self.__name = pName
+```
+
+**Python Example:** `self.__experience = 0`
+
+```
+self.__roadPosition = 0
+self.__money = 5
+public Character(string pName) {
+string name = pName;
+int experience = 0;
+```
+
+**C# Example:**
+
+```
+int roadPosition = 0;
+int money = 5;
+ }
+```
+'''
+guidance = '''
+Allow minor changes to identifiers as long as purpose is clear.
+
+Allow
+
+```
+procedure new(pName)
+this.name = pName
+```
+
+…\
+(or similar e.g. self.name)
+
+Allow two parameters if one is self and the response is clearly in Python.
+
+The parameter name should be different to the attribute name.
+
+**Examiner’s Comments**
+
+It was clear that those candidates with limited OOP programming knowledge found the writing of a relatively simple constructor method difficult. Those with relevant programming experience often found this to be a very straightforward question. Common errors included passing additional values to set the `experience,` `roadPosition` and `money` attributes rather than setting them to the constant values indicated in the question.
+'''
+
+[[question.mark_scheme]]
+label = "2(c)(ii)"
+marks = 5
+answer = '''
+1 mark each
+
+- Procedure/method header …
+- … taking **two** parameters, type (or similar) followed by value (or similar) …
+- … compare type parameter with "`money`"
+- … compare type parameter with "`experience`"
+- … both attributes updated correctly and nothing else modified
+
+e.g.
+
+```
+public procedure updateValues(pType, pValue)
+if pType == "money" then
+```
+
+```
+money = money + pValue
+elseif pType == "experience"
+experience = experience + pValue
+endif
+endprocedure
+
+def updateValues(self, pType, pValue):
+if pType == "money":
+money += pValue
+elif pType == "experience":
+experience += pValue
+```
+'''
+guidance = '''
+Do not allow Function for BP1
+
+BP2 parameters must be given in the correct order to match the calls to `updateValues()` in the question.
+
+“`money`” and “`experience`” must be string values
+
+**Examiner’s Comments**
+
+The `updateValues` procedure again proved problematic for candidates with limited OOP experience. No marks were given for the first mark point if a function was declared as there
+
+was no return value. Parameter names needed to be fit for purpose, understandable, and had to match the order given in the question scenario to work for the given example calls.
+'''
+
+[[question.mark_scheme]]
+label = "2(d)"
+marks = 6
+answer = '''
+1 mark for each completed space
+
+```
+character1 = new Character("Jamal")
+newPosition = 0
+while newPosition < 50
+move = random(1, 4)
+character1.changePosition(move)
+newPosition = character1.getRoadPosition()
+if newPosition < 50 and road[newPosition] != null
+then
+prizeType = road[newPosition].getType()
+valueAmount = road[newPosition].getValue()
+character1.updateValues(prizeType, valueAmount)
+print("Congratulations you are in position",
+newPosition, "and found",
+road[newPosition].getName())
+print("Money", character1.getMoney(), "and
+experience", character1.getExperience())
+endif
+endwhile
+print("You reached the end of the road")
+```
+'''
+guidance = '''
+Allow `road.length / len(road)` instead of
+
+```
+50
+```
+
+Allow `<=49` instead of `< 50`
+
+**Examiner’s Comments**
+
+Nearly all candidates achieved some marks, and a majority scored five or six marks.
+'''
+
+[[question.mark_scheme]]
+label = "2(e)"
+marks = 4
+answer = '''
+1 mark each
+
+- (Line 02) `for x = 0 to 49`
+- (Line 03) `print("Space", x)`
+- (Line 06) `else / elseif road[x] <> null`
+- (Line 07) `print(road[x].getName())`
+'''
+guidance = '''
+Line `07` allow `print(road[x].name)`
+
+**Examiner’s Comments**
+
+Many candidates scored three or four marks but in general candidates found it harder to identify errors in the code than to complete code in the previous question. Some candidates didn’t give the line number but rewrote the incorrect line before giving the corrected line, which was acceptable, although not ideal given the scaffolding.
+'''
+
+[[question.mark_scheme]]
+label = "2(f)"
+marks = 9
+answer = '''
+**Mark Band 3 – High level (7-9 marks)**\
+The candidate demonstrates a thorough knowledge and understanding of global variables and the alternatives; the material is generally accurate and detailed.\
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided.\
+Evidence/examples will be explicitly relevant to the explanation. There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2 – Mid level (4-6 marks)**\
+The candidate demonstrates reasonable knowledge and understanding of global variables and the alternatives; the material is generally accurate but at times underdeveloped.\
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.\
+The candidate provides a reasonable discussion, the majority of
+
+which is focused. Evaluative comments are, for the most part appropriate, although one or two opportunities for development are missed.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1 – Low Level (1-3 marks)**\
+The candidate demonstrates a basic knowledge of global variables and the alternatives with limited understanding shown; the material is basic and contains some inaccuracies. The candidates makes a limited attempt to apply acquired knowledge and understanding to the context provided. The candidate provides a limited discussion which is narrow in focus.\
+Judgements if made are weak and unsubstantiated.
+
+The information is basic and comunicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 mark**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+**AO1: Knowledge and Understanding** **Indicative content**
+
+- Global variables are created when the program starts, all subroutines can access/update the contents
+- Local variables are created in the subroutine they are created in, they are not accessible directly from any other subroutine
+- Local variables are removed from memory when the subroutine ends.
+- Local variables can be passed as parameters to a function to be updated, and then returned to override the original local variable
+- Local variables can be passed by reference to a subroutine to allow the content of the variable to be updated
+
+**AO2: Application**
+
+- The variables will be stored in memory throughout the whole code execution. However, the amount of data they are storing is relatively low so would not use a lot of memory.
+- When the game is expanded, the amount of data may increase so it could be memory intensive, especially if graphics are used in the game.
+- Both arrays are needed throughout the whole game so keeping them as global will make writing the code easier as the programmer will not need to keep passing them as parameters and setting return values.
+- Only one part of the game is being created initially and therefore the use of global variables would not affect the efficiency greatly. However, when the program expands, it could cause accuracy / testing / debugging and maintenance problems.
+
+**AO3: Evaluation**
+
+- As this is only a prototype, the use of global variables would be beneficial.
+
+- However, when the game expands, the use of global variables could create issues such as running out of memory, coupling, testing & debugging problems and maintenance problems.
+- The programmer may be best to keep the variables as local and then pass them between the different subroutines as parameters byVal and byRef.
+
+**Examiner’s Comments**
+
+Most responses were Level 2 for definitions and some expansion to passing parameters. Very few candidates were able to go into depth about alternatives to global variables such as passing by value and passing by reference in detail or extending to issues such as scalability within a larger more extended game. Few candidates picked up on the fact that this was a more limited prototype that was likely to be expanded on which would require more consideration to be given to variable scope.
+'''
+
+[[question]]
+number = 3
+marks = 9
+
+[[question.part]]
+label = "3(a)"
+marks = 4
+text = '''
+A student has written this pseudocode algorithm:
+
+```
+01 a = 12
+02 do
+03   b = input("Enter a number")
+04 until b >= 0 and b <= 100
+05 for c = 1 to a
+06   print(c * a)
+07 next c
+```
+
+Rewrite lines `05` to `07` to use a while loop instead of a for loop.
+
+You should write your answer using either program code or pseudocode.
+'''
+
+[[question.part]]
+label = "3(b)"
+text = '''
+The program uses variables.
+'''
+
+[[question.part]]
+label = "3(b)(i)"
+marks = 2
+text = '''
+Describe what is meant by a variable.
+'''
+
+[[question.part]]
+label = "3(b)(ii)"
+marks = 1
+text = '''
+Give the identifiers of all the variables used in this program.
+'''
+
+[[question.part]]
+label = "3(c)"
+marks = 2
+text = '''
+The student has used a do loop on line `02`.
+
+Describe the difference between a do loop and a while loop.
+'''
+
+[[question.mark_scheme]]
+label = "3(a)"
+marks = 4
+answer = '''
+1 mark each
+
+- Initialisation of counter variable before loop
+- Condition (e.g. while c \<= a)
+- c incremented in loop
+
+- Completed loop will produce correct results 12, 24 … 144
+
+e.g.
+
+*[Image in the original mark scheme, not shown here.]*
+'''
+guidance = '''
+BP2 – Allow any suitable logic for the while loop condition that iterates between 1 and a.
+
+Allow != for \<\>\
+Allow += or equivalent for c = c + 1
+
+Allow hard coded values for upper bound such as a = 12 or a = 13 depending on the relational operator used.
+
+No marks awarded if a conditional loop has not been used.
+
+Max 3 if solution does not completely work.
+
+**Examiner’s Comments**
+
+This question was generally well attempted with marks relatively evenly distributed throughout the range of marks available. There were some off- by-one errors, with the loop counter or the position of the output line being incorrectly positioned before/after the counter increment. Incorrect loops such as count-controlled for loops were rejected. If responses did not produce a fully correct output, marks given were limited to 3 marks.
+
+Exemplar 1
+
+*[Image in the original mark scheme, not shown here.]*
+
+This response showed a typical off-by-one error where the candidate had not thought through the logic of the entire response. The condition
+
+operator should have been \<= rather than \< to iterate through all values of `c` from 1 to 12.
+'''
+
+[[question.mark_scheme]]
+label = "3(b)(i)"
+marks = 2
+answer = '''
+1 mark each
+
+- A memory location / named storage location
+- Stores/holds data / a value
+- That can be changed
+'''
+guidance = '''
+Element/identifier on its own is not enough for BP1
+
+**Examiner’s Comments**
+
+Most candidates gained some credit for identifying that a variable holds a value, and this was the most popular response.\
+Element/identifier on its own was insufficient for the first mark point as there had to be a clear indication that the identifier referred to a memory/storage location.
+'''
+
+[[question.mark_scheme]]
+label = "3(b)(ii)"
+marks = 1
+answer = '''
+1 mark for all variables:\
+a b c
+'''
+guidance = '''
+Must have all three for the mark to be awarded.
+
+**Examiner’s Comments**
+
+The majority of candidates had little difficulty correctly identifying the variables given in the code.
+'''
+
+[[question.mark_scheme]]
+label = "3(c)"
+marks = 2
+answer = '''
+1 mark for do loop and 1 mark for while loop up to a maximum of 2 marks.
+
+- While loop will check the condition at the **start** of the loop / pre-condition loop
+- Do loop will check the condition at the **end** of the loop / post-condition
+- The code in a while loop may never run (if the condition is already met)
+
+- The code in a do loop will always run at least one.
+'''
+guidance = '''
+Answer must cover both do loop and while loop for 2 marks to be awarded
+
+BP1 and BP2 must be specific as to the location that the condition is placed
+
+**Examiner’s Comments**
+
+Many responses were vague and did not accurately identify or distinguish that a while loop
+
+is a pre-condition loop while a do loop is a post- condition loop. Responses had to be clear as to the relative position of the condition in the loop. Accepted responses included a while loop is a pre-condition loop while a do loop is a post- condition loop. Fewer candidates identified that the body of a while loop may not be executed while the body of a do loop will always be executed at least once.
+'''
+
+[[question]]
+number = 4
+marks = 21
+
+[[question.part]]
+label = "4(a)"
+marks = 5
+text = '''
+A text-based computer game allows a user to dig for treasure on an island. The island is designed as a grid with 10 rows and 20 columns to store the treasure. Each square is given an x and y coordinate. Some of the squares in the grid store the name of a treasure object. Each treasure object has a value, e.g. 100 and a level, e.g. "Bronze."
+
+A class, `Board`, is used to store the 10 row (x coordinate) by 20 column (y coordinate) grid.
+
+The design for the `Board` class, its attributes and methods is shown here.
+
+```
+class: Board
+```
+
+```
+attributes:
+private grid : Array of Treasure
+```
+
+```
+methods:
+new()
+function getGridItem(x, y)
+function setGridItem(x, y, treasureToInsert)
+```
+
+The constructor initialises each space in the grid to a treasure object with `value` as -1 and `level` as an empty string.
+
+Complete the following pseudocode for the constructor method.
+
+```
+public procedure new()
+ for row = …… to 9
+  for column = 0 to ……
+   …… [row, column] = new
+Treasure(……,"")
+  next ……
+ next row
+endprocedure
+```
+'''
+
+[[question.part]]
+label = "4(b)"
+marks = 7
+text = '''
+A procedure, `guessGrid()`:
+
+- takes a `Board` object as a parameter
+- accepts the row (x) and column (y) coordinates from the user
+- outputs "No treasure" if there is no treasure found at the coordinate (level is an empty string) if there is treasure at that coordinate, it outputs the level and the value of the treasure in an appropriate
+-  message.
+
+Write the procedure `guessGrid()` using either pseudocode or program code.
+'''
+
+[[question.part]]
+label = "4(c)"
+marks = 9
+text = '''
+The main program initialises a new instance of `Board`. The programmer is considering declaring this as a global variable or as a local variable and then passing this into the subroutines that control the game.
+
+Compare the use of variables and parameters in this game.
+
+You should include the following in your answer:
+
+- what is meant by a local variable and global variable
+- how local and global variables can be used in this program
+- the use of passing parameters by value and by reference.
+'''
+
+[[question.mark_scheme]]
+label = "4(a)"
+marks = 5
+answer = '''
+1 mark for each completed statement
+
+```
+public procedure new()
+  for row = 0 to 9
+    for column = 0 to 19
+     grid[row, column] = new Treasure(-1,"")
+    next column
+  next row
+endprocedure
+```
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Most candidates scored at least the first 2 mark- points for the grid dimensions, but far fewer could construct OOP code requiring the attribute and the relevant default parameter value to be given.
+'''
+
+[[question.mark_scheme]]
+label = "4(b)"
+marks = 7
+answer = '''
+1 mark each to max 7
+
+- Procedure declaration taking parameter
+- Taking two inputs for row and column from the user
+- Accessing item at grid position…
+- …using correct get methods `getGridItem`
+- Checking (treasure) object’s level/value…
+- …using correct get method `getLevel getValue`
+- …outputting "No treasure" if empty
+- …otherwise outputting value and level
+
+e.g.
+
+```
+procedure guessGrid(gameboard)
+   rCoord = input("Enter R coordinate")
+   cCoord = input("Enter C coordinate")
+ treasureItem =
+gameBoard.getGridItem(rCoord, cCoord)
+ if treasureItem.getLevel() = "" then
+   print("No treasure")
+ else
+   print("This treasure is level ",
+treasureItem.getLevel(), " with value ",
+treasureItem.getValue())
+endprocedure
+```
+'''
+guidance = '''
+Note candidates may attempt to access private attributes directly gameboard.grid(x,y) for example, instead of gameboard.getGridItem(x,y).
+
+Credit cannot be given for the dependent second mark using appropriate get method if they do this, but FT marks can be awarded for later points if a reasonable attempt has been made.
+
+**Examiner’s Comments**
+
+Many candidate responses gave very little
+
+beyond the procedure declaration and taking in the x and y coordinates as inputs, thus scoring 2 marks at most. There was less successful understanding of how to use the get() methods provided in the scenario to access the data. This is an area of the specification that candidates require extensive practical experience of to be able to fluently answer questions like this in examination conditions.
+
+Many candidates tried to used `grid[x,y]` by inserting the coordinates into the parameter values and did not identify it as an instance of an object that needed its attributes to be accessed via the appropriate getter methods. Those candidates who tried to access the attributes directly without the appropriate getter methods did achieve some further marks with follow through marks.
+
+Competent coders often gave responses worthy of full marks within just a few lines of code.
+
+Exemplar 3
+
+*[Image in the original mark scheme, not shown here.]*
+
+This response clearly shows a logical and well- structured algorithm that uses the appropriate get() methods to access the relevant attributes of the passed parameter object. Candidates who are fluent in the use of OOP can present elegant and concise solutions.
+'''
+
+[[question.mark_scheme]]
+label = "4(c)"
+marks = 9
+answer = '''
+**Mark Band 3 – High level**\
+**(7–9 marks)**\
+The candidate demonstrates a thorough knowledge and understanding of parameters and local/global variables; the material is generally accurate and detailed.\
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided.\
+Evidence/examples will be explicitly relevant to the explanation. There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2 – Mid level**\
+**(4–6 marks)**\
+The candidate demonstrates reasonable knowledge and understanding of parameters and local/global variables; the material is generally accurate but at times underdeveloped. The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.\
+The candidate provides a reasonable discussion, the majority of which is focused. Evaluative comments are, for the most part appropriate, although one or two opportunities for development are
+
+missed.\
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1 – Low Level**\
+**(1–3 marks)**\
+The candidate demonstrates a basic knowledge of parameters and local/global variables with limited understanding shown; the material is basic and contains some inaccuracies. The candidates makes a limited attempt to apply acquired knowledge and understanding to the context provided.\
+The candidate provides a limited discussion which is narrow in focus. Judgements if made are weak and unsubstantiated. The information is basic and comunicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 mark**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+**AO1: Knowledge and Understanding** **Indicative content**
+
+- Local variable can only be accessed within sub-program/main program it is declared within
+- Global variable can be accessed by all sub-programs
+- Parameters are items passed to a subproblem
+- Passing by reference sends a pointer to the original value, so this will be changed when control is returned
+- Passing by value sends the a copy of the value, so the original will not be changed when control is returned
+
+**AO2: Application**
+
+- If board is local it can only be accessed in the main program
+- This will need to be passed to any sub- programs that need to use it
+
+- If the board needs to be changed it will need passing by reference, so that the board is updated
+- If it only needs to be accessed and not changed it can be passed by value
+
+**AO3: Evaluation**
+
+- If global then this would be present in memory throughout hence using more memory
+- …however the board will be required throughout the program so may be as efficient as passing it through parameters
+- …if global then the programming may be more straight forward, and less likely to have errors with passing the board incorrectly to subprograms, i.e. it may not be updated when it needs to be
+- Using local means that the board can be manipulated by subprograms without affecting the actual board if needed, for example to simulate potential changes.
+
+**Examiner’s Comments**
+
+A good range of Level 2 responses were observed with competent descriptive definitions of local versus global and byVal/byRef parameter passing.
+
+There were far fewer high level AO3 evaluations
+
+of relative memory use within the context of the scenario when passing byVal/byRef for a relatively large grid object. Good, contextualised responses took the elements of the scenario in section B of the paper and talked about the grid object and passing parameters like x and y coordinates. Responses such as this were relatively rare.
+
+*[Image in the original mark scheme, not shown here.]*
+
+**Assessment for learning**
+
+Candidates would benefit from producing solutions centred around the scenario presented in Section B of the paper. Having extensive OOP programming experience in a relevant high level language will help candidates to successfully tackle questions where algorithms have to be presented. Sample Python code based on Section B is presented below for consideration.
+
+**Assessment for learning**
+
+```
+# 2023 Section B
+
+class Treasure:
+
+  def __init__(self, pValue: int,
+pLevel: str):
+    self.__value = pValue
+```
+
+```
+    self.__level = pLevel
+
+  def getValue(self):
+    return self.__value
+
+  def setValue(self,pValue: int):
+    return self.__pValue
+
+  def getLevel(self):
+    return self.__level
+
+  def setLevel(self,pLevel: str):
+    return self.__pLevel
+
+class Board():
+
+  def __init__(self):
+    self.__grid = [[Treasure(-1,"")
+for _ in range(20)] for _ in
+range(10)]
+
+  def getGridItem(self,x: int, y:
+int):
+    return self.__grid[x][y]
+
+  def setGridItem(self,x: int,y:
+int, pTreasure: Treasure):
+    self.__grid[x][y] = pTreasure
+def guessGrid(b: Board):
+  row = int(input("Row: "))
+  col = int(input("Col: "))
+  t = b.getGridItem(row, col)
+```
+
+```
+  if t.getLevel() == "":
+    print("No treasure")
+  else:
+    print(f"Treasure found at {row}
+{col}!")
+    print(f"Level {t.getLevel()}
+Value {t.getValue()}")
+
+# Test code - Treasure @ 2,2 all
+other locations no treasure
+island = Board()
+prize = Treasure(5,"Prize!")
+island.setGridItem(2,2,prize)
+guessGrid(island)
+```
+'''
+
+[[question]]
+number = 5
+marks = 3
+
+[[question.part]]
+label = "5"
+text = '''
+A programmer has designed a program that includes a reusable program component.
+
+The reusable program component is a function called `isInteger()`. This will take a string as an argument and then check that each digit is between 0 and 9. For example if 103 is input, it will check that the digits 1, 0 and 3 are each between 0 and 9.
+
+The `asc()` function returns the ASCII value of each digit. For example `asc("1")` returns 49.
+
+The ASCII value for 0 is 48. The ASCII value for 9 is 57.
+
+```
+01   function isInteger(number)
+02     result = true
+03     for count = 0 to number.length-1
+04       asciiValue = asc(number.substring(count, 1))
+05         if not(asciiValue >= 48 and asciiValue <= 57) then
+06         result = false
+07       endif
+08     next count
+09     return result
+10   endfunction
+```
+'''
+
+[[question.part]]
+label = "5(i)"
+marks = 1
+text = '''
+Identify **one** identifier used in the function `isInteger()`.
+'''
+
+[[question.part]]
+label = "5(ii)"
+marks = 1
+text = '''
+Give the line number where the branching (selection) construct starts in the function `isInteger()`.
+'''
+
+[[question.part]]
+label = "5(iii)"
+marks = 1
+text = '''
+Give the line number where the iteration construct starts in the function `isInteger()`.
+'''
+
+[[question.mark_scheme]]
+label = "5(i)"
+marks = 1
+answer = '''
+1 mark for:
+
+```
+• isInteger
+• number
+• result
+• count
+• asciiValue
+```
+'''
+guidance = '''
+Penalise excessive spaces in identifiers such as ascii Value\
+instead of asciiValue
+
+**Examiner’s Comments**
+
+This question was generally well done (although slightly less well done than parts (a) (ii) and (a) (iii)), but many candidates did very well. The most common erroneous responses were giving the names of predefined functions/properties or giving relational operators.
+'''
+
+[[question.mark_scheme]]
+label = "5(ii)"
+marks = 1
+answer = '''
+(0)5
+'''
+guidance = '''
+**Examiner’s Comments**
+
+This question required an exact answer only and
+
+was answered correctly by the majority of candidates.
+'''
+
+[[question.mark_scheme]]
+label = "5(iii)"
+marks = 1
+answer = '''
+(0)3
+'''
+guidance = '''
+**Examiner’s Comments**
+
+This question also required an exact answer only and was answered correctly by the majority of candidates.
+'''
+
+[[question]]
+number = 6
+marks = 3
+
+[[question.part]]
+label = "6"
+marks = 3
+text = '''
+A recursive pseudocode function, `recursiveAlgorithm()`, is shown.
+
+```
+01   function recursiveAlgorithm(value)
+02     if value <= 0 then
+03       return 1
+04     elseif value MOD 2 = 0 then
+05       return value + recursiveAlgorithm(value – 3)
+06     else
+07       return value + recursiveAlgorithm(value – 1)
+08     endif
+09   endfunction
+```
+
+Describe the key features of a recursive algorithm.
+
+You may refer to the function, `recursiveAlgorithm()` in your answer.
+'''
+
+[[question.mark_scheme]]
+label = "6"
+marks = 3
+answer = '''
+1 mark each to max 3
+
+- The function calls itself….
+- …..such as line `05` / `07`
+- Each recursive call will create a new copy of the values in the function….
+- ….and add all of the values of the copy the call is being made from to a stack
+- There is a base case / condition that stops the recursive calls…
+- …condition in line `02`
+- There may be more than one base case
+'''
+guidance = '''
+Allow answers in context as long as they are clear what the features are.
+
+**Examiner’s Comments**
+
+Weaker responses were limited to one or two points for ‘calls itself’ with example such as ‘line 05’. Fewer candidates went on to identify the requirement for a base case. A variety of terminology was used for the base case such as terminating case and stopping case. If candidates were clearly referring to the case where the recursive calls stopped, and the recursion started to unwind, the mark was given.
+'''
+
+[[question]]
+number = 7
+marks = 6
+
+[[question.part]]
+label = "7"
+marks = 6
+text = '''
+A programmer uses an Integrated Development Environment (IDE).
+
+Complete the table by identifying **and** describing **three** IDE features that can help the programmer to develop, or debug a program.
+
+| **IDE feature** | **Description** |
+|---|---|
+|   |   |
+|   |   |
+|   |   |
+'''
+
+[[question.mark_scheme]]
+label = "7"
+marks = 6
+answer = '''
+1 mark for identification, 1 for description of feature\
+e.g.
+
+- Error diagnostics
+- … to locate and fix errors
+
+- Breakpoints
+- …stop a program running at a point to check variables
+
+- Syntax highlighting
+- … to identify key words, variables and help identify syntax errors
+
+- Stepping / step through
+- … run the program line by line to check variable values at each stage
+
+- Variable watch window
+- …view how variables change while the program executes
+
+- Auto-complete
+- … start typing a command/identifier and it completes it
+'''
+guidance = '''
+Consider awarding description without feature.
+
+Allow other suitable answers.
+
+**Examiner’s Comments**
+
+Most candidates scored well on this question which lent itself to a wide variety of potential answers. Some candidates quoted ‘autocorrect’ rather than auto complete or suggested predictive code. IDEs can have integrated run-time environments and translation software built-in or attached, but some responses were rather vague or included repetition and did not make it clear that they were referring to an integrated system. Sometimes the descriptive expansion or the initial identification of the point was vague and required the identification plus the description boxes to be taken in combination to give the mark. This was particularly evident when candidates gave a very vague ‘debugger/debugging’ identification.
+'''
+
+[[question]]
+number = 8
+marks = 3
+
+[[question.part]]
+label = "8"
+text = '''
+Layla writes a pseudocode algorithm to:
+
+- input 20 positive numbers into a 0-indexed 1-dimensional array
+- output the average (mean) number as a decimal
+- output the smallest number
+- output the largest number.
+
+The pseudocode algorithm is shown. It contains various errors.
+
+```
+01 total = 1
+02 smallest = 9999
+03 largest = -1
+04 for x = 0 to 21
+05   dataArray[x] = input("Enter a number")
+06   total = total + dataArray[x]
+07   if dataArray[x] < largest then
+08     largest = dataArray[x]
+09   endif
+10   if dataArray[x] < smallest then
+11     smallest = dataArray[x]
+12   endif
+13 next x
+14 print("Average = " + total * 20)
+15 print("Smallest = " + smallest)
+16 print("Largest = " + largest)
+```
+
+`dataArray` is defined as a local variable within the main program.
+'''
+
+[[question.part]]
+label = "8(i)"
+marks = 1
+text = '''
+State what is meant by a ‘local variable’.
+'''
+
+[[question.part]]
+label = "8(ii)"
+marks = 2
+text = '''
+Give **one** benefit and **one** drawback of declaring `dataArray` as a local variable in the main program.
+
+Benefit
+
+Drawback
+'''
+
+[[question.mark_scheme]]
+label = "8(i)"
+marks = 1
+answer = '''
+it can only be accessed within the subroutine/block in which it is declared
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Few candidates were able to clearly define the term 'local variable'. The concept of scope of variable s appeared to be poorly understood, with few able to define that a local variable’s scope was that of the function/procedure in which it was declared.
+'''
+
+[[question.mark_scheme]]
+label = "8(ii)"
+marks = 2
+answer = '''
+1 mark for benefit\
+e.g.
+
+- Increases data integrity
+
+- More efficient memory usage
+- Stops other subroutines accidently altering variable
+
+1 mark for drawback\
+e.g.
+
+- Cannot be accessed directly by other subroutines
+- It has to be passed into a subroutine as a parameter
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Some candidates confused the terms local variable and global variable and gave de finitions
+
+the wrong way round. A significant number of responses demonstrated conceptual\
+misconceptions. The contents of `dataArray` could be used in other parts of the program if it was passed as a parameter to a\
+function/procedure, but could not be referenced directly. Responses such as giving ‘can’t be used anywhere else in the program’ as a disadvantage were, therefore, incorrect.
+'''
+
+[[question]]
+number = 9
+marks = 3
+
+[[question.part]]
+label = "9"
+marks = 3
+text = '''
+A programmer has designed a program that includes a reusable program component.
+
+Describe the purpose of the following lines in the function `isInteger()`.
+
+Line 03
+
+Line 04
+
+Line 09
+'''
+
+[[question.mark_scheme]]
+label = "9"
+marks = 3
+answer = '''
+1 mark each
+
+03
+
+- Loop through each of the **characters/digits** in the `number` string (parameter)
+
+04
+
+- Find the ASCII value of the current **character/digit**
+
+09
+
+- Return true if the value is an integer and false otherwise
+'''
+guidance = '''
+**Examiner’s Comments**
+
+This question required the purpose of the lines of code to be described, but many candidates just described the functionally of the lines of code such as ‘line 03 is a counter controlled loop from `0 to number.length -1`’. The expected purpose of this line of code was to set up a loop to iterate through each character in the input string parameter.
+
+While many candidates could describe the purpose of at least one of the lines of code given, few could clearly describe the purpose of all three lines.
+'''
+
+[[question.mark_scheme]]
+label = "9"
+answer = '''
+
+'''
+
+[[question]]
+number = 10
+marks = 9
+
+[[question.part]]
+label = "10"
+marks = 9
+text = '''
+Nina is writing a computer game using an Integrated Development Environment (IDE). Her friend, James, is writing a computer game using a text-editor which will allow James to create and edit text. James will use a separate compiler.
+
+Discuss the differences between writing and debugging a program using an IDE and a text-editor.
+
+You should include the following in your answer:
+
+- features that are used when writing code
+- features that are used when debugging code
+- the benefits of using an IDE instead of a text-editor.
+'''
+
+[[question.mark_scheme]]
+label = "10"
+marks = 9
+answer = '''
+**Mark Band 3–High Level**\
+**(7–9 marks)**\
+The candidate demonstrates thorough knowledge and
+
+understanding of IDEs; the material is generally accurate and detailed.\
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided.\
+Evidence/examples will be explicitly relevant to the explanation. The candidate provides a thorough discussion which is well- balanced. Evaluative comments are consistently relevant and well- considered.\
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2-Mid Level**\
+**(4–6 marks)**\
+The candidate demonstrates reasonable knowledge and understanding of IDEs; the material is generally accurate but at times underdeveloped.\
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.\
+The candidate provides a reasonable discussion, the majority of which is focused. Evaluative comments are for the most part appropriate, although one or two opportunities for development are missed.\
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1-Low Level**\
+**(1–3 marks)**\
+The candidate demonstrates a basic knowledge of IDEs, with
+
+limited understanding shown; the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided.\
+The candidate provides a limited discussion which is narrow in focus. Judgments if made are weak and unsubstantiated. The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 mark**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+**AO1: Knowledge and Understanding** e.g.\
+IDE:
+
+- pretty print / syntax highlighting
+- auto-complete
+- auto-correction
+- breakpoints
+- stepping
+
+Editor:
+
+- no helpful writing/debugging features
+- no excess features/interface
+
+**AO2.1: Application**\
+e.g.\
+IDE
+
+- identify syntax errors as writing
+- …saves trying to find them
+- easier debugging as can step through a program
+- auto-indenting avoids errors from incorrect indentation
+- May have built in unit testing to automate testing and avoid new errors being introduced.
+
+Editor
+
+- does not offer suggestions on code corrections
+
+- Has a lower footprint on memory/CPU which may be suited to quick alterations or working on lowed spec’d systems.
+- May be better when learning to program as it forces the user to type everything in full / doesn’t give suggestions, helping things stick in memory.
+
+**AO3.3: Evaluation**\
+e.g.
+
+- IDE is helpful in reducing original errors
+- IDE is helpful in finding and correcting errors
+- Editor is a simpler system to use e.g. less memory needed to run it, does not try and auto-correct incorrectly or introduce errors that the programmer has not made.
+
+**Examiner’s Comments**
+
+A pleasing number of candidates could identify and describe a range of features of an IDE, with most being able to demonstrate sufficient knowledge to achieve mark band Level 2. Few candidates displayed a level of evaluative reasoning of sufficient depth to achieve mark band Level 3. More successful responses clearly explained how relevant debugging tools in an IDE led to much greater productivity than a text editor
+
+because of the way that they could assist with finding logical errors in code through the use of stepping and tracing. An acknowledgement of the amount of system resources and the complexity of some IDE environments was less often evaluated.
+
+Candidates need to focus on making clear logical arguments with evidence of evaluation (AO3) to be able to achieve mark band 3.
+'''
+
+[[question]]
+number = 11
+marks = 10
+
+[[question.part]]
+label = "11(a)"
+marks = 6
+text = '''
+A function, `toBinary()`, is needed to calculate the binary value of a denary integer between 0 and 255.
+
+`toBinary()` needs to:
+
+- take an integer value as a parameter
+- divide the number by 2 repeatedly, storing a 1 if it has a remainder and a 0 if it doesn’t
+- combine the remainder values (first to last running right to left) to create the binary number
+- return the binary number.
+
+For example, to convert 25 to a binary number the steps are as follows:
+
+25 / 2 = 12 remainder 1\
+12 / 2 = 6 remainder 0\
+6 / 2 = 3 remainder 0\
+3 / 2 = 1 remainder 1\
+1 / 2 = 0 remainder 1
+
+return value = 11001
+
+Write the function `toBinary()`.
+
+You should write your function using pseudocode or program code.
+'''
+
+[[question.part]]
+label = "11(b)"
+marks = 4
+text = '''
+The main program:
+
+- asks the user to enter a denary number between 1 and 255
+- checks that the input is valid between 1 and 255
+- If valid call the function `toBinary()` and pass the input as a parameter
+- outputs the return value
+- If not valid, repeatedly asks the user to input a number until the number is valid.
+
+Write the algorithm for the main program.
+
+You should write your algorithm using pseudocode or program code.
+'''
+
+[[question.mark_scheme]]
+label = "11(a)"
+marks = 6
+answer = '''
+1 mark per bullet to max 6
+
+- function header taking parameter
+- looping appropriately e.g. until value is 0
+- dividing by 2 and finding remainder e.g. MOD
+- adding 1 or 0 correctly
+- …appending to a value to be returned / final string reversed
+- reducing value to use within loop
+- returning calculated value
+
+e.g.
+
+```
+function toBinary(denary)
+  binaryValue=""
+  while denary > 0
+    temp = denary MOD 2
+    if temp == 1 then
+      binaryValue = "1" + binaryValue
+    else
+      binaryValue = "0" + binaryValue
+    endif
+```
+
+```
+  denary = denary DIV 2
+  endwhile
+  return binaryValue
+endfunction
+```
+'''
+guidance = '''
+Award a recursive algorithm as equivalent
+
+**Examiner’s Comments**
+
+Very few candidates were able to produce a working function, but many gained some marks.
+
+Some candidates had little idea of the concept of a function and struggled to define one. Many omitted the definition statement or omitted the required parameter and then asked for user input instead.
+
+The standard of pseudocode/code was quite weak. Indentation of constructs was often missing or hard to follow. Mid-range marks were achieved when candidates effectively utilised MOD to determine if the remainder on division by two was odd or even, and then using DIV to find the next term in the sequence.
+
+More successful responses demonstrated an ability to problem solve, think logically, and present clear working functions.
+'''
+
+[[question.mark_scheme]]
+label = "11(b)"
+marks = 4
+answer = '''
+1 mark per bullet to max 4
+
+- taking value as input
+- looping until valid between 1 and 255
+- calling function with correct parameter
+- outputting return value
+
+```
+denary = -1
+while denary < 1 or denary > 255
+  denary = input("Enter denary value between 1
+and 255")
+endwhile
+print(toBinary(denary))
+```
+'''
+guidance = '''
+Allow other checks for a valid number. For example
+
+```
+denary.isInteger == False
+```
+
+**Examiner’s Comments**
+
+Candidates found Question 4 (b) easier to approach than Question 4 (a). Most could write pseudocode to accept a user input. When validating the input to be a value between 1 and 255, there was incorrect use of relational operators with off -by-one errors on occasion. There was also incorrect use of logical operators where or was used instead of and, and vice- versa. When candidates called\
+`toBinary(inputVal)`, the result was not always stored for later use.
+
+*[Image in the original mark scheme, not shown here.]*
+
+**Assessment for learning**
+
+When preparing candidates for the examination, they will benefit from a wide range of\
+programming experience.
+
+Questions such as 4 (a) and 4 (b) present an ideal opportunity for developing coded solutions to test and discuss before looking at how the algorithms could be presented as pseudocode.
+'''
+
+[[question]]
+number = 12
+marks = 8
+
+[[question.part]]
+label = "12(a)"
+text = '''
+Layla writes a pseudocode algorithm to:
+
+- input 20 positive numbers into a 0-indexed 1-dimensional array
+- output the average (mean) number as a decimal
+- output the smallest number
+- output the largest number.
+
+The pseudocode algorithm is shown. It contains various errors.
+
+```
+01 total = 1
+02 smallest = 9999
+03 largest = -1
+04 for x = 0 to 21
+05   dataArray[x] = input("Enter a number")
+06   total = total + dataArray[x]
+07   if dataArray[x] < largest then
+08     largest = dataArray[x]
+09   endif
+10   if dataArray[x] < smallest then
+11     smallest = dataArray[x]
+12   endif
+13 next x
+14 print("Average = " + total * 20)
+15 print("Smallest = " + smallest)
+16 print("Largest = " + largest)
+```
+'''
+
+[[question.part]]
+label = "12(a)(i)"
+marks = 1
+text = '''
+Identify the construct used on lines 01 to 03 in the algorithm.
+'''
+
+[[question.part]]
+label = "12(a)(ii)"
+marks = 1
+text = '''
+Identify the construct used on lines 10 to 12 in the algorithm.
+'''
+
+[[question.part]]
+label = "12(b)"
+marks = 2
+text = '''
+Identify **two** variables used in this algorithm.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "12(c)"
+marks = 4
+text = '''
+The algorithm that Layla has written has many errors.
+
+Identify the line number of **four** different errors and write the corrected line of code.
+
+Error 1 line number ……
+
+Error 1 correction
+
+Error 2 line number ……
+
+Error 2 correction
+
+Error 3 line number ……
+
+Error 3 correction
+
+Error 4 line number ……
+
+Error 4 correction
+'''
+
+[[question.mark_scheme]]
+label = "12(a)(i)"
+marks = 1
+answer = '''
+sequence
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Nearly all candidates correctly identified ‘sequence’ as the correct construct.
+'''
+
+[[question.mark_scheme]]
+label = "12(a)(ii)"
+marks = 1
+answer = '''
+selection / branching
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Nearly all candidates correctly identified ‘selection’ as the correct construct.
+'''
+
+[[question.mark_scheme]]
+label = "12(b)"
+marks = 2
+answer = '''
+1 mark each to max 2
+
+- total
+- smallest
+- largest
+- x
+- dataArray
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Most candidates correctly identified two variables from the given code.
+'''
+
+[[question.mark_scheme]]
+label = "12(c)"
+marks = 4
+answer = '''
+1 mark for each line and correction
+
+- Line 01
+
+```
+total = 0
+```
+
+- Line 02
+
+```
+• smallest = dataArray[0]
+```
+
+- Line 04 `for x = 0 to 19` (accept 20)
+
+- Line 07
+
+```
+if dataArray[x] > largest then
+```
+
+- Line 14
+
+```
+print("Average = " + total / 20)
+```
+'''
+guidance = '''
+Do not award a mark for the line number alone without correction.
+
+**Examiner’s Comments**
+
+Most candidates were given some marks, but fewer achieved full marks.
+
+The context of the question indicated that the numbers input were positive integers, but candidates did not always appreciate this.
+'''
+
+[[question]]
+number = 13
+marks = 6
+
+[[question.part]]
+label = "13(a)"
+text = '''
+A card game uses a set of 52 standard playing cards. There are four suits; hearts, diamonds, clubs and spades. Each suit has a card with a number from; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13.
+
+The card game randomly gives 2 players 7 cards each. The unallocated cards become known as the deck.
+
+The players then take it in turns to turn over a card. A valid move is a card of the same suit or the same number as the last card played.
+
+The winner is the first player to play all of their cards.
+
+A function, `checkValid()`, takes the card the player has selected, and the last card played as parameters.
+
+It returns `true` if the player’s move is valid and returns `false` if the player’s move is not valid.
+'''
+
+[[question.part]]
+label = "13(a)(i)"
+marks = 1
+text = '''
+State the reason why `checkValid()` is a function and not a procedure.
+'''
+
+[[question.part]]
+label = "13(a)(ii)"
+marks = 3
+text = '''
+The programmer will use a branching (selection) construct to make decisions.
+
+Describe the decisions that will be made in the `checkValid()` function and how these change the return values.
+'''
+
+[[question.part]]
+label = "13(b)"
+marks = 2
+text = '''
+The cards are held in the 2D array `cards`. The first index stores the card number and the second index stores the suit, both as strings.
+
+Write a pseudocode statement or program code to declare the array `cards`.
+'''
+
+[[question.mark_scheme]]
+label = "13(a)(i)"
+marks = 1
+answer = '''
+It returns a value
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Most candidate correctly identified that `checkValid()` was a function because it returned a value. Some candidates erroneously stated ‘because it has an output’ which did not differentiate a function from a procedure since both can print an output as a side effect.
+'''
+
+[[question.mark_scheme]]
+label = "13(a)(ii)"
+marks = 3
+answer = '''
+1 mark per bullet
+
+- If the players card is the same suit return true
+- if the players card is the same number return true
+- if neither is true, return false
+'''
+guidance = '''
+Allow 1/0, ‘T’/’F’, “Yes”/”No” or any sensible alternative as return values.
+
+**Examiner’s Comments**
+
+Many candidates were able to think\
+computationally to identify the points in a solution where a decision had to be taken. Occasionally some candidates did not specify the specific result that would be returned from the function after determining if a card was valid or not. There were also occurrences of incorrect logic such as returning valid using an AND condition on the same number and same suit clauses, rather than executing them in sequence.
+'''
+
+[[question.mark_scheme]]
+label = "13(b)"
+marks = 2
+answer = '''
+1 mark per bullet
+
+- identifier `cards`…
+- …with 2 dimensions
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many candidates gained a mark by initialising the identifier `cards`, but fewer gained the second mark for correctly setting it to be a two- dimensional structure. Many obscure forms of syntax were observed, but marks was given if it was clear that the structure was two-dimensional, however, for many responses, it was clear that a one-dimensional list had been initialised.
+'''
+
+[[question]]
+number = 14
+marks = 9
+
+[[question.part]]
+label = "14(a)"
+text = '''
+A program uses the recursive function `calculate()`. The function is written in pseudocode.
+
+```
+1. function calculate(number : byVal)
+2.   if number == 1 then
+3.     return number
+```
+
+4. `else`
+
+```
+5.     return number + calculate (number - 1)
+```
+
+6. `endif`
+
+```
+7. endfunction
+```
+'''
+
+[[question.part]]
+label = "14(a)(i)"
+marks = 1
+text = '''
+Give the line number in the algorithm `calculate()` where a recursive call is made.
+'''
+
+[[question.part]]
+label = "14(a)(ii)"
+marks = 2
+text = '''
+State **two** features of any recursive algorithm.
+
+Feature 1
+
+Feature 2
+'''
+
+[[question.part]]
+label = "14(b)"
+marks = 5
+text = '''
+Trace the recursive function `calculate()` and give the final return value, when the following function call is run:
+
+```
+calculate(5)
+```
+
+You may choose to use the table below to give your answer.
+
+| Function call | `number` | `return` |
+|---|---|---|
+| `calculate(5)` |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+'''
+
+[[question.part]]
+label = "14(c)"
+marks = 1
+text = '''
+Give the pseudocode function call that would return 55 from the recursive function `calculate()`.
+'''
+
+[[question.mark_scheme]]
+label = "14(a)(i)"
+marks = 1
+answer = '''
+Line number `5`
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Nearly all candidates gave the correct answer line `5`.
+'''
+
+[[question.mark_scheme]]
+label = "14(a)(ii)"
+marks = 2
+answer = '''
+1 mark per feature
+
+- A function that calls itself / a function that is defined in terms of itself
+- …has a base case (that terminates the recursion)
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Most candidates knew that a recursive algorithm is self-referential and calls itself, but some candidates were too vague specifying that it ‘calls a function’. Candidates often found it harder to gain the second mark and some gave answers not related to the question such as explanations of how recursion uses stack frames during execution. Technical vocabulary is important, and some candidates did not make it clear that recursion has a base case. Those that stated a stopping/terminating condition needed to qualify their response to say that these conditions stopped/halted the recursion. Where candidates
+
+just wrote ‘stopping condition’ it was too vague as it was unqualified since they could have been talking about any conditional loop.
+'''
+
+[[question.mark_scheme]]
+label = "14(c)"
+marks = 1
+answer = '''
+```
+calculate(10)
+```
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Those candidates who scored full marks in 7b had little difficulty giving the correct call `calculate(10)`. Some candidates just wrote 10, which did not answer the question. Those who showed little understanding of recursion in 7b rarely gave the correct answer in 7c.
+'''
+
+[[question]]
+number = 15
+marks = 28
+diagram = true
+
+[[question.part]]
+label = "15(a)"
+text = '''
+A computer uses a stack data structure, implemented using an array, to store numbers entered by the user.
+
+The array is zero based and has 100 locations.
+
+**Fig. 8** shows the current contents of the stack and the first 9 locations of the array.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 8**
+'''
+
+[[question.part]]
+label = "15(a)(i)"
+marks = 2
+text = '''
+The function `pop()` removes an item from the stack.
+
+The function push() adds an item to the stack that is passed in as a parameter.
+
+Show the contents of the stack and pointer from **Fig. 8** after the following subroutines calls have run.
+
+```
+pop()
+pop()
+push(3)
+push(6)
+push(7)
+```
+
+*[Diagram in the original paper, not shown here.]*
+'''
+
+[[question.part]]
+label = "15(a)(ii)"
+text = '''
+State the purpose of `pointerValue`.
+
+**\[1**
+'''
+
+[[question.part]]
+label = "15(b)"
+text = '''
+The stack is programmed as an object using object-oriented programming. The design for the class, its attributes and methods are shown:
+
+```
+class: stack
+```
+
+```
+attributes:
+private stackArray : Array of integer
+private pointerValue : integer
+```
+
+```
+methods:
+new()
+function pop()
+function push(value)
+```
+'''
+
+[[question.part]]
+label = "15(b)(i)"
+marks = 5
+text = '''
+The method `pop()` returns the next value in the stack, or `–1` if the stack is empty.
+
+Complete the pseudocode method `pop()`.
+
+```
+public function pop()
+  if pointerValue == …… then
+   return ……
+  else
+   pointerValue = pointerValue ……
+   returnValue = stackArray[……]
+   return ……
+  endif
+endfunction
+```
+'''
+
+[[question.part]]
+label = "15(b)(ii)"
+marks = 6
+text = '''
+The method push() accepts an integer as a parameter and adds it to the top of the stack unless the stack is already full.
+
+If the push is successful the method returns true.
+
+If the push is unsuccessful due to the stack being full the method returns false.
+
+Write the method push() using either pseudocode or program code.
+'''
+
+[[question.part]]
+label = "15(b)(iii)"
+marks = 2
+text = '''
+The main program initialises a new object of type stack with the identifier mathsStack.
+
+Write pseudocode or program code to declare the object.
+'''
+
+[[question.part]]
+label = "15(b)(iv)"
+marks = 4
+text = '''
+The main program needs to:
+
+- take numbers as input from the user
+- push them onto the stack `mathsStack` until the stack is full
+- output an appropriate message if the stack is full.
+
+Complete the pseudocode algorithm to meet these requirements.
+
+```
+returnValue = true
+while returnValue == ……
+   returnValue = mathsStack.
+……(input("Enter Number"))
+   if returnValue == …… then
+    …… ("Stack full")
+   endif
+endwhile
+```
+'''
+
+[[question.part]]
+label = "15(b)(v)"
+marks = 8
+text = '''
+The main program also needs to:
+
+- remove one item from the stack at a time and add this to a total
+- output the total every time an item is removed
+- stop removing items when either the stack is empty, or 20 items have been removed.
+
+Write pseudocode or program code to meet these requirements.
+'''
+
+[[question.mark_scheme]]
+label = "15(a)(i)"
+marks = 2
+answer = '''
+1 mark for correct data\
+1 mark for correc top of stack pointer
+
+*[Image in the original mark scheme, not shown here.]*
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Most candidates scored full marks for this question, but the most common error was the omission of the `pointerValue` or the setting of
+
+the `pointerValue` to 5 to point to the last element in the stack instead of the next free location at the top of the stack.
+'''
+
+[[question.mark_scheme]]
+label = "15(a)(ii)"
+marks = 1
+answer = '''
+1 mark per bullet
+
+- Point to the next free space in the array
+- Points to the top of the stack
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many candidates answered the question clearly specifying a pointer to the next free index in the stack, but some candidates gave vague responses such as ‘location of next item’.
+'''
+
+[[question.mark_scheme]]
+label = "15(b)(i)"
+marks = 5
+answer = '''
+1 mark per correctly completed statement
+
+e.g.
+
+```
+pubic function pop()
+  if pointerValue == 0 then
+   return -1
+  else
+   pointerValue = pointerValue -1
+   returnValue = stackArray[pointerValue]
+   return returnValue
+  endif
+endfunction
+```
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Most candidates gained some marks with many gaining full marks. The most common errors were writing identifiers for `pointerValue` and `returnValue` with spaces in, returning values as strings, or returning True/False instead of -1 as required in the question.
+'''
+
+[[question.mark_scheme]]
+label = "15(b)(ii)"
+marks = 6
+answer = '''
+1 mark per bullet to max 6
+
+- function header
+- ..taking parameter (ignore byval/byref)
+- checking if stack is full (pointerValue at 100)…
+- …and returning false
+- (otherwise) adding value to top of stack
+
+- …incrementing top of stack pointer
+- return true
+
+e.g.
+
+```
+function push(value)
+  if pointerValue < 100 then
+   stackArray[pointerValue] = value
+   pointerValue = pointerValue + 1
+   return true
+  else
+   return false
+  endif
+endfunction
+```
+'''
+guidance = '''
+Ignore additional parameters in function definition
+
+Do not accept the return of string values
+
+FT following a reasonable attempt to check if the stack is full
+
+**Examiner’s Comments**
+
+Candidates produced a higher standard of pseudocode this session and many scored most if not full marks for a standard stack push routine.
+
+Common errors included omitting a parameter and/or getting a user input as the value to place into the stack, returning strings or printing the return values, and off-by-one errors when testing to see if the `stackPointer` was at the top of the stack to determine if the stack was full.
+
+It was noticeable that a number of students who were only familiar with Python gave list append type solutions rather than using the array and pointers as per the implementation given.
+
+Another common error was incrementing the value of the stackPointer before the parameter was assigned to `stackArray` at the\
+`stackPointer` index, which was frequently seen when candidates did not know that the `stackPointer` actually pointed to the index of the next free space in the stack.
+
+**Exemplar 3**
+
+*[Image in the original mark scheme, not shown here.]*
+
+Candidates are encouraged to present pseudocode solutions with clear indentation to aid readability. No specific language/syntax is expected, but the logic of the solution must be clear.
+'''
+
+[[question.mark_scheme]]
+label = "15(b)(iii)"
+marks = 2
+answer = '''
+1 mark per bullet
+
+- instantiation of new object of type stack
+- assigned to variable mathsStack
+
+```
+mathsStack = new stack()
+```
+'''
+guidance = '''
+**Accept**
+
+```
+mathsStack = stack()
+```
+
+allow missing brackets this time only e.g. mathsStack = stack
+
+**Examiner’s Comments**
+
+Many candidates struggled to answer this question because they lacked practical experience of OOP that showed a lack of familiarity in terms of creating instances of a class. Some candidates tried to declare `mathsStack` as a procedure or class, and many got it the wrong way round and actually declared a new identifier called `stack` as an instance of the class `mathStack`.
+'''
+
+[[question.mark_scheme]]
+label = "15(b)(iv)"
+marks = 4
+answer = '''
+1 mark for each completed statement
+
+```
+returnValue = true
+while returnValue == true
+  returnValue = mathsStack.push(input("Enter
+Number"))
+  if returnValue == false then
+   print("Stack full")
+  endif
+```
+'''
+guidance = '''
+Accept equivalent for print e.g. output
+
+**Examiner’s Comments**
+
+The majority of candidates scored some marks but relatively few gained full marks. Return was seen instead of print/output when the question did, on this occasion ask for the message to be output (as the code was specified as being in the main program rather than a subroutine).
+'''
+
+[[question.mark_scheme]]
+label = "15(b)(v)"
+marks = 8
+answer = '''
+mark per bullet to max 8
+
+- initialise a total to 0 outside of loop
+- looping
+- removing an item from the stack using the method pop
+- check if stack is empty
+- (if not) add value returned to total
+- …outputting total
+- counting how many values are returned
+- stopping loop when either 20 items removed or no items left
+
+```
+total = 0
+quantity = 0
+returnValue = 0
+
+while quantity<20 and retunValue!=-1
+  returnValue = mathsStack.pop()
+  if(returnValue != -1) then
+   quantity = quantity + 1
+   total = total + returnValue
+   print(total)
+  endif
+endwhile
+```
+'''
+guidance = '''
+**Examiner’s Comments**
+
+The standard of pseudocode / programming code was better than in previous sessions and most candidates made a reasonable attempt to pop 20 values from the stack. Many candidates found it difficult to reference the class methods correctly or made assumptions about the existence of other methods that were not provided within the scenario (e.g. `.full(), .empty(),` `.length(), .remove()`) that should not be presumed to exist.
+
+Those who had little understanding of\
+encapsulation often tried to access class attributes such as `stackPointer` directly to manipulate `mathsStack`, rather than using methods to interact with the instance of the stack.
+
+When candidates did use the `.pop()` method to retrieve a value from `mathsStack` they frequently did not store the result for later use to check whether then stack was empty.
+'''
+
+[[question]]
+number = 16
+marks = 2
+
+[[question.part]]
+label = "16"
+marks = 2
+text = '''
+A programmer is developing an aeroplane simulator. The user will sit in a cockpit and the simulated environment will be displayed on screens around them.
+
+Describe how caching can be used in the aeroplane simulator.
+'''
+
+[[question.mark_scheme]]
+label = "16"
+marks = 2
+answer = '''
+1 mark per bullet\
+e.g.
+
+- Store data that has been used in cache/RAM in case needed again
+- e.g. store design of the weather/a cloud/external environment
+'''
+guidance = '''
+Allow 2 valid examples for 2 marks
+
+**Examiner’s Comments**
+
+Responses to caching were better than those seen in recent papers and many candidates managed to either describe the concept of caching or give an example of something that would realistically be cached. Far fewer managed to do both in detail.
+'''
+
+[[question]]
+number = 17
+marks = 16
+
+[[question.part]]
+label = "17(a)"
+text = '''
+The array `words` is defined as a global variable and contains these values:
+
+| "`house`" | "`boat`" | "`car`" | "`telephone`" | "`garden`" | "`spice`" | "`elephant`" |
+|---|---|---|---|---|---|---|
+
+The pseudocode function `useWords()` here uses the global array `words`. The number of words in the array `words` is passed as a parameter.
+
+```
+function useWords(numberOfWords : byVal)
+  contents = ""
+  for count = 0 to numberOfWords - 1
+    contents = contents + words[count] + " "
+  next count
+  return contents
+endfunction
+```
+'''
+
+[[question.part]]
+label = "17(a)(i)"
+marks = 2
+text = '''
+Identify **two** variables in the function `useWords()`.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "17(a)(ii)"
+marks = 2
+text = '''
+`numberOfWords` is a parameter passed by value.
+
+Describe the difference between passing a parameter by value and by reference.
+'''
+
+[[question.part]]
+label = "17(a)(iii)"
+marks = 4
+text = '''
+Rewrite the function `useWords()` to use a while loop instead of a for loop.
+
+The function header and close have been written for you.
+
+Write your answer using pseudocode or program code.
+
+```
+function useWords(numberOfWords : byVal)
+```
+
+```
+endfunction
+```
+'''
+
+[[question.part]]
+label = "17(b)"
+marks = 2
+text = '''
+Give **one** benefit and **one** drawback of declaring an array as a global variable instead of a local variable.
+
+Benefit
+
+Drawback
+'''
+
+[[question.part]]
+label = "17(c)"
+marks = 4
+text = '''
+Describe **one** feature of an Integrated Development Environment (IDE) that can be used to help write a program **and one** feature that can be used to help test a program.
+
+Write
+
+Test
+'''
+
+[[question.part]]
+label = "17(d)"
+marks = 2
+text = '''
+Functions and procedures are reusable components.
+
+Give **two** benefits of writing a program with reusable components.
+
+1
+
+2
+'''
+
+[[question.mark_scheme]]
+label = "17(a)(i)"
+marks = 2
+answer = '''
+1 mark for each variable
+
+```
+• contents
+• count
+• numberOfWords
+• words / words[]
+```
+'''
+guidance = '''
+Accept exact spelling only
+
+Do not award numberOfWords if there are obvious spaces in ‘number of Words’. It must be a valid identifier.
+
+**Examiner’s Comments**
+
+The majority of candidates answered correctly, with the most popular answers being `count` and `contents`. A few candidates incorrectly gave data values from the array rather than identifying variables in the function.
+'''
+
+[[question.mark_scheme]]
+label = "17(a)(ii)"
+marks = 2
+answer = '''
+1 mark per bullet
+
+- By reference the function receives the memory location of the data
+
+- By value the function receives a copy of the variable
+- By reference will make changes to the original variable
+- By value will make changes to the copy of the variable
+- By reference will overwrite data in the original variable
+- By value will not overwrite the data in the original variable
+- By reference will keep the changes after the function ends
+- By value will not keep the changes after the function ends
+'''
+guidance = '''
+Must cover byVal and byRef for 2 marks to be awarded.
+
+Must be clear that byVal is a copy of the original
+
+value.
+
+**Examiner’s Comments**
+
+It was pleasing to see an improvement in responses to this topic this session. There were still some answers that were too vague that did not specify that by value uses a copy of the parameter and that by reference passes the memory address. Other examples of vagueness that were not given marks included answers such as ‘by value can’t change the value while by reference can’ that did not qualify the scope within which changes can be made. A variable passed by value can clearly be changed in a function, but it is the local copy that is changed and then disregarded when the function finishes.
+'''
+
+[[question.mark_scheme]]
+label = "17(a)(iii)"
+marks = 4
+answer = '''
+1 mark per bullet
+
+- initialising a counter
+- looping between 0 and numberOfWords -1
+- incrementing counter inside loop
+- remainder of algorithm correct (initialisation, concatenation and return)
+
+e.g.
+
+```
+contents = ""
+count = 0
+while count < numberOfWords
+  contents = contents + words[count] + " "
+  count = count + 1
+```
+
+```
+endwhile
+return contents
+```
+'''
+guidance = '''
+Accept:\
+while count \<= numberOfWords - 1
+
+Accept other combinations for example counting from 1 and then subtracting 1 for the array element (but do not credit off by one errors)
+
+Accept:\
+len(words) for numberOfWords
+
+**Examiner’s Comments**
+
+Many candidates struggled with this question. Some candidates rewrote the `for` loop putting the word while in place of for showing little
+
+understanding of the difference between a counter-controlled and a conditional loop.
+
+Common errors included not initialising the `count` variable before using it within the body of the while loop, off-by-one errors, and forgetting to increment the `count` variable within the loop. Poor indentation was often a problem, and a number of candidates erroneously placed the return statement inside the body of the loop.
+
+**Off-by-One errors**\
+There were many off-by-one errors observed, e.g. `while count <= numberOfWords` rather
+
+```
+than while count < numberOfWords.
+```
+
+Candidates need to give code that is logically accurate, and, in this instance, it required the loop to run the correct number of times so that all the words in the array were processed.
+'''
+
+[[question.mark_scheme]]
+label = "17(b)"
+marks = 2
+answer = '''
+1 mark for benefit, 1 mark for drawback\
+e.g.\
+Benefits:
+
+- Variable doesn’t need passing as a parameter (byref)
+- You don’t need to return a value
+- Can be accessed from any function / anywhere in the program
+
+Drawback:
+
+- Increases memory usage (as it is used until full program execution is over)
+- Alterations within the function may have unwanted side effects elsewhere in the program.
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many candidates found it easier to describe a benefit than to give a drawback. The most commonly identified benefit was that the array would have global scope (and would therefore not need to be passed as a parameter), but often the descriptions given were too vague, e.g. ‘can be accessed anywhere’. The correct technical vocabulary is required.
+
+Drawbacks were poorly described. Potential side
+
+effects and resultant complexity debugging were frequently alluded to as ‘accidental change’ but not fully developed into complete qualified points.
+
+There was also a frequent misconception that you cannot have multiple variables with the same name, which is not true. When a local variable is declared with the same name as a global variable that already exists, it takes precedence within the local scope.
+'''
+
+[[question.mark_scheme]]
+label = "17(c)"
+marks = 4
+answer = '''
+1 mark per identification 1 mark for expansion, max 2 each. Write:\
+e.g.
+
+- Auto-complete
+- Start typing an identifier/command and it fills in the rest
+- Auto-indent
+- Indents code automatically within structures to avoid errors
+- Coloured command words / pretty printing / syntax highlighting
+- Shows which commands are correct / help identify key elements
+
+Test\
+e.g.
+
+- Breakpoints
+- Stop the program running at a set point to check variables
+- Variable watch window
+- Display the values of the variables while the program is run
+- Stepping
+
+- Run one line at a time and check variables
+
+Unit Testing
+
+- Automated tests to be run to check changes ensure changes haven’t introduced errors.
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Most candidates achieved at least 2 marks by identifying two suitable features, but often the expansions to describe each feature were less clear. Developments in modern IDEs meant that there were many valid features, but auto- completion and breakpoints were particularly common answers.
+'''
+
+[[question.mark_scheme]]
+label = "17(d)"
+marks = 2
+answer = '''
+1 mark per bullet to max 2
+
+- Saves time from having to write the same algorithm repeatedly
+- Reduced testing requirements
+- Can be taken and used in different programs as well as the program they are written in / can be used in a program library
+'''
+guidance = '''
+Allow other suitable answers
+
+**Examiner’s Comments**
+
+Many candidates scored 1 mark, but fewer gave two clear benefits. Unqualified statements that were too vague were often given. A frequent response was ‘saves time’, but as an unqualified point it did not state how time was saved, e.g. ‘saves time as you don’t have to retype the same code/routine again’.
+
+Candidates need to be reminded that at this level responses of a ‘quicker’ or ‘easier’ nature will not gain marks unless qualified.
+
+**Exemplar 1**
+
+*[Image in the original mark scheme, not shown here.]*
+
+Candidates are expected to fully qualify the points that they make. This response shows clear identification of points followed by qualifying statements.
+'''
+
+[[question]]
+number = 18
+marks = 1
+
+[[question.part]]
+label = "18"
+marks = 1
+text = '''
+Given the following procedure:
+
+```
+01 procedure generate(number)
+02      a = 0
+03      while number > 0
+04         if number MOD 2 == 0 then
+05            a = a + 2
+06            print(a)
+07            number = number – 2
+08         else
+09            a = a + 1
+10            print(a)
+11            number = number – 1
+12         endif
+13      endwhile
+14 endprocedure
+```
+
+State the values printed by the procedure `generate` when `number` = 8.
+'''
+
+[[question.mark_scheme]]
+label = "18"
+marks = 1
+answer = '''
+- 2,4,6,8
+'''
+guidance = '''
+**Examiner’s Comments**\
+In many cases candidates gave the response 2 and did not iterate through the loop until the initial loop condition was false.
+'''
+
+[[question]]
+number = 19
+marks = 1
+
+[[question.part]]
+label = "19"
+marks = 1
+text = '''
+A veterinary surgery uses a two dimensional array to store bookings for customers to bring in their animal to see the vet. There are ten possible booking slots during each day.
+
+An example of the two dimensional array is shown in **Fig. 1**.
+
+- The first column stores the booking slot number, ranging between 1 and 10.
+- The second column stores the time of the appointment.
+- The third column stores the customerID of the customer who has booked that slot.
+
+| 1 | 9:00 | 5877RC |
+|---|---|---|
+| 2 | 9:30 | 9655AS |
+| 3 | 10:00 |   |
+| 4 | 10:30 | 8754TT |
+| 5 | 11:00 |   |
+| 6 | 11:30 | 8745SD |
+| 7 | 13:00 | 9635GH |
+| 8 | 13:30 |   |
+| 9 | 14:00 | 9874PL |
+| 10 | 14:30 | 9658SV |
+
+**Fig. 1**
+
+If a customerID has been entered for a booking slot then the booking slot has been taken. If no customerID has been entered then the booking slot is available for booking.
+
+When an available time slot has been found then a valid customerID must be entered to confirm the booking.
+
+This is checked by another function called `checkCustomerID`. This will return `true` if the customerID is valid or `false` if the customerID is not valid.
+
+State why a function would be used instead of a procedure for this purpose.
+'''
+
+[[question.mark_scheme]]
+label = "19"
+marks = 1
+answer = '''
+A procedure does not return a value / a function will return a value.
+'''
+guidance = '''
+**Examiner’s Comments**\
+Nearly all candidates successfully identified the factual knowledge that a function returns a value.
+'''
+
+[[question]]
+number = 20
+marks = 7
+
+[[question.part]]
+label = "20(a)"
+marks = 2
+text = '''
+Kylie buys used games consoles and then sells them to make a profit. She sells her products in multiples of £5 such as £30, £55 and £95. Kylie only accepts £50, £20, £10 and £5 notes from her customers.
+
+Kylie has written an algorithm which will calculate the amount of change needed by stating how many £20, £10 and £5 notes are needed.
+
+The program should output the minimum number of notes required. For example if £35 change is required then it should output 1 x £20 and 1 x £10 and 1 x £5.
+
+```
+01 total = input("Enter total price of goods")
+02 paid = input("Enter amount paid")
+03 global change = paid – total
+04 calculateChange()
+05
+06 procedure calculateChange()
+07     twenty = 0
+08     ten = 0
+09     five = 0
+10     while change >= 20 /Calculates number of £20 notes needed
+11       twenty = twenty + 1
+12       change = change – 20
+13     endwhile
+14     while change >= 10 /Calculates number of £10 notes needed
+15       ten = ten + 1
+16       change = change – 10
+17     endwhile
+18     while change >= 5 /Calculates number of £5 notes needed
+19       five = five + 1
+20       change = change – 5
+21     endwhile
+22     print("The amount of change you need is £" + str(change))
+23     print("Total £20 Notes:" + str(twenty))
+24     print("Total £10 Notes:" + str(ten))
+25     print("Total £5 Notes:" + str(five))
+26 endprocedure
+```
+
+Describe how `calculateChange()` on line 04 is used differently to `calculateChange()` on line 06.
+'''
+
+[[question.part]]
+label = "20(b)"
+marks = 2
+text = '''
+When line 22 is run, it will always print:
+
+```
+The amount of change you need is £0
+```
+
+Explain why this error occurs when line 22 is run.
+'''
+
+[[question.part]]
+label = "20(c)"
+marks = 3
+text = '''
+Explain why Kylie has used `str` on lines 22 to 25 in her algorithm.
+'''
+
+[[question.mark_scheme]]
+label = "20(a)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g.:
+
+- Line 04 is calling the procedure
+- Line 06 is defining the procedure
+'''
+guidance = '''
+**Examiner’s Comments**\
+Many candidates responded correctly and could identify the difference between a procedure call and a procedure declaration.
+'''
+
+[[question.mark_scheme]]
+label = "20(b)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g.:
+
+- the variable `change` is global (set on line 03)
+- the value is printed after it has been changed to 0 by the procedure
+'''
+guidance = '''
+**Examiner’s Comments**\
+Many candidates identified that the procedure would reduce the `change` to 0 but few identified that it was because `change` was a global variable which meant that the initial value was being decreased to zero or that line `22` would need to be moved to before line `10` to resolve the error.
+'''
+
+[[question.mark_scheme]]
+label = "20(c)"
+marks = 3
+answer = '''
+1 mark per bullet up to a maximum of 3 marks, e.g.:
+
+- to convert/cast the values
+- …from an integer to a string
+
+- to allow the values/labels to be joined/concatenated / to allow them to be printed together
+'''
+guidance = '''
+Allow “To typecast the variables”
+
+**Examiner’s Comments**\
+Most candidates identified that the values needed to be converted from integer to string otherwise
+
+an error would be generated because they could not be concatenated. Fewer identified the process as type casting.
+'''
+
+[[question]]
+number = 21
+marks = 9
+
+[[question.part]]
+label = "21(a)"
+marks = 1
+text = '''
+Ruhail will make use of an Integrated Development Environment (IDE).
+
+State the purpose of an IDE.
+'''
+
+[[question.part]]
+label = "21(b)"
+marks = 4
+text = '''
+State **two** different programming constructs and give an example of how Ruhail could use each construct when creating his program code.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "21(c)"
+marks = 4
+text = '''
+Ruhail has been told to make use of reusable components when creating his program code.
+
+Explain **two** benefits of using reusable components when writing program code.
+
+1
+
+2
+'''
+
+[[question.mark_scheme]]
+label = "21(a)"
+marks = 1
+answer = '''
+1 mark for any of the following bullet points:
+
+- To write programming code.
+- To debug programming code.
+- To compile/interpret code.
+'''
+guidance = '''
+**Examiner’s Comments**\
+Most candidates showed good recall of knowledge stating that an IDE was used to develop code.
+'''
+
+[[question.mark_scheme]]
+label = "21(b)"
+marks = 4
+answer = '''
+1 mark per bullet up to a maximum of 2 marks for each construct (4 marks in total), e.g.:
+
+- Sequence…
+- …e.g. display payment details once a room has been selected
+- …e.g. send confirmation email after successfully entering payment details
+- Selection… …e.g. if payment details are successful then send confirmation email
+- …e.g. if a valid date has been entered then display a list of available rooms
+- Iteration….
+- ….e.g. repeat code until a date has been entered
+- ….e.g. repeat code until a room has been selected
+'''
+guidance = '''
+Award 1 mark for stating a construct and then 1 mark for a suitable example that is relevant to the context.
+
+Award a maximum of two marks for each programming construct.
+
+**Examiner’s Comments**\
+Most candidates had factual knowledge of the specification point that lists sequence, iteration and branching as types of programming construct. However, many candidates found it more difficult to demonstrate computational thinking skills to logically break down the problem given in the stem of the question to give relevant examples.
+
+Several candidates did confuse programming constructs with either computational thinking concepts such as abstraction and decomposition
+
+or with other elements of programming such as procedures, functions or classes.
+'''
+
+[[question.mark_scheme]]
+label = "21(c)"
+marks = 4
+answer = '''
+1 mark per bullet up to a maximum of 2 marks for each advantage (4 marks in total), e.g.:
+
+- Saves times (1) as code does not need to be rewritten (1)
+- Code may already be tested (1) which will therefore save development/debugging time (1)
+- More efficient code (1) which will use less memory/be easier to maintain (1)
+- May require less technical knowledge (1) as code can used rather than written (1)
+'''
+guidance = '''
+Award a maximum of two marks for each advantage.
+
+Allow other suitable examples.
+
+**Examiner’s Comments**\
+Many candidates did not give a clear explanation for a point made, and there were a number of ‘cheaper’ or ‘quicker’ type responses that had no qualification for what was being alluded to as ‘cheaper’ or ‘quicker’.
+
+**Exemplar 1**
+
+*[Image in the original mark scheme, not shown here.]*
+
+A response that shows a clear point being made with a detailed explanatory expansion for both benefits.
+'''
+
+[[question.mark_scheme]]
+label = "21"
+answer = '''
+
+'''
+
+[[question]]
+number = 22
+marks = 19
+
+[[question.part]]
+label = "22(a)"
+text = '''
+Logan is writing a program for his customers to be able to buy his gym equipment. In the program, once a customer has selected the items they want to buy, a procedure, `checkDetails`, will be called. This procedure will check that the customer has input their telephone number and also check that it is at least 11 characters long.
+
+Logan has written two possible versions of the procedure that could be used to achieve this.\
+**Version One:**
+
+```
+procedure checkDetails()
+     telephoneNo = input("Enter telephone number")
+     while (telephoneNo == "") or (telephoneNo.length < 11)
+        print("Error, please try again")
+        telephoneNo = input("Enter telephone number")
+     endwhile
+endprocedure
+```
+
+**Version Two:**
+
+```
+procedure checkDetails()
+     telephoneNo = input("Enter telephone number")
+     if (telephoneNo == "") or (telephoneNo.length < 11) then
+        print("Error, please try again")
+        telephoneNo = input("Enter telephone number")
+     endif
+endprocedure
+```
+'''
+
+[[question.part]]
+label = "22(a)(i)"
+marks = 4
+text = '''
+Explain why version one is more effective than version two at making sure that the telephone number entered is at least 11 characters long.
+'''
+
+[[question.part]]
+label = "22(a)(ii)"
+marks = 4
+text = '''
+As well as the procedure checkDetails, Logan would like to use additional procedures to expand his program.
+
+The program will be expanded to:
+
+- allow customers to be able to register an account by setting up a username and password
+- allow registered users to be able to log-in with their registration details allow customers, once logged in, to be able to add items that are in stock to their online shopping
+-  basket.
+
+State **two** other procedures that Logan could write to meet these requirements, and for each one, state a suitable name and purpose.
+
+**Procedure 1:**
+
+Procedure Name:
+
+Purpose:
+
+**Procedure 2:**
+
+Procedure Name:
+
+Purpose:
+'''
+
+[[question.part]]
+label = "22(a)(iii)"
+marks = 2
+text = '''
+When setting up the additional procedures in his program, Logan will use a mixture of parameter passing by reference and by value.
+
+State the difference between parameter passing by reference and parameter passing by value.
+'''
+
+[[question.part]]
+label = "22(b)"
+marks = 9
+text = '''
+\*Logan will work in a team with five other programmers and together they will create programming code for a program.
+
+Discuss how modularity can be used to allow the team of programmers to work effectively together on the same program at the same time.
+'''
+
+[[question.mark_scheme]]
+label = "22(a)(i)"
+marks = 4
+answer = '''
+1 mark per bullet up to a maximum of 4 marks, e.g.:
+
+- makes use of a (while) loop…
+- ….which will continually check the telephone number….
+
+- …and repeatedly ask for a telephone number to be re- entered….
+- ….until the rules have been met
+
+(AO3.3) (2)
+'''
+guidance = '''
+**Examiner’s Comments**\
+Most candidates achieved some marks for this question, but few achieved complete responses. Many identified iteration within the first version as key to repeating the sequence until the validation
+
+conditions were met. Fewer could explain how version two of the code would allow invalid data to be entered into the system.
+'''
+
+[[question.mark_scheme]]
+label = "22(a)(ii)"
+marks = 4
+answer = '''
+1 mark for stating a suitable procedure name and 1 mark for a suitable purpose (4 marks in total), e.g.:
+
+- **Procedure Name:** registerAccount
+- **Purpose:** To load up the registration page when the user wants to create a new account
+
+- **Procedure Name:** validateDetails
+- **Purpose:** To check the suitability of a new username and password entered
+
+- **Procedure Name:** checkLogin
+- **Purpose:** Checks a username and password matches those stored when a customer logs in
+
+- **Procedure Name:** checkStock
+- **Purpose:** Checks an item is in stock before the item can be added to a shopping basket
+'''
+guidance = '''
+The procedure name must be relevant to the context in the question.
+
+Both a procedure name and purpose must be stated for 2 marks.
+
+Allow other suitable examples that are relevant to the context.
+
+**Examiner’s Comments**\
+Candidates needed to apply computational thinking and show procedural identification. Most scored full marks and identified suitable procedures such as checking login details or adding items to shopping basket with clear descriptions.
+'''
+
+[[question.mark_scheme]]
+label = "22(a)(iii)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 4 marks, e.g.:
+
+- by reference will receive the memory location of where the data/variable is stored
+- by value will receive a copy of the data/variable
+'''
+guidance = '''
+Must cover by reference and by value to be given full marks.
+
+**Examiner’s Comments**\
+More candidates were able to produce accurate definitions of passing by value and passing by reference than in previous series.
+'''
+
+[[question.mark_scheme]]
+label = "22(b)"
+marks = 9
+answer = '''
+**Mark Band 3 – High level (7-9 marks)**\
+The candidate demonstrates a thorough knowledge and understanding of modularity; the material is generally accurate and detailed. The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation. The candidate is able to weigh up the use of modularity within a team of programmers which results in a supported and realistic judgment as to whether it is suitable to use within the context. There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2 – Mid level (4-6 marks)**\
+The candidate demonstrates reasonable knowledge and understanding of modularity; the material is generally accurate but at times underdeveloped.The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation. The candidate makes a reasonable attempt to come to a conclusion showing some recognition of influencing factors that would determine whether it is possible to use modularity in this context.\
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence
+
+**Mark Band 1 – Low Level (1-3 marks)**\
+The candidate demonstrates a basic knowledge of modularity with limited understanding shown; the material is basic and contains some inaccuracies. The candidates makes a limited attempt to
+
+apply acquired knowledge and understanding to the context provided. The candidate provides nothing more than an unsupported assertion. The information is basic and comunicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+**Knowledge and Understanding**
+
+- A module is a set/block of instructions which is given a name which can then be called upon by the main body of code to complete a task(s).
+- The different modules within the program are then executed when the program is run in order to provide a solution to the problem.
+- A module can be created using a function which is a block of code that will return a value, or a procedure which is a block of code that will not return a value.
+- Alternatively, a module may contain a collection of different sub-programs (procedures/functions) that are combined together to complete a task.
+
+**Application**
+
+- The program is a large program and therefore the use of modules will allow the program to be split into different subtasks.
+- Different programmers can agree the procedure names and parameters needed for each module.
+- Each subtask can then be written and tested by different programmers simultaneously which will therefore reduce development time.
+
+- Each subtask can be self-contained which means that the work carried out by one programmer should not affect another.
+- Each subtask can be programmed by specific programmers who have the skills and expertise in that area/language being used.
+
+**Evaluation**
+
+- Modularity will reduce development time as the team of programmers can work together at the exact same time on the same program.
+- Programmers can specialise in their area of expertise/language which therefore means blocks can be reused by other programmers who may not have expertise in some areas.
+- Programmers may feel restricted if they have to follow the agreed house style. This could have a knock-on effect with other programmers if not followed.
+
+**Examiner’s Comments**\
+Candidates continue to struggle with the banded response question on the paper and most responses did not have a clear structure.
+
+These questions always require candidates to
+
+show knowledge by defining the terms being used, applying knowledge to the specific context given in the question, and then weighing the merits or drawbacks in an evaluation.
+
+Few candidates could develop the concept of modularity to the level of interfaces and the need for agreed standards for function calls and return values. Most responses focused on the basics of the use of functions and procedures but did not demonstrate how different modules might be integrated.
+'''
+
+[[question]]
+number = 23
+marks = 4
+diagram = true
+
+[[question.part]]
+label = "23"
+marks = 4
+text = '''
+Ruhail owns ten different function rooms which can be hired by different business customers to hold meetings. He would like a program to manage the booking process of each room.
+
+Customers should be able to enter the date they want to hire a function room, and then a list of available rooms will be displayed. Customers can then select which room they want to hire. Customers can then enter their payment details which are then checked and then a confirmation email is sent to the customer.
+
+Complete the structure diagram below to show the different component parts of the problem.
+
+*[Diagram in the original paper, not shown here.]*
+'''
+
+[[question.mark_scheme]]
+label = "23"
+marks = 4
+answer = '''
+1 mark per box up to a maximum of 4 marks:
+
+*[Image in the original mark scheme, not shown here.]*
+'''
+guidance = '''
+**Examiner’s Comments**\
+Candidates needed to apply computational thinking skills to identify the components of the problem presented in the stem of the question and to determine the order of the steps required. Many candidates responded in context and generally answered well, but a significant number either repeated the points they made or repeated steps already given in the diagram.
+'''
+
+[[question]]
+number = 24
+marks = 40
+diagram = true
+
+[[question.part]]
+label = "24(a)"
+text = '''
+A Nonogram is a logic puzzle where a player needs to colour in boxes. The puzzle is laid out as a grid and each square needs to be either coloured black or left white.
+
+The numbers at the side of each row and column tells the player how many of the boxes are coloured in consecutively. Where a row has two or more numbers, there must be a white square between the coloured squares.
+
+*[Diagram in the original paper, not shown here.]*
+
+In this example:
+
+the first column has 1 1, this means there must be two single coloured boxes in this column. There
+
+-  must be at least 1 white box between them.
+- the first row has 2, this means there must be two consecutively coloured boxes in the row.
+
+Juan is creating a program that will store a series of Nonograms for a user to play. The game will randomly select a puzzle and display the blank grid with the numbers for each row and column to the user.
+
+The user plays the game by selecting a box to change its colour. If the box is white it will change to black and if it is black it will change to white. The user can choose to check the answer at any point, and the game will compare the grid to the answers and tell the user if they have got it correct or not.
+
+Juan is creating a structure diagram to design the game.
+'''
+
+[[question.part]]
+label = "24(a)(i)"
+marks = 3
+text = '''
+Complete the structure diagram by adding another layer for New game, Play game and Check answer.
+
+*[Diagram in the original paper, not shown here.]*
+'''
+
+[[question.part]]
+label = "24(a)(ii)"
+marks = 2
+text = '''
+A structure diagram is one method of showing the decomposition of a problem.
+
+Explain why decomposing a problem can help a developer design a solution.
+'''
+
+[[question.part]]
+label = "24(a)(iii)"
+marks = 3
+text = '''
+Identify **one** input, **one** process and **one** output required for the game.
+
+Input
+
+Process
+
+Output
+'''
+
+[[question.part]]
+label = "24(b)"
+text = '''
+Juan uses the structure diagram to create a modular program with a number of subroutines. The program will use two integer 2-dimensional arrays to store the puzzles:
+
+- `puzzle(5,5)` stores the solution
+- `answerGrid(5,5)` stores the user’s current grid.
+
+A `0` represents a white box and a `1` represents a black box.
+'''
+
+[[question.part]]
+label = "24(b)(i)"
+marks = 5
+text = '''
+Juan creates a function, `countRow()`, to count the number of coloured boxes in one row and return the number of consecutive coloured boxes in that row. If there is more than one set of coloured boxes in the row, these are joined together and the string is returned. For example, in the following grid `countRow` for row 0 will return "`2`" as a string, and `countRow` for row 2 will return "`1 1`" as a string. If there are no 1s in a row, then "`0`" is returned as a string.
+
+*[Diagram in the original paper, not shown here.]*
+
+Complete the pseudocode algorithm `countRow()`.
+
+```
+01   function countRow(puzzle:byref, rowNum:byval)
+02   count = 0
+03   output = " "
+04   for i = 0 to ……
+05    if puzzle[rowNum, i] == …… then
+06      count = count + 1
+07    elseif count >= 1 then
+08      output = output + str(……) + " "
+ 09      count = 0
+10    endif
+11   next i
+12   if count>= 1 then
+13      output=output+str(count)
+14   elseif output == "" then
+15      output = "……"
+16   endif
+17   return ……
+ 18 endfunction
+```
+'''
+
+[[question.part]]
+label = "24(b)(ii)"
+marks = 2
+text = '''
+Explain the purpose of line 03 in the function `countRow`.
+'''
+
+[[question.part]]
+label = "24(b)(iii)"
+marks = 3
+text = '''
+Describe the purpose of branching and iteration in the function `countRow`.
+'''
+
+[[question.part]]
+label = "24(b)(iv)"
+text = '''
+The procedure `displayRowAnswer()` takes `puzzle` as a parameter and outputs the value in each box. Each box in a row is separated by a space. At the end of each row there are two spaces and (by calling the function `countRow` from **part (i)**) the clue values for that row.
+
+For example the puzzle below:
+
+*[Diagram in the original paper, not shown here.]*
+
+Would output:
+
+*[Diagram in the original paper, not shown here.]*
+'''
+
+[[question.part]]
+label = "24(b)(v)"
+marks = 6
+text = '''
+Write pseudocode or program code for the procedure `displayRowAnswer()`.
+'''
+
+[[question.part]]
+label = "24(b)(vi)"
+marks = 3
+text = '''
+The function `checkWon()` takes `answerGrid` and `puzzle` as parameters and compares each element in the grids. If they are identical, it returns `true`, otherwise returns `false`.
+
+```
+01   function checkWon(puzzle)
+02   for row = 0 to 4
+03    for column = 0 to 4
+04      if puzzle[row, column] == answerGrid[row, column] then
+ 05       return false
+06      endif
+07    next column
+08   next column
+09   return true
+ 10   endfunction
+```
+
+There are **three** logic errors in the function `checkWon`
+
+State the line number of each error and give the corrected line.
+
+Error 1 line number
+
+Error 1 correction
+
+Error 2 line number
+
+Error 2 correction
+
+Error 3 line number
+
+Error 3 correction
+'''
+
+[[question.part]]
+label = "24(c)"
+marks = 9
+text = '''
+\* Juan passed the two arrays as parameters, but he did consider making them globally accessible.
+
+Compare the use of global and local variables and data structures in this program. Include the use of parameters and program efficiency in your answer.
+'''
+
+[[question.part]]
+label = "24(d)"
+marks = 4
+text = '''
+Juan wants to create a program that will generate new Nonograms with different grid sizes. For example a Nonogram with a 10 × 10 grid or a 5 × 20 grid.
+
+Describe how the program could be written to automatically generate a new Nonogram.
+'''
+
+[[question.mark_scheme]]
+label = "24(a)(i)"
+marks = 12
+answer = '''
+1 mark per box up to a maximum of 3 marks.
+
+- **Select puzzle** and **display blank grid** (below new game)
+- **Select box** and **change colour of boxes** (below play game)
+
+- **Compare to answer** and **display correct/incorrect** (below check answer)
+
+e.g.
+
+*[Image in the original mark scheme, not shown here.]*
+'''
+
+[[question.mark_scheme]]
+label = "24(a)(ii)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g:\
+e.g.
+
+- Splits the problem into smaller chunks
+- Smaller problems are more manageable
+- Smaller problems are easier to solve
+- To see where code can be reused in the solution
+- To split tasks between different programmers
+'''
+
+[[question.mark_scheme]]
+label = "24(a)(iii)"
+marks = 3
+answer = '''
+1 mark for input, 1 for process 1 for output\
+e.g.\
+Input:
+
+- Clicking a box
+
+Process:
+
+- Generating new puzzle
+- Checking if block is black
+- Changing block to white
+
+Output:
+
+- Grid with coloured squares
+'''
+
+[[question.mark_scheme]]
+label = "24(b)(i)"
+marks = 5
+answer = '''
+1 mark for each correctly completed statement up to a maximum of 5 marks:
+
+```
+01 function countRow(puzzle:byref, rowNum:byval)
+02   count = 0
+03   output = " "
+04   for i = 0 To 4
+05    if puzzle[rowNum, i] == 1
+   then
+06     count = count + 1
+07    elseif count >= 1 then
+08     output = output +
+    str(count) + " "
+09     count = 0
+10    endif
+11   next i
+12   if count>= 1 then
+13     output=ouput+str(count)
+14   elseif output == "" then
+15     output = "0"
+16   endif
+17   return output
+  18 endfunction
+```
+'''
+guidance = '''
+Accept
+
+for i = 0 to **row.length-1**
+
+for i = 0 to **row.length**
+
+for i=0 to 5
+'''
+
+[[question.mark_scheme]]
+label = "24(b)(ii)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g:
+
+- Initialise the variable output…
+- …with a space
+- …for use later on in the code…
+- …So it can be used for concatenation later in the code …
+- …to avoid an error being generated
+'''
+
+[[question.mark_scheme]]
+label = "24(b)(iii)"
+marks = 3
+answer = '''
+1 mark per bullet up to a maximum of 3 marks, e.g:
+
+- check the value stored in each index
+- check whether it is at the end of a row
+- check whether each row has been given an output or not
+'''
+
+[[question.mark_scheme]]
+label = "24(b)(iv)"
+marks = 6
+answer = '''
+1 mark per bullet up to a maximum of 6 marks:
+
+- Procedure heading for displayRowAnswer
+- …taking puzzle as parameters
+- Nested loops through all array elements
+- …outputting all rows
+- … at the end of each row calling countRow ….
+- …..with parameters puzzle and the current loop counter
+
+e.g.
+
+```
+procedure displayRowAnswer(puzzle)
+  for i = 0 To 4
+   for j = 0 To 4
+    print(puzzle[i, j] + " ")
+   next j
+   print (" " + countRow
+   (puzzle, i))
+```
+
+```
+  next i
+endprocedure
+```
+'''
+guidance = '''
+Accept
+
+for i = 0 to **row.length-1**
+
+for i = 0 to **row.length**
+
+for i=0 to **5**
+'''
+
+[[question.mark_scheme]]
+label = "24(b)(v)"
+marks = 3
+answer = '''
+1 mark for clearly identifying each error and giving the correction.
+
+- Line 01 needs `answerGrid` as parameter
+- Line 04 == should be !=
+- Line 08 should be `next row`
+'''
+guidance = '''
+Do not award marks for line numbers alone without stating the error.
+
+Consider 1 mark for not changing line 04 but changing 05 to true and 09 to False
+'''
+
+[[question.mark_scheme]]
+label = "24(c)"
+marks = 9
+answer = '''
+**Mark Band 3 – High level (7-9 marks)**\
+The candidate demonstrates a thorough knowledge and understanding of local and global variables; the material is generally accurate and detailed.\
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided.\
+Evidence/examples will be explicitly relevant to the explanation. The candidate is able to weigh up the use of both local and global variables which results in a supported and realistic judgment as to whether it is possible to use them in this context.\
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2 – Mid level (4-6 marks)**\
+The candidate demonstrates reasonable knoledge and understanding of local and global variables; the material is generally accurate but at times underdeveloped.\
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.\
+The candidate makes a reasonable attempt to come to a
+
+conclusion showing some recognition of influencing factors that would determine whether it is possible to use local and global variables in this context.\
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence
+
+**Mark Band 1 – Low Level (1-3 marks)**\
+The candidate demonstrates a basic knowledge of local and global variables with limited understanding shown; the material is basic and contains some inaccuracies. The candidates makes a limited attempt to apply acquired knowledge and understanding to the context provided.\
+The candidate provides nothing more than an unsupported assertion.\
+The information is basic and comunicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+**AO1: Knowledge and Understanding** **Indicative content**\
+Local variables:
+
+- Scope within the module defined within
+- Cannot access externally unless passed as parameter, or returned from function
+- When module is exited, memory of variable is freed
+
+Global variables:
+
+- Scope within the entire program
+- Can access from anywhere
+- Retained in memory permanently
+
+ByRef Points to location of variable\
+ByVal Sends the value
+
+**AO2: Application**
+
+- If global the arrays can be accessed from all modules by direct reference
+
+- If local to the main, the arrays will need to be passed as parameters byreference
+- Can send ByVal – but not always possible with arrays in some languages
+- Modules are self contained and then can be reused in other programs he wants to create without needing to take the global variables with them
+
+**AO3: Evaluation**\
+e.g.
+
+- +ve Local = memory efficient
+- +ve Global = easier programming, simpler to follow, easier to debug
+- -ve Global = memory inefficient, not good programming technique
+- -ve Local = more difficult to trace/debug/follow where the values are passed
+- Relatively small program – don’t know about overall plan for it, it might not be memory intensive, unlikely anyone else is going to access/amend e.g. use as a library – therefore global would not waste significant resources
+'''
+
+[[question.mark_scheme]]
+label = "24(d)"
+marks = 4
+answer = '''
+1 mark per bullet to max 4\
+e.g.
+
+- Make use of random numbers
+- Generate an x/horizontal size for the grid
+
+- Generate a y/vertical size for the grid
+- Loop through each row/column
+- …generate a number between 0 and the number of rows/columns (depending on MP4 answer)
+- Loop through each box
+- …generate a 1 or 0 to store in it
+'''
+
+[[question]]
+number = 25
+marks = 9
+
+[[question.part]]
+label = "25(a)"
+marks = 4
+text = '''
+Lucas writes a program that makes use of a circular queue. The queue stores the data entered into the program. An array is used to represent the queue.
+
+The program needs two pointers to access and manipulate the data in the queue.
+
+State the purpose of the two pointers and give an appropriate identifier for each.
+
+Pointer 1 purpose
+
+Pointer 1 identifier
+
+Pointer 2 purpose
+
+Pointer 2 identifier
+'''
+
+[[question.part]]
+label = "25(b)"
+marks = 5
+text = '''
+Lucas wants a procedure, `enqueue()`, that will add the parameter it is passed to the queue.
+
+Describe the steps the procedure `enqueue()` will follow when adding new items to the queue.
+'''
+
+[[question.mark_scheme]]
+label = "25(a)"
+marks = 4
+answer = '''
+1 mark for the purpose and 1 mark for matching appropriate name (4 marks total), e.g:
+
+- Pointer to the first element in the queue
+- firstElement / any other meaningful name
+- Pointer to the last element in the queue / Pointer to the first free element in the queue
+- lastElement / any other meaningful name
+'''
+guidance = '''
+Must cover purpose and name for 2 marks for each pointer.
+'''
+
+[[question.mark_scheme]]
+label = "25(b)"
+marks = 5
+answer = '''
+1 mark per bullet up to a maximum of 5 marks, e.g:
+
+- Check if the queue is full
+- … if the firstElement pointer (+1) = lastElement / length variable == queue’s capacity
+- … if it is return False
+- Adds element at lastElement (+1) position / Adds element at startposition+length
+- … increments lastElement pointer
+- If lastElement is greater than last Index / pointer becomes pointer MOD array.size
+- …reset to 0
+'''
+guidance = '''
+Look out for variations in representing the queue
+'''
+
+[[question]]
+number = 26
+marks = 9
+
+[[question.part]]
+label = "26"
+marks = 9
+text = '''
+\* Anna currently writes her program code in a text editor and then runs the compiler.
+
+She has been told that using an Integrated Development Environment (IDE) would be more helpful.
+
+Discuss the benefits of Anna using an IDE to write and test her program rather than using a text editor.
+'''
+
+[[question.mark_scheme]]
+label = "26"
+marks = 9
+answer = '''
+**Mark Band 3 – High level (7-9 marks)**\
+The candidate demonstrates a thorough knowledge and understanding of IDEs; the material is generally accurate and detailed.\
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided.\
+Evidence/examples will be explicitly relevant to the explanation. The candidate is able to weigh up the use of IDEs which results in a supported and realistic judgment as to whether it is possible to use them in this context.\
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2 – Mid level (4-6 marks)**\
+The candidate demonstrates reasonable knowledge and understanding of IDEs; the material is generally accurate but at times underdeveloped.\
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.\
+The candidate makes a reasonable attempt to come to a conclusion showing some recognition of influencing factors that would determine whether it is possible to use IDEs in this context. There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence
+
+**Mark Band 1 – Low Level (1-3 marks)**
+
+The candidate demonstrates a basic knowledge of IDEs with limited understanding shown; the material is basic and contains some inaccuracies. The candidates makes a limited attempt to apply acquired knowledge and understanding to the context provided.\
+The candidate provides nothing more than an unsupported assertion.\
+The information is basic and comunicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+**AO1: Knowledge and Understanding** **Indicative content**e.g.
+
+- IDE is software that includes an editor, compiler, run-time environment
+
+Creating
+
+- Autocorrect
+- Autocomplete
+- Pretty printing
+
+Testing
+
+- Breakpoints
+- Stepping
+- Variable watch window
+
+**AO2: Application**\
+e.g.
+
+- Tell you when you make a syntax error
+- Allows you to write and run the code in one piece of software
+- Suggests code so you don’t have to remember code, or autocorrect spelling mistakes
+- Helps you trace the program so you can see what happens when values change
+
+without having to manually insert print statements etc.
+
+- Autogenerate boilerplate code.
+
+**AO3: Evaluation**\
+Candidates will need to evaluate the benefits and drawbacks of using IDEs.\
+e.g.
+
+- Reduce errors through autocorrect and suggestions
+- Reduce time to write the program because features help you spot errors before running the code, some errors will be corrected so you don’t have to
+- Write and test in one environment so you don’t have to close and run elsewhere, then re-open etc.
+'''
+
+[[question]]
+number = 27
+marks = 7
+
+[[question.part]]
+label = "27"
+text = '''
+The pseudocode function `binarySearch()` performs a binary search on the array `dataArray` that is passed as a parameter. The function returns the array index of `searchValue` within the array, and `-1` if it is not in the array.
+
+The pseudocode binary search algorithm is incomplete.
+'''
+
+[[question.part]]
+label = "27(i)"
+marks = 6
+text = '''
+Complete the algorithm by filling in the missing statements.
+
+```
+function binarySearch(dataArray:byref, upperbound, lowerbound, ……)
+  while true
+   middle = lowerbound + ((upperbound – lowerbound) ……)
+   if upperbound < lowerbound then
+    return ……
+   else
+    if dataArray[middle] < searchValue then
+     lowerbound = ……
+    elseif dataArray[middle] > searchValue then
+     upperbound = ……
+    else
+     return ……
+    endif
+   endif
+  endwhile
+endfunction
+```
+'''
+
+[[question.part]]
+label = "27(ii)"
+marks = 1
+text = '''
+The algorithm uses a while loop.
+
+State a different type of loop that could be used instead of the while loop in the given algorithm.
+'''
+
+[[question.mark_scheme]]
+label = "27(i)"
+marks = 6
+answer = '''
+**1 mark for each number/statement up to a maximum of 6** **marks:**
+
+```
+function binarySearch(dataArray:byref,
+upperbound, lowerbound, searchValue)
+  while true
+   middle = lowerbound +)
+   ((upperbound – lowerbound))
+   DIV 2)
+   if upperbound < lowerbound
+```
+
+```
+   then
+    return -1
+   else
+    if dataArray[middle] <
+    searchValue then
+     lowerbound = middle + 1
+    elseif dataArray[middle] >
+    searchValue then
+     upperbound = middle - 1
+    else
+     return middle
+    endif
+   endif
+  endwhile
+endfunction
+```
+'''
+
+[[question.mark_scheme]]
+label = "27(ii)"
+marks = 1
+answer = '''
+Do…until / repeat…until / post condition
+'''
+
+[[question]]
+number = 28
+marks = 16
+
+[[question.part]]
+label = "28(a)"
+marks = 5
+text = '''
+Hugh has written a recursive function called `thisFunction()` using pseudocode.
+
+```
+01 function thisFunction(theArray, num1, num2, num3)
+02  result = num1 + ((num2 - num1) DIV 2)
+03  if num2 < num1 then
+04    return -1
+05  else
+06    if theArray[result] < num3 then
+07      return thisFunction(theArray, result + 1, num2, num3)
+08    elseif theArray[result] > num3 then
+09      return thisFunction(theArray, num1, result - 1, num3)
+10    else
+11      return result
+12    endif
+13  endif
+14 endfunction
+```
+
+The function `DIV` calculates integer division, e.g. 5 DIV 3 = 1
+
+`theArray` has the following data:
+
+| Index: | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+|---|---|---|---|---|---|---|---|---|
+| Data: | 5 | 10 | 15 | 20 | 25 | 30 | 35 | 40 |
+
+Trace the algorithm, and give the final return value, when it is called with the following statement:
+
+```
+thisFunction(theArray, 0, 7, 35)
+```
+
+You may choose to use the table below to give your answer.
+
+| **Function call** | **num1** | **num2** | **num3** | **result** |
+|---|---|---|---|---|
+| `thisFunction(theArray,0,7,35)` |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+
+Final return value ……
+'''
+
+[[question.part]]
+label = "28(b)"
+marks = 1
+text = '''
+State the name of the standard algorithm `thisFunction()` performs.
+'''
+
+[[question.part]]
+label = "28(c)"
+marks = 4
+text = '''
+Hugh could have written `thisFunction()` using iteration instead of recursion.
+
+Compare **two** differences between recursion and iteration.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "28(d)"
+marks = 6
+text = '''
+The recursive function `thisFunction()` is printed again here for your reference.
+
+```
+01 function thisFunction(theArray, num1, num2, num3)
+02  result = num1 + ((num2 - num1) DIV 2)
+03  if num2 < num1 then
+04    return -1
+05  else
+06    if theArray[result] < num3 then
+07      return thisFunction(theArray, result + 1, num2, num3)
+08    elseif theArray[result] > num3 then
+09      return thisFunction(theArray, num1, result - 1, num3)
+10    else
+11      return result
+12    endif
+13  endif
+14 endfunction
+```
+
+Rewrite the function `thisFunction()` so that it uses iteration instead of recursion.
+
+You should write your answer using pseudocode or program code.
+'''
+
+[[question.mark_scheme]]
+label = "28(a)"
+marks = 5
+answer = '''
+1 mark per bullet
+
+- Calculation of result to 3
+- Call with `thisFunction(theArray, num1=4,`
+
+```
+num2=7, num3=35)
+```
+
+- Result = 5
+- call with
+
+```
+thisFunction(theArray,num1=6,num2=7,num3=35)
+```
+
+- (Result = 6) return of value 6
+
+**Function call num1 num2 num3 result**
+
+```
+thisFunction
+```
+
+0 7 35 3
+
+```
+(theArray,0,7,35)
+thisFunction
+```
+
+4 7 35 5
+
+```
+(theArray,4,7,35)
+thisFunction
+```
+
+6 7 35 6
+
+```
+(thisArray,6,7,35)
+```
+
+**Function call**
+
+**num1**
+
+**num2**
+
+**num3**
+
+**result**
+
+```
+thisFunction
+(theArray,0,7,35)
+```
+
+```
+thisFunction
+(theArray,4,7,35)
+```
+
+```
+thisFunction
+(thisArray,6,7,35)
+```
+'''
+guidance = '''
+7
+
+35
+
+3
+
+7
+
+35
+
+5
+
+7
+
+35
+
+6
+'''
+
+[[question.mark_scheme]]
+label = "28(b)"
+marks = 1
+answer = '''
+Binary search
+'''
+
+[[question.mark_scheme]]
+label = "28(c)"
+marks = 4
+answer = '''
+1 mark per bullet to max 4, e.g.
+
+- Recursion uses more memory…
+- …iteration uses less memory
+- Recursion declares new variables /variables are put onto the stack each time…
+- …iteration reuses the same variables
+- Recursive can run out of memory/stack space…
+- …while iteration cannot run out of memory
+- Recursion can express a problem more elegantly / in fewer lines of code…
+- …while iteration can take more lines of code / be harder to understand
+- Recursion will be self-referential / will call itself…
+- … whereas iteration does not
+'''
+
+[[question.mark_scheme]]
+label = "28(d)"
+marks = 6
+answer = '''
+1 mark per bullet to max 6
+
+- Retains function call
+
+- Uses a loop
+- …that will loop until all elements inspected or value found
+- Updates num1 appropriately
+- Updates num2 appropriately
+- Returns -1 in the correct place if the value has not been found
+- Returns the result in the correct place if the value has been found
+
+e.g.
+
+```
+function thisFunction(theArray, num1, num2, num3)
+```
+
+```
+while (true)
+  result = num1 + ((num2 - num1) DIV 2)
+  if num2 < num1 then
+   return -1
+  else
+   if theArray[result] < num3 then
+    num1 = result + 1
+   elseif theArray[result] > num3 then
+    num2 = result - 1
+   else
+    return result
+   endif
+  endif
+endwhile
+endfunction
+```
+'''
+
+[[question]]
+number = 29
+marks = 2
+
+[[question.part]]
+label = "29"
+marks = 2
+text = '''
+The following pseudocode procedure performs an insertion sort on the array parameter.
+
+```
+01 procedure insertionSort(dataArray:byRef)
+02  for i = 1 to dataArray.Length - 1
+03    temp = dataArray[i]
+04    tempPos = i – 1
+05    exit = false
+06    while tempPos >= 0 and exit == false
+07      if dataArray[tempPos] < temp then
+08        dataArray[tempPos + 1] = dataArray[tempPos]
+09        tempPos = tempPos - 1
+10      else
+11        exit = true
+12      endif
+13    endwhile
+14    dataArray[tempPos + 1] = temp
+15  next i
+16 endprocedure
+```
+
+Explain why `dataArray` is passed by reference and not by value.
+'''
+
+[[question.mark_scheme]]
+label = "29"
+marks = 2
+answer = '''
+1 mark per bullet
+
+- By reference will change the actual contents of the array in the main program/ when control returns to the main program the array will be sorted
+- By value would create a copy and not change the original / when control returns to the main program the array will **not** be sorted
+- By value the array is local to the function.
+- By reference will use less memory
+'''
+
+[[question]]
+number = 30
+marks = 4
+
+[[question.part]]
+label = "30"
+marks = 4
+text = '''
+Bubble sorts make use of two different loops when sorting items into order.
+
+Describe the **two** loops used and their purpose.
+
+1
+
+2
+'''
+
+[[question.mark_scheme]]
+label = "30"
+answer = '''
+1 mark per bullet up to a maximum of 4 marks:
+
+- The inner loop will compare all of the adjacent items….
+- ….in a single pass
+- The outer loop will repeat the process of checking adjacent items….
+- …until all passes are complete / the items are sorted/no swaps have been made in a pass
+
+4 A01.2 (4)
+'''
+guidance = '''
+Allow other valid interpretations\
+e.g. conditional while loop … used to compare against swap flag after each pass; counter controlled for loop … used to check adjacent items on each pass
+'''
+
+[[question]]
+number = 31
+marks = 21
+
+[[question.part]]
+label = "31(a)"
+text = '''
+Barney is writing a program to store data in a linked list. He is writing the initial program for a maximum of 10 data items.
+
+Each node in the linked list has a data value and a pointer (to the next item).
+
+A null pointer is stored with the value `–1`.
+
+The procedure `printLinkedList()` follows the pointers to print all of the elements in the linked list.
+
+```
+01 procedure printLinkedList(headPointer)
+02  tempPointer = headPointer - 1
+03  dataToPrint = ””
+04  if tempPointer == -1 then
+05    print(”List is full”)
+06  else
+07    while linkedList[pointer].getPointer() != -1
+08      dataToPrint = dataToPrint + ” ” + linkedList[tempPointer,0]
+09      linkedList[tempPointer].getPointer() = tempPointer
+10    endwhile
+11  print(dataToPrint + ” ” + linkedList[tempPointer].getData())
+12  endif
+13 endprocedure
+```
+
+The procedure has a number of errors.
+'''
+
+[[question.part]]
+label = "31(a)(i)"
+marks = 3
+text = '''
+Identify the line of each error and write the corrected line.
+
+Error 1 line number ……
+
+Error 1 correction ……
+
+Error 2 line number ……
+
+Error 2 correction ……
+
+Error 3 line number ……
+
+Error 3 correction ……
+'''
+
+[[question.part]]
+label = "31(a)(ii)"
+marks = 6
+text = '''
+Barney will use an Integrated Development Environment (IDE) to debug his program code.
+
+Describe **three** features commonly found in IDEs that Barney could use to debug his program code.
+
+1
+
+2
+
+3
+'''
+
+[[question.part]]
+label = "31(b)"
+marks = 12
+text = '''
+\* Barney would like his linked list to be part of a base program that is saved in a library. This means that it can be reused and changed by other programs.
+
+Discuss the benefits of using different object-oriented techniques that Barney could use to achieve this.
+'''
+
+[[question.mark_scheme]]
+label = "31(a)(i)"
+marks = 3
+answer = '''
+1 mark for identifying error and correction (identification may be implicit)
+
+- Line 02 tempPointer should become headPointer, not -1
+
+```
+tempPointer = headPointer
+```
+
+- Line 05 message should say it’s empty not full
+
+```
+print("List is empty")
+```
+
+- Line 07 pointer should be tempPointer `while`
+
+```
+linkedList[tempPointer].getPointer() != -1
+```
+
+- Line 08 Incorrect call to node pointer `dataToPrint =`
+
+```
+dataToPrint + “ ” +
+linkedList[tempPointer].getData()
+```
+
+- Line 09 assignment is wrong way `tempPointer =`
+
+```
+linkedList[tempPointer].getPointer()
+```
+
+- Line 11 missing final parenthesis `print(dataToPrint+`
+
+```
+“ ” + linkedList[tempPointer].getData())
+```
+'''
+guidance = '''
+Do not award marks for stating the line number without a valid correction.
+'''
+
+[[question.mark_scheme]]
+label = "31(a)(ii)"
+marks = 6
+answer = '''
+1 mark per bullet
+
+- Stepping Through The Code…
+- …to run one line at a time to see where the error is
+- Syntax Error Highlighting….
+- ….to distinguish syntax errors in the program code
+- Setting breakpoints…
+- ….to debug individual sections of code at a time
+- Variable watch window…
+- …To check that the variables are being updated corrected
+'''
+guidance = '''
+The features must relate to debugging code.
+
+Allow other suitable features appropriate to debugging code.
+
+1 Mark for identification and 1 mark for suitable expansion.
+'''
+
+[[question.mark_scheme]]
+label = "31(b)"
+marks = 12
+answer = '''
+**Mark Band 3 – High level (9-12 marks)**\
+The candidate demonstrates a thorough knowledge and understanding of the object orientied techniques; the material is generally accurate and detailed. The candidate is able to apply their knowledge and understanding directly and consistently to the context provided.\
+Evidence/examples will be explicitly relevant to the\
+explanation.The candidate is able to weigh up the use of all of the object orientied techniques which results in a supported and
+
+realistic judgment as to whether it is possible to use them in this context.\
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2 – Mid level (5-8 marks)**\
+The candidate demonstrates reasonable knowledge and understanding of the object orientied techniques; the material is generally accurate but at times underdeveloped.
+
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed.\
+Evidence/examples are for the most part implicitly relevant to the explanation. The candidate makes a reasonable attempt to come to a conclusion showing some recognition of influencing factors that would determine whether it is possible to use each object orientied technique in this context.\
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence
+
+**Mark Band 1 – Low Level (1-4 marks)**\
+The candidate demonstrates a basic knowledge of the object orientied techniques with limited understanding shown; the material is basic and contains some inaccuracies. The candidates makes a limited attempt to apply acquired knowledge and understanding to the context provided.\
+The candidate provides nothing more than an unsupported assertion.\
+The information is basic and comunicated in an unstructured way.
+
+The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+**AO1: Knowledge and Understanding** **Indicative content**
+
+- Classes, this a template. It will define what attributes and methods an object should have.
+- Objects, when you create an instance of a class. Each object that is instantiated from
+
+the same class will share the same attributes and methods.
+
+- Inheritance, when a sub class takes on the attributes and methods from a superclass/parent class. It can also have its own extra attributes/methods.
+- Overriding, when a method name is the same in a parent and sub class, then the method in the parent/super class will be overridden
+- Encapsulation, this protects attributes of an object by making them private so that they can’t be accessed or altered accidentally by other objects.
+
+**AO2: Application**
+
+- A class can be used to declare the attributes and methods for the linked list. These will initialise the nodes and join them.
+- Objects can then be used be used to instantiate the class each time a new linked list is needed. Each can be given a different identifier by the other programs.
+- Further subclasses may be used by other programs. These can therefore take on the attributes and methods from the base class. These can also be changed or overridden depending on the purpose of the other programs.
+
+- Encapsulation can be used by using set and get methods to ensure that the nodes in the linked list are changed in a way that is intended.
+
+**AO3: Evaluation**
+
+- Use of OPP techniques will allow for code reusability. His linked list can be saved as library and then reused many times leading to less code.
+- OOP also allows programs to be easier to modify and maintain.
+'''
+
+[[question]]
+number = 32
+marks = 32
+diagram = true
+
+[[question.part]]
+label = "32(a)"
+marks = 2
+text = '''
+A printer buffer is a storage area that holds the data, known as jobs, that are to be printed by a printer.
+
+A simulation of the printer buffer uses a queue data structure to store jobs that are waiting to be printed. The queue is not circular.
+
+The printer buffer is represented as a zero-indexed 1D array with the identifier `buffer`.
+
+**Fig. 2** shows the current contents of the queue `buffer` and its pointers.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 2**
+
+State the purpose of the pointers `queueHead` and `queueTail`.
+
+```
+queueHead
+```
+
+```
+queueTail
+```
+'''
+
+[[question.part]]
+label = "32(b)"
+marks = 5
+text = '''
+The function `dequeue` outputs and removes the next data item in the queue.
+
+The procedure `enqueue` adds the job passed as a parameter to the queue.
+
+Show the final contents of the queue and pointer values after the following instructions have been run on the queue `buffer` shown in **Fig. 2**.
+
+```
+dequeue()
+
+dequeue()
+
+enqueue(job-128)
+
+dequeue()
+
+enqueue(job-129)
+```
+
+*[Diagram in the original paper, not shown here.]*
+'''
+
+[[question.part]]
+label = "32(c)"
+text = '''
+The array, `buffer` and pointer values are declared with global scope.
+'''
+
+[[question.part]]
+label = "32(c)(i)"
+marks = 5
+text = '''
+The function `dequeue` returns `null` if the array is empty, and the contents of the next element if not empty. The queue is not circular.
+
+Write an algorithm, using pseudocode or program code, for the function `dequeue()`.
+'''
+
+[[question.part]]
+label = "32(c)(ii)"
+marks = 6
+text = '''
+The function `enqueue` returns -1 if there is no space at the end of the queue to add data, and returns 1 if the parameter was added to `buffer`. The array `buffer` contains a maximum of 100 elements.
+
+Write an algorithm, using pseudocode or program code, for the function `enqueue()`.
+'''
+
+[[question.part]]
+label = "32(c)(iii)"
+marks = 8
+text = '''
+In the main program of the simulation the user is asked whether they want to add an item to the queue or remove an item.
+
+If they choose to add an item they have to input the job name, and the function `enqueue` is called.
+
+If they choose to remove an item, the function `dequeue` is called and the job name is output.
+
+Appropriate messages are output if either action cannot be run because the queue is either empty or full.
+
+Write, using pseudocode or program code, an algorithm for the main program of the simulation.
+'''
+
+[[question.part]]
+label = "32(d)"
+marks = 3
+text = '''
+The queue is changed to make it a circular queue.
+
+Describe how the functions `enqueue` and `dequeue` will need to be changed to allow `buffer` to work as a circular queue.
+'''
+
+[[question.part]]
+label = "32(e)"
+marks = 3
+text = '''
+Some print jobs can have different priorities. The higher the priority the sooner the job needs to be printed.
+
+Describe how the program could be changed to deal with different priorities.
+'''
+
+[[question.mark_scheme]]
+label = "32(a)"
+marks = 2
+answer = '''
+1 mark per pointer
+
+- queueHead: Point to the first element in the queue / next element to remove
+- queueTail: Point to the last element in the queue
+'''
+
+[[question.mark_scheme]]
+label = "32(b)"
+marks = 5
+answer = '''
+1 mark per bullet up to max 5
+
+- first 3 jobs removed
+- 128 and 129 added in positions 4 and 5 respectively
+- no additional jobs
+- queueHead being 3 (FT errors)
+- queueTail being 5 (FT errors)
+
+*[Image in the original mark scheme, not shown here.]*
+'''
+guidance = '''
+The underlying implementation of the queue has
+
+not been specified, so allow alternative valid answers.\
+e.g.\
+queueHead = 0\
+queueTail = 2\
+Location 2: 129\
+Location 1: 128\
+Location 0: 127
+'''
+
+[[question.mark_scheme]]
+label = "32(c)(i)"
+marks = 5
+answer = '''
+1 mark per bullet to max 5
+
+- Function declaration
+- Checking if queue is empty
+- …returning `null`
+- (Otherwise) incrementing `queueHead`
+- …returning `buffer[queueHead-1]`
+
+e.g.
+
+```
+function dequeue()
+  if queueHead > queueTail then
+   return null
+  else
+   queueHead = queueHead + 1
+   return buffer[queueHead-1]
+  endif
+endfunction
+```
+'''
+guidance = '''
+Note: Accept alternative valid underlying implementation answers e.g. Shifting all elements in queue forward.
+'''
+
+[[question.mark_scheme]]
+label = "32(c)(ii)"
+marks = 6
+answer = '''
+1 mark per bullet to max 6
+
+- Function declaration taking parameter
+- Checking if queue is full
+- …returning -1
+- (Otherwise) incrementing queueTail
+
+- Adding newJob to buffer(queueTail)
+- Returning 1
+
+e.g.
+
+```
+function enqueue(newJob)
+  if queueTail == 99 then
+   return -1
+  else
+   queueTail = queueTail + 1
+   buffer[queueTail] = newJob
+   return 1
+  endif
+endfunction
+```
+'''
+
+[[question.mark_scheme]]
+label = "32(c)(iii)"
+marks = 8
+answer = '''
+1 mark per bullet to max 8
+
+- Inputting user choice
+- If enqueue chosen input job name
+- …call enqueue with input value as parameter
+- …check if return value is -1 and output full
+- …otherwise output message that item is added
+- If dequeue chosen
+- …call dequeue **and** save returned value
+- …output returned value (jobname) if not null
+- …or output queue is empty
+
+e.g.
+
+```
+main()
+  choice = input("Add or remove?")
+  if choice == "ADD" then
+   jobname = input("Enter job name")
+   returnValue = enqueue(jobname)
+   if returnValue == -1 then
+```
+
+```
+    print("Queue full")
+   else
+    print("Job added")
+   endif
+  else
+   returnValue = dequeue()
+   if returnValue == null then
+    print("Queue empty")
+   else
+    output returnValue
+   endif
+  endif
+endmain
+```
+'''
+guidance = '''
+Allow equivalent checks / logic
+'''
+
+[[question.mark_scheme]]
+label = "32(d)"
+marks = 3
+answer = '''
+1 mark per bullet to 3
+
+- Check if either head or tail are incremented to above 99
+- … set to be 0 instead
+- When checking if array is full check if (queueTail == queueHead – 1) OR (queueTail==99 AND queueHead==0)
+'''
+guidance = '''
+Credit equivalent modulo arithmetic solution
+'''
+
+[[question.mark_scheme]]
+label = "32(e)"
+marks = 3
+answer = '''
+1 mark per bullet to max 3, e.g.
+
+- Use a different structure e.g. a linked list
+- …items can be added at different points in the linked list depending on priority
+- …by changing the pointers to items needing priority
+- Have different queues for different priorities
+- …add the job to the queue relevant to its priority
+- …print all the jobs in the highest priority queue first
+'''
+guidance = '''
+Allow other suitable descriptions that show how the program could be amended.
+'''
+
+[[question]]
+number = 33
+marks = 19
+diagram = true
+
+[[question.part]]
+label = "33(a)"
+text = '''
+Barney is writing a program to store data in a linked list. He is writing the initial program for a maximum of 10 data items.
+
+Each node in the linked list has a data value and a pointer (to the next item).
+
+A null pointer is stored with the value `–1`.
+
+**Fig. 3** shows the current contents of the linked list including the head and free list pointer values.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 3**
+'''
+
+[[question.part]]
+label = "33(a)(i)"
+marks = 2
+text = '''
+Describe the purpose of `freeListPointer`.
+'''
+
+[[question.part]]
+label = "33(a)(ii)"
+marks = 1
+text = '''
+State the purpose of `headPointer`.
+'''
+
+[[question.part]]
+label = "33(a)(iii)"
+marks = 4
+text = '''
+Show the contents of the linked list from **Fig. 3** and the pointer values when the node with data `6.9` is deleted.
+
+*[Diagram in the original paper, not shown here.]*
+'''
+
+[[question.part]]
+label = "33(b)"
+text = '''
+Barney wants the nodes to be stored as objects using object-oriented programming. He designs the following class.
+
+```
+class:    node
+```
+
+```
+attributes:
+private    data : Real
+private    pointer : Integer
+```
+
+```
+methods:
+new (newData, newPointer)
+getData()
+getPointer()
+setData(newData)
+setPointer(newPointer)
+```
+
+The constructor assigns the parameters to the attributes to create an object.
+'''
+
+[[question.part]]
+label = "33(b)(i)"
+marks = 4
+text = '''
+Write an algorithm, using pseudocode or program code, to create the class `node`, its attributes and constructor.
+
+You do **not** need to write the get and set methods.
+'''
+
+[[question.part]]
+label = "33(b)(ii)"
+marks = 2
+text = '''
+The class `node`, uses get methods and set methods.
+
+Describe **one** difference between get methods and set methods.
+'''
+
+[[question.part]]
+label = "33(c)"
+marks = 6
+text = '''
+The function `findNodePath()` takes the data item to find in the linked list as a parameter and follows the pointers to find the required node.
+
+The function returns the array indexes of all the nodes it visits and joins this to a suitable message stating whether the data was found or not found and then returns this as one string.
+
+Describe how the function `findNodePath()` will search for the data item and return the required message.
+'''
+
+[[question.mark_scheme]]
+label = "33(a)(i)"
+marks = 2
+answer = '''
+1 mark per bullet
+
+- Points to where the next/first free node is
+- To add data into the linked listed.
+'''
+
+[[question.mark_scheme]]
+label = "33(a)(ii)"
+marks = 1
+answer = '''
+Points to the first element in the linked list
+'''
+
+[[question.mark_scheme]]
+label = "33(a)(iii)"
+marks = 4
+answer = '''
+1 mark per bullet
+
+- No change made to nodes/pointers unaffected by this removal
+- Index 0 points to 2 instead of 3
+- Node 9 points to 3 instead of -1 / Node freeListPointer points to 3 instead of 4
+- Node 3 points to 4 / -1 (must match MP3
+
+Solution:
+
+*[Image in the original mark scheme, not shown here.]*
+
+Alternative Solution:
+'''
+guidance = '''
+6.9 3 may or may not be written by candidates, both are acceptable.
+
+Candidates may add the node freed up (node 3) to the start or the end of the free storage. Award marks for both approaches.
+'''
+
+[[question.mark_scheme]]
+label = "33(b)(i)"
+marks = 4
+answer = '''
+1 mark per bullet
+
+- Class declaration and all code is nested within the class
+- Two private identifiers data and pointer (with suitable data types if given)
+- Public constructor heading as a procedure (public may be implied but cannot be private) taking both parameters as given in table
+- Assigns parameters to the attributes
+
+e.g.
+
+```
+public class node
+  private data as real
+  private pointer as integer
+  public procedure new(newData, newPointer)
+   data = newData
+   pointer = newPointer
+  endprocedure
+endclass
+```
+'''
+guidance = '''
+Accept
+
+public node(newData, newPointer)\
+(may also have data stypes for parameters e.g. int newData)
+
+Accept:
+
+this.data = newData\
+this.pointer = newPointer
+
+or similar
+'''
+
+[[question.mark_scheme]]
+label = "33(b)(ii)"
+marks = 2
+answer = '''
+1 mark per bullet to max 2
+
+- A get method allows the attribute to be accessed / returned
+- A set method allows the attribute to be changed (with parameters)
+'''
+
+[[question.mark_scheme]]
+label = "33(c)"
+marks = 6
+answer = '''
+1 mark per bullet to max 6
+
+- Initialise message string
+- Start with the headPointer
+- Check if the headPointer is null
+- …return that the list is empty
+- Check the pointer of the node at headPointer
+- If it is not null/-1/the last element
+- loop through all the linkedList elements
+- …concatenate the pointer to the message
+- …replacing the pointer with the current node’s pointer each time
+- …if the data is found concatenate the pointer and “found” to the message **and** return it
+- …if the loop ends and the data item is not found, concatenate “not found” to the message **and** return it
+'''
+
+[[question]]
+number = 34
+marks = 7
+
+[[question.part]]
+label = "34"
+text = '''
+Oscar owns a taxi company. He would like a program to handle taxi bookings from customers.
+
+Some of Oscar’s customers are rated as gold. Customers who are rated as gold are given priority when they make a taxi booking. Some customers rated as gold are shown here.
+
+| **Arshad** | **Betty** | **Dave** | **Freddie** | **Harry** | **Jimmy** | **Kanwal** | **Lynn** | **Siad** | **Tommy** | **Will** |
+|---|---|---|---|---|---|---|---|---|---|---|
+
+When a customer makes a booking, Oscar will make use of a binary search to check if they are gold rated.
+
+Oscar would like to know if ‘Tommy’ is gold rated.
+'''
+
+[[question.part]]
+label = "34(i)"
+marks = 3
+text = '''
+State the **three** values that will be set as the midpoints and then checked against ‘Tommy’ on each iteration of the binary search.
+
+Show your working here.
+
+Midpoint 1
+
+Midpoint 2
+
+Midpoint 3
+'''
+
+[[question.part]]
+label = "34(ii)"
+marks = 2
+text = '''
+Oscar has 75 000 customers stored in his program.
+
+Describe the benefit to Oscar of using binary searches in his program.
+
+Benefit
+'''
+
+[[question.part]]
+label = "34(iii)"
+marks = 1
+text = '''
+State **one** other search algorithm that Oscar could have used.
+'''
+
+[[question.part]]
+label = "34(iv)"
+marks = 1
+text = '''
+State the pre-condition which has been met, which meant that Oscar did not need to use the search algorithm you stated in the part above.
+'''
+
+[[question.mark_scheme]]
+label = "34(i)"
+answer = '''
+1 mark per bullet up to a maximum of 3 marks:
+
+- 5 (Jimmy)
+- 8 (Siad)
+- 9 (Tommy)
+
+3
+
+A02.1 (3)
+'''
+
+[[question.mark_scheme]]
+label = "34(ii)"
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g:
+
+- Efficient
+- ...as does not need to search every single element/uses divide and conquer
+
+2
+
+A01.2 (2)
+'''
+
+[[question.mark_scheme]]
+label = "34(iii)"
+answer = '''
+- Linear Search / Serial Search
+
+1
+
+A02.1 (1)
+'''
+
+[[question.mark_scheme]]
+label = "34(iv)"
+answer = '''
+- The items are in alphabetical order / the items are sorted
+
+1
+
+A02.1 (1)
+'''
+
+[[question]]
+number = 35
+marks = 9
+
+[[question.part]]
+label = "35"
+marks = 9
+text = '''
+Daisy is a computer technician. She is responsible for making sure all new employees are given a username to access the computer network.
+
+The rules that are followed when creating a new username are as follows:
+
+**Step 1**: The employee’s first name is entered (e.g. Roger)
+
+**Step 2**: The employee’s surname is entered (e.g. Banks)
+
+**Step 3**: A username is then made up from:
+
+○ Their whole surname (e.g. Banks)\
+○ The first letter of their first name (e.g. R)\
+○ A number 1\
+For example: BanksR1
+
+**Step 4**: The username is then checked against existing usernames. This is done by calling a function `existingUsers`. This will return `true` if the username is unique and `false` if the username already exists.
+
+**Step 5**: If the username is unique then “Username is Unique” should be printed. If the username already exists then the number at the end of the username should increase by one (e.g. BanksR2).
+
+**Step 6**: Steps 4 and 5 should be repeated until the username is unique.
+
+Write a procedure called `createUsername` that meets the rules of Daisy’s program.
+
+You should write your procedure using pseudocode or program code.
+'''
+
+[[question.mark_scheme]]
+label = "35"
+answer = '''
+1 mark per bullet up to a maximum of 9 marks:
+
+- Defining the `createUsername` procedure correctly
+- Suitable logic for inputting the first name
+- Suitable logic for inputting the surname
+- Suitable logic for using the first letter of the first name
+- Suitable logic for joining the different sections of the username together
+- Suitable logic to pass the username into the function `existingUsers` (eg as a parameter or global variable)
+- Suitable logic for continually increasing the number by 1 …..
+- …until the username is unique
+- Sensible use of variable names and indentation throughout
+
+9
+
+A03.1 (3)
+
+A03.2 (6)
+'''
+guidance = '''
+Example solution:
+
+```
+procedure createUsername()
+   firstname = input("Enter First
+Name")
+   surname = input("Enter Surname")
+   number = 0
+   while unique == false
+    number = number + 1
+    username = surname +
+firstname.substring(0,1) +
+str(number)
+    unique =
+existingUsers(username)
+   endwhile
+   print("Username is unique")
+endprocedure
+```
+
+There are many different ways that this procedure could have been achieved. Therefore other alternative methods should be given credit
+
+(candidates may use `substring` or `mid` to access first character of `firstname)`.
+'''
+
+[[question]]
+number = 36
+marks = 20
+diagram = true
+
+[[question.part]]
+label = "36(a)"
+text = '''
+Sally is a classroom teacher. She would like a program to be able to organise where students will sit in her classroom.
+
+A plan of her classroom is shown **in Fig. 1**.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 1**
+
+Sally would like to increase the security of her program by adding a password to enter the program. She has created the procedure, `checkPassword`, to do this.
+
+```
+01   procedure checkPassword()
+02    correctPassword = "ComputerScience12"
+03    check = false
+04    while check == false
+05      enteredPassword = input("Enter Password")
+06      if enteredPassword == correctPassword then
+07        check = true
+08      endif
+09    endwhile
+10   endprocedure
+```
+'''
+
+[[question.part]]
+label = "36(a)(i)"
+marks = 1
+text = '''
+Identify the programming construct used on lines 06 to 08 in the procedure `checkPassword`.
+'''
+
+[[question.part]]
+label = "36(a)(ii)"
+marks = 4
+text = '''
+Sally has used a `while` loop on line 04 of the procedure `checkPassword`.
+
+Explain why Sally has used a `while` loop instead of a `for` loop.
+'''
+
+[[question.part]]
+label = "36(a)(iii)"
+marks = 3
+text = '''
+Sally could have used a `do until` loop instead of a `while` loop.
+
+Rewrite lines 04 to 09 of the procedure `checkPassword` using a `do until` loop instead of a `while` loop.
+'''
+
+[[question.part]]
+label = "36(b)"
+text = '''
+Sally will make use of an Integrated Development Environment (IDE) to create her program code.
+'''
+
+[[question.part]]
+label = "36(b)(i)"
+marks = 6
+text = '''
+Describe **three** features that are commonly found in IDEs that will help Sally write her program code.
+
+1
+
+2
+
+3
+'''
+
+[[question.part]]
+label = "36(b)(ii)"
+marks = 4
+text = '''
+Sally uses a Rapid Application Development (RAD) approach when creating her program.
+
+Describe **two** benefits of using RAD.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "36(b)(iii)"
+marks = 2
+text = '''
+Sally will make use of an appropriate test strategy to test her programming code.
+
+Compare **one** difference between black box testing and white box testing.
+
+**END OF QUESTION PAPER**
+'''
+
+[[question.mark_scheme]]
+label = "36(a)(i)"
+answer = '''
+- Selection/branching
+
+1
+
+A03.3 (1)
+'''
+
+[[question.mark_scheme]]
+label = "36(a)(ii)"
+answer = '''
+1 mark per bullet up to a maximum of 3 marks, e.g:
+
+- The number of user attempts is not known
+- The code will need to continue until the password entered is correct
+- A while loop will keep repeating until the correct password has been input / condition is met
+- A for loop will only repeat a certain number of times
+- A for loop may continually ask for password even though it’s been entered correctly
+
+4
+
+A02.1 (4)
+'''
+
+[[question.mark_scheme]]
+label = "36(a)(iii)"
+answer = '''
+1 mark per bullet up to a maximum of 3 marks, e.g:
+
+- Correct use of `do` at the start of the loop.
+- Correct use of `until` at the end of the loop.
+- Correct logic for inputting password, checking the entered password and for setting check to `true`/checking the password within the condition of the loop.
+
+3
+
+A03.2 (3)
+'''
+guidance = '''
+Example Solution
+
+```
+do
+   enteredPassword=input("Enter
+Password")
+   if enteredPassword ==
+correctPassword then
+    check = true
+   endif
+until check == true
+```
+
+Alternative solution
+
+```
+do
+   enteredPassword=input("Enter
+Password")
+until
+enteredPassword==correctPassword
+```
+'''
+
+[[question.mark_scheme]]
+label = "36(b)(i)"
+answer = '''
+1 mark for identifying a feature and 1 mark for stating how it can be used up to a maximum of 2 marks for each IDE feature (6 marks maximum in total.)
+
+For example:
+
+- Autocomplete (1) which will predict variable / built-in functions (1)
+- Auto indent (1) to automatically indent code when selection / iterative statements are used (1)
+- Colour coding (1) to be able to distinguish between the different parts of each statement/line (1)
+
+6
+
+A01.1 (3)
+
+A01.2 (3)
+'''
+guidance = '''
+Allow other suitable responses that are appropriate to **writing** programming code such as automatic syntax analysis, automatic cross- referencing, line numbers and code comments, automated refactoring, automated code generation (e.g. creating templates for common patterns).
+'''
+
+[[question.mark_scheme]]
+label = "36(b)(ii)"
+answer = '''
+1 mark per bullet up to a maximum of 2 marks for each benefit(4 marks maximum in total), e.g:
+
+- Reduced development time (1) due to time boxing / each subtask being given a strict time limit (1)
+- Increased user involvement (1) so issues can be identified and fixed early / more likely to meet client requirements (1)
+- The requirements do not all need to be stated at the start (1) so therefore it is more flexible (1)
+
+4
+
+A01.1 (2)
+
+A01.2 (2)
+'''
+guidance = '''
+Allow other suitable responses.
+'''
+
+[[question.mark_scheme]]
+label = "36(b)(iii)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g:
+
+- Black box is when the internal structure/ design is not known (to the tester)
+- Black box requires limited/no programming knowledge
+- White box is when the internal structure/ design is known (to the tester)
+- White box requires programming knowledge
+
+A01.2 (2)
+'''
+guidance = '''
+Response must cover both black box and white box testing for 2 marks.
+'''

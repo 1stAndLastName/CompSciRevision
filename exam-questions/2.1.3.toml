@@ -1,0 +1,275 @@
+# OCR exam questions for 2.1.3 Thinking procedurally.
+# Copied as text from the question paper and mark scheme PDFs in sources/
+# by tools/extract-exam-questions. Diagrams are not copied. Corrections by
+# hand are fine: the tool will not overwrite this file without --force.
+spec = "2.1.3"
+
+[[question]]
+number = 1
+marks = 3
+
+[[question.part]]
+label = "1"
+marks = 3
+text = '''
+Eve enjoys playing board games. Her favourite board game is called “Pot Luck”. This has a numbered grid of 10 squares by 10 squares. Each square has a number between 1 and 100.
+
+Players place their game counters on square 1. A 30-minute timer is set which counts downwards. Each player rolls two 6-sided dice and then moves their game counter that number of squares. Some squares tell the player to pick up a card. These have instructions on, such as 'Move forward 10 spaces'. If the player lands on one of these squares they move according to the instruction on the card. The first player to land on square 100, is announced as the winner. If no winner is announced before the timer runs out, then it is a draw.
+
+Eve would like to break the problem down into smaller sub problems so that each sub problem will complete one specific task.
+
+Identify **three** sub problems that Eve can use in her game.
+
+1
+
+2
+
+3
+'''
+
+[[question.mark_scheme]]
+label = "1"
+marks = 3
+answer = '''
+1 mark per bullet to max 3\
+e.g.
+
+- Initialising a new board with 100 squares
+- Placing players on square 1 at the start
+- Setting a new 30-minute timer
+- Rolling two dice and displaying the total
+- Moving the counters the number of places on the dice
+- Choosing an instruction card and displaying the message
+- Checking if a player has landed on square 100
+- Checking if the timer is 0
+'''
+guidance = '''
+Allow other suitable examples that are relevant to the scenario.
+
+**Examiner’s Comments**
+
+Some candidates struggled to apply decomposition to identify parts of the scenario that could be broken down into sub problems. Examples needed to relate to the gameplay for the given scenario and needed to be qualified in some way. For example, ‘Dice’ on its own was insufficient, whereas ‘Generating dice score’ was sufficient.
+'''
+
+[[question]]
+number = 2
+marks = 2
+
+[[question.part]]
+label = "2"
+marks = 2
+text = '''
+A program is being designed that will allow a user to log into an account on a website using a username and password.
+
+Identify **two** possible sub-procedures that could be used in this program.
+
+1
+
+2
+'''
+
+[[question.mark_scheme]]
+label = "2"
+marks = 2
+answer = '''
+1 mark each to max 2 e.g.
+
+- Connect to database
+- Access usernames in file/database
+- Check username against file/database
+- Hash password
+- Access password/hash in file/database
+- Check password entered/hashed vs stored
+- Output result
+'''
+guidance = '''
+Allow other suitable subprocedures that link to the scenario.
+
+**Examiner’s Comments**
+
+This question was also generally well answered, but answers had to be given in the context of the scenario. Thinking procedurally is specification point 2.1.3 which requires suitable procedures for a given context to be identified. The context was explicitly for logging in to a system, not for creating user accounts or setting up/validating password construction. The most common responses were checking if the username existed and checking whether the\
+username/password combination was correct.
+'''
+
+[[question]]
+number = 3
+marks = 9
+
+[[question.part]]
+label = "3"
+text = '''
+A programmer has partially developed a bubble sort algorithm in pseudocode.
+
+This will partially sort an array of numbers called `numbers` that is passed as a parameter.
+
+```
+01 procedure bubbleSort(numbers : byRef)
+02   flag = true
+03   for x = 0 to numbers.length – 1
+04     if numbers[x] > numbers[x + 1] then
+05       holdValue = numbers[x]
+06       numbers[x] = numbers[x + 1]
+07       numbers[x + 1] = holdValue
+08       flag = false
+09     endif
+10   next x
+11 endprocedure
+```
+'''
+
+[[question.part]]
+label = "3(i)"
+marks = 3
+text = '''
+Explain why the procedure `bubbleSort` accepts the array `numbers` by reference and not by value.
+'''
+
+[[question.part]]
+label = "3(ii)"
+marks = 1
+text = '''
+The programmer has used a `for` loop on line 3 in the procedure `bubbleSort`. A `for` loop is a count controlled loop.
+
+State what is meant by the term ‘count controlled loop’.
+'''
+
+[[question.part]]
+label = "3(iii)"
+marks = 3
+text = '''
+State the purpose of the variable `holdValue` in the procedure `bubbleSort`.
+'''
+
+[[question.part]]
+label = "3(iv)"
+marks = 2
+text = '''
+The procedure `bubbleSort` will only partially sort the array `numbers` into order.
+
+Describe what the programmer would need to add to the algorithm to enable it to fully sort the numbers into order.
+'''
+
+[[question.mark_scheme]]
+label = "3(i)"
+marks = 3
+answer = '''
+1 mark per bullet
+
+- by reference will reorder the contents of the array
+
+- …so the new order can be accessed by the main program / so will be saved when the procedure ends
+- by value will change the array only in this procedure
+- … and so would need to return the array.
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many candidates struggled to go beyond recall of definitions for calling by reference and calling by value and
+
+struggled to apply it to the code given and to provide a detailed explanation.
+
+The bubble sort was defined as a procedure and not a function, so if numbers had been passed by value, a copy of the array would have been passed, and any changes made would not have been kept after the procedure had completed execution.
+'''
+
+[[question.mark_scheme]]
+label = "3(ii)"
+marks = 1
+answer = '''
+A loop that repeats a fixed / set number of times
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Most candidates could accurately define a ‘count controlled loop’ as one that repeated a predefined number of times, although some candidates gave an ambiguous response that was equally applicable to a conditional loop.
+'''
+
+[[question.mark_scheme]]
+label = "3(iii)"
+marks = 3
+answer = '''
+- To temporarily hold a value (for numbers\[x\])…
+- …while it is being transferred from one position to another…
+- ….in the array numbers
+- To stop values over writing each other
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many candidates found it difficult to explain the purpose of the\
+`holdValue` variable in context. Where candidates achieved some of the marks, they most frequently identified `holdValue` as a temporary store that was required to prevent accidental overwriting of data during the swap process. Relatively few were able to accurately describe how the variable allowed the contents of
+
+```
+dataArray[x] and
+```
+
+`dataArray[x+1]` to be swapped.
+
+Exemplar 1
+
+*[Image in the original mark scheme, not shown here.]*
+
+This exemplar very clearly states exactly how and why the variable `holdValue` is required.
+'''
+
+[[question.mark_scheme]]
+label = "3(iv)"
+marks = 2
+answer = '''
+- Add a (second outer) loop
+- That will repeat for each pass / repeat until the flag is set to true at the end of a pass
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many candidates found it challenging to apply knowledge of a bubble sort to the code given. While a pleasing number identified the need to have an
+
+outer loop, there were far fewer who were able to expand on this to explain that this was required to repeat the process for the requi red number of passes, or until no swaps had occurred during a pass.
+'''
+
+[[question]]
+number = 4
+marks = 3
+
+[[question.part]]
+label = "4"
+marks = 3
+text = '''
+A card game uses a set of 52 standard playing cards. There are four suits; hearts, diamonds, clubs and spades. Each suit has a card with a number from; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13.
+
+The card game randomly gives 2 players 7 cards each. The unallocated cards become known as the deck.
+
+The players then take it in turns to turn over a card. A valid move is a card of the same suit or the same number as the last card played.
+
+The winner is the first player to play all of their cards.
+
+One component of the game is checking if a move is valid.
+
+Identify **three** other components of the game.
+
+1
+
+2
+
+3
+
+**END OF QUESTION PAPER**
+'''
+
+[[question.mark_scheme]]
+label = "4"
+marks = 3
+answer = '''
+1 mark for each component e.g.
+
+- Allocating cards to each player
+- Generating the deck
+- Managing whose turn it is to play
+- Checking won
+'''
+guidance = '''
+Accept any reasonable component
+
+**Examiner’s Comments**
+
+The specification requires candidates to be able to identify elements of computational thinking. As such, candidates are expected to be able to think procedurally and to be able to identify the components of a problem. While analysis of the problem given in context led most candidates to identify valid components, many struggled to read the scenario and to give relevant points. For instance, many reiterated aspects of checking if a move was valid, which was already given in the question.
+'''

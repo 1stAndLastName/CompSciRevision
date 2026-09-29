@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Copy the text of the OCR exam questions and mark schemes from the PDFs in
+# sources/Exam Questions/ into exam-questions/<spec point>.toml, which the site
+# shows at /exam. Text only: diagrams are not copied.
+#
+#   tools/extract-exam-questions              write files that do not exist yet
+#   tools/extract-exam-questions --force      replace every file (loses hand corrections)
+#   tools/extract-exam-questions --only 1.4.3 just one spec point
+#
+# Needs tools/.venv (see tools/convert-sources) with pdfplumber installed:
+#   uv pip install --python tools/.venv/bin/python pdfplumber "pypdfium2==4.30.0" "pillow<11"
+# (the pins keep the versions Marker needs).
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+if [ ! -x tools/.venv/bin/python ]; then
+  echo "tools/.venv is missing. See the setup steps at the top of tools/convert-sources." >&2
+  exit 1
+fi
+
+exec tools/.venv/bin/python tools/sources/exam_text.py "$@"

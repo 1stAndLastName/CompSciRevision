@@ -1,0 +1,1128 @@
+# OCR exam questions for 2.1.2 Thinking ahead.
+# Copied as text from the question paper and mark scheme PDFs in sources/
+# by tools/extract-exam-questions. Diagrams are not copied. Corrections by
+# hand are fine: the tool will not overwrite this file without --force.
+spec = "2.1.2"
+
+[[question]]
+number = 1
+marks = 4
+
+[[question.part]]
+label = "1"
+marks = 4
+text = '''
+A group of students are designing a racing car game. The game will allow players to enter their name and then a choice of vehicle. They will then race against other vehicles that will be controlled by the program. Players will use the arrow keys to control their vehicle.
+
+The students are identifying the inputs and outputs for the game.
+
+Complete the table by identifying **two** inputs and **two** outputs for the game.
+
+| **Input 1** | …… …… |
+|---|---|
+| **Input 2** | …… …… |
+| **Output 1** | …… …… |
+| **Output 2** | …… …… |
+'''
+
+[[question.mark_scheme]]
+label = "1"
+marks = 4
+answer = '''
+1 mark for each input to max 2 e.g.
+
+- Entering a name
+- Selecting a vehicle
+- Pressing arrow key to move forward
+- Pressing arrow key to move backward
+- Pressing arrow key to move left
+- Pressing arrow key to move right
+
+1 mark for each output to max 2 e.g.
+
+- Images of vehicles to choose from
+- Background of area
+- Image of other vehicles
+- Image of controls and description of what they do
+'''
+guidance = '''
+Allow any feasible input/output for scenario
+
+**Examiner’s Comments**
+
+While many candidates scored full marks for this question for identifying suitable inputs and outputs within the context of the problem a number of candidates scored no marks for erroneously giving input or output devices. Sometimes responses were unqualified such as ‘left arrow key’ rather than ‘left arrow to turn left’ where candidates did not identify an input within the context of the scenario as an input to the game.
+'''
+
+[[question]]
+number = 2
+marks = 3
+
+[[question.part]]
+label = "2"
+marks = 3
+text = '''
+A program is being designed that will allow a user to log into an account on a website using a username and password.
+
+Identify **two** possible inputs and **one** output this program will need.
+
+Input 1
+
+Input 2
+
+Output
+'''
+
+[[question.mark_scheme]]
+label = "2"
+marks = 3
+answer = '''
+1 mark for each input to max 2
+
+- Username
+- Password
+
+1 mark for output\
+e.g.
+
+- Message to request input
+- Message to state login successful
+- Message to say login unsuccessful
+'''
+guidance = '''
+**Examiner’s Comments**
+
+This question was generally well answered by most candidates, but answers had to be given in the context of the scenario. Some less successful responses mistakenly identified input/output devices rather than specific examples of inputs and outputs.
+'''
+
+[[question]]
+number = 3
+marks = 5
+
+[[question.part]]
+label = "3(a)"
+text = '''
+A programmer has designed a program that includes a reusable program component.
+
+The reusable program component is a function called `isInteger()`. This will take a string as an argument and then check that each digit is between 0 and 9. For example if 103 is input, it will check that the digits 1, 0 and 3 are each between 0 and 9.
+
+The `asc()` function returns the ASCII value of each digit. For example `asc("1")` returns 49.
+
+The ASCII value for 0 is 48. The ASCII value for 9 is 57.
+
+```
+01   function isInteger(number)
+02     result = true
+03     for count = 0 to number.length-1
+04       asciiValue = asc(number.substring(count, 1))
+05         if not(asciiValue >= 48 and asciiValue <= 57) then
+06         result = false
+07       endif
+08     next count
+09     return result
+10   endfunction
+```
+'''
+
+[[question.part]]
+label = "3(a)(i)"
+marks = 1
+text = '''
+Identify **one** identifier used in the function `isInteger()`.
+'''
+
+[[question.part]]
+label = "3(a)(ii)"
+marks = 1
+text = '''
+Give the line number where the branching (selection) construct starts in the function `isInteger()`.
+'''
+
+[[question.part]]
+label = "3(a)(iii)"
+marks = 1
+text = '''
+Give the line number where the iteration construct starts in the function `isInteger()`.
+'''
+
+[[question.part]]
+label = "3(b)"
+marks = 2
+text = '''
+Give **two** reasons why reusable program components are used in programs.
+
+1
+
+2
+'''
+
+[[question.mark_scheme]]
+label = "3(a)(i)"
+marks = 1
+answer = '''
+1 mark for:
+
+```
+• isInteger
+• number
+• result
+• count
+```
+
+```
+• asciiValue
+```
+'''
+guidance = '''
+Penalise excessive spaces in identifiers such as ascii Value\
+instead of asciiValue
+
+**Examiner’s Comments**
+
+This question was generally well done (although slightly less well done than parts (a) (ii) and (a) (iii)), but many candidates did very well. The most common erroneous responses were giving the names of predefined\
+functions/properties or giving relational operators.
+'''
+
+[[question.mark_scheme]]
+label = "3(a)(ii)"
+marks = 1
+answer = '''
+(0)5
+'''
+guidance = '''
+**Examiner’s Comments**
+
+This question required an exact answer only and was answered correctly by the majority of candidates.
+'''
+
+[[question.mark_scheme]]
+label = "3(a)(iii)"
+marks = 1
+answer = '''
+(0)3
+'''
+guidance = '''
+**Examiner’s Comments**
+
+This question also required an exact answer only and was answered correctly by the majority of candidates.
+'''
+
+[[question.mark_scheme]]
+label = "3(b)"
+marks = 2
+answer = '''
+1 mark each to max 2:
+
+- One piece of code can be used many times / in multiple places / makes code more efficient
+- No need to write the same code multiple times
+- Takes less time to plan/design/code the program
+- Easier error detection as fix once and it corrects in each place / less likely to have errors as code is not written multiple times
+- Makes it easier to maintain the program
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many less successful responses gave vague generalities such as ‘saves time’ or ‘more efficient’ without specifying why or how. Points given must be qualified in some way at A Level. For example, ‘saves development time as pre- written routines are available’.
+
+Pre-written or pre-tested, and saving development time due to already being written, were the most popular answers.
+'''
+
+[[question]]
+number = 4
+marks = 4
+
+[[question.part]]
+label = "4"
+text = '''
+Taylor is designing a program for a client who would like to simulate earthquakes on major cities around the world in 3D. The client would like to be able to view any stage of an earthquake such as:
+
+1. the build-up of the earthquake\
+2. the earthquake taking place\
+3. the aftershocks of the earthquake.\
+The client would also like to be able to play the simulation at different speeds. For example, a slow, normal or fast speed.
+
+The program will need to accept inputs from the user before playing the simulation.
+'''
+
+[[question.part]]
+label = "4(i)"
+marks = 2
+text = '''
+Identify **two** different inputs for this program.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "4(ii)"
+marks = 2
+text = '''
+One decision point in the program will be to decide if the user inputs are suitable or not.
+
+Identify **two** other example decision points in this program.
+
+1
+
+2
+'''
+
+[[question.mark_scheme]]
+label = "4(i)"
+marks = 2
+answer = '''
+1 mark per bullet e.g.
+
+- stage (e.g. stage 1, stage 2, stage 3)
+- city name (e.g. London)
+- speed (e.g. slow, normal, fast)
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Most candidates\
+successfully identified the relevant potential inputs of city/stage/speed from the given scenario. Some
+
+candidates suggested alternative inputs such as ‘magnitude of earthquake’ which were also given marks as they were valid inputs for a simulation relating to earthquakes.
+'''
+
+[[question.mark_scheme]]
+label = "4(ii)"
+marks = 2
+answer = '''
+1 mark per bullet to max 2, e.g.
+
+- Does the build-up stage need to be shown?
+- Does the earthquake taking place needs to be shown?
+- Does the aftershock stage needs to be shown?
+'''
+guidance = '''
+Allow other suitable examples
+
+**Examiner’s Comments**
+
+Few candidates were given full marks for this question. There was some repetition of checking user input values, which was given in the stem of the question. There were also many statements of possible calculations rather than clearly expressed conditions or questions. More successful responses included decisions such as ‘have buildings of a certain typ e survived the earthquake?’.
+'''
+
+[[question]]
+number = 5
+marks = 9
+
+[[question.part]]
+label = "5"
+text = '''
+A programmer has partially developed a bubble sort algorithm in pseudocode.
+
+This will partially sort an array of numbers called `numbers` that is passed as a parameter.
+
+```
+01 procedure bubbleSort(numbers : byRef)
+02   flag = true
+03   for x = 0 to numbers.length – 1
+04     if numbers[x] > numbers[x + 1] then
+05       holdValue = numbers[x]
+06       numbers[x] = numbers[x + 1]
+07       numbers[x + 1] = holdValue
+08       flag = false
+09     endif
+```
+
+```
+10   next x
+11 endprocedure
+```
+'''
+
+[[question.part]]
+label = "5(i)"
+marks = 3
+text = '''
+Explain why the procedure `bubbleSort` accepts the array `numbers` by reference and not by value.
+'''
+
+[[question.part]]
+label = "5(ii)"
+marks = 1
+text = '''
+The programmer has used a `for` loop on line 3 in the procedure `bubbleSort`. A `for` loop is a count controlled loop.
+
+State what is meant by the term ‘count controlled loop’.
+'''
+
+[[question.part]]
+label = "5(iii)"
+marks = 3
+text = '''
+State the purpose of the variable `holdValue` in the procedure `bubbleSort`.
+'''
+
+[[question.part]]
+label = "5(iv)"
+marks = 2
+text = '''
+The procedure `bubbleSort` will only partially sort the array `numbers` into order.
+
+Describe what the programmer would need to add to the algorithm to enable it to fully sort the numbers into order.
+'''
+
+[[question.mark_scheme]]
+label = "5(i)"
+marks = 3
+answer = '''
+1 mark per bullet
+
+- by reference will reorder the contents of the array
+- …so the new order can be accessed by the main program / so will be saved when the procedure ends
+- by value will change the array only in this procedure
+- … and so would need to return the array.
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many candidates struggled to go beyond recall of definitions for calling by reference and calling by value and struggled to apply it to the code given and to provide a detailed explanation.
+
+The bubble sort was defined as a procedure and not a function, so if numbers had been passed by value, a copy of the array would have been passed, and any changes made would not have been kept after the procedure had completed execution.
+'''
+
+[[question.mark_scheme]]
+label = "5(ii)"
+marks = 1
+answer = '''
+A loop that repeats a fixed / set number of times
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Most candidates could accurately define a ‘count controlled loop’ as one that repeated a predefined number of times, although some candidates gave an ambiguous response that was equally applicable to a conditional loop.
+'''
+
+[[question.mark_scheme]]
+label = "5(iii)"
+marks = 3
+answer = '''
+- To temporarily hold a value (for numbers\[x\])…
+- …while it is being transferred from one position to another…
+- ….in the array numbers
+- To stop values over writing each other
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many candidates found it difficult to explain the purpose of the `holdValue` variable in context. Where candidates achieved some of the marks, they most frequently identified `holdValue` as a temporary store that was required to prevent accidental overwriting of data during the swap process. Relatively few were able to accurately describe how the variable allowed the contents of `dataArray[x]` and `dataArray[x+1]` to be swapped.
+
+Exemplar 1
+
+*[Image in the original mark scheme, not shown here.]*
+
+This exemplar very clearly states exactly how and why the variable `holdValue` is required.
+'''
+
+[[question.mark_scheme]]
+label = "5(iv)"
+marks = 2
+answer = '''
+- Add a (second outer) loop
+- That will repeat for each pass / repeat until the flag is set to true at the end of a pass
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many candidates found it challenging to apply knowledge of a bubble sort to the code given. While a pleasing number identified the need to have an outer loop, there were far fewer
+
+who were able to expand on this to explain that this was required to repeat the process for the requi red number of passes, or until no swaps had occurred during a pass.
+'''
+
+[[question]]
+number = 6
+marks = 4
+
+[[question.part]]
+label = "6"
+marks = 4
+text = '''
+Lucas writes a program that makes use of a circular queue. The queue stores the data entered into the program. An array is used to represent the queue.
+
+The program needs two pointers to access and manipulate the data in the queue.
+
+State the purpose of the two pointers and give an appropriate identifier for each.
+
+Pointer 1 purpose
+
+Pointer 1 identifier
+
+Pointer 2 purpose
+
+Pointer 2 identifier
+'''
+
+[[question.mark_scheme]]
+label = "6"
+marks = 4
+answer = '''
+1 mark for the purpose and 1 mark for matching appropriate name (4 marks total), e.g:
+
+- Pointer to the first element in the queue
+- firstElement / any other meaningful name
+- Pointer to the last element in the queue / Pointer to the first free element in the queue
+- lastElement / any other meaningful name
+'''
+guidance = '''
+Must cover purpose and name for 2 marks for each pointer.
+'''
+
+[[question]]
+number = 7
+marks = 16
+
+[[question.part]]
+label = "7(a)"
+marks = 5
+text = '''
+Hugh has written a recursive function called `thisFunction()` using pseudocode.
+
+```
+01 function thisFunction(theArray, num1, num2, num3)
+02  result = num1 + ((num2 - num1) DIV 2)
+03  if num2 < num1 then
+04    return -1
+05  else
+06    if theArray[result] < num3 then
+07      return thisFunction(theArray, result + 1, num2, num3)
+08    elseif theArray[result] > num3 then
+09      return thisFunction(theArray, num1, result - 1, num3)
+10    else
+11      return result
+12    endif
+13  endif
+14 endfunction
+```
+
+The function `DIV` calculates integer division, e.g. 5 DIV 3 = 1
+
+`theArray` has the following data:
+
+| Index: | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+|---|---|---|---|---|---|---|---|---|
+| Data: | 5 | 10 | 15 | 20 | 25 | 30 | 35 | 40 |
+
+Trace the algorithm, and give the final return value, when it is called with the following statement:
+
+```
+thisFunction(theArray, 0, 7, 35)
+```
+
+You may choose to use the table below to give your answer.
+
+| **Function call** | **num1** | **num2** | **num3** | **result** |
+|---|---|---|---|---|
+| `thisFunction(theArray,0,7,35)` |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+
+Final return value ……
+'''
+
+[[question.part]]
+label = "7(b)"
+marks = 1
+text = '''
+State the name of the standard algorithm `thisFunction()` performs.
+'''
+
+[[question.part]]
+label = "7(c)"
+marks = 4
+text = '''
+Hugh could have written `thisFunction()` using iteration instead of recursion.
+
+Compare **two** differences between recursion and iteration.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "7(d)"
+marks = 6
+text = '''
+The recursive function `thisFunction()` is printed again here for your reference.
+
+```
+01 function thisFunction(theArray, num1, num2, num3)
+02  result = num1 + ((num2 - num1) DIV 2)
+03  if num2 < num1 then
+04    return -1
+05  else
+06    if theArray[result] < num3 then
+07      return thisFunction(theArray, result + 1, num2, num3)
+08    elseif theArray[result] > num3 then
+09      return thisFunction(theArray, num1, result - 1, num3)
+10    else
+11      return result
+12    endif
+13  endif
+14 endfunction
+```
+
+Rewrite the function `thisFunction()` so that it uses iteration instead of recursion.
+
+You should write your answer using pseudocode or program code.
+'''
+
+[[question.mark_scheme]]
+label = "7(a)"
+marks = 5
+answer = '''
+1 mark per bullet
+
+- Calculation of result to 3
+- Call with `thisFunction(theArray, num1=4,`
+
+```
+num2=7, num3=35)
+```
+
+- Result = 5
+- call with
+
+```
+thisFunction(theArray,num1=6,num2=7,num3
+=35)
+```
+
+- (Result = 6) return of value 6
+
+**Function call num1 num2 num3 result**
+
+```
+thisFunction
+```
+
+0 7 35 3
+
+```
+(theArray,0,7,35)
+thisFunction
+```
+
+4 7 35 5
+
+```
+(theArray,4,7,35)
+thisFunction
+```
+
+6 7 35 6
+
+```
+(thisArray,6,7,35)
+```
+
+**Function call**
+
+**num1**
+
+**num2**
+
+**num3**
+
+**result**
+
+```
+thisFunction
+(theArray,0,7,35)
+```
+
+```
+thisFunction
+(theArray,4,7,35)
+```
+
+```
+thisFunction
+(thisArray,6,7,35)
+```
+'''
+guidance = '''
+7
+
+35
+
+3
+
+7
+
+35
+
+5
+
+7
+
+35
+
+6
+'''
+
+[[question.mark_scheme]]
+label = "7(b)"
+marks = 1
+answer = '''
+Binary search
+'''
+
+[[question.mark_scheme]]
+label = "7(c)"
+marks = 4
+answer = '''
+1 mark per bullet to max 4, e.g.
+
+- Recursion uses more memory…
+- …iteration uses less memory
+- Recursion declares new variables /variables are put onto the stack each time…
+- …iteration reuses the same variables
+
+- Recursive can run out of memory/stack space…
+- …while iteration cannot run out of memory
+- Recursion can express a problem more elegantly / in fewer lines of code…
+- …while iteration can take more lines of code / be harder to understand
+- Recursion will be self-referential / will call itself…
+- … whereas iteration does not
+'''
+
+[[question.mark_scheme]]
+label = "7(d)"
+marks = 6
+answer = '''
+1 mark per bullet to max 6
+
+- Retains function call
+- Uses a loop
+- …that will loop until all elements inspected or value found
+- Updates num1 appropriately
+- Updates num2 appropriately
+- Returns -1 in the correct place if the value has not been found
+- Returns the result in the correct place if the value has been found
+
+e.g.
+
+```
+function thisFunction(theArray, num1, num2, num3)
+```
+
+```
+while (true)
+  result = num1 + ((num2 - num1) DIV 2)
+  if num2 < num1 then
+   return -1
+  else
+   if theArray[result] < num3 then
+    num1 = result + 1
+   elseif theArray[result] > num3 then
+    num2 = result - 1
+   else
+    return result
+   endif
+  endif
+endwhile
+endfunction
+```
+'''
+
+[[question]]
+number = 8
+marks = 3
+
+[[question.part]]
+label = "8"
+marks = 3
+text = '''
+The following pseudocode procedure performs an insertion sort on the array parameter.
+
+```
+01 procedure insertionSort(dataArray:byRef)
+02  for i = 1 to dataArray.Length - 1
+03    temp = dataArray[i]
+04    tempPos = i – 1
+05    exit = false
+06    while tempPos >= 0 and exit == false
+07      if dataArray[tempPos] < temp then
+08        dataArray[tempPos + 1] = dataArray[tempPos]
+09        tempPos = tempPos - 1
+10      else
+11        exit = true
+12      endif
+13    endwhile
+14    dataArray[tempPos + 1] = temp
+15  next i
+16 endprocedure
+```
+
+State whether the procedure `insertionSort` sorts the data into ascending or descending order and explain your choice.
+'''
+
+[[question.mark_scheme]]
+label = "8"
+marks = 3
+answer = '''
+1 mark pet bullet to max 3
+
+- Descending order
+- Line 07 `(dataArray[tempos]<temp)` has the comparison…
+- …that checks if current position is less than item to insert and…
+- …breaks out of loop when current position is less than or equal to item to insert
+'''
+
+[[question]]
+number = 9
+marks = 32
+diagram = true
+
+[[question.part]]
+label = "9(a)"
+marks = 2
+text = '''
+A printer buffer is a storage area that holds the data, known as jobs, that are to be printed by a printer.
+
+A simulation of the printer buffer uses a queue data structure to store jobs that are waiting to be printed. The queue is not circular.
+
+The printer buffer is represented as a zero-indexed 1D array with the identifier `buffer`.
+
+**Fig. 2** shows the current contents of the queue `buffer` and its pointers.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 2**
+
+State the purpose of the pointers `queueHead` and `queueTail`.
+
+```
+queueHead
+```
+
+```
+queueTail
+```
+'''
+
+[[question.part]]
+label = "9(b)"
+marks = 5
+text = '''
+The function `dequeue` outputs and removes the next data item in the queue.
+
+The procedure `enqueue` adds the job passed as a parameter to the queue.
+
+Show the final contents of the queue and pointer values after the following instructions have been run on the queue `buffer` shown in **Fig. 2**.
+
+```
+dequeue()
+
+dequeue()
+
+enqueue(job-128)
+
+dequeue()
+
+enqueue(job-129)
+```
+
+*[Diagram in the original paper, not shown here.]*
+'''
+
+[[question.part]]
+label = "9(c)"
+text = '''
+The array, `buffer` and pointer values are declared with global scope.
+'''
+
+[[question.part]]
+label = "9(c)(i)"
+marks = 5
+text = '''
+The function `dequeue` returns `null` if the array is empty, and the contents of the next element if not empty. The queue is not circular.
+
+Write an algorithm, using pseudocode or program code, for the function `dequeue()`.
+'''
+
+[[question.part]]
+label = "9(c)(ii)"
+marks = 6
+text = '''
+The function `enqueue` returns -1 if there is no space at the end of the queue to add data, and returns 1 if the parameter was added to `buffer`. The array `buffer` contains a maximum of 100 elements.
+
+Write an algorithm, using pseudocode or program code, for the function `enqueue()`.
+'''
+
+[[question.part]]
+label = "9(c)(iii)"
+marks = 8
+text = '''
+In the main program of the simulation the user is asked whether they want to add an item to the queue or remove an item.
+
+If they choose to add an item they have to input the job name, and the function `enqueue` is called.
+
+If they choose to remove an item, the function `dequeue` is called and the job name is output.
+
+Appropriate messages are output if either action cannot be run because the queue is either empty or full.
+
+Write, using pseudocode or program code, an algorithm for the main program of the simulation.
+'''
+
+[[question.part]]
+label = "9(d)"
+marks = 3
+text = '''
+The queue is changed to make it a circular queue.
+
+Describe how the functions `enqueue` and `dequeue` will need to be changed to allow `buffer` to work as a circular queue.
+'''
+
+[[question.part]]
+label = "9(e)"
+marks = 3
+text = '''
+Some print jobs can have different priorities. The higher the priority the sooner the job needs to be printed.
+
+Describe how the program could be changed to deal with different priorities.
+'''
+
+[[question.mark_scheme]]
+label = "9(a)"
+marks = 2
+answer = '''
+1 mark per pointer
+
+- queueHead: Point to the first element in the queue / next element to remove
+- queueTail: Point to the last element in the queue
+'''
+
+[[question.mark_scheme]]
+label = "9(b)"
+marks = 5
+answer = '''
+1 mark per bullet up to max 5
+
+- first 3 jobs removed
+- 128 and 129 added in positions 4 and 5 respectively
+- no additional jobs
+- queueHead being 3 (FT errors)
+- queueTail being 5 (FT errors)
+
+*[Image in the original mark scheme, not shown here.]*
+'''
+guidance = '''
+The underlying\
+implementation of the queue has not been specified, so allow alternative valid answers. e.g.\
+queueHead = 0\
+queueTail = 2\
+Location 2: 129\
+Location 1: 128\
+Location 0: 127
+'''
+
+[[question.mark_scheme]]
+label = "9(c)(i)"
+marks = 5
+answer = '''
+1 mark per bullet to max 5
+
+- Function declaration
+- Checking if queue is empty
+- …returning `null`
+- (Otherwise) incrementing `queueHead`
+- …returning `buffer[queueHead-1]`
+
+e.g.
+
+```
+function dequeue()
+  if queueHead > queueTail then
+   return null
+  else
+   queueHead = queueHead + 1
+   return buffer[queueHead-1]
+  endif
+endfunction
+```
+'''
+guidance = '''
+Note: Accept alternative valid underlying\
+implementation answers e.g. Shifting all elements in queue forward.
+'''
+
+[[question.mark_scheme]]
+label = "9(c)(ii)"
+marks = 6
+answer = '''
+1 mark per bullet to max 6
+
+- Function declaration taking parameter
+- Checking if queue is full
+- …returning -1
+- (Otherwise) incrementing queueTail
+- Adding newJob to buffer(queueTail)
+
+- Returning 1
+
+e.g.
+
+```
+function enqueue(newJob)
+  if queueTail == 99 then
+   return -1
+  else
+   queueTail = queueTail + 1
+   buffer[queueTail] = newJob
+   return 1
+  endif
+endfunction
+```
+'''
+
+[[question.mark_scheme]]
+label = "9(c)(iii)"
+marks = 8
+answer = '''
+1 mark per bullet to max 8
+
+- Inputting user choice
+- If enqueue chosen input job name
+- …call enqueue with input value as parameter
+- …check if return value is -1 and output full
+- …otherwise output message that item is added
+- If dequeue chosen
+- …call dequeue **and** save returned value
+- …output returned value (jobname) if not null
+- …or output queue is empty
+
+e.g.
+
+```
+main()
+  choice = input("Add or remove?")
+  if choice == "ADD" then
+   jobname = input("Enter job name")
+   returnValue = enqueue(jobname)
+   if returnValue == -1 then
+    print("Queue full")
+   else
+    print("Job added")
+   endif
+  else
+   returnValue = dequeue()
+   if returnValue == null then
+    print("Queue empty")
+   else
+    output returnValue
+   endif
+  endif
+endmain
+```
+'''
+guidance = '''
+Allow equivalent checks / logic
+'''
+
+[[question.mark_scheme]]
+label = "9(d)"
+marks = 3
+answer = '''
+1 mark per bullet to 3
+
+- Check if either head or tail are incremented to above 99
+- … set to be 0 instead
+- When checking if array is full check if (queueTail == queueHead – 1) OR (queueTail==99 AND queueHead==0)
+'''
+guidance = '''
+Credit equivalent modulo arithmetic solution
+'''
+
+[[question.mark_scheme]]
+label = "9(e)"
+marks = 3
+answer = '''
+1 mark per bullet to max 3, e.g.
+
+- Use a different structure e.g. a linked list
+- …items can be added at different points in the linked list depending on priority
+- …by changing the pointers to items needing priority
+- Have different queues for different priorities
+- …add the job to the queue relevant to its priority
+- …print all the jobs in the highest priority queue first
+'''
+guidance = '''
+Allow other suitable descriptions that show how the program could be amended.
+'''
+
+[[question]]
+number = 10
+marks = 3
+
+[[question.part]]
+label = "10(a)"
+marks = 1
+text = '''
+Given the following procedure:
+
+```
+procedure maths(number)
+   a = (number DIV 10) * 10
+   b = a + 10
+   if (number – a) >= (b – number) then
+     print(b)
+   else
+     print(a)
+   endif
+endprocedure
+```
+
+State the value printed by the procedure `maths` if `number=10`
+'''
+
+[[question.part]]
+label = "10(b)"
+marks = 1
+text = '''
+State the value printed by the procedure `maths` if `number=27`
+'''
+
+[[question.part]]
+label = "10(c)"
+marks = 1
+text = '''
+State the value printed by the procedure `maths` if `number=14`
+
+**END OF QUESTION PAPER**
+'''
+
+[[question.mark_scheme]]
+label = "10(a)"
+answer = '''
+- 10
+
+1
+
+A03.2 (1)
+'''
+
+[[question.mark_scheme]]
+label = "10(b)"
+answer = '''
+- 30
+
+1
+
+A03.2 (1)
+'''
+
+[[question.mark_scheme]]
+label = "10(c)"
+answer = '''
+- 10
+
+1
+
+A03.2 (1)
+'''

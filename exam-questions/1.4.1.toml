@@ -1,0 +1,1422 @@
+# OCR exam questions for 1.4.1 Data Types.
+# Copied as text from the question paper and mark scheme PDFs in sources/
+# by tools/extract-exam-questions. Diagrams are not copied. Corrections by
+# hand are fine: the tool will not overwrite this file without --force.
+spec = "1.4.1"
+
+[[question]]
+number = 1
+marks = 13
+diagram = true
+
+[[question.part]]
+label = "1(a)"
+text = '''
+Two's complement can be used to represent negative binary numbers.
+'''
+
+[[question.part]]
+label = "1(a)(i)"
+marks = 1
+text = '''
+Convert the denary number -124 into an 8-bit two's complement binary number.
+'''
+
+[[question.part]]
+label = "1(a)(ii)"
+marks = 1
+text = '''
+State **one** other way to represent negative binary numbers.
+'''
+
+[[question.part]]
+label = "1(b)"
+marks = 2
+text = '''
+Convert the denary number 298 into hexadecimal.
+'''
+
+[[question.part]]
+label = "1(c)"
+marks = 3
+text = '''
+The binary number **10011101 0110** is stored in **normalised** floating point form with an 8-bit mantissa and a 4-bit exponent both written in two's complement.
+
+Convert this binary number into denary.
+
+You must show your working.
+'''
+
+[[question.part]]
+label = "1(d)"
+marks = 4
+text = '''
+The binary number **00001011 0111** is represented in **unnormalised** floating point form with an 8-bit mantissa and a 4-bit exponent both written in two's complement.
+
+Convert this binary number into a **normalised** floating point binary number, represented using an 8-bit mantissa and 4-bit exponent format.
+
+You must show your working.
+'''
+
+[[question.part]]
+label = "1(e)"
+marks = 2
+text = '''
+Calculate the binary addition of these two 8-bit (unsigned) binary numbers.
+
+Show your working.
+
+*[Diagram in the original paper, not shown here.]*
+'''
+
+[[question.mark_scheme]]
+label = "1(a)(i)"
+marks = 1
+answer = '''
+1000 0100
+'''
+guidance = '''
+CAO
+
+**Examiner’s Comments**
+
+This was generally well answered with the majority of candidates gaining full marks. Those that did not had either got it completely wrong or had missed or added an extra zero.
+'''
+
+[[question.mark_scheme]]
+label = "1(a)(ii)"
+marks = 1
+answer = '''
+Sign and magnitude
+'''
+guidance = '''
+Accept: One’s complement
+
+**Examiner’s Comments**
+
+This was generally well answered and the majority of candidates gained one mark.
+'''
+
+[[question.mark_scheme]]
+label = "1(b)"
+marks = 2
+answer = '''
+12A
+
+- 1 mark for 12
+- 1 mark for A
+'''
+guidance = '''
+Must be in correct order.
+
+**Examiner’s Comments**
+
+This was generally well answered and the majority of candidates gained two marks.
+'''
+
+[[question.mark_scheme]]
+label = "1(c)"
+marks = 3
+answer = '''
+1 mark per bullet to max 3:
+
+- Converting exponent to **6**
+- Converting mantissa to **1001110.1** / moving binary point **6** to the **right**
+- **-49.5**
+'''
+guidance = '''
+MP2 - if flipped = **110001.1**
+
+Correct answer, with any binary working gets full marks
+
+**Examiner’s Comments**
+
+The majority of candidates were able to gain a mark for converting the exponent to 6 and many were able to gain the second mark for moving the point 6 places to the right. Many candidates gained full marks although some were unable to convert the binary number back to denary to give -49.5
+'''
+
+[[question.mark_scheme]]
+label = "1(d)"
+marks = 4
+answer = '''
+1 mark per bullet to max 4:
+
+- Reducing exponent **to 4** / reducing exponent **by 3**
+- New mantissa starts **01011**...
+- ... and is written out to 8 bits making **01011000**
+- New exponent of **0100**
+'''
+guidance = '''
+Correct mantissa and exponent, with any binary working gets full marks
+
+**Examiner’s Comments**
+
+There were a range of responses with more successful candidates gaining full marks. Some candidates lost marks for incorrectly writing the final mantissa to 8 bits.
+'''
+
+[[question.mark_scheme]]
+label = "1(e)"
+marks = 2
+answer = '''
+1 mark per bullet to max 2:
+
+- 1101 0000
+- Correct working out/ 6 carries shown
+'''
+guidance = '''
+0 mark for denary calculations with no carries shown.
+
+**Examiner’s Comments**
+
+The majority of candidates were able to gain full marks on this question showing accurate working out and a correct response.
+'''
+
+[[question]]
+number = 2
+marks = 12
+
+[[question.part]]
+label = "2(a)"
+text = '''
+Using the binary value 1001 1101, convert this into:
+'''
+
+[[question.part]]
+label = "2(a)(i)"
+marks = 1
+text = '''
+A positive denary number.
+'''
+
+[[question.part]]
+label = "2(a)(ii)"
+marks = 1
+text = '''
+A negative denary number using two's complement.
+'''
+
+[[question.part]]
+label = "2(a)(iii)"
+marks = 1
+text = '''
+A hexadecimal value.
+'''
+
+[[question.part]]
+label = "2(b)"
+marks = 9
+text = '''
+Binary values stored by a computer can represent different types of data.
+
+Discuss the different types of data that can be stored in binary and why computer systems store data in binary format.
+
+You should refer to the following in your answer:
+
+- what types of data can be represented in binary
+- examples of how binary is used to represent this data
+- why computers store data in binary format.
+'''
+
+[[question.mark_scheme]]
+label = "2(a)(i)"
+marks = 1
+answer = '''
+157
+'''
+guidance = '''
+CAO
+
+**Examiner’s Comments**
+
+Most candidates answered this question correctly.
+'''
+
+[[question.mark_scheme]]
+label = "2(a)(ii)"
+marks = 1
+answer = '''
+- 99
+'''
+guidance = '''
+CAO
+
+**Examiner’s Comments**
+
+Most candidates answered this question correctly.
+'''
+
+[[question.mark_scheme]]
+label = "2(a)(iii)"
+marks = 1
+answer = '''
+9D
+'''
+guidance = '''
+CAO
+
+**Examiner’s Comments**
+
+Most candidates answered this question correctly.
+'''
+
+[[question.mark_scheme]]
+label = "2(b)"
+marks = 2
+answer = '''
+**Mark Band 3 - High Level** **(7-9 marks)**\
+The candidate demonstrates a thorough knowledge and\
+understanding of why data is stored in binary with points covering a range of examples of data types. All detail is generally accurate and relevant.\
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided.\
+Evidence/examples will be explicitly relevant to the explanation. The candidate will come to a clear conclusion that must be justified by their comments.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and
+
+substantiated.
+
+**Mark Band 2- Mid Level**\
+**(4-6 marks)**\
+The candidate demonstrates reasonable knowledge and understanding of why data is stored in binary with points covering a range of examples of data types stored in binary. The material is generally accurate but at times underdeveloped.\
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed.\
+Evidence/examples are for the most part implicitly relevant to the explanation.\
+The candidate will attempt to come to a conclusion, although it may not be fully justified by their answer.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1- Low Level** **(1-3 marks)**\
+The candidate demonstrates a basic knowledge of why data is stored in binary with points covering some examples of data types stored in binary. The material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided.\
+The candidate provides nothing more than an unsupported assertion.
+
+The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 mark**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+AO1\
+Types of data stored in binary:\
+E.g.
+
+- Numeric
+- Alphanumeric/text/characters/symbols
+- Sound
+- Images
+- Video
+
+AO2:\
+Examples:
+
+- Text - Use of character sets such as ASCII and Extended ASCII. Each character is given a separate binary code. Increasing the number of bits for each character increase the number of possible characters that can be stored
+- Numbers - Numbers can be stored using binary. Sign and Magnitude and Two’s Compliment can be used to
+
+store negative binary numbers. Floating Point binary can be used to store data with a decimal point.
+
+Other answers outside of the specification should still be accepted. E.g.
+
+- Images are split into pixels. Each pixel is given a binary value which represents a colour.
+- Analogue sound is sampled. A sample is a reading that is taken at certain points and is stored as a binary number.
+
+AO3\
+Reasons computers use binary:
+
+- Computers made up of switches/logic gates
+- They will have on/off/two states
+- This easily translates to binary values
+
+**Examiner’s Comments**
+
+Candidates were assessed on the quality of their extended response in this question. Most candidates were able to explain why computers store data in a binary format and many discussed character sets being used to store test using ASCII and UNICODE. Many candidates also further discussed storing numbers using sign and magnitude and floating point, etc.
+
+Few candidates discussed other points such as sound, video and images being stored in binary, and few mentioned that computers are made up of logic gates/switches.
+'''
+
+[[question]]
+number = 3
+marks = 14
+
+[[question.part]]
+label = "3(a)(i)"
+marks = 1
+text = '''
+Convert the denary number **189** to hexadecimal.
+'''
+
+[[question.part]]
+label = "3(a)(ii)"
+marks = 1
+text = '''
+Convert the unsigned binary number **1010101111** to hexadecimal.
+'''
+
+[[question.part]]
+label = "3(b)"
+text = '''
+Negative binary values can be represented using either sign and magnitude or two’s complement.
+'''
+
+[[question.part]]
+label = "3(b)(i)"
+marks = 1
+text = '''
+Convert the denary number **-107** to an 8-bit binary number using sign and magnitude.
+'''
+
+[[question.part]]
+label = "3(b)(ii)"
+marks = 1
+text = '''
+Convert the denary number **-107** to an 8-bit binary number using two’s complement.
+'''
+
+[[question.part]]
+label = "3(b)(iii)"
+marks = 1
+text = '''
+Give **one** advantage of storing values using two’s complement instead of sign and magnitude.
+'''
+
+[[question.part]]
+label = "3(c)"
+marks = 4
+text = '''
+Show how the denary value **-15.75** can be represented as a normalised floating point binary number using 8 bits for the mantissa and 4 bits for the exponent.
+
+You must show your working.
+'''
+
+[[question.part]]
+label = "3(d)"
+marks = 3
+text = '''
+The normalised floating point binary number 0100 1110 is stored using 4 bits for the mantissa and 4 bits for the exponent, both in two’s complement.
+
+Convert this number to denary.
+
+You must show your working.
+'''
+
+[[question.part]]
+label = "3(e)"
+marks = 2
+text = '''
+Complete each of the following sentences relating to the storage of floating point binary numbers with an appropriate word.
+
+Increasing the number of bits used for the mantissa increases the …… of the number that can be stored.
+
+Increasing the number of bits used for the exponent increases the …… of the number that can be stored.
+'''
+
+[[question.mark_scheme]]
+label = "3(a)(i)"
+marks = 1
+answer = '''
+- BD
+'''
+guidance = '''
+Correct answer only
+
+**Examiner’s Comments**
+
+Binary and hexadecimal questions were generally well answered with many candidates being able to gain full marks across the question parts.
+'''
+
+[[question.mark_scheme]]
+label = "3(a)(ii)"
+marks = 1
+answer = '''
+- 2AF
+'''
+guidance = '''
+Correct answer only
+
+**Examiner’s Comments**
+
+Binary and hexadecimal questions were generally well answered with many candidates being able to gain full marks across the question parts.
+'''
+
+[[question.mark_scheme]]
+label = "3(b)(i)"
+marks = 1
+answer = '''
+- 1110 1011
+'''
+guidance = '''
+Correct answer only
+
+**Examiner’s Comments**
+
+Binary and hexadecimal questions were generally well answered with many candidates being able to gain full marks across the question parts.
+'''
+
+[[question.mark_scheme]]
+label = "3(b)(ii)"
+marks = 1
+answer = '''
+- 1001 0101
+'''
+guidance = '''
+Correct answer only
+
+**Examiner’s Comments**
+
+Binary and hexadecimal questions were generally well answered with many candidates being able to gain full marks across the question parts.
+'''
+
+[[question.mark_scheme]]
+label = "3(b)(iii)"
+marks = 1
+answer = '''
+- Calculations are more easily **performed** on two’s complement
+- Two’s complement allows for a (negligible) larger range of numbers to be stored / by example
+- No additional hardware is required in two’s complement / Addition and subtraction are carried out using only an adder
+- Two’s complement has only one representation for 0
+'''
+guidance = '''
+Accept the reverse of the MP
+
+**Examiner’s Comments**
+
+Binary and hexadecimal questions were generally well answered with many candidates being able to gain full marks across the question parts.
+'''
+
+[[question.mark_scheme]]
+label = "3(c)"
+marks = 4
+answer = '''
+- -15.75 is 10000.01 (in fixed point two's complement)
+
+- Binary point moved **4** places **left**
+- Mantissa 1000 0010
+- Exponent 0100
+'''
+guidance = '''
+Mantissa must be 8 bits, exponent must be 4 bits
+
+Accept alternative working for MP2 if appropriate.
+
+If mantissa AND exponent are correct with any working, 4 marks
+
+**Examiner’s Comments**
+
+Binary and hexadecimal questions were generally well answered with many candidates being able to gain full marks across the question parts.
+'''
+
+[[question.mark_scheme]]
+label = "3(d)"
+marks = 3
+answer = '''
+- Exponent is -2
+- Binary point moved **2** places **left** (0.001) / 0.5 x 2<sup>-2</sup>
+- 0.125 / 1/8 (one eighth)
+'''
+guidance = '''
+MP2 is for correct working of whichever method is used.
+
+If answer is correct and working is shown, 3 marks
+
+**Examiner’s Comments**
+
+Binary and hexadecimal questions were generally well answered with many candidates being able to gain full marks across the question parts.
+'''
+
+[[question.mark_scheme]]
+label = "3(e)"
+marks = 2
+answer = '''
+- precision / accuracy
+- range / size / magnitude
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many candidates attempted this question with many showing a good understanding of floating-point binary. The most common error was to get the answers the wrong way round giving size or range for the first gap and precision or accuracy for the second.
+'''
+
+[[question]]
+number = 4
+marks = 10
+
+[[question.part]]
+label = "4(a)"
+marks = 1
+text = '''
+State the benefit of using a normalised form when representing data as a floating point number.
+'''
+
+[[question.part]]
+label = "4(b)"
+marks = 2
+text = '''
+Describe what is meant by the term ‘character set’.
+'''
+
+[[question.part]]
+label = "4(c)(i)"
+marks = 2
+text = '''
+Convert the hexadecimal number 66 into a denary number. Show your working.
+'''
+
+[[question.part]]
+label = "4(c)(ii)"
+marks = 2
+text = '''
+State **two** reasons why a programmer would prefer to use hexadecimal numbers rather than binary numbers.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "4(d)"
+marks = 3
+text = '''
+Show the denary value 6.25 as a floating point binary number representing the mantissa and exponent. Both of these should be stored in two’s complement representation.
+
+You should use as few bits as possible.
+
+Show your working.
+'''
+
+[[question.mark_scheme]]
+label = "4(a)"
+marks = 1
+answer = '''
+- Allows for more accuracy/precision from the given number of bits
+- The representation of each binary value is unique
+'''
+guidance = '''
+**Examiner’s Comments**
+
+This question was not answered well as many candidates seemed to misread the question. The majority of candidates that answered this question correctly stated that normalised form allowed for greater accuracy/precision from the number of bits.
+'''
+
+[[question.mark_scheme]]
+label = "4(b)"
+marks = 2
+answer = '''
+- List/mapping of characters (that can be understood by the hardware/software/computer)
+- Each character is given a **unique** binary/numeric code
+
+that is stored instead of the character.
+'''
+guidance = '''
+Allow a list of letters /symbols
+
+**Examiner’s Comments**
+
+Most candidates were given at least 1 mark for this question. Some did not gain the
+
+second mark as they missed stating that each character has a unique binary value.
+'''
+
+[[question.mark_scheme]]
+label = "4(c)(i)"
+marks = 2
+answer = '''
+- 102 (correct answer)
+- Suitable working out
+'''
+guidance = '''
+**Examiner’s Comments**
+
+This question was generally answered well. Candidates tended to be awarded either full or no marks. If the working was correct for calculating the denary value, the response was usually correct as this only required simple addition.
+'''
+
+[[question.mark_scheme]]
+label = "4(c)(ii)"
+marks = 2
+answer = '''
+- Hexadecimal values are shorter than binary as 4 bits/nibble can be represented by one hex character.
+- Hexadecimal values are faster / more reliable to communicate / enter / write down / read.
+'''
+guidance = '''
+Do not accept Hexadecimal is “easy” communicate/enter etc…
+
+**Examiner’s Comments**
+
+Many candidates achieved 1 mark for this question. Many candidates correctly stated that hexadecimal numbers are easier/faster to read/write, but were not given the second mark as they didn’t state that hexadecimal numbers are shorter than binary numbers.
+'''
+
+[[question.mark_scheme]]
+label = "4(d)"
+marks = 3
+answer = '''
+- Fixed point is 0110.01
+- Mantissa becomes 0.11001
+- Exponent of three needed (represented at 011)
+'''
+guidance = '''
+Final Answer 011001 011
+
+Correct answer with any working gets full marks
+
+**Examiner’s Comments**
+
+Many candidates were given the first mark by working out the fixed-point equivalent of 6.25 (0110.01) but were not given further marks because they did not read the question correctly. The question states the response must use as few bits as possible. Although some candidates correctly calculated the mantissa, many had extra digits in the exponent which could have been removed. See Exemplar 2 which was given full marks.
+
+Exemplar 2
+
+*[Image in the original mark scheme, not shown here.]*
+
+The candidate clearly shows the fixed-point value of 6.25 to gain the first mark. The second mark is given for showing the
+
+mantissa with six bits and the final mark for showing the exponent with three bits. All of these values are displayed clearly, and the candidate uses arrows to demonstrate the movement of the decimal point as additional working.
+'''
+
+[[question]]
+number = 5
+marks = 1
+
+[[question.part]]
+label = "5"
+marks = 1
+text = '''
+A bubble sort will sort an array of 50 integer values called `numberArray`.
+
+State why the integer values are stored in an array instead of separate variables.
+'''
+
+[[question.mark_scheme]]
+label = "5"
+marks = 1
+answer = '''
+1 mark for:
+
+- Can refer to all 50 only using one identifier / all values can be indexed in one array
+- The numbers can be passed as a single parameter
+- Does not need 50 variables to be declared/passed
+'''
+guidance = '''
+**Examiner’s Comments**
+
+The concept of having a single indexable identifier seemed to be poorly understood with few candidates gaining the mark. While many candidates understood that an array can be iterated through, they did not link this to the fact that elements in an array are indexable. Similarly, unqualified points such as ‘an array is easier to sort’ were not given marks for the same reason.
+
+There was a common misconception that an array would use far less memory space than 50 separate variables. There would be minimal difference since each separate value would take the same amount of storage space as the corresponding value in an array. The only overhead for separate variables would be the extra pointers to the memory locations for each, compared to one pointer for an array.
+'''
+
+[[question]]
+number = 6
+marks = 6
+
+[[question.part]]
+label = "6"
+text = '''
+A programmer creates another function to count and return how many capital letters are in a string that is passed into the function as a parameter.
+
+The `asc()` function takes in a character and returns its ASCII value. For example `asc("A")` returns 65. Capital letters have ASCII values between 65 and 90 inclusive.
+'''
+
+[[question.part]]
+label = "6(i)"
+marks = 3
+text = '''
+Complete the function below.
+
+```
+function countCapitals(text)
+  / initialise counter to 0
+  capCount = 0
+  / loop through each character in the string passed in
+  for x = 0 to text.length-1
+     c = text.subString(x, 1)
+     / check if character is a capital
+     if asc(c) >= 65 ……
+       / if so, increment counter
+       ……
+     endif
+  next x
+  ……
+endfunction
+```
+'''
+
+[[question.part]]
+label = "6(ii)"
+marks = 1
+text = '''
+Give **one** similarity between ASCII and Unicode.
+'''
+
+[[question.part]]
+label = "6(iii)"
+marks = 2
+text = '''
+Give **two** differences between ASCII and Unicode.
+
+Difference 1
+
+Difference 2
+'''
+
+[[question.mark_scheme]]
+label = "6(i)"
+marks = 3
+answer = '''
+```
+function countCapitals(text)
+  / initialise counter to 0
+  capCount = 0
+  / loop through each character in
+the string passed in
+  for x = 0 to text.length-1
+    c = text.subString(x, 1)
+    / check if character is a
+capital
+    if asc(c) >= 65 and asc(c) <= 90
+/ if so, increment counter
+      capCount = capCount + 1
+    endif
+  next x
+  return capCount
+endfunction
+```
+'''
+guidance = '''
+Accept alternative answers in high-level languages (e.g. `capCount ++` or `capCount +=1 / &&` for `and` for BP1)
+
+Accept `countCapitals = capCount` for BP3 (Returning via assigning to function identifier is used in VB / Pascal)
+
+Accept **and asc(c) \< 91** instead of **\<=90**
+
+Allow FT for returning the value they increment as a counter if it isn’t capCount
+'''
+
+[[question.mark_scheme]]
+label = "6(ii)"
+marks = 1
+answer = '''
+- Both (use binary) to represent characters / are character sets
+
+- The first 7/8 bits of Unicode is the same as ASCII (overlaps)
+'''
+
+[[question.mark_scheme]]
+label = "6(iii)"
+marks = 2
+answer = '''
+- ASCII has fewer characters (128/256) / Unicode has more characters
+- ASCII is 7/8 bits whereas Unicode can be larger 16/32 / can have variable sized characters
+- ASCII limited to Latin / English / European characters whereas Unicode can represent other symbols (e.g. Chinese/Cyrillic/Emojis)
+'''
+guidance = '''
+Only mark the 1st answer for each difference
+
+For BP2&3, must have both sides to get the mark
+
+**Examiner’s Comments**\
+Candidates should be encouraged to give a complete answer. Just saying ‘Unicode uses more bits than ASCII’ is not enough to be given a mark at this level.
+'''
+
+[[question]]
+number = 7
+marks = 13
+diagram = true
+
+[[question.part]]
+label = "7(a)(i)"
+marks = 1
+text = '''
+Convert the hexadecimal value **B7E** to a binary number.
+'''
+
+[[question.part]]
+label = "7(a)(ii)"
+marks = 1
+text = '''
+110010101 is a binary number that is represented using sign and magnitude.
+
+Convert this binary number to a denary number.
+'''
+
+[[question.part]]
+label = "7(a)(iii)"
+marks = 3
+text = '''
+Complete this binary subtraction. Both numbers are 8-bit integer values represented using two’s complement.
+
+Show the result in the same format and show your working.
+
+*[Diagram in the original paper, not shown here.]*
+'''
+
+[[question.part]]
+label = "7(b)"
+marks = 4
+text = '''
+The normalised floating point number 1010 1110 is stored using 4 bits for the mantissa and 4 bits for the exponent, both in two’s complement.
+
+Give the denary version of this number, showing your working.
+'''
+
+[[question.part]]
+label = "7(c)"
+marks = 4
+text = '''
+**Table 3** here shows floating point numbers that are stored using 6 bits for the mantissa and 3 bits for the exponent, both in two’s complement.
+
+Tick (✓) one box in each row to state whether each number is normalised or not normalised.
+
+| **Binary number** | **Normalised** | **Not normalised** |
+|---|---|---|
+| 010101 100 |   |   |
+| 110101 111 |   |   |
+| 011010 010 |   |   |
+| 101010 110 |   |   |
+
+**Table 3**
+'''
+
+[[question.mark_scheme]]
+label = "7(a)(i)"
+marks = 1
+answer = '''
+- 1011 0111 1110
+'''
+guidance = '''
+CAO
+'''
+
+[[question.mark_scheme]]
+label = "7(a)(ii)"
+marks = 1
+answer = '''
+- -149
+'''
+guidance = '''
+CAO
+'''
+
+[[question.mark_scheme]]
+label = "7(a)(iii)"
+marks = 3
+answer = '''
+0011 1001
+
+- One mark for correct left hand nibble (CAO)
+- One mark for correct right hand nibble (CAO)
+- One mark for working clearly shown
+'''
+guidance = '''
+Working could include showing “borrowing” values from other columns or making the second number negative and adding.
+
+Answer must be 8 bits to achieve full marks (stated in question).
+
+No marks if only working is denary
+
+**Examiner’s Comments**\
+Most candidates were able to gain some marks, with many gaining full marks. A popular method was to do two’s complement addition. Candidates should be encouraged to show their working in binary and not do the subtraction in denary and then just give the answer in binary. The question asks them to complete a binary subtraction.
+'''
+
+[[question.mark_scheme]]
+label = "7(b)"
+marks = 4
+answer = '''
+- Exponent is -2
+- Move decimal place 2 places left
+- Fill with 1s giving 1.1101
+- Denary answer is -0.1875 /
+'''
+guidance = '''
+Accept alternative method of -0.75 x 2<sup>-2</sup> for BP2 and BP3. BP2 credited for -0.75, BP3 credited for multiplying by 2<sup>-2</sup>
+
+Correct answer with valid working gets full marks
+
+**Examiner’s Comments**\
+Most candidates correctly identified the exponent and that the point needed to be moved to the left. Any valid method of
+
+working was given marks here, where candidates got the correct answer.
+'''
+
+[[question.mark_scheme]]
+label = "7(c)"
+marks = 4
+answer = '''
+| **Binary** **number** | **Normalised** | **Not** **normalised** |
+|---|---|---|
+| 010101 100 | x |   |
+| 110101 111 |   | x |
+| 011010 010 | x |   |
+
+101010 110 x
+'''
+guidance = '''
+One mark per row. No mark if both/neither box is ticked.
+
+Accept other marks that clearly indicate choice (e.g. X)\
+**Examiner’s Comments**\
+This question was mostly well answered. However, some candidates were able to identify 01 as being normalised but not 10 being normalised.
+'''
+
+[[question]]
+number = 8
+marks = 9
+diagram = true
+
+[[question.part]]
+label = "8(a)"
+marks = 1
+text = '''
+State why computer systems store data in binary.
+'''
+
+[[question.part]]
+label = "8(b)(i)"
+marks = 1
+text = '''
+Convert the denary number 97 into an **8**-bit binary number.
+'''
+
+[[question.part]]
+label = "8(b)(ii)"
+marks = 1
+text = '''
+Convert the denary number 171 into a hexadecimal number.
+'''
+
+[[question.part]]
+label = "8(b)(iii)"
+marks = 1
+text = '''
+Convert the denary number –97 into an **8**-bit binary number using two’s complement.
+'''
+
+[[question.part]]
+label = "8(b)(iv)"
+marks = 1
+text = '''
+Convert the denary number –17 into an **8**-bit binary number using sign and magnitude.
+'''
+
+[[question.part]]
+label = "8(c)"
+marks = 2
+text = '''
+State **one** advantage of using two’s complement instead of sign and magnitude.
+'''
+
+[[question.part]]
+label = "8(d)"
+marks = 2
+text = '''
+Calculate the addition of these two 8-bit (unsigned) binary numbers.
+
+Show your working.
+
+*[Diagram in the original paper, not shown here.]*
+'''
+
+[[question.mark_scheme]]
+label = "8(a)"
+marks = 1
+answer = '''
+1 mark for any of the following bullet points, e.g:
+
+- Computers use binary logic for on/off or 1/0
+- Computer systems are based on switches/transistors
+- Binary is high tolerance
+'''
+guidance = '''
+**Examiner’s Comments**\
+This question was generally answered well.
+'''
+
+[[question.mark_scheme]]
+label = "8(b)(i)"
+marks = 1
+answer = '''
+- 0110 0001
+'''
+guidance = '''
+Must get the whole answer right for the mark to be awarded.
+
+**Examiner’s Comments**\
+To gain the mark, the candidate was required to use all 8 bits. Some used 7 bits and therefore did not achieve the mark. Candidates should be reminded to read through each question carefully.
+'''
+
+[[question.mark_scheme]]
+label = "8(b)(ii)"
+marks = 1
+answer = '''
+- AB
+'''
+guidance = '''
+Must get the whole answer right for the mark to be awarded.
+
+**Examiner’s Comments**\
+This question was answered well with most errors relating to a miscalculation.
+'''
+
+[[question.mark_scheme]]
+label = "8(b)(iii)"
+marks = 1
+answer = '''
+- 1001 1111
+'''
+guidance = '''
+Must get the whole answer right for the mark to be awarded.
+
+**Examiner’s Comments**\
+This was generally answered well although some candidates were confused between two’s complement and sign and magnitude.
+'''
+
+[[question.mark_scheme]]
+label = "8(b)(iv)"
+marks = 1
+answer = '''
+- 1001 0001
+'''
+guidance = '''
+Must get the whole answer right for the mark to be awarded.
+
+**Examiner’s Comments**\
+As with Question 4 (b) (iii), this was
+
+answered well although some candidates gave an answer using two’s complement.
+'''
+
+[[question.mark_scheme]]
+label = "8(c)"
+marks = 2
+answer = '''
+- – Can be easily used in binary arithmetic or
+- – Increased range of numbers available
+'''
+guidance = '''
+Award 0 or 2 marks
+
+**Examiner’s Comments**\
+This question was worth either 2 or 0 marks. It was generally not answered well with most candidates being too vague.
+'''
+
+[[question.mark_scheme]]
+label = "8(d)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g:
+
+- (1) 0110 0100
+- suitable working out
+'''
+guidance = '''
+Award mark for bullet point one with or without the overflow stated.
+
+**Examiner’s Comments**\
+As with the other binary calculation, this was generally answered correctly. Some candidates gave the wrong answer but gained a mark for evidence of a suitable method. The question reminds candidates to show their working and most candidates did.
+'''
+
+[[question]]
+number = 9
+marks = 14
+
+[[question.part]]
+label = "9(a)(i)"
+marks = 1
+text = '''
+Convert the denary number 231 to an unsigned 8-bit binary number.
+'''
+
+[[question.part]]
+label = "9(a)(ii)"
+marks = 1
+text = '''
+Convert the hexadecimal number 6F to an unsigned 8-bit binary number.
+'''
+
+[[question.part]]
+label = "9(b)"
+text = '''
+The floating point number 001101 0100 is stored using 6 bits for the mantissa and 4 bits for the exponent, both in two’s complement. This number is not normalised.
+'''
+
+[[question.part]]
+label = "9(b)(i)"
+marks = 4
+text = '''
+Give the normalised version of this number, showing your working.
+'''
+
+[[question.part]]
+label = "9(b)(ii)"
+marks = 3
+text = '''
+Convert your answer to part **(i)** to denary, showing your working.
+'''
+
+[[question.part]]
+label = "9(c)"
+marks = 5
+text = '''
+Add together the two numbers below. Both numbers are stored in normalised floating point format, using 6 bits for their mantissa and 4 bits for their exponent which are both in two’s complement. Show the result in the same format and show your working.
+
+```
+0110000110 +
+0101000100
+```
+'''
+
+[[question.mark_scheme]]
+label = "9(a)(i)"
+marks = 1
+answer = '''
+11100111
+'''
+
+[[question.mark_scheme]]
+label = "9(a)(ii)"
+marks = 1
+answer = '''
+0110 1111
+'''
+
+[[question.mark_scheme]]
+label = "9(b)(i)"
+marks = 4
+answer = '''
+- Move decimal place 1 place right = 0.1101 to normalise
+- Pad with 0s, mantissa is 011010
+- Exponent is 4 / Subtract 1 from exponent…
+- New exponent is 3 = 0011
+'''
+
+[[question.mark_scheme]]
+label = "9(b)(ii)"
+marks = 3
+answer = '''
+- move dp 3 places right
+- 0110.1
+- 6.5
+'''
+guidance = '''
+Accept conversion of un-normalised number (will result in same output)
+
+Accept method of using 0.1101 x 2^3
+
+FT required from part (i) if this is done incorrectly.
+'''
+
+[[question.mark_scheme]]
+label = "9(c)"
+marks = 5
+answer = '''
+- Calculating exponent of 6 for first number/Calculating exponent of 4 for second number
+- Moving binary point correct number of places in both mantissa to give 0110000.0 and 01010.0
+- Addition of 0110000.0 and 01010.0 to give 0111010.0
+
+- Movement of binary point six places to left to match original mantissa format and give value of 011101
+- Calculate exponent in original format to give value of 0110
+'''
+guidance = '''
+Alternative:
+
+- Calculation of exponents (6 and 4) / difference between exponents of 2
+- Move first mantissa 2 places left / second mantissa 2 places right to match exponents
+- …giving 011.000 + 0.10100 (exp 4) / 0.11000 + 0.00101 (exp 6)
+- Correct addition (answer of 011.1010 / 0.111010)
+
+- Final answer normalised (011101 exp 6)
+
+If exponents initially matched to 4, final bullet point should only be given if answer is normalised. If exponents matched to 6, answer will already be normalised.Ensure that answer is in format described (6 bits for mantissa 4 bits for exponent) to gain final bullet point.
+'''
+
+[[question]]
+number = 10
+marks = 14
+diagram = true
+
+[[question.part]]
+label = "10(a)(i)"
+marks = 1
+text = '''
+Convert the denary number −119 to an 8-bit binary number with two’s complement representation.
+'''
+
+[[question.part]]
+label = "10(a)(ii)"
+marks = 1
+text = '''
+Convert the unsigned binary number 1101101 to hexadecimal.
+'''
+
+[[question.part]]
+label = "10(a)(iii)"
+marks = 1
+text = '''
+Convert the denary number 171 to hexadecimal.
+'''
+
+[[question.part]]
+label = "10(a)(iv)"
+marks = 2
+text = '''
+Convert the hexadecimal number A6 to binary.
+'''
+
+[[question.part]]
+label = "10(b)"
+marks = 5
+text = '''
+Show how the denary value −9.125 can be represented in normalised floating point format, using 8 bits for the mantissa and 4 bits for the exponent, both in two’s complement.
+'''
+
+[[question.part]]
+label = "10(c)(i)"
+marks = 2
+text = '''
+Show the result of applying an XOR mask of 1100 0111 to the byte 0101 1101.
+
+*[Diagram in the original paper, not shown here.]*
+'''
+
+[[question.part]]
+label = "10(c)(ii)"
+marks = 2
+text = '''
+Describe a mask that could be applied to an 8-bit number to ensure that:
+
+- the most significant bit is always set to 1
+- all other bits remain unchanged.
+'''
+
+[[question.mark_scheme]]
+label = "10(a)(i)"
+marks = 1
+answer = '''
+1000 1001
+'''
+guidance = '''
+Correct answer only
+'''
+
+[[question.mark_scheme]]
+label = "10(a)(ii)"
+marks = 1
+answer = '''
+6D
+'''
+guidance = '''
+Correct answer only
+'''
+
+[[question.mark_scheme]]
+label = "10(a)(iii)"
+marks = 1
+answer = '''
+AB
+'''
+guidance = '''
+Correct answer only
+'''
+
+[[question.mark_scheme]]
+label = "10(a)(iv)"
+marks = 2
+answer = '''
+1010 0110
+
+1 mark per nibble
+'''
+guidance = '''
+Correct answer only
+'''
+
+[[question.mark_scheme]]
+label = "10(b)"
+marks = 5
+answer = '''
+- 10110.111 in fixed point
+- Move binary point four places to the left (1.0110111)
+- Gives mantissa of 10110111
+- therefore exponent is 4 = 0100
+- Forming final answer of 10110111 0100
+'''
+
+[[question.mark_scheme]]
+label = "10(c)(i)"
+marks = 2
+answer = '''
+- 1001 1010
+'''
+guidance = '''
+1 mark per nibble, mark left to right
+'''
+
+[[question.mark_scheme]]
+label = "10(c)(ii)"
+marks = 2
+answer = '''
+- 1000 0000
+- OR
+'''
+
+[[question]]
+number = 11
+marks = 5
+diagram = true
+
+[[question.part]]
+label = "11(a)"
+marks = 1
+text = '''
+Convert the binary number 10110011 into a hexadecimal number.
+'''
+
+[[question.part]]
+label = "11(b)"
+marks = 1
+text = '''
+Convert the two’s complement binary number 10011011 into a denary number.
+'''
+
+[[question.part]]
+label = "11(c)"
+marks = 2
+text = '''
+Calculate the subtraction of the following two 8-bit binary numbers.
+
+You must show your working.
+
+*[Diagram in the original paper, not shown here.]*
+'''
+
+[[question.part]]
+label = "11(d)"
+marks = 1
+text = '''
+Convert the binary number 11101100 into a denary number.
+
+**END OF QUESTION PAPER**
+'''
+
+[[question.mark_scheme]]
+label = "11(a)"
+marks = 1
+answer = '''
+B3
+'''
+
+[[question.mark_scheme]]
+label = "11(b)"
+marks = 1
+answer = '''
+- 101
+'''
+
+[[question.mark_scheme]]
+label = "11(c)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g:
+
+- 0101 1010
+- Suitable working out
+'''
+guidance = '''
+Allow any suitable method of working out, e.g. the carry method or using two’s complement.
+'''
+
+[[question.mark_scheme]]
+label = "11(d)"
+marks = 1
+answer = '''
+236
+'''

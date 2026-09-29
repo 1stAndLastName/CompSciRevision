@@ -1,0 +1,1214 @@
+# OCR exam questions for 1.2.1 Systems Software.
+# Copied as text from the question paper and mark scheme PDFs in sources/
+# by tools/extract-exam-questions. Diagrams are not copied. Corrections by
+# hand are fine: the tool will not overwrite this file without --force.
+spec = "1.2.1"
+
+[[question]]
+number = 1
+marks = 1
+
+[[question.part]]
+label = "1"
+marks = 1
+text = '''
+Application software is run on thin client computers. A thin client computer is a very low-powered computer connected to a powerful central server. The operating system and all the applications run within a virtual machine on the server. The thin client computer will only display the output of the virtual machine and capture and send input to the virtual machine.
+
+State **one** advantage of running the application software within the virtual machine.
+'''
+
+[[question.mark_scheme]]
+label = "1"
+marks = 1
+answer = '''
+1 mark for:
+
+- Reduced hardware is needed on computers / reduced hardware costs
+- Improved security by keeping all software running from one physical device
+- Easier/cheaper to manage as only one physical device runs the programs.
+- Can add/remove resources/memory/processes to the VM
+- If it is infected by malware it can be deleted and recreated / the rest of the system isn’t affected/is protected against malware
+- No direct access to hardware
+- Resources can be used more flexibly between the machines
+'''
+guidance = '''
+**Examiner’s Comments**
+
+There were some good responses to this question with many giving the response that Malware would not affect the server. Some talked about being able to try out different operating systems which was not relevant to this scenario.
+'''
+
+[[question]]
+number = 2
+marks = 14
+
+[[question.part]]
+label = "2(a)"
+text = '''
+Two roles of an operating system are to handle interrupts and manage scheduling.
+'''
+
+[[question.part]]
+label = "2(a)(i)"
+marks = 4
+text = '''
+Describe **two** other roles of an operating system.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "2(a)(ii)"
+marks = 5
+text = '''
+Draw a line to match each scheduling algorithm to the correct description.
+
+| **Scheduling Algorithm** |
+|---|
+| Round Robin |
+| First come first served |
+| Multi-level feedback queues |
+| Shortest job first |
+| Shortest remaining time |
+
+**Description**
+
+Splits processes into different priority queues based on the amount of processor time they need. It allows them to move between the queues as their characteristics change
+
+Selects the process that takes the shortest amount of time to complete. The processes are run until they are fully complete
+
+Each process is allocated a fixed amount of CPU time. If the process is not complete it will be suspended and the next process will start
+
+Each process is given equal priority and they are processed in the order they arrive
+
+Selects the process that takes the shortest amount of time. The process can be suspended if another shorter process is added
+'''
+
+[[question.part]]
+label = "2(b)"
+text = '''
+One use of ROM is to store the Basic Input Output System (BIOS). The BIOS is used when the computer is first turned on.
+'''
+
+[[question.part]]
+label = "2(b)(i)"
+marks = 3
+text = '''
+Describe what the BIOS will do to start up the computer.
+'''
+
+[[question.part]]
+label = "2(b)(ii)"
+marks = 2
+text = '''
+Apart from storing the BIOS, ROM can also be used in other ways.
+
+Describe how an embedded system can make a different use of ROM and why it is an advantage.
+'''
+
+[[question.mark_scheme]]
+label = "2(a)(i)"
+marks = 4
+answer = '''
+2 marks from each group to max 4:
+
+- Resource/memory management e.g.
+- Moving data between RAM and secondary storage/ virtual memory / paging and/or segmentation
+- Allocating/deallocating memory
+
+- Manage hardware/peripherals e.g.
+- Tracking all devices connected to the system
+- Device drivers
+
+- File management e.g.
+- Storing files in secondary storage
+- Searching for /copying / moving / renaming files/folders
+
+- Security/user management e.g.
+- Controlling who can access the system /Managing user profiles
+- Controlling who can access certain resources on the system / Managing access rights
+
+- Provide a user interface e.g.
+- Allowing the user to interact with the software/hardware/computer
+
+- Providing utilities e.g.
+- Used to monitor / manage / maintain the computer
+- To manage the security
+
+- Providing a platform on which to run software e.g.
+- Allows additional software to be installed on the computer
+- To allow the user to complete additional tasks
+'''
+guidance = '''
+DNA handle interrupts or manage scheduling.
+
+Allow any reasonable description that matches with the role.
+
+Mark in groups.
+
+**Examiner’s Comments**
+
+This was generally well answered and the majority of candidates could give two roles. Less successful candidates were then unable to follow through with a reasonable description. More successful candidates were able to give two roles plus relevant and correct descriptions. Some described scheduling and interrupts which were given in the question and gained no marks.
+'''
+
+[[question.mark_scheme]]
+label = "2(a)(ii)"
+marks = 5
+answer = '''
+1 mark for each correct match.
+
+*[Image in the original mark scheme, not shown here.]*
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Generally well answered and most candidates gained full marks. Those that did not tended to confuse shortest remaining time with shortest job first but were still able to gain three marks.
+'''
+
+[[question.mark_scheme]]
+label = "2(b)(i)"
+marks = 3
+answer = '''
+1 mark per bullet to max 3:
+
+- Contains the computer start up instructions
+- Loads **settings/configuration** (CMOS/NVRAM)
+- Initialises/checks hardware/peripheral devices are available/work / carry out a POST check...
+- ...and **reports** errors
+- Determines the drive on which the OS is stored
+- Finds/loads the bootstrap/operating
+
+system/kernel (into main memory)
+'''
+guidance = '''
+DNA ‘boots up’ on its own
+
+**Examiner’s Comments**
+
+Many candidates were able to gain at least one or two marks for saying the BIOS finds/loads the operating system and/or checks hardware.
+'''
+
+[[question.mark_scheme]]
+label = "2(b)(ii)"
+marks = 2
+answer = '''
+Mark from one group to max 2:
+
+- Storing firmware/ config/ operation instructions/ operating system/ device drivers...
+- ...that can’t be overwritten / doesn’t need to be updated
+- ...so that access is faster
+
+OR
+
+- Storing security settings/encryption keys/digital signatures...
+- ...that must be maintained/can’t be changed
+
+OR
+
+- Could be used as primary storage...
+- ...so no need to load programs into memory
+- ...so would save time loading up the program
+
+OR
+
+- Could be used as secondary storage...
+- ....so the device will not need additional storage...
+- ....to reduce the size of the device
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Strong candidates were able to give a use such as store the operating system and an advantage. Many though, gave a very good description of what ROM is but did not give a different use and so were unable to gain any marks. A few candidates said it could store the BIOS which had already been given in the question. A few candidates talked about microwaves and washing machines which was not relevant to this scenario
+'''
+
+[[question]]
+number = 3
+marks = 10
+
+[[question.part]]
+label = "3(a)"
+text = '''
+A secondary school is upgrading their computers. They decide to install "thin client" computers. A thin client computer is when users access their computer in the usual way with a keyboard, mouse and monitor. However, all processing takes place on the virtual machine on a server rather than the computer at their desk.
+'''
+
+[[question.part]]
+label = "3(a)(i)"
+marks = 2
+text = '''
+Describe **one** advantage of using virtual machines in this way.
+'''
+
+[[question.part]]
+label = "3(a)(ii)"
+marks = 2
+text = '''
+Describe **one** disadvantage of using virtual machines in this way.
+'''
+
+[[question.part]]
+label = "3(b)"
+marks = 6
+text = '''
+Each virtual machine will run an operating system. One type of operating system is multi-user.
+
+Describe **two** other types of operating system and give an example of where each may be used.
+
+**TYPE 1**
+
+Description
+
+Example
+
+**TYPE 2**
+
+Description
+
+Example
+'''
+
+[[question.mark_scheme]]
+label = "3(a)(i)"
+marks = 2
+answer = '''
+- Allows for more efficient use of computing resources
+- ... Less likely to have workstations run idle
+- ... can allocate more resources to power users dynamically
+
+Or
+
+- Thin clients are cheaper than desktops...
+- ...which could save the school money.
+
+Or
+
+- Thin clients are often physically smaller than desktops...
+- ...allowing more desk space/workspace for staff/students.
+'''
+guidance = '''
+Accept other valid reasons with a suitable justification
+
+**Examiner’s Comments**
+
+This question was generally not answered well. Candidates did not make sure that their responses were specific to thin clients.
+'''
+
+[[question.mark_scheme]]
+label = "3(a)(ii)"
+marks = 2
+answer = '''
+- Can cause network overload...
+- ...if the network does not have sufficiently good bandwidth
+- Could create process lag...
+- ...If lots of large processes run at the same time
+- If a virtual machine hangs/crashes the user is unable to reset it...
+- ...whereas they can physically reboot on a local machine.
+- Thin-clients may not be compatible with some peripherals...
+- ...meaning some of the school’s peripherals become unusable.
+'''
+guidance = '''
+Mark in pairs
+
+**Examiner’s Comments**
+
+As with Question 3 (a) (i), candidates did not make sure that their responses were specific to thin clients and therefore lost marks.
+'''
+
+[[question.mark_scheme]]
+label = "3(b)"
+marks = 3
+answer = '''
+- **Multi Tasking** ...
+- ... is optimised to deal with multiple processes simultaneously/concurrently
+- ...Can run multiple programs/tasks at the same time
+
+Example, e.g.
+
+- Home/personal computer
+- **Distributed** ...
+- ... Designed to run the **same** task over multiple machines
+
+Example, e.g.
+
+- SETI or other cloud-based processes/ Clusters of desktops used for rendering/calculations.
+- **Embedded** ...
+- ... Will have a restricted set of operations (to conserve resources)
+- ... is read only
+
+Example, e.g.
+
+- Domestic appliance such as a washing machine
+- **Real-Time** ...
+- ...optimised to handle and respond to inputs with no wait/within a guaranteed response time/immediate.
+
+Example, e.g.
+
+- Used in “mission critical” systems such as aircraft control.
+'''
+guidance = '''
+1 mark for type of OS\
+1 mark for description\
+1 mark for suitable example
+
+Allow other suitable types of operating system.
+
+**Examiner’s Comments**
+
+This question was generally answered well, although some candidates were too vague in their descriptions of real time and distributed operating systems in particular.
+
+Exemplar 2
+
+*[Image in the original mark scheme, not shown here.]*
+
+The candidate has been given full marks for this response as they have been clear that real time operating systems respond in a guaranteed time frame, with a suitable example of their use. Some candidates were too vague in their response for\
+descriptions of a real time operating system with answers such as ‘responds quickly’.
+'''
+
+[[question]]
+number = 4
+marks = 24
+
+[[question.part]]
+label = "4(a)"
+marks = 3
+text = '''
+A small manufacturing business uses networked computers with closed source application software installed.
+
+Each computer the business uses has a BIOS.
+
+Tick (✓) **one** box in each row to identify whether each statement in the table is true or false.
+
+|   |   |   |   |   |   |   |   |   |
+|---|---|---|---|---|---|---|---|---|
+|   | **Statement** |   |   | **True** |   |   | **False** |   |
+|   |   |   |   |   |   |   |   |   |
+| BIOS stands for Boot Input Output Standard |   |   |   |   |   |   |   |   |
+| The BIOS can be used to alter hardware settings, such as which storage device the computer boots from |   |   |   |   |   |   |   |   |
+| BIOS settings are stored in RAM |   |   |   |   |   |   |   |   |
+'''
+
+[[question.part]]
+label = "4(b)"
+marks = 2
+text = '''
+The business uses virtual storage to hold regular backups of all of its data.
+
+Explain why virtual storage is well-suited for storing backups.
+'''
+
+[[question.part]]
+label = "4(c)"
+text = '''
+One computer owned by the business monitors critical-safety features of manufacturing. All input data must be processed within a predictable timescale of a fraction of a second.
+'''
+
+[[question.part]]
+label = "4(c)(i)"
+marks = 1
+text = '''
+State the type of operating system that should be used by this computer.
+'''
+
+[[question.part]]
+label = "4(c)(ii)"
+marks = 6
+text = '''
+Give the name of **three** other types of operating system, and for each state its purpose.
+
+Type 1
+
+Purpose 1
+
+Type 2
+
+Purpose 2
+
+Type 3
+
+Purpose 3
+'''
+
+[[question.part]]
+label = "4(d)"
+marks = 3
+text = '''
+When a device such as a keyboard or printer requires attention from the CPU, an interrupt is raised.
+
+Explain how an operating system deals with an interrupt.
+'''
+
+[[question.part]]
+label = "4(e)"
+marks = 9
+text = '''
+Memory management is a key function of an operating system. Explain how an operating system can manage the memory available to applications and why doing so is important.
+
+You should include the following in your answer:
+
+- the different actions carried out by an operating system to manage memory
+- how memory that is being managed can be split up
+- why memory management is important.
+'''
+
+[[question.mark_scheme]]
+label = "4(a)"
+marks = 3
+answer = '''
+**Statement**
+
+**True**
+
+**False**
+
+**BIOS stands for Boot Input**
+
+**Output Standard**
+
+✓
+
+**The BIOS can be used to**
+
+**alter hardware settings,**
+
+**such as which storage**
+
+**device the computer boots**
+
+**from.**
+
+✓
+
+**BIOS settings are stored in**
+
+**RAM**
+
+✓
+'''
+guidance = '''
+1 mark per row.
+
+**Examiner’s Comments**
+
+This question was generally well answered by candidates.
+'''
+
+[[question.mark_scheme]]
+label = "4(b)"
+marks = 2
+answer = '''
+- Stored away from the computer(s)/remote…
+- … so in case of disaster, data is not also damaged
+- All of the data (from multiple machines) can bebacked up **at** **the same time**
+- Can be accessed from elsewhere / other machines
+
+- Storage can be expanded as necessary/no limit on size
+- Speed of access is not a priority for a backup
+- Can make recovery from another site easier
+- No physical space needed for backup hardware
+- No on site maintenance required
+- Allows more local storage capacity for data
+'''
+guidance = '''
+Allow multiple interpretations of virtual storage (e.g. cloud / devices not connected directly to the computer)
+
+Do not allow space on its own or memory for storage
+
+**Examiner’s Comments**
+
+Candidates who understood that virtual storage would be remote/not stored on the business premises were able to gain full marks on this question. Some candidates confused virtual storage with virtual memory and some did not understand that although it may be cloud storage it is still stored on a physical medium somewhere.
+'''
+
+[[question.mark_scheme]]
+label = "4(c)(i)"
+marks = 1
+answer = '''
+Real time
+'''
+guidance = '''
+Correct answer only
+
+**Examiner’s Comments**
+
+This question was generally well answered.
+'''
+
+[[question.mark_scheme]]
+label = "4(c)(ii)"
+marks = 6
+answer = '''
+- Multi-tasking…
+- …runs multiple **programs at** **the same time**
+
+- Multi-user…
+- … allows multiple **users at the** **same time** (must be clear that candidate is not discussing an OS that simply has multiple accounts)
+
+- Distributed…
+- …allows multiple computers to work together **on a single** **task**
+
+- Embedded…
+- …has a dedicated/limited function
+- …is read-only / cannot be changed
+'''
+guidance = '''
+Mark in pairs
+
+Allow real time if not given as previous answer
+
+Do not accept "runs on an embedded system" as expansion of embedded OS, this is NE.
+
+**Examiner’s Comments**
+
+This question was generally well answered with Embedded,\
+Distributed, Multi-User and Multi- Tasking being the most common answers. Some candidates struggled to name and a type of operating system. Centres should advise candidates that OS brand names are not accepted as a type.
+'''
+
+[[question.mark_scheme]]
+label = "4(d)"
+marks = 3
+answer = '''
+- Interrupt checked for at start/end of each fetch-execute cycle
+- If the interrupt is of a lower/equal priority to the current process then the current process continues
+- (If interrupt raised) contents of **registers** copied to stack
+
+- Flags are set to determine if interrupts are enabled / disabled
+- Program counter changed to point to Interrupt Service Routine (ISR) / ISR runs
+- After interrupt complete, previous **register** values restored back from stack
+- Flag is reset
+- If higher priority interrupt received during servicing of interrupt…
+- …this is added to stack and new interrupt dealt with
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many candidates were able to gain full marks on this question. Unfortunately, some candidates showed a lack of detail in their answers. Some candidates talked about interrupts being run during an FDE cycle or assumed that an interrupt would be
+
+run immediately with no reference to priorities.
+
+*[Image in the original mark scheme, not shown here.]*
+'''
+
+[[question.mark_scheme]]
+label = "4(e)"
+marks = 9
+answer = '''
+**Mark Band 3 – High Level (7–9** **marks)**\
+The candidate demonstrates a thorough knowledge and\
+understanding of memory\
+management carried out by operating systems. The material is generally accurate and detailed.
+
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation.
+
+The candidate is able to thoroughly assess the importance of memory management to an efficient and secure system.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2 – Mid Level (4–6** **marks)**\
+The candidate demonstrates reasonable knowledge and understanding of memory\
+management carried out by operating systems. The material is generally accurate but at times underdeveloped.
+
+The candidate is able to apply their
+
+knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence / examples are for the most part implicitly relevant to the explanation.
+
+The candidate makes a reasonable attempt to assess the importance of memory management to an efficient and secure system.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1 – Low Level (1–3** **marks)**\
+The candidate demonstrates a basic knowledge of memory management carried out by operating systems; the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided.
+
+The candidate provides nothing more than unsupported assertions. Any discussion of the importance of memory management will be vague or lacking detail.
+
+The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 mark**\
+No attempt to answer the question or response is not worthy of credit
+'''
+guidance = '''
+The following shows example content that may form part of a candidate’s answer. It is not intended to be an exhaustive resource, nor should a candidate be expected to specifically cover any particular amount of this.
+
+**Knowledge (AO1)**
+
+- Memory management means to ensure that RAM is used efficiently and not wasted
+- Removes data not needed anymore (garbage collection), frees up space and allocates memory to applications
+- Paging or segmentation may be used to split up memory
+- Paging uses fixed size divisions whereas segmentation uses varying size divisions
+- Paging is where memory is divided physically
+- Segmentation is where memory is divided logically
+- Virtual memory may be used when RAM is (almost)full to enable applications to continue to run
+
+**Application (AO2)**
+
+- If RAM is unavailable or full, applications cannot be loaded
+- Data transferred out of RAM into virtual memory to free up
+
+space and then transferred back again when needed
+
+- Also includes security so that data stored in memory is not vulnerable
+- Memory management is important for a well-running machine. If not, RAM would rapidly run out and fill up with unneeded data/instructions and so no new applications could run
+- Paging causes internal fragmentation whereas segmentation causes external fragmentation
+- A page table is used to map page location which is slower than a segmentation table
+- It is easier for the OS to manage page locations as they can be stored non- contiguously. Segments can be non-contiguous but work better contiguously
+
+**Evaluation (AO3)**
+
+- RAM is much more expensive than secondary storage (per unit/GB) so virtual memory is useful
+- rather than having to buy more RAM
+- Over use of virtual memory causes slow down and even disk thrashing if pages have to be swapped back and forth too often
+- Paging can be more effective because any free memory space can be used to swap data in and out whereas with segments, lots of space will sit unused until a segment the right size is available
+- Segmentation errors can cause memory leakage which would cause the system to crash
+- Security issues – applications can only access memory allocated to them so (for example) a malicious application cannot access the
+
+memory allocated to a banking app. Also when applications are closed, data is removed before being reallocated so that applications cannot see historic data
+
+**Examiner’s Comments**
+
+Many candidates were able to show an understanding of pages being a fixed size and segments being variable size, but few were able to relate virtual memory to the use of pages and segments and few had an understanding of how they are used. Responses to why it is important tended to be vague. There were a few candidates who talked about compression which was not relevant to the question.
+'''
+
+[[question]]
+number = 5
+marks = 2
+
+[[question.part]]
+label = "5"
+marks = 2
+text = '''
+A computer system will contain several input and output devices.
+
+Explain the role of device drivers when using input and output devices on a computer system.
+'''
+
+[[question.mark_scheme]]
+label = "5"
+marks = 2
+answer = '''
+- A piece of software which allows **hardware/device to** **communicate**…
+- …with the **operating system**
+'''
+guidance = '''
+**Examiner’s Comments**
+
+This question was generally answered well. Some candidates were not given the second mark as they did not make reference to the operating system.
+'''
+
+[[question]]
+number = 6
+marks = 7
+
+[[question.part]]
+label = "6"
+text = '''
+Anika’s computer runs a multi-tasking operating system. She has access to a printer and a broadband internet connection through a wireless connection. The operating system uses scheduling algorithms such as first come first served and round-robin.
+'''
+
+[[question.part]]
+label = "6(i)"
+marks = 2
+text = '''
+Explain why the computer’s operating system uses a first come first served algorithm when sending documents to the printer.
+'''
+
+[[question.part]]
+label = "6(ii)"
+marks = 3
+text = '''
+Explain why the computer’s operating system uses a round-robin algorithm for allocating processor time.
+'''
+
+[[question.part]]
+label = "6(iii)"
+marks = 2
+text = '''
+Describe **one** other scheduling algorithm.
+'''
+
+[[question.mark_scheme]]
+label = "6(i)"
+marks = 2
+answer = '''
+- For printer queue
+- All documents/users have equal priority
+- Whichever document is received first is printed first
+- First in First Out / Last in Last Out
+'''
+guidance = '''
+**Examiner’s Comments**\
+This question was generally well answered with many candidates gaining at least 1 mark. The question asked why the OS used ‘first come first served’ and many candidates were not given marks for stating why the user would want the OS to use it. Some candidates talked about other scheduling algorithms even though this was not relevant to the question.
+'''
+
+[[question.mark_scheme]]
+label = "6(ii)"
+marks = 3
+answer = '''
+- To enable multitasking to take place
+- To switch between active processes and those running in the background
+
+- To limit each process to a certain amount of time/allow processes an equal share of processor time….
+- …to ensure the OS cycles through all processes / the process then goes to the back of the end of the queue
+- …so that users can receive an immediate response
+- …to handle an interrupt immediately
+'''
+guidance = '''
+BP4, 5 & 6 are dependent on BP3 only
+'''
+
+[[question.mark_scheme]]
+label = "6(iii)"
+marks = 2
+answer = '''
+- Shortest job first / shortest remaining time
+- Process which has the shortest time (remaining) is completed first
+
+- Multilevel feedback queues
+- Uses queues with different priorities
+- Jobs can be moved between queues
+'''
+guidance = '''
+One mark for name, one mark for description.
+'''
+
+[[question]]
+number = 7
+marks = 10
+
+[[question.part]]
+label = "7(a)"
+text = '''
+One role of an operating system is the Interrupt Service Handler. This allows processes being executed by the CPU to be interrupted.
+'''
+
+[[question.part]]
+label = "7(a)(i)"
+marks = 1
+text = '''
+One example of an interrupt would be removing an external hard disk drive from a computer.
+
+State why this would need to interrupt the current fetch-decode-execute cycle of the CPU.
+'''
+
+[[question.part]]
+label = "7(a)(ii)"
+marks = 2
+text = '''
+Interrupt Service Handlers make use of a stack data structure.
+
+Describe how a stack is used when handling interrupts.
+'''
+
+[[question.part]]
+label = "7(b)"
+marks = 2
+text = '''
+Arnold has several computing devices around his home. Each device has an operating system installed.
+
+Arnold has a PC which has a Basic Input Output System (BIOS).
+
+Describe what is meant by the term ‘BIOS’.
+'''
+
+[[question.part]]
+label = "7(c)"
+text = '''
+Arnold has a router. It will receive data packets from other computers on Arnold’s network or the internet and then route them on to the next step.
+
+The scheduling algorithm Arnold’s router uses is First Come First Served.
+'''
+
+[[question.part]]
+label = "7(c)(i)"
+marks = 1
+text = '''
+State the name of **one** other scheduling algorithm.
+'''
+
+[[question.part]]
+label = "7(c)(ii)"
+marks = 2
+text = '''
+Explain why First Come First Served is a suitable scheduling algorithm for Arnold’s router.
+'''
+
+[[question.part]]
+label = "7(d)"
+marks = 2
+text = '''
+One role of an operating system is to manage the computer’s memory.
+
+Two types of memory management are paging and segmentation.
+
+Describe **one** difference between paging and segmentation.
+'''
+
+[[question.mark_scheme]]
+label = "7(a)(i)"
+marks = 1
+answer = '''
+1 mark for any of the following points, e.g:
+
+- GUI will need to remove open file manager windows
+- OS will need to remove open files/release locks
+- Inform the CPU to cease transferring files
+'''
+guidance = '''
+Allow other suitable alternative answers.
+
+**Examiner’s Comments**\
+Very few candidates achieved a mark here. Many mentioned that the CPU would be busy but were not specific enough to gain the mark. In questions of this type, examples need to be specific to the question.
+'''
+
+[[question.mark_scheme]]
+label = "7(a)(ii)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g:
+
+- Stacks use LIFO/FILO storage
+- As processes are halted by an ISR they are pushed on the stack
+- When they are returned, they are popped from the top of the stack
+- So they are returned to in correct order
+'''
+guidance = '''
+**Examiner’s Comments**\
+Few candidates gained both marks for this question. The concepts of pushing and popping items was mentioned by many candidates although this was often too vague and didn’t link to the question. Candidates needed to use the correct terms for accessing items from a stack to gain the marks in this question.
+'''
+
+[[question.mark_scheme]]
+label = "7(b)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g:
+
+- Stored in ROM
+- Tests hardware/components (are working)
+- Boots up the operating system
+'''
+guidance = '''
+Accept description of POST/Power On Self Test for BP2
+
+Accept loads up instead of boots up (BP3)
+
+**Examiner’s Comments**\
+This was generally answered well, although some candidates were vague in their response. The concept of the BIOS booting up the Operating System was missed by some, but most candidates mentioned the BIOS checking that the hardware is operational (POST).
+
+**Exemplar 1**
+
+*[Image in the original mark scheme, not shown here.]*
+
+Exemplar 1 was given full marks. The candidate achieved the first mark for being clear that the BIOS checks hardware and has provided a suitable example. The second mark has been awarded for explaining that the BIOS loads the operating system. Although it was not essential to mention POST (Power-On-Self-Test) this is useful to explain the process that occurs.
+'''
+
+[[question.mark_scheme]]
+label = "7(c)(i)"
+marks = 1
+answer = '''
+1 mark for any of the following bullet points:
+
+- Round Robin
+- Multi-level feedback queues
+- Shortest job first
+- Shortest time remaining
+'''
+guidance = '''
+Do not Allow:
+
+- First come First Served
+
+**Examiner’s Comments**\
+Round Robin was the most popular answer by far. Most candidates achieved the mark although some used the example in the question. Candidates should be reminded to read the questions carefully here and to not repeat answers already provided.
+'''
+
+[[question.mark_scheme]]
+label = "7(c)(ii)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g:
+
+- Jobs dispatched on a FIFO basis
+
+- Each job/packet is equal priority
+- Each job/packet switch has the same processing time
+'''
+guidance = '''
+Accept processed instead of dispatched (Bp1)
+
+Do not accept task/data instead of jobs (BP1 to 3)
+
+**Examiner’s Comments**\
+Few candidates achieved both available marks and most missed the concept of jobs/packets having equal priority.
+'''
+
+[[question.mark_scheme]]
+label = "7(d)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g:
+
+- Paging uses physical addressing….
+- ….Segmentation uses logical addressing
+- Paging uses fixed size memory blocks….
+- …. Segmentation uses variable length memory blocks
+'''
+guidance = '''
+Answer must cover paging and segmentation for 2 marks.
+
+Do not accept data instead of memory
+
+**Examiner’s Comments**\
+To get both marks, candidates need to be clear that paging and\
+segmentation are about allocating memory. Many candidates were not clear on this and discussed managing data or packets. Candidates should be careful to use the correct terminology for questions of this type in particular.
+'''
+
+[[question]]
+number = 8
+marks = 15
+
+[[question.part]]
+label = "8(a)"
+marks = 4
+text = '''
+Operating systems usually come with utility software pre-installed.
+
+Give **two** examples of utility software, explaining the purpose of both.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "8(b)"
+text = '''
+Imogen buys a desktop computer. It comes with an operating system installed.
+'''
+
+[[question.part]]
+label = "8(b)(i)"
+marks = 4
+text = '''
+Describe **two** ways that an operating system could manage physical memory.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "8(b)(ii)"
+marks = 2
+text = '''
+Explain **one** benefit of memory management to the user.
+'''
+
+[[question.part]]
+label = "8(b)(iii)"
+marks = 2
+text = '''
+Describe how virtual memory allows a user to run programs when physical memory is full.
+'''
+
+[[question.part]]
+label = "8(c)"
+marks = 3
+text = '''
+Operating systems make use of device drivers.
+
+Define what is meant by the term ‘device driver’, giving one example of a device driver that a home user would need.
+
+Definition
+
+Example
+'''
+
+[[question.mark_scheme]]
+label = "8(a)"
+marks = 4
+answer = '''
+e.g.
+
+- Encryption
+- …scrambles meaning of data files with a key
+- Defragmentation
+- …organises file segments on secondary storage
+- Compression
+- … reduces size of files
+- Backup
+- …makes regular copies of files in case of loss
+- Disk Checker
+'''
+guidance = '''
+Mark in pairs, 2 marks per example.
+
+Accept other sensible examples of utility software.
+'''
+
+[[question.mark_scheme]]
+label = "8(b)(i)"
+marks = 4
+answer = '''
+- Paging
+- …blocks of memory of equal size / fixed size
+- Segmentation
+- …blocks of memory split logically /variable size
+'''
+
+[[question.mark_scheme]]
+label = "8(b)(ii)"
+marks = 2
+answer = '''
+e.g.
+
+- Security
+
+- …does not let programs access memory reserved for other programs.
+- Multitasking
+- ...allows multiple programs to run at once
+'''
+
+[[question.mark_scheme]]
+label = "8(b)(iii)"
+marks = 2
+answer = '''
+- (Currently unneeded) pages moved from memory to secondary storage
+- …to create room in memory
+- pages moved back to memory when required
+'''
+
+[[question.mark_scheme]]
+label = "8(c)"
+marks = 3
+answer = '''
+- Software/program
+- …that allows the operating system to communicate with hardware
+
+Examples:
+
+- Printer driver
+- Webcam driver
+- Sound card driver
+- Graphics card driver etc.
+'''
+guidance = '''
+Max two for description, Max one for example
+'''
+
+[[question]]
+number = 9
+marks = 9
+
+[[question.part]]
+label = "9(a)"
+marks = 2
+text = '''
+Julie is a university student. She is considering buying a laptop to help with her studies both at home and university. Her friend has told her she will need to choose an operating system to run on her laptop.
+
+Two functions of an operating system are memory management and scheduling.
+
+State **two** other functions of an operating system.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "9(b)"
+marks = 2
+text = '''
+The operating system Julie is considering makes use of paging to manage the laptop’s memory.
+
+Explain **one** benefit of using paging for this purpose.
+'''
+
+[[question.part]]
+label = "9(c)"
+marks = 4
+text = '''
+Julie’s friend has told her she should buy a laptop with a solid-state drive that uses flash technology rather than a magnetic hard drive.
+
+Explain **two** reasons why Julie would use flash technology to store her files.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "9(d)"
+marks = 1
+text = '''
+State the name of **one** utility that Julie could install on her laptop.
+
+**END OF QUESTION PAPER**
+'''
+
+[[question.mark_scheme]]
+label = "9(a)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 3 marks, e.g.:
+
+- Peripheral management
+- Handle interrupts
+- File management
+- Provides a user interface
+- Provides platform to install and run software.
+- Provides utilities for system maintenance.
+- Allows multi-tasking
+- Provides security
+'''
+guidance = '''
+Do not accept memory management or processor scheduling.
+'''
+
+[[question.mark_scheme]]
+label = "9(b)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g:
+
+- Programs/data can be held in non-contiguous memory locations (using virtual addressing)…
+- …making it easier to make best use of remaining storage/ to avoid having to move
+
+content around to fit in new programs.
+
+- It allows pages to be transferred to and from secondary storage (i.e. virtual memory).
+- As random access there is no performance drop vs sequential storage
+'''
+
+[[question.mark_scheme]]
+label = "9(c)"
+marks = 4
+answer = '''
+1 mark for stating an initial reason and 1 mark for suitable expansion for each (4 marks total), e.g.:
+
+- Faster read/write times…
+- … allows Julie to complete her work quicker
+- More portable/durable…
+- … allows Julie to be mobile between home and university
+- Lower power consumption…
+- … Allows Julie to use all through the day without recharge
+- Quieter running …
+- … Allows Julie to use her laptop during lectures without disturbing people/lecturer
+'''
+guidance = '''
+Maximum of 2 marks for each reason.
+
+Expansion points must be relevant to the scenario stated in the question.
+
+Accept reliable for durable on BP3
+'''
+
+[[question.mark_scheme]]
+label = "9(d)"
+marks = 1
+answer = '''
+1 mark for any of the following bullet points: e.g.
+
+- Disk Defragmentation
+- System Clean-up
+- Anti-Virus/Malware
+- Firewall
+- File management
+- Disk Drivers
+'''

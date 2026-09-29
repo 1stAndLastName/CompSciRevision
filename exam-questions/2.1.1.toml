@@ -1,0 +1,641 @@
+# OCR exam questions for 2.1.1 Thinking abstractly.
+# Copied as text from the question paper and mark scheme PDFs in sources/
+# by tools/extract-exam-questions. Diagrams are not copied. Corrections by
+# hand are fine: the tool will not overwrite this file without --force.
+spec = "2.1.1"
+
+[[question]]
+number = 1
+marks = 7
+
+[[question.part]]
+label = "1"
+text = '''
+Eve enjoys playing board games. Her favourite board game is called “Pot Luck”. This has a numbered grid of 10 squares by 10 squares. Each square has a number between 1 and 100.
+
+Players place their game counters on square 1. A 30-minute timer is set which counts downwards. Each player rolls two 6-sided dice and then moves their game counter that number of squares. Some squares tell the player to pick up a card. These have instructions on, such as 'Move forward 10 spaces'. If the player lands on one of these squares they move according to the instruction on the card. The first player to land on square 100, is announced as the winner. If no winner is announced before the timer runs out, then it is a draw.
+
+Eve would like to create a computerised version of this game.
+'''
+
+[[question.part]]
+label = "1(i)"
+marks = 2
+text = '''
+She has been told that she should make use of abstraction when creating the game.
+
+Describe what is meant by the term 'abstraction'.
+'''
+
+[[question.part]]
+label = "1(ii)"
+marks = 3
+text = '''
+Give **three** examples of how Eve could use abstraction when creating her game.
+
+1
+
+2
+
+3
+'''
+
+[[question.part]]
+label = "1(iii)"
+marks = 2
+text = '''
+Give **two** reasons why Eve should use abstraction when designing the game.
+
+1
+
+2
+'''
+
+[[question.mark_scheme]]
+label = "1(i)"
+marks = 2
+answer = '''
+1 mark per bullet to max 2
+
+- Removing unnecessary detail
+- Simplifying a complex problem
+- Focussing on only the necessary/main parts
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many candidates could give a definition for abstraction with many specifying that it removed\
+unnecessary detail to simplify a problem.
+'''
+
+[[question.mark_scheme]]
+label = "1(ii)"
+marks = 3
+answer = '''
+1 mark per bullet to max 3\
+e.g.
+
+- The physical game **board/squares** can be replaced with a grid
+- Physical **dice** can be replaced with two numbers
+- Physical player **counters** can be replaced with simple 2D graphics
+- Physical instruction **cards** can be replaced with text messages
+- Physical **timer** can be replaced with a simple text based timer
+'''
+guidance = '''
+Allow other suitable examples that are relevant to the scenario.
+
+**Examiner’s Comments**
+
+Some candidates struggled to use the context of the question to identify components such as the dice, counters, squares, cards or the timer. Candidates need to be able to apply knowledge of abstraction to give suitable responses within context.
+'''
+
+[[question.mark_scheme]]
+label = "1(iii)"
+marks = 2
+answer = '''
+1 mark per bullet to max 2\
+e.g.
+
+- Reduce programming time/cost
+- Simpler to solve the problem
+- Program requires less memory / computational power / faster program execution
+- Reduces complexity of programming code
+- Allows Eve to focus on core aspects
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many candidates successfully identified at least one reason why abstraction should be used, such as decreasing the computational processing demands for the solution. Some candidates did however repeated definitions of abstraction, rather than giving the advantages of using it. Another common error was to give an example of how it would benefit a player of the game rather than focusing on the design stage.
+'''
+
+[[question]]
+number = 2
+marks = 6
+
+[[question.part]]
+label = "2"
+text = '''
+A group of students are designing a racing car game. The game will allow players to enter their name and then a choice of vehicle. They will then race against other vehicles that will be controlled by the program. Players will use the arrow keys to control their vehicle.
+
+The students use abstraction during the design process.
+'''
+
+[[question.part]]
+label = "2(i)"
+marks = 3
+text = '''
+State what is meant by abstraction **and** describe how it can be used to design the racing car game.
+
+Definition
+
+Use
+'''
+
+[[question.part]]
+label = "2(ii)"
+marks = 3
+text = '''
+Explain why it is beneficial to use abstraction when designing a computer program such as a game.
+'''
+
+[[question.mark_scheme]]
+label = "2(i)"
+marks = 3
+answer = '''
+1 mark for definition, 1 mark each for each example of use to max 2 (3 overall)\
+**Definition:**
+
+- Removal of unnecessary detail
+
+**Example use:**
+
+- E.g. simplifying scenery
+- E.g. removing internal features of a vehicle that are not needed
+- E.g. simplify physics for vehicle movement
+- E.g. The vehicles may not be drawn to scale
+'''
+guidance = '''
+Allow any reasonable examples for this scenario
+
+For the example use, allow 2 marks
+
+for stating a valid example of abstraction with an expansion. For example,“simplify track (1) by taking out the bumps in the road (1)” would be given two marks.
+
+**Examiner’s Comments**
+
+Many candidates scored two marks for defining abstraction and giving one example of its application to the game, but fewer managed to identify a second example for full marks.
+'''
+
+[[question.mark_scheme]]
+label = "2(ii)"
+marks = 3
+answer = '''
+1 mark each to max 2
+
+- Simplifies the problem / algorithm / programming code
+- Faster to create the program code
+- Final program uses less memory/processor time
+- Programmer can focus on core aspects of the game
+- Completed game will be simpler for end users to understand / play
+'''
+guidance = '''
+Do not accept a reiteration of a definition of abstraction.
+
+**Examiner’s Comments**
+
+Some candidates reiterated a definition of abstraction and did not focus on the benefits of abstraction as the question required. Most candidates struggled to give more than one or two benefits. There were also a number of unqualified responses such as ‘saves time’ that did not specify ‘saving coding development time’.
+'''
+
+[[question]]
+number = 3
+marks = 4
+
+[[question.part]]
+label = "3(a)"
+marks = 3
+text = '''
+The following strings are stored in an array.
+
+| “rainbow” | “moon” | “sun” | “stars” | “clouds” | “tornado” |
+|---|---|---|---|---|---|
+
+Explain how a linear search would search the array for the index that stores “clouds”.
+'''
+
+[[question.part]]
+label = "3(b)"
+marks = 1
+text = '''
+State why a binary search cannot be used in this example.
+'''
+
+[[question.mark_scheme]]
+label = "3(a)"
+marks = 3
+answer = '''
+1 mark each
+
+- Compare the first element (rainbow) to search item / clouds
+- If it is equal to the search item return index / found
+- If it is not equal move to the next element
+- Repeat until either search item / clouds is equal / or the end of the list has been reached
+'''
+guidance = '''
+Allow answers by example from the given dataset
+
+**Examiner’s Comments**
+
+Most candidates scored the majority of the marks available and\
+demonstrated a clear understanding of a linear search. Many candidates answered by example with values from the given list.
+'''
+
+[[question.mark_scheme]]
+label = "3(b)"
+marks = 1
+answer = '''
+1 mark for: the data is not in order/sorted
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Most candidates correctly identified the requirement for data to be sorted/ordered for a binary search to
+
+work. ‘Organised’ was too vague and was not accepted.
+'''
+
+[[question]]
+number = 4
+marks = 6
+
+[[question.part]]
+label = "4"
+text = '''
+A text-based computer game allows a user to dig for treasure on an island. The island is designed as a grid with 10 rows and 20 columns to store the treasure. Each square is given an x and y coordinate. Some of the squares in the grid store the name of a treasure object. Each treasure object has a value, e.g. 100 and a level, e.g. "Bronze."
+
+The computer game makes use of abstraction.
+'''
+
+[[question.part]]
+label = "4(i)"
+marks = 3
+text = '''
+Describe what is meant by the term abstraction and give an example of how abstraction can be used in the treasure game.
+
+Description:
+
+Example:
+'''
+
+[[question.part]]
+label = "4(ii)"
+marks = 3
+text = '''
+Give **three** benefits of using abstraction when writing a program.
+
+1
+
+2
+
+3
+'''
+
+[[question.mark_scheme]]
+label = "4(i)"
+marks = 3
+answer = '''
+1 mark for each description to max 2 and 1 mark for example\
+e.g.
+
+- Removal of unnecessary detail…
+- ….to allow programmers to focus on core aspects of the problem….
+- ….simplifies a complex problem
+
+Examples, e.g:
+
+- Treasure objects are replaced with text labels / no images of treasure are used
+- Island is set of coordinates and no info as to environment/layout and other objects
+'''
+guidance = '''
+Allow other suitable examples that are relevant to the treasure game.
+
+**Examiner’s Comments**
+
+Many candidates identified that abstraction simplified or removed unnecessary detail to gain some marks, but then found it harder to give an example relevant to the scenario. Many candidates gave examples that related to graphics whereas the scenario explicitly stated that the game was text based.
+'''
+
+[[question.mark_scheme]]
+label = "4(ii)"
+marks = 3
+answer = '''
+1 mark each to max 3\
+e.g.
+
+- Reduces programming time
+- Reduces complexity of code (through abstraction by generalisation)
+- Reduces amount of memory required / computational power
+- Simplifies the problem so it's easier to solve / understand (by recognising common patterns)
+- Allows programmers to focus on core aspects of the problem
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many candidates gained some marks, but most found it difficult to identify three distinct reasons, and repetition was often observed in responses. Again, some candidate answers did not provide suitable levels of qualification for the points given.
+'''
+
+[[question]]
+number = 5
+marks = 3
+
+[[question.part]]
+label = "5"
+marks = 3
+text = '''
+Taylor is designing a program for a client who would like to simulate earthquakes on major cities around the world in 3D. The client would like to be able to view any stage of an earthquake such as:
+
+1. the build-up of the earthquake\
+2. the earthquake taking place\
+3. the aftershocks of the earthquake.\
+The client would also like to be able to play the simulation at different speeds. For example, a slow, normal or fast speed.
+
+Give **three** examples of where abstraction can be used in the design of this program.
+
+1
+
+2
+
+3
+'''
+
+[[question.mark_scheme]]
+label = "5"
+marks = 3
+answer = '''
+1 mark per bullet to max 3\
+Any reasonable abstraction e.g.
+
+- will not be to scale not life size
+- will exclude features e.g. people, road markings etc
+
+- will only show what is relevant e.g. buildings
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Most candidates demonstrated that they knew what abstraction was, but a significant number struggled to make clear qualified points. Some candidates gave definitions of abstraction as the removal of
+
+unnecessary detail, but this did not answer the question. This was a contextual question that required relevant and qualif ied points. Responses such as ‘the weather’ were insufficient, whereas ‘removal of the effects of weather’ was a valid qualified point.
+
+Exemplar 2
+
+*[Image in the original mark scheme, not shown here.]*
+
+This exemplar shows a response that has unqualified points that do not show how abstraction can be applied. It highlights factors that could be abstracted, but does not tell us how.
+'''
+
+[[question]]
+number = 6
+marks = 3
+
+[[question.part]]
+label = "6"
+marks = 3
+text = '''
+A card game uses a set of 52 standard playing cards. There are four suits; hearts, diamonds, clubs and spades. Each suit has a card with a number from; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13.
+
+The card game randomly gives 2 players 7 cards each. The unallocated cards become known as the deck.
+
+The players then take it in turns to turn over a card. A valid move is a card of the same suit or the same number as the last card played.
+
+The winner is the first player to play all of their cards.
+
+One component of the game is checking if a move is valid.
+
+Identify **three** other components of the game.
+
+1
+
+2
+
+3
+'''
+
+[[question.mark_scheme]]
+label = "6"
+marks = 3
+answer = '''
+1 mark for each component e.g.
+
+- Allocating cards to each player
+- Generating the deck
+- Managing whose turn it is to play
+- Checking won
+'''
+guidance = '''
+Accept any reasonable component
+
+**Examiner’s Comments**
+
+The specification requires candidates to be able to identify elements of computational thinking. As such, candidates are expected to be able to think procedurally and to be able to identify the components of a problem. While analysis of the problem given in context led most candidates to identify valid components, many struggled to read the scenario and to give relevant points. For instance, many reiterated aspects of checking if a move was valid, which was already given in the question.
+'''
+
+[[question]]
+number = 7
+marks = 7
+
+[[question.part]]
+label = "7"
+text = '''
+A programmer is developing an aeroplane simulator. The user will sit in a cockpit and the simulated environment will be displayed on screens around them.
+
+The programmer uses computational methods to design a solution for the program.
+'''
+
+[[question.part]]
+label = "7(i)"
+marks = 2
+text = '''
+Complete the table by writing a definition for each computational method.
+
+| **Computational Method** | **Definition** |
+|---|---|
+| Abstraction |   |
+| Decomposition |   |
+'''
+
+[[question.part]]
+label = "7(ii)"
+marks = 3
+text = '''
+Give **three** potential differences between the abstracted aeroplane simulator and reality.
+
+1
+
+2
+
+3
+'''
+
+[[question.part]]
+label = "7(iii)"
+marks = 2
+text = '''
+Identify **two** reasons why abstraction is used when designing a solution to the problem.
+
+1
+
+2
+'''
+
+[[question.mark_scheme]]
+label = "7(i)"
+marks = 2
+answer = '''
+Max 1 mark for each definition
+
+e.g.
+
+| **Term** | **Definition** |
+|---|---|
+
+| Removal of unnecessary Abstraction components / focus on only necessary components |   |
+|---|---|
+| Decomposition | Breaking down a problem into subproblems |
+'''
+guidance = '''
+**Examiner’s Comments**
+
+While many candidates accurately recited definitions for abstraction and decomposition there were equally many that presented very vague and unqualified responses. E.g. For abstraction: ‘Simplifying a problem’
+
+without specifying how it was simplified was insufficient. For decomposition: ‘Breaking a problem into smaller parts’ – without specifying that the ‘smaller parts’ are sub- problems rather than saying sequences of instructions or loops was insufficient.
+'''
+
+[[question.mark_scheme]]
+label = "7(ii)"
+marks = 3
+answer = '''
+1 mark for each\
+e.g.
+
+- Removal of visual elements such as buildings on the ground
+- Simplification of controls
+- Focus on important elements such as weather, height, speed
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many candidates gave detailed and relevant examples that were suitable within the context of a flight simulator. However, there were many unqualified responses that were too vague. Unqualified responses such as ‘terrain’ did not go far enough to explain how the terrain in the simulation would differ from reality. To gain marks candidates had to make it clear exactly how the difference identified differed between reality and the simulation.
+'''
+
+[[question.mark_scheme]]
+label = "7(iii)"
+marks = 2
+answer = '''
+1 mark for each to max 2\
+e.g.
+
+- Reduce memory requirements
+- Reduce processing requirements
+- Simplify the problem being solved
+'''
+guidance = '''
+**Examiner’s Comments**
+
+It was noticeable that many candidates reiterated definitions of abstraction rather than identifying the actual reasons why abstraction is used, thus scoring no marks for not answering the question. Again, there were also many vague and unqualified responses. Responses such as ‘focus on key aspects’ did not identify the reason why abstraction is used in the design, whereas clearing specifying ‘focus on key aspects allows coding/development time to be saved’ would make the reason clear.
+'''
+
+[[question]]
+number = 8
+marks = 3
+diagram = true
+
+[[question.part]]
+label = "8"
+marks = 3
+text = '''
+Kira is creating a computer game where the user can play against the computer.
+
+In each turn, each character can make one move from a selection of possible moves.
+
+Kira uses a tree data structure shown in **Fig. 1** to identify the range of possible moves the computer can make from starting position A. Each connection is a move, with each node representing the result of the move.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 1**
+
+State what is meant by the term ‘abstraction’ and describe how Kira has used abstraction in her design of the tree.
+'''
+
+[[question.mark_scheme]]
+label = "8"
+marks = 3
+answer = '''
+1 mark for definition
+
+- Removal of unnecessary detail / Simplification to allow development of a program more easily
+
+1 mark to max 2 for application e.g.
+
+- The actual movements are represented by vertices/lines
+- State of the move is represented by a letter/symbol rather than the actual move position
+- Tree does not show details about what the moves are
+'''
+guidance = '''
+Allow other suitable examples that are relevant to the scenario in the question.
+'''
+
+[[question]]
+number = 9
+marks = 7
+diagram = true
+
+[[question.part]]
+label = "9"
+text = '''
+Sally is a classroom teacher. She would like a program to be able to organise where students will sit in her classroom.
+
+A plan of her classroom is shown **in Fig. 1**.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 1**
+'''
+
+[[question.part]]
+label = "9(i)"
+marks = 3
+text = '''
+State **three** ways that Sally has made use of abstraction in Fig. 1.
+
+1
+
+2
+
+3
+'''
+
+[[question.part]]
+label = "9(ii)"
+marks = 4
+text = '''
+Explain **two** benefits to Sally of using abstraction before creating the programming code.
+
+1
+
+2
+
+**END OF QUESTION PAPER**
+'''
+
+[[question.mark_scheme]]
+label = "9(i)"
+answer = '''
+1 mark per bullet up to a maximum of 3 marks, e.g:
+
+- Classroom displays have been removed
+- People have been removed / simplified with symbols
+- Wall/carpet colours/details have been removed
+- Diagram is not to scale.
+
+3
+
+A02.1 (3)
+'''
+guidance = '''
+Allow other suitable responses that are applied to the scenario in the question.
+'''
+
+[[question.mark_scheme]]
+label = "9(ii)"
+answer = '''
+1 mark per bullet up to a maximum of 2 marks for each benefit (4 marks maximum in total), e.g:
+
+- Reduced development time (1) as factors that can detract from the program can be ignored (1)
+- Program more likely to solve the problem (1) as unnecessary aspects will not detract from the main purpose of the program (1)
+- Reduces complexity of programming code (1) therefore can run on lower spec computers(1)
+
+4
+
+A01.2 (2)
+
+A02.1 (2)
+'''

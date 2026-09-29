@@ -1,0 +1,1126 @@
+# OCR exam questions for 1.3.2 Databases.
+# Copied as text from the question paper and mark scheme PDFs in sources/
+# by tools/extract-exam-questions. Diagrams are not copied. Corrections by
+# hand are fine: the tool will not overwrite this file without --force.
+spec = "1.3.2"
+
+[[question]]
+number = 1
+marks = 9
+
+[[question.part]]
+label = "1"
+marks = 9
+text = '''
+Rosa has recently opened a new leisure centre. Currently she has 150 members, however, she is estimating that this will increase to around 10 000 members.
+
+Rosa will store members' details in a database. She will also store gym class bookings and appointments with fitness instructors.
+
+Rosa is considering using either a flat file database or a relational database.
+
+Discuss the benefits and drawbacks of flat file databases and relational databases and which one would be the most suitable for Rosa.
+
+You should include the following in your answer:
+
+- the features of flat file databases and relational databases
+- the benefits and drawbacks of each type of database
+- which type of database would be the most suitable for Rosa.
+'''
+
+[[question.mark_scheme]]
+label = "1"
+marks = 9
+answer = '''
+**Mark Band 3-High Level (7-9** **marks)**\
+The candidate demonstrates a thorough knowledge and understanding of databases. The material is generally accurate and detailed.
+
+The candidate is able to apply their knowledge and\
+understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+A mark band 3 answer will cover benefits and disadvantages of both flat file and relational databases. The expansions will relate to Rosa’s needs and will go on to evaluate why a relational database is most appropriate.
+
+**Mark Band 2-Mid Level (4-6** **marks)**\
+The candidate demonstrates reasonable knowledge and understanding of databases; the material is generally accurate but at times underdeveloped.
+
+The candidate is able to apply their knowledge and\
+understanding directly to the context provided although one
+
+or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+A mark band 2 answer will cover features of both flat file and relational databases and will expand the points, relating these to benefits and drawbacks and size of Rosa’s data set although these may not be balanced. There will be an attempt to recommend which type is suitable.
+
+**Mark Band 1-Low Level (1-3** **marks)**\
+The candidate demonstrates a basic knowledge of databases; the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided.
+
+The candidate provides nothing more than an unsupported assertion.
+
+The information is basic and communicated in an\
+unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+A mark band 1 answer will contain some basic, relevant points related to features of flat file and/or relational databases. It may not be linked to Rosa’s specific needs.
+
+**0 mark**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+Points may include but aren’t limited to:
+
+**AO1 Knowledge and Understanding**
+
+A flat file database stores data in a single table, often in a plain text file. Usually, each line will hold a single record and delimiters such as commas are used to separate this into different fields.
+
+**Benefits:**
+
+- They are easy to set up as only one table is needed
+- All records are stored in one place
+
+**Drawbacks:**
+
+- Tables can contain lots of redundant data which increases the amount of storage space needed
+- Searching the database can be slower as there is more data to search
+- The database can be more difficult to manage and possibly expand in the future
+
+A relational database stores data in multiple different tables. These are linked together using relationships created by primary and foreign keys.
+
+**Benefits:**
+
+- There is less duplication of information so less redundant data which can reduce the file size
+- The database is easier to manage and easier to expand in the future
+- Searching the database may be faster as there is less data / not all tables need to be searched
+- It can be more secure as different tables means different people could have different access
+
+**Drawbacks:**
+
+- They are generally more difficult to set up and need more technical knowledge to do things like normalisation.
+- Data is spread out between multiple tables. Some tables may be link tables which only display key fields / references
+- They are more expensive as you will need a DBMS rather than just a basic file
+
+**AO2 Application**
+
+- Given that Rosa currently has 150 members, a flat file database will be suitable
+- However, as the business expands, using a flat file database may prove problematic
+- She could end up with a lot of redundant data as each time a new booking/appointment is made, it may store repeated data.
+- The more data Rosa has, the more likely there could be inconsistencies if data is edited/updated and her data would lose integrity
+- A relational database would be more efficient.
+- Membership details can be stored once and then their membership ID number can then be used to make a booking
+- A relational database will also allow her to expand even further in the future as additional tables can be added. However, the database will need to be normalised to ensure data is consistent, in the same format and that dependencies are reduced
+
+**AO3 Evaluation**\
+The most suitable database for Rosa would be a relational database. Although this is more complex and the data needs to be normalised, it will store less repeated data when her company expands. It will also allow the database to be easily maintained and expanded in the future and will be easier to keep data secure, which is important.
+
+**Examiner’s Comments**
+
+There were some really good responses to this question. More successful candidates were able to explain the features of both types of database as well as giving relevant benefits and drawbacks of each which they then applied to the scenario well and gave a recommendation. Some candidates gave good descriptions of the features of each type but were unable to apply their knowledge to
+
+the scenario other than saying the membership was going to increase. There were a number of candidates who confused a database with a table stating that a relational database was a number of related databases and not a number of related tables.
+
+*[Image in the original mark scheme, not shown here.]*
+
+**Misconception**
+
+The main misconception was to confuse database with table although some candidates also confused the different keys used in a relational database and what they were used for.
+
+Exemplar 3
+
+*[Image in the original mark scheme, not shown here.]*
+
+The candidate has shown good application to the scenario as well as benefits and drawbacks of both database types. They have made a valid\
+recommendation which is justified.
+'''
+
+[[question]]
+number = 2
+marks = 8
+diagram = true
+
+[[question.part]]
+label = "2(a)"
+marks = 2
+text = '''
+State **two** benefits of using a relational database instead of a flat file database.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "2(b)"
+marks = 2
+text = '''
+OCRConfectionery is a sweet manufacturing company.
+
+They want to use a relational database to store details of the orders their customers make.
+
+One customer can order as many different products as they like in the same order. A customer can also place as many orders as they like.
+
+One product can be ordered multiple times in the same order or ordered by multiple different customers.
+
+Complete the entity relationship diagram to show the relationships between the Product, Customer and Order entities.
+
+*[Diagram in the original paper, not shown here.]*
+'''
+
+[[question.part]]
+label = "2(c)"
+text = '''
+The order table has these fields.
+
+OrderID\
+OrderDate\
+OrderAmount\
+CustomerID\
+ProductID
+'''
+
+[[question.part]]
+label = "2(c)(i)"
+marks = 2
+text = '''
+State the difference between a primary key and a foreign key.
+'''
+
+[[question.part]]
+label = "2(c)(ii)"
+marks = 1
+text = '''
+State **one** foreign key in the order table.
+'''
+
+[[question.part]]
+label = "2(c)(iii)"
+marks = 1
+text = '''
+State why CustomerID would not make a suitable primary key in the order table.
+'''
+
+[[question.mark_scheme]]
+label = "2(a)"
+marks = 2
+answer = '''
+- Relational data allows for less redundancy of data/less repeated data
+
+- Relational databases improve the consistency of data
+- Relational databases allow for **complex** queries and/or searches to be performed
+'''
+guidance = '''
+**Examiner’s Comments**
+
+This question was generally answered well, although
+
+some candidates did not use the correct terminology and therefore could not be given all the available marks.
+'''
+
+[[question.mark_scheme]]
+label = "2(b)"
+marks = 2
+answer = '''
+1 mark for each bullet point to max 2 marks:
+
+- One customer to many orders
+- Many orders to many products / One order to many orderLines **and** many orderLines to one product
+
+**Solution 1:**
+
+*[Image in the original mark scheme, not shown here.]*
+
+**Solution 2:**
+
+*[Image in the original mark scheme, not shown here.]*
+'''
+guidance = '''
+Ignore any relationship between customer and product.
+
+Accept any suitable alternative name for the OrderLine entity.
+
+**Additional guidance:**\
+For MP2, candidates may have avoided the use of many-to-many relationships, due to the information in part c). Therefore, allow one product to many orders.
+
+**Examiner’s Comments**
+
+This question required candidates to correctly draw the relationships between the entities as explained in the question.
+
+Candidates were expected to indicate the relationships. Some candidates used either words or other symbols to indicate the relationships, therefore not achieving either of the available marks.
+
+Some candidates used a link entity to avoid a many to many relationship between product and order or indicated a relationship of one product to many orders. Either of these responses were acceptable.
+
+*[Image in the original mark scheme, not shown here.]*
+
+**Assessment for learning**
+
+Appendices 5c in the specification shows the symbols used for entities and their relationships. Students need to be taught these to use in the exam.
+'''
+
+[[question.mark_scheme]]
+label = "2(c)(i)"
+marks = 2
+answer = '''
+- A primary key will only appear once in a table/is a unique identifier
+- A foreign key may appear multiple times a table/may not be unique
+'''
+guidance = '''
+Accept entity for table
+
+**Examiner’s Comments**
+
+Many candidates were able to state what a primary key is, but did not state the difference between this and a foreign key and therefore did not achieve both marks.
+'''
+
+[[question.mark_scheme]]
+label = "2(c)(ii)"
+marks = 1
+answer = '''
+- CustomerID
+- ProductID
+'''
+guidance = '''
+Correct answer only
+
+**Examiner’s Comments**
+
+This question was generally answered well, although some candidates lost marks for mis-spelling the foreign key or adding spaces, both of which are not permitted.
+'''
+
+[[question.mark_scheme]]
+label = "2(c)(iii)"
+marks = 1
+answer = '''
+There may be duplicate values.
+'''
+guidance = '''
+**Examiner’s Comments**
+
+This question was generally answered well with many candidates gaining the mark.
+'''
+
+[[question]]
+number = 3
+marks = 6
+
+[[question.part]]
+label = "3"
+text = '''
+Details of all users that have accessed a robot are stored in a database table called `TblAccessLog`. This table stores the username and user type of each user. When a user accesses the robot, the current date is added to the `DateAccessed` field for that user.
+
+A selection of the data from this table is shown here. Username is the key field.
+
+|   |   |   |   |   |   |   |   |   |
+|---|---|---|---|---|---|---|---|---|
+|   | `Username` |   |   | `UserType` |   |   | `DateAccessed` |   |
+|   |   |   |   |   |   |   |   |   |
+| `Mrphy003` | `User` | `08/05/21, 07/06/21, 08/06/21` |   |   |   |   |   |   |
+| `Lwis076` | `Admin` | `17/04/21, 19/07/21` |   |   |   |   |   |   |
+| `Bbby412` | `NotNeeded` | `01/06/21, 02/07/21, 14/07/21` |   |   |   |   |   |   |
+
+```
+TblAccessLog
+```
+'''
+
+[[question.part]]
+label = "3(i)"
+marks = 2
+text = '''
+Write an SQL statement to delete all records from the table `TblAccessLog` for users who have a UserType of "`NotNeeded`".
+'''
+
+[[question.part]]
+label = "3(ii)"
+marks = 2
+text = '''
+State **two** requirements for a database to be in First Normal Form (1NF).
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "3(iii)"
+marks = 2
+text = '''
+Explain why the structure of `TblAccessLog` means that this database is **not** in First Normal Form (1NF).
+'''
+
+[[question.mark_scheme]]
+label = "3(i)"
+marks = 2
+answer = '''
+- DELETE FROM TblAccessLog
+- WHERE UserType = "NotNeeded"
+'''
+guidance = '''
+Do not accept DELETE \* or inclusion of field names
+
+Need quotation on MP2
+
+For field and table names, case must match - only penalise once and FT
+
+Do not award MP2 if == is used instead of =
+
+**Examiner’s Comments**
+
+Many candidates gained the mark for the WHERE statement but less gained a mark for the DELETE statement.
+'''
+
+[[question.mark_scheme]]
+label = "3(ii)"
+marks = 2
+answer = '''
+- Each attribute name is unique
+- Primary key identified
+- No repeated **attributes**
+- All data in attributes must be atomic (cannot befurther split up) / by example
+'''
+guidance = '''
+Do not accept repeated data / data redundancy (higher than 1NF) unless specified that this is within one field
+
+Allow fields/properties as alternative to attribute
+
+**Examiner’s Comments**
+
+There were some excellent responses to this question and most candidates were able to gain at least one mark.
+'''
+
+[[question.mark_scheme]]
+label = "3(iii)"
+marks = 2
+answer = '''
+- DateAccessed…
+- …has non-atomic data / data can be split up (into separate dates)
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Very well answered and most candidates could identify the DateAccessed field as being where the problem lay.
+'''
+
+[[question]]
+number = 4
+marks = 22
+diagram = true
+
+[[question.part]]
+label = "4(a)"
+text = '''
+A relational database supports ACID transactions. ACID stands for Atomicity, Consistency, Isolation and Durability.
+'''
+
+[[question.part]]
+label = "4(a)(i)"
+marks = 2
+text = '''
+Describe what is meant by a transaction being durable.
+'''
+
+[[question.part]]
+label = "4(a)(ii)"
+marks = 1
+text = '''
+Give **one** way that durability can be achieved for a completed transaction.
+'''
+
+[[question.part]]
+label = "4(a)(iii)"
+marks = 3
+text = '''
+Explain how record locking can be used to ensure that the ACID principle of isolation is achieved when carrying out multiple transactions.
+'''
+
+[[question.part]]
+label = "4(a)(iv)"
+marks = 1
+text = '''
+Give **one** disadvantage of using record locking.
+'''
+
+[[question.part]]
+label = "4(b)"
+text = '''
+A video streaming service uses a relational database. An extract of the data from two tables from this database is shown in **Fig. 2**.
+
+`Membership` contains data about current memberships that customers hold and `package` contains data about different streaming packages available.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 2**
+'''
+
+[[question.part]]
+label = "4(b)(i)"
+marks = 1
+text = '''
+State what is meant by the term ‘primary key’.
+'''
+
+[[question.part]]
+label = "4(b)(ii)"
+marks = 2
+text = '''
+Identify the foreign key used in the database and the table name where this is a foreign key.
+
+Foreign Key
+
+Table Name
+'''
+
+[[question.part]]
+label = "4(b)(iii)"
+marks = 1
+text = '''
+Identify the data type of the `CostPerMonth(£)` field.
+'''
+
+[[question.part]]
+label = "4(b)(iv)"
+marks = 1
+text = '''
+Give the name of the field that could be stored using a Boolean data type.
+'''
+
+[[question.part]]
+label = "4(c)"
+marks = 5
+text = '''
+The `Adverts` field indicates if customers will be shown adverts. `true` indicates that customers will be shown adverts, and `false` indicates that adverts are not shown.
+
+Write Structured Query Language (SQL) to return the `Username` and `FirstName` fields for all customers who see adverts.
+'''
+
+[[question.part]]
+label = "4(d)"
+text = '''
+When new customers join the streaming service, their name, email address and contact details are captured so that they can be entered into the database.
+'''
+
+[[question.part]]
+label = "4(d)(i)"
+marks = 3
+text = '''
+Identify **one** method of capturing a new customer’s personal data, describing why this method is suitable.
+
+Method
+
+Suitability
+'''
+
+[[question.part]]
+label = "4(d)(ii)"
+marks = 2
+text = '''
+Sometimes the company may need to move or backup its data they hold about customers.
+
+Identify **two** methods of exchanging data with other computer systems.
+
+1
+
+2
+'''
+
+[[question.mark_scheme]]
+label = "4(a)(i)"
+marks = 2
+answer = '''
+- (Committed) data/transaction is not lost…
+- …in case of power / system failure
+'''
+
+[[question.mark_scheme]]
+label = "4(a)(ii)"
+marks = 1
+answer = '''
+- Completed transactions stored in secondary storage / data not stored long-term in RAM/cache
+'''
+
+[[question.mark_scheme]]
+label = "4(a)(iii)"
+marks = 3
+answer = '''
+- The outcome of concurrent transactions is the same as if transactions were completed sequentially.
+- Record locking allows one user/process to access/modify record level data at any one time
+- So data that is being used elsewhere cannot be modified / data that is being modified elsewhere cannot be used
+'''
+guidance = '''
+Allow reference to lost updates/dirty reads/phantom reads for BP3.
+
+**Examiner’s Comments**\
+For candidates with a good understanding of ACID, these questions were well answered. Unfortunately, some had only a vague knowledge or confused it with referential integrity. Some answers were unclear. Some candidates talked about locking the entire database when record locking rather than just the relevant records.
+'''
+
+[[question.mark_scheme]]
+label = "4(a)(iv)"
+marks = 1
+answer = '''
+- Can cause delays (as users wait for access)
+- Can cause deadlock
+'''
+guidance = '''
+**Examiner’s Comments**\
+Many candidates were given a mark for deadlock or longer wait times. Those candidates given a mark in Question 2 (d) (iv) tended to be those who has gained marks in Question 2 (d) (iii).
+'''
+
+[[question.mark_scheme]]
+label = "4(b)(i)"
+marks = 1
+answer = '''
+- Field that is unique/does not repeat
+'''
+
+[[question.mark_scheme]]
+label = "4(b)(ii)"
+marks = 2
+answer = '''
+- **Foreign Key:** PackageType
+- **Table Name:** Membership
+'''
+guidance = '''
+Must be spelled correctly
+
+**Examiner’s Comments**\
+Many candidates gained 1 mark for the foreign key and most gained both marks, although some candidates gave ‘package’ as the table where it is a primary key rather than the membership table where it is the foreign key.
+'''
+
+[[question.mark_scheme]]
+label = "4(b)(iii)"
+marks = 1
+answer = '''
+- Float / Floating Point / Real
+'''
+guidance = '''
+Allow currency/double/single/decimal
+'''
+
+[[question.mark_scheme]]
+label = "4(b)(iv)"
+marks = 1
+answer = '''
+- Adverts
+'''
+guidance = '''
+CAO
+'''
+
+[[question.mark_scheme]]
+label = "4(c)"
+marks = 5
+answer = '''
+- Username and FirstName fields (and no others) selected correctly using `SELECT` keyword
+- `Membership` / both tables correctly selected using `FROM` keyword
+- Tables joined using correct `JOIN / INNER` `JOIN` keywords / Tables joined using correct `WHERE` clause
+- Fields use table identifiers before them
+- `WHERE` clause used to correctly show only records where `Adverts`
+
+```
+= true
+```
+'''
+guidance = '''
+For full marks, a fully correct working answer must be provided. Candidates can join tables in either of two valid ways (using `JOIN` or `WHERE`). Note that `JOIN` is given in the specification but `INNER JOIN` is also equally acceptable.
+
+BP1 is the same for either method\
+For BP2, candidates can either choose just the Membership table **or** both the Membership and Packagetable\
+BP3 credited for correct JOIN / INNER JOIN or correct use of WHERE clause to join tables. Do not credit if FROM clause incorrect for this method\
+BP4 credited if candidates have used table identifiers before the field name (i.e they have used\
+`Membership.PackageType` and not just
+
+```
+PackageType)
+```
+
+BP5 will require use of `AND` if `WHERE` is used to join tables.
+
+Spellings of all field names, table names and keywords must be accurate but only penalise once.
+
+Example one using JOIN keyword
+
+```
+SELECT Username, Firstname
+FROM Membership
+JOIN Package on
+Membership.PackageType=Package.PackageType
+WHERE Adverts = true
+```
+
+Example two using WHERE clause
+
+```
+SELECT Username, Firstname
+FROM Membership, Package
+WHERE Membership.PackageType =
+Package.PackageType
+AND Adverts = true
+```
+
+**Examiner’s Comments**\
+Many candidates were able to gain some marks. The question refers to the Adverts field which is in the package table and states that the data shown in the tables is only an extract from the tables. For full marks on this question, candidates were expected to attempt to
+
+join the two tables to access the Username and Firstname from the membership table, and the Adverts from the package table.
+'''
+
+[[question.mark_scheme]]
+label = "4(d)(i)"
+marks = 3
+answer = '''
+- Form / web form
+- Can use validation to check for common errors…
+- Can check for duplicate values
+- Data can be entered direct into the database / limited manual processing
+- Can be done from remote locations
+'''
+guidance = '''
+One mark maximum for identification of method Two marks for discussion of suitability
+
+Accept other valid methods of capturing data. Do NOT accept OCR/OMR/barcodes/QR codes
+
+If the method is incorrect, don’t read on
+
+**Examiner’s Comments**\
+Few candidates were able to gain full marks on this question as many overcomplicated it or could not give a relevant data capture method. When they did give form as a relevant answer, they often had unclear suitability.
+
+**Exemplar 2**
+
+*[Image in the original mark scheme, not shown here.]*
+
+The candidate has given a valid method and has given clear and correct suitability by describing that the details could be automatically added to the database and can be filled in from home, which would be a remote location. The candidate gained the full 3 marks.
+'''
+
+[[question.mark_scheme]]
+label = "4(d)(ii)"
+marks = 2
+answer = '''
+e.g.
+
+- CSV
+- JSON
+- XML
+- SQL
+- APIs
+- EDI
+- RSS
+- SOAP
+'''
+guidance = '''
+**Examiner’s Comments**\
+Few candidates gained full marks on this question although there were a range of relevant responses they could have given.
+'''
+
+[[question]]
+number = 5
+marks = 13
+
+[[question.part]]
+label = "5"
+text = '''
+Customers’ details are stored in the flat file database table `Customer`. An extract of the table is shown below.
+
+**CustomerID**
+
+```
+Surname
+```
+
+```
+Title
+```
+
+```
+Phone
+```
+
+```
+CarReg
+```
+
+```
+JJ178
+```
+
+```
+James
+```
+
+```
+Mr
+```
+
+```
+(0121) 343223
+```
+
+```
+DY51 KKY
+```
+
+```
+HG876
+```
+
+```
+Habbick
+```
+
+```
+Miss
+```
+
+```
+(01782)
+659234
+```
+
+```
+PG62 CRG
+```
+
+```
+EV343
+```
+
+```
+Elise
+```
+
+```
+Mrs
+```
+
+```
+(07834)
+123998
+```
+
+```
+HN59 GFR
+```
+
+```
+PG127
+```
+
+```
+Pleston
+```
+
+```
+Mr
+```
+
+```
+(07432)
+234543
+```
+
+```
+JB67 DSF
+```
+'''
+
+[[question.part]]
+label = "5(i)"
+marks = 2
+text = '''
+State what is meant by the term ‘primary key’, identifying the primary key in the table above.
+'''
+
+[[question.part]]
+label = "5(ii)"
+marks = 4
+text = '''
+Write the SQL statement that would show only the `CustomerID` and `Surname` fields for customers with the `Title` “Miss” or “Mrs”.
+'''
+
+[[question.part]]
+label = "5(iii)"
+marks = 2
+text = '''
+Describe **one** problem that would arise with the flat file database structure if a customer wanted to insure more than one car at the same time.
+'''
+
+[[question.part]]
+label = "5(iv)"
+marks = 5
+text = '''
+Describe how the flat file database structure could be altered to efficiently allow each customer to insure multiple cars at the same time. (You may assume each car is insured to only one customer.)
+'''
+
+[[question.mark_scheme]]
+label = "5(i)"
+marks = 2
+answer = '''
+- Field with a unique value
+- CustomerID
+'''
+
+[[question.mark_scheme]]
+label = "5(ii)"
+marks = 4
+answer = '''
+- SELECT CustomerID, Surname
+- FROM Customer
+- WHERE Title="Miss"
+- OR Title = "Mrs"
+'''
+guidance = '''
+1 mark per bullet point.\
+Data in fields must be in speech marks/apostrophes Allow speech mark/apostrophe FT for BP 2 and 4 Ignore colons/semicolons
+'''
+
+[[question.mark_scheme]]
+label = "5(iii)"
+marks = 2
+answer = '''
+- Only one customer entry allowed (because of key field)
+- …so would not be able to add second entry
+- Customer data already present/would be repeated
+- ….resulting in redundant data/wasted space
+- …resulting in inconsistencies should changes be made
+'''
+guidance = '''
+Mark in pairs.
+'''
+
+[[question.mark_scheme]]
+label = "5(iv)"
+marks = 5
+answer = '''
+- Add in second table
+- …for the cars / splitting up cars/customers
+- The primary key of customer is used as a field in the car/vehicle table
+- … as a foreign key of cars
+- Create one to many relationship. Accept many to one.
+'''
+
+[[question]]
+number = 6
+marks = 30
+
+[[question.part]]
+label = "6(a)"
+text = '''
+A hotel uses a computer system to keep track of room bookings. The hotel staff are able to query a database to discover which rooms are booked or which rooms are free.
+
+The hotel’s computer network uses a client-server model.
+'''
+
+[[question.part]]
+label = "6(a)(i)"
+marks = 3
+text = '''
+Describe what is meant by the term ‘client-server’ in this context.
+'''
+
+[[question.part]]
+label = "6(a)(ii)"
+marks = 2
+text = '''
+Give **two** advantages of client-server compared to peer-to-peer.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "6(b)"
+marks = 3
+text = '''
+The hotel’s network uses multiple switches.
+
+Explain the purpose of a network switch.
+'''
+
+[[question.part]]
+label = "6(c)"
+marks = 9
+text = '''
+\* The hotel is concerned about the security of its computer network.
+
+Discuss the threats which potentially exist to the hotel’s computer network and how these threats could be eliminated or reduced.
+'''
+
+[[question.part]]
+label = "6(d)"
+text = '''
+The hotel stores data about rooms, customers and bookings in a database. Each customer can book multiple rooms and each room can be booked multiple times.
+'''
+
+[[question.part]]
+label = "6(d)(i)"
+marks = 4
+text = '''
+Draw an Entity Relationship Diagram for this database.
+'''
+
+[[question.part]]
+label = "6(d)(ii)"
+marks = 3
+text = '''
+Define what is meant by the term ‘foreign key’, giving **one** example of where a foreign key would be used in the hotel booking database.
+
+Definition
+
+Example
+'''
+
+[[question.part]]
+label = "6(d)(iii)"
+marks = 4
+text = '''
+Describe **two** different ways that hashing could be used in this database.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "6(e)"
+marks = 2
+text = '''
+The hotel booking database enforces referential integrity.
+
+Explain what is meant by the term ‘referential integrity’ and how this could potentially be broken.
+
+**END OF QUESTION PAPER**
+'''
+
+[[question.mark_scheme]]
+label = "6(a)(i)"
+marks = 3
+answer = '''
+- Client computers connect to server
+- Server provides access to a resource/service
+- In this case hotel staff use client computers to connect to database on server (or other sensible example).
+'''
+
+[[question.mark_scheme]]
+label = "6(a)(ii)"
+marks = 2
+answer = '''
+e.g.
+
+- only one point of failure
+
+- easier to manage users/access
+- Easier to backup
+- Easier to keep data secure.
+- Technicians can more easily remotely install / monitor.
+'''
+
+[[question.mark_scheme]]
+label = "6(b)"
+marks = 3
+answer = '''
+- Joins computers/devices together on a LAN
+- Receives packets/data
+- Recipient’s address is given in packet header/it uses the mac address
+- Send packets/data
+- Out the correct port /to the specific computer device
+'''
+
+[[question.mark_scheme]]
+label = "6(c)"
+marks = 9
+answer = '''
+**Mark Band 3–High Level (7-9** **marks)**\
+The candidate demonstrates a thorough knowledge and understanding of network security. The material is generally accurate and detailed.
+
+The candidate is able to apply their knowledge and\
+understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation.
+
+The candidate provides a thorough discussion which is well balanced. Evaluative comments are consistently relevant and well-considered.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2-Mid Level (4-6** **marks)**
+
+The candidate demonstrates reasonable knowledge and understanding of network security; the material is generally accurate but at times underdeveloped.
+
+The candidate is able to apply their knowledge and\
+understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.
+
+The candidate provides a sound discussion, the majority of which is focused. Evaluative comments are for the most part appropriate, although one or two opportunities for development are missed.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1-Low Level (1-3** **marks)**\
+The candidate demonstrates a basic knowledge of network security; the material is basic and contains some\
+inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided.\
+The candidate provides a limited discussion which is narrow in focus. Judgments if made are weak and unsubstantiated. The information is basic and communicated in an\
+unstructured way. The information is supported by limited evidence and the relationship to the evidence may
+
+not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+AO1\
+Malware and viruses are software that can have a negative impact on computer systems\
+Spyware and keyloggers can record information entered and send back to a third party\
+Phishing attacks attempt to steal data by fraudulently appearing as legitimate emails asking for secure information\
+Denial of Service Attacks can overload a computer system with traffic and effectively disable access for legitimate users
+
+AO2\
+Hotel’s systems could be disrupted by DDOS attacks so no external bookings able to be made.\
+Phishing and spyware attacks may compromise visitor security and result in financial loss\
+Malware, viruses could destroy hotel data\
+Theft of customer data would be an issue under Data Protection Act / GDPR for which the hotel could be prosecuted
+
+AO3\
+Education for staff and customers is important to deal with recognising and dealing with threats\
+Up to date software, limitations of use of devices such as USB sticks and restricted access to wireless networks can all limit risks.\
+Use of Firewall to restrict traffic entering and leaving the network.
+
+Should be balanced against customer experience; will customers return if they have no access to It facilities?
+'''
+
+[[question.mark_scheme]]
+label = "6(d)(i)"
+marks = 4
+answer = '''
+- Customer, Room and Booking entities, must be singular
+- Customer joined to Booking and Room joined to booking and no other links
+- Customer to Booking relationship indicated as one- many -Room to Booking relationship indicated as one- many
+'''
+guidance = '''
+*[Image in the original mark scheme, not shown here.]*
+'''
+
+[[question.mark_scheme]]
+label = "6(d)(ii)"
+marks = 3
+answer = '''
+- A field that links to a (primary) key in a second table
+- Example : Customer ID / RoomID…
+- … in Booking table
+'''
+
+[[question.mark_scheme]]
+label = "6(d)(iii)"
+marks = 4
+answer = '''
+- Hashing for security
+- …e.g. hash passwords in database
+- …to make sure they cannot be read if they are stolen
+- Hashing for direct access
+- …e.g. Customer/Room/Booking records can be quickly accessed
+- …by using hash of index as address
+'''
+
+[[question.mark_scheme]]
+label = "6(e)"
+marks = 2
+answer = '''
+- Database/relationships are consistent / each foreign key links to an existing/valid primary key
+- Suitable example of being broken (e.g. if primary key is deleted/updated, foreign keys are no longer valid /
+
+changes should be cascaded)
+'''
+guidance = '''
+Accept example that is not related to the database given (as this is an AO1 question)
+'''

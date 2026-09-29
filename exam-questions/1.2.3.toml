@@ -1,0 +1,1465 @@
+# OCR exam questions for 1.2.3 Software Development.
+# Copied as text from the question paper and mark scheme PDFs in sources/
+# by tools/extract-exam-questions. Diagrams are not copied. Corrections by
+# hand are fine: the tool will not overwrite this file without --force.
+spec = "1.2.3"
+
+[[question]]
+number = 1
+marks = 6
+
+[[question.part]]
+label = "1"
+marks = 6
+text = '''
+The pseudocode algorithm here will take in two numbers from the user, multiply them together using addition and output the result. For example, 4 multiplied by 3 would be 4 + 4 + 4 = 12.
+
+You can assume the function `input` takes in a value as an integer.
+
+```
+numA = input("Enter first number")
+numB = input("Enter second number")
+
+answer = 0
+
+while (numB > 0)
+ answer = answer + numA
+ numB = numB - 1
+endwhile
+
+print(answer)
+```
+
+Write this algorithm in assembly language using the Little Man Computer (LMC) instruction set.
+'''
+
+[[question.mark_scheme]]
+label = "1"
+marks = 6
+answer = '''
+- INP and STA two numbers correctly
+- Appropriate use of branching to exit the loop.
+- SUB ONE and STA NUM
+- LDA ANSWER and ADD NUMA
+- Output (correct) answer.
+- Set DAT for NUMA, NUMB, ONE, ANSWER after HLT
+
+**POSSIBLE SOLUTION:**
+
+INP\
+STA NUMA INP\
+STA NUMB LOOPSTART LDA NUMB\
+BRZ LOOPEND SUB ONE STA NUMB LDA ANSWER ADD NUMA STA ANSWER BRA LOOPSTART
+
+LOOPEND LDA ANSWER\
+OUT\
+HLT\
+ANSWER D AT 0 ONE DAT 1 NUMA DAT 0 NUMB DAT 0
+'''
+guidance = '''
+First and second number can be interchanged Accept suitable labels for DAT and Loop points For point 6 the 0s for ANSWER, NUMA, NUMB are optional but ONE must be initialised to 1.
+
+Allow FT for BP5 if logic is correct.
+
+Accept alternative mnemonics identified in the specification.
+
+**Examiner’s Comments**
+
+Most candidates were given some of the available marks for this question. Most were able to take two inputs and perform the addition of two numbers, storing the result in the accumulator. Candidates that lost marks did not successfully loop through the instructions correctly, didn’t output the correct answer and/or did not make use of DAT to subtract a value correctly.
+'''
+
+[[question]]
+number = 2
+marks = 5
+diagram = true
+
+[[question.part]]
+label = "2"
+marks = 5
+text = '''
+A program stores data in a linked list.
+
+The current contents of the linked list are shown in **Fig. 3**, along with the linked list pointers.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 3**
+
+The function `findNode` will search the linked list and return either the position of the node that contains the data item, or -1 if the data item is not found.
+
+The data held in a node at location x can be accessed with `linkedList[x].data`. The pointer of the node at location x can be accessed with `linkedList[x].pointer`.
+
+For example, using the linked list shown in **Fig. 3:**\
+`linkedList[2].data` returns `green`.\
+`linkedList[2].pointer` returns `8`.
+
+Complete the function, using pseudocode or program code.
+
+```
+function findNode(toFind, headPointer, linkedList)
+
+  currentNode = ……
+
+  while(currentNode != ……)
+
+    if linkedList[currentNode]. …… == toFind then
+
+      return currentNode
+
+    else
+
+      currentNode = linkedList[……].pointer
+
+    endif
+
+endwhile
+
+return ……
+
+endfunction
+```
+'''
+
+[[question.mark_scheme]]
+label = "2"
+marks = 5
+answer = '''
+1 mark for each statement
+
+```
+function findNode(toFind, headPointer,
+linkedList)
+  currentNode = headPointer
+  while(currentNode != NULL)
+    if linkedList[currentNode].data == toFind
+then
+      return currentNode
+    else
+      currentNode =
+linkedList[currentNode].pointer
+    endif
+  endwhile
+  return -1
+endfunction
+```
+'''
+guidance = '''
+Ignore case of identifiers in pseudocode
+
+Only penalise excessive spaces within identifier names if obvious.
+
+**Examiner’s Comments**
+
+This question required exact answers only. Many candidates gained some marks, and there was a good distribution of marks. More successful programmers tended to get most of the marks available.
+'''
+
+[[question]]
+number = 3
+marks = 6
+
+[[question.part]]
+label = "3(a)"
+marks = 1
+text = '''
+A `doCheck()` function takes an integer value as a parameter, carries out a series of calculations and returns an integer value.
+
+The function is shown here.
+
+```
+function doCheck(number)
+  temp = str(number)
+  max = temp.length – 1
+  total = 0
+  for x = 0 to max
+    total = total + int(temp.subString(x,1))
+  next x
+  return total MOD 10
+endfunction
+```
+
+State the value returned from the function when `doCheck(3178)` is called.
+'''
+
+[[question.part]]
+label = "3(b)"
+marks = 5
+text = '''
+Write an algorithm that will:
+
+- allow the user to enter an integer value
+- pass the value entered into the `doCheck()` function as a parameter store both the value input and the value returned from the function in a text file with name
+-  "storedvalues.txt"
+
+You should write your algorithm using either pseudocode or program code.
+'''
+
+[[question.mark_scheme]]
+label = "3(a)"
+marks = 1
+answer = '''
+- 9
+'''
+guidance = '''
+**Examiner’s Comments**
+
+This was a relatively simple algorithm question which candidates could answer using pseudocode or program code. Many had not read the first part of the Question 5 (a) where the doCheck function was already shown and tried writing the doCheck function instead of passing a parameter to it as stated in the question. Many candidates were unable to show an understanding of how to open a file and write to it. However there were very many excellent responses to all parts of this question.
+
+Exemplar 3
+
+*[Image in the original mark scheme, not shown here.]*
+
+In this response the candidate has clearly shown input, calling the doCheck function and assigning the return value to a variable, File is opened and file name is enclosed in quotes and file is closed. The file name is then used to write to the file with the two values.
+'''
+
+[[question.mark_scheme]]
+label = "3(b)"
+marks = 5
+answer = '''
+- **input and store/use** a value from user
+- call **doCheck** function with value input from user **and** **save/use returned value**
+- open and close text file in write/append mode, if given
+- write value returned to text file
+
+- Write value input to text file
+'''
+guidance = '''
+Example code:
+
+```
+num = input("enter a number")
+value=doCheck(num)
+txtfile =
+openWrite("storedvalues.txt")
+```
+
+```
+txtfile.writeLine(num)
+txtfile.writeLine(value)
+txtfile.close()
+```
+
+MP2 - **doCheck** is case sensitive
+
+MP3 - need speech marks around file name
+
+**Examiner’s Comments**
+
+This was a relatively simple algorithm question which candidates could answer using pseudocode or program code. Many had not read the first part of the Question 5 (a) where the doCheck function was already shown and tried writing the doCheck function instead of passing a parameter to it as stated in the question. Many candidates were unable to show an understanding of how to open a file and write to it. However there were very many excellent responses to all parts of this question.
+
+Exemplar 3
+
+*[Image in the original mark scheme, not shown here.]*
+
+In this response the candidate has clearly shown
+
+input, calling the doCheck function and assigning the return value to a variable, File is opened and file name is enclosed in quotes and file is closed. The file name is then used to write to the file with the two values.
+'''
+
+[[question]]
+number = 4
+marks = 9
+diagram = true
+
+[[question.part]]
+label = "4"
+text = '''
+Sundip writes an algorithm to carry out addition and subtraction. The algorithm will use an initially empty stack with the identifier `numbers` and will take input from the user.
+
+The action the algorithm takes depends on the value input by the user. These actions are listed in **Fig. 2**.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 2**
+'''
+
+[[question.part]]
+label = "4(i)"
+marks = 3
+text = '''
+Complete the diagram to show the state of the stack after each value is entered into the algorithm. The letters will complete an action stated in **Fig. 2**.
+
+The state of the stack after the first value, 8, has been completed for you.
+
+*[Diagram in the original paper, not shown here.]*
+'''
+
+[[question.part]]
+label = "4(ii)"
+marks = 3
+text = '''
+Complete the following table to give the output from this algorithm when the following set of inputs are entered by the user. The letters will complete an action stated in **Fig. 2**.
+
+|   |   |   |   |   |   |
+|---|---|---|---|---|---|
+|   | **Input data (from left to right)** |   |   | **Output** |   |
+|   |   |   |   |   |   |
+| **9 3 A E** |   |   |   |   |   |
+| **10 5 A 8 S E** |   |   |   |   |   |
+| **25 5 S 2 3 A S E** |   |   |   |   |   |
+'''
+
+[[question.part]]
+label = "4(iii)"
+marks = 3
+text = '''
+If the user enters **4 2 S A E** , the algorithm will not work correctly.
+
+Explain what problem this input data will cause and why the problem occurs.
+'''
+
+[[question.mark_scheme]]
+label = "4(i)"
+marks = 3
+answer = '''
+- 8, 7
+- 15
+- 15,6
+'''
+guidance = '''
+One mark per stack diagram
+
+**Examiner’s Comments**
+
+This question was generally well answered although some candidates struggled to understand the concept of a stack and how data is pushed on to it and popped from it.
+'''
+
+[[question.mark_scheme]]
+label = "4(ii)"
+marks = 3
+answer = '''
+- 12
+- 7
+- 15
+'''
+guidance = '''
+**Examiner’s Comments**
+
+This was generally well answered, with the biggest misunderstanding being the way the subtraction occurs.
+'''
+
+[[question.mark_scheme]]
+label = "4(iii)"
+marks = 3
+answer = '''
+- S causes the two values inputted to be popped and only one value to be pushed back / 4 and 2 are popped and 2 is pushed
+- A causes an attempt to pop **two values but only one** **present / not two values there**
+- Causing a **stack** underflow
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many candidates were able to gain at least one mark on this question for stating that the addition would only be able to pop one number. The candidates who gained full marks were able to state the type of error correctly and explain why
+
+there was only one value able to be popped after the subtraction.
+'''
+
+[[question]]
+number = 5
+marks = 3
+diagram = true
+
+[[question.part]]
+label = "5"
+text = '''
+**Fig. 5** shows a graph data structure representing a small section of a parcel delivery network. Each node represents an address where deliveries need to be made. The edges show the possible routes and distances between these deliveries.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 5**
+'''
+
+[[question.part]]
+label = "5(i)"
+marks = 1
+text = '''
+State why performance modelling is used to test a system.
+'''
+
+[[question.part]]
+label = "5(ii)"
+marks = 2
+text = '''
+Describe how performance modelling can be used in the delivery system.
+'''
+
+[[question.mark_scheme]]
+label = "5(i)"
+marks = 1
+answer = '''
+1 mark per bullet to max 1
+
+- Simulate/model behaviour of the system (before it is) used under load
+- Because it would be too expensive/unsafe/time critical to test the real system
+'''
+guidance = '''
+**Examiner’s Comments**
+
+The concept of stress testing a system by simulating heavy loads seemed to be poorly understood by most candidates. Many candidates often confused this with the general testing of a system to find bugs.
+'''
+
+[[question.mark_scheme]]
+label = "5(ii)"
+marks = 2
+answer = '''
+1 mark per bullet to max 2\
+e.g.
+
+- Test with large and small values
+- e.g. largest number of deliveries
+- e.g. largest number of possible routes
+- Model how well the system scales with increasing use.
+'''
+guidance = '''
+**Examiner’s Comments**
+
+There was much confusion over testing a system in general to determine whether an individual route was effective in the graph given, and the actual performance of the system as a whole in terms of the overall time taken to actually perform the calculations required. The majority of candidates did not appreciate that performance modelling looks at the effect of escalating loads on a system.
+'''
+
+[[question]]
+number = 6
+marks = 12
+
+[[question.part]]
+label = "6"
+text = '''
+A program is amended to include the use of several queue data structures.
+'''
+
+[[question.part]]
+label = "6(i)"
+marks = 3
+text = '''
+Describe how an array can be used to implement a queue data structure.
+'''
+
+[[question.part]]
+label = "6(ii)"
+marks = 9
+text = '''
+\* Discuss the use of object-oriented programming and procedural programming to create and manipulate the queue data structures.
+
+You should include the following in your answer:
+
+- the features of object-oriented programming
+- the features of procedural programming the benefits of using object-oriented instead of procedural programming when creating several queue
+-  structures.
+'''
+
+[[question.mark_scheme]]
+label = "6(i)"
+marks = 3
+answer = '''
+1 mark per bullet to max
+
+- Queue has head pointer and tail pointer
+- When an item is enqueued the tail pointer increments
+- When an item is dequeued the head pointer increments
+'''
+guidance = '''
+Max 1 mark for Enqueue/Dequeue operations if description of effect on tail/head pointers not given
+
+**Examiner’s Comments**
+
+Many candidates identified the need to have a head/tail pointer but struggled to gain more than 1 mark by expanding on how enqueue and dequeue
+
+operations would be implemented.
+
+Some candidates continued to talk about push/pop operations for a queue rather than\
+enqueue/dequeue and often gave properties of a queue in general such as First In First Out rather than answering the question.
+'''
+
+[[question.mark_scheme]]
+label = "6(ii)"
+marks = 9
+answer = '''
+**Mark Band 3 – High level**\
+**(7-9 marks)**\
+The candidate demonstrates a thorough knowledge and understanding of object-oriented and procedural programming; the material is generally accurate and detailed.\
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided.\
+Evidence/examples will be explicitly relevant to the explanation. There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2 – Mid level**\
+**(4-6 marks)**\
+The candidate demonstrates reasonable knowledge and understanding of object-oriented and procedural programming; the material is generally accurate but at times underdeveloped. The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.\
+The candidate provides a reasonable discussion, the majority of which is focused. Evaluative comments are, for the most part appropriate, although one or two opportunities for development are missed.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1 – Low Level**\
+**(1-3 marks)**\
+The candidate demonstrates a basic knowledge of object-oriented and procedural programming with limited understanding shown; the material is basic and contains some inaccuracies. The candidates makes a limited attempt to apply acquired knowledge and understanding to the context provided.\
+The candidate provides a limited discussion which is narrow in focus. Judgements if made are weak and unsubstantiated. The information is basic and comunicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+**AO1: Knowledge and Understanding**\
+**Indicative content**
+
+- OOP defines an object as an independent entity
+- OOP defines the attributes of the object and the methods that can be applied to it
+- attributes could be private to restrict accidental changes
+- Procedural the statements are executed in the order they are written
+
+**AO2: Application**
+
+- OOP allows for an object to be created from the queue
+- Many instances of this queue can then be declared in the main program.
+- Procedural will need each queue to be declared individually
+- Procedural will need to make use of subroutines where the queue will need to be sent and returned each time.
+
+**AO3: Evaluation**
+
+- OOP you can create multiple instances of the queue as required by the program without having to re-write all of the declarations etc. In procedural you would have to write separate code for each new stack
+- OOP reduces amount of code needed therefore fewer errors are likely as code is written once and then used multiple times
+- OOP can reduce mistakes because the subroutines are self-contained in procedural it would need to make sure the correct values are passed and returned, or global variables may be required which uses excess memory.
+
+**Examiner’s Comments**
+
+Many candidates were able to identify some elements of OOP and Procedural programming to achieve a Level 1 response or were able to describe features in detail for a Level 2 response. Far fewer were able to apply this to the specific context to achieve a Level 3 response.
+
+Those with good knowledge of OOP stood out in terms of giving clear evaluations of multiple queues generated from instance of the class, encapsulation to reduce side effects and possibilities for inheritance for different types of queues.
+
+Many did not describe the necessary creation of enqueue and dequeue subroutines in procedural programming for each separate queue or the need to pass queues to or returning queues from subroutines.
+
+*[Image in the original mark scheme, not shown here.]*
+
+**Misconception**
+
+There was a lot of confusion between inheritance and instantiation, e.g. “when creating several queues you can use inheritance, so all queues inherit attributes and methods”.
+
+Candidates need to be clear that each instance of a class is assigned the attributes of the class and has access to all associated methods.
+'''
+
+[[question]]
+number = 7
+marks = 12
+diagram = true
+
+[[question.part]]
+label = "7(a)"
+marks = 9
+text = '''
+\* A programmer has been asked by a client to create a complex computer program. Compare the spiral model and waterfall lifecycle methodologies for this task.
+
+You should include the following in your answer:
+
+- how both methodologies could be used to develop a complex computer program
+- the benefits of each methodology for this task
+- the drawbacks of each methodology for this task.
+'''
+
+[[question.part]]
+label = "7(b)"
+text = '''
+A programmer creates this function shown in **Fig. 5** using a high-level language.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 5**
+'''
+
+[[question.part]]
+label = "7(b)(i)"
+marks = 1
+text = '''
+State the value output by the line `print(mystery(10,20))`
+'''
+
+[[question.part]]
+label = "7(b)(ii)"
+marks = 1
+text = '''
+State the value output by the line `print(mystery(0,70))`
+'''
+
+[[question.part]]
+label = "7(b)(iii)"
+marks = 1
+text = '''
+State the value output by the line `print(mystery(45,55))`
+'''
+
+[[question.mark_scheme]]
+label = "7(a)"
+answer = '''
+**Mark Band 3–High Level (7-9 marks)**\
+The candidate demonstrates a thorough knowledge and understanding of both waterfall and the spiral model. The material is generally accurate and detailed.
+
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided.\
+Evidence/examples will be explicitly relevant to the explanation.
+
+The candidate provides a thorough discussion which is well balanced. Evaluative comments are consistently relevant and well- considered.
+
+9 (AO1.1), (2) (AO1.2), (2), (AO2.1) (2), (AO3.3). (3)
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2-Mid Level (4-6 marks)**\
+The candidate demonstrates reasonable knowledge and understanding of waterfall and/or the spiral model; the material is generally accurate but at times underdeveloped.
+
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.
+
+The candidate provides a sound discussion, the majority of which is focused. Evaluative comments are for the most part appropriate, although one or two opportunities for development are missed.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1-Low Level (1-3 marks)**\
+The candidate demonstrates a basic knowledge of some aspects of either waterfall or the spiral model; the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided.
+
+The candidate provides a limited discussion which is narrow in focus. Judgments if made are weak and unsubstantiated. The
+
+information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+AO1\
+The spiral model has four quadrants (determine objectives, identify and manage risk, develop and test, plan next iteration). Client feedback then informs future development and prototypes which feedback into future revisions. Waterfall has a structured analysis/design/development/test flow. Progress to the next step is not made until the previous step is completed.
+
+AO2\
+The spiral model relies on frequent client
+
+feedback. Spiral produces functional prototypes where features are added incrementally. Spiral model has more focus on risk; projects may be modified or even dropped if risk is too great. Waterfall is much more structured and very reliant on getting the definition of requirements correct at the start; changes are harder to add in at a later stage. However, this forces the definition to be well understood.
+
+AO3\
+Spiral involves client feedback, prototypes and evolving projects. Better option where\
+requirements may change. Waterfall is better where requirements are very clear to begin with and outcomes known. Spiral is better for risk management. If the programmer has a large team then waterfall may be more appropriate due to the clearly defined responsibilities at each stage.
+
+**Examiner’s Comments**\
+Most candidates gained some marks on this question. Most could explain that spiral was iterative and waterfall was done in linear stages, but many did not expand on this. Few candidates linked their answer to the complex computer program mentioned in the question. Some candidates also described waterfall as iterative.
+'''
+
+[[question.mark_scheme]]
+label = "7(b)(i)"
+marks = 1
+answer = '''
+- 40
+'''
+guidance = '''
+CAO
+'''
+
+[[question.mark_scheme]]
+label = "7(b)(ii)"
+marks = 1
+answer = '''
+- 70
+'''
+guidance = '''
+CAO
+'''
+
+[[question.mark_scheme]]
+label = "7(b)(iii)"
+marks = 1
+answer = '''
+- 300
+'''
+guidance = '''
+CAO
+'''
+
+[[question]]
+number = 8
+marks = 11
+
+[[question.part]]
+label = "8(a)"
+marks = 2
+text = '''
+George owns a small book shop. He wants a program to work out the daily sales figures.
+
+He uses a text file called “Sales.txt” shown in **Fig. 1**. Each line represents the sales total for a different day of the week. The program can run at any point during the week and therefore the text file may not have seven lines.
+
+| 2367.34 |
+|---|
+| 1986.92 |
+| 2251.49 |
+| 1882.40 |
+| 2412.83 |
+| 3411.32 |
+| 2721.76 |
+
+The program needs to read the text file and then calculate:
+
+- The number of days that the program is calculating over
+- The total sales over that period
+- The average daily sales over that period
+
+At the end of the text file, it should then print the results of these calculations to the screen.
+
+George will use iteration to read through the values in the text file.
+
+Describe how George can use iteration when reading from the text file.
+'''
+
+[[question.part]]
+label = "8(b)"
+marks = 7
+text = '''
+Write a procedure called `salesAnalysis` that will meet the rules of George’s program.
+
+You should write your procedure using pseudocode or program code.
+'''
+
+[[question.part]]
+label = "8(c)"
+marks = 2
+text = '''
+When the values are being read from the Sales.txt file they will be a string data type.
+
+In order for them to be processed they will need to be cast (i.e. converted) to a different data type.
+
+Explain what data type the values in “Sales.txt” should be converted to.
+'''
+
+[[question.mark_scheme]]
+label = "8(a)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g:
+
+- To setup a loop…
+- To repeat (the same block of code)
+- for each line in the text file / until each value has been read
+'''
+guidance = '''
+**Examiner’s Comments**\
+This was also answered well although some candidates used the word ‘iteration’ in their answer without going to describe what this means. As this was in the question, further detail was required such as repeating or looping through the text file.
+'''
+
+[[question.mark_scheme]]
+label = "8(b)"
+marks = 7
+answer = '''
+1 mark per bullet up to a maximum of 7 marks:
+
+- Suitable logic for initialising variables outside of loop
+- Suitable logic for opening and closing Sales.txt
+- Suitable use of a loop which ends when the last line has been reached in Sales.txt
+- Suitable logic for reading each line of data from file variable
+- Suitable logic for increasing total (and count) including conversion from string to numeric data type
+
+- Suitable logic for calculating averages by dividing total by count
+- Suitable logic for printing the number of days, the total sales and the daily average
+'''
+guidance = '''
+Some points (for example 5 & 6) can be combined onto one line.
+
+Example Solution:
+
+```
+procedure salesAnalysis():
+    dayCount = 0
+    salesTotal = 0
+    dailySales =
+openRead("Sales.txt")
+```
+
+```
+    while NOT dailySales.endOfFile()
+      dailySaleFigure = float
+(percentageFile.readLine())
+      salesTotal + =
+dailySaleFigure
+      dayCount + = 1
+    endwhile
+    dailyAverage = salesTotal
+/dayCount
+    print(“Over ” + dayCount + “
+days there was a total sales of £” _+
+salesTotal + “ and an average daily
+sale of £” + dailyAverage)
+    dailySales.close()
+endprocedure
+```
+
+There are many different ways that this procedure could have been achieved. Therefore other alternative methods should be given credit.
+
+**Examiner’s Comments**\
+Most candidates achieved a few marks, but few achieved the maximum marks available. The question states that pseudocode or program code could be used so a variety of answers were given.
+
+The OCR pseudocode guide gives guidance on how to write pseudocode including data structures, constructs, and reading/writing to file. Some candidates wrote neither pseudocode or program code and therefore were given no marks.
+
+Many candidates remembered to open the sales file, but many forgot to close the file. Initialising the variables before the loop was also missed by a number of candidates.
+
+Increasing the total was included in many responses, although many forgot to cast the total to a numeric data type to enable this to work correctly.
+
+Many candidates achieved the last 2 marks for calculating the average and then displaying the calculated values. Some missed the final output as the text was incorrectly concatenated with the variable values.
+
+**Exemplar 3**
+
+*[Image in the original mark scheme, not shown here.]*
+
+Exemplar 3 was given full marks. The candidate has gained the first mark for initialising the variables “numofdays” and “total”. The second mark has been awarded for the first line, which opens the sales file and closing the file after the
+
+loop has finished. The while loop gains the third mark which repeats until the end of the file is reached. The fourth mark is awarded for reading each line of the file correctly. The fifth mark correctly increases total in each iteration. Sale has been correctly converted to a “float” data type beforehand to make this possible. The sixth mark is awarded for calculating the average on the penultimate line. The final mark is awarded for printing the number of days, total sales and the daily average. This has been concatenated correctly with a plus symbol. Some candidates used the comma which was also acceptable.
+
+The syntax provided in this example relates to Python whereas some candidates wrote pseudocode or another high-level language. Some candidates lost marks for writing the steps in everyday English which is not what the question stipulated.
+'''
+
+[[question.mark_scheme]]
+label = "8(c)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g:
+
+- Float/real/double/single/decimal/currency…
+- …because the values in the text file contain a decimal space…
+- …representing monetary values…
+- ….the values will be used in calculations
+'''
+guidance = '''
+**Examiner’s Comments**\
+This was generally answered well although some candidates picked Integer for the data type which would not be accurate given that averages are likely to be a decimal value. There are a range of data types that support decimal values, any of which would be acceptable as an answer.
+'''
+
+[[question]]
+number = 9
+marks = 8
+
+[[question.part]]
+label = "9"
+text = '''
+An object-oriented system is implemented to organize a company’s information about staff attendance. Classes, objects, methods and attributes are used in this system.
+'''
+
+[[question.part]]
+label = "9(i)"
+marks = 3
+text = '''
+State the meaning of each of the following terms:
+
+Object
+
+Method
+
+Attribute
+'''
+
+[[question.part]]
+label = "9(ii)"
+marks = 5
+text = '''
+Each worker has a name and an attendance figure which can be between 0 and 100.
+
+Write a definition for a fully encapsulated worker class, providing both get and set methods for all attributes. You do **not** have to write code for the constructor method.
+'''
+
+[[question.mark_scheme]]
+label = "9(i)"
+marks = 3
+answer = '''
+- Object – instantiated from class
+
+- Method – action object performs / link to procedure/functions
+- Attribute – value held by object / link to variable
+'''
+
+[[question.mark_scheme]]
+label = "9(ii)"
+marks = 5
+answer = '''
+- Class definition statement
+- Defining name and attendance attributes
+- Appropriate get methods for name **and** attendance that return a value and have no parameter
+- Appropriate set methods for name **and** attendance that take a parameter
+- …that restricts attendance to be 0 to 100.
+'''
+guidance = '''
+Example answer
+
+```
+class Worker
+  private name
+  private attendance
+
+  public function getName()
+     return name
+  end function
+
+  public function
+  getAttendance()
+     return attendance
+  end function
+
+  public procedure
+  setName(newName)
+     name = newName
+  end procedure
+
+  public procedure
+  setAttendance(newAttend)
+     if newAttend >=0 and
+     newAttend <=100 then
+        attendance =
+        newAttend
+     end if
+  end procedure
+end class
+```
+'''
+
+[[question]]
+number = 10
+marks = 4
+diagram = true
+
+[[question.part]]
+label = "10"
+marks = 4
+text = '''
+A program written using the Little Man Computer instruction set is shown in **Fig. 1**.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 1**
+
+Write an algorithm using pseudocode that has the same functionality as the code in **Fig. 1**.
+'''
+
+[[question.mark_scheme]]
+label = "10"
+marks = 4
+answer = '''
+- Input two numbers into two separate variables / other suitable data structure
+- Correctly calculate integer division
+- Correctly calculate remainder
+- Print out both
+'''
+guidance = '''
+Can be completed either by using MOD / DIV or by using repeated subtraction as in LMC example
+'''
+
+[[question]]
+number = 11
+marks = 9
+
+[[question.part]]
+label = "11(a)"
+marks = 4
+text = '''
+A website charges a booking fee of £2.99 on each ticket sold. In addition, if the tickets are purchased from outside of the UK, £4.99 is added to the booking fee. The booking fee is calculated using a JavaScript function named `bookingfee()`.
+
+Complete the definition of the `bookingfee()` function below.
+
+```
+function bookingfee(numtickets, country) {
+
+  var nonUKprice = 4.99;
+
+  var perTicketPrice = ……;
+
+  var total = 0;
+
+  if (country!="UK") {
+
+     total = total + ……;
+
+  }
+
+  total = total + (…… * perTicketPrice);
+
+  …… total;
+
+}
+```
+'''
+
+[[question.part]]
+label = "11(b)"
+text = '''
+The JavaScript function above is used to show users the booking fee. When users click to buy the tickets, the booking fee is calculated again on the server.
+'''
+
+[[question.part]]
+label = "11(b)(i)"
+marks = 3
+text = '''
+Explain why server side processing is used to recalculate the booking fee.
+'''
+
+[[question.part]]
+label = "11(b)(ii)"
+marks = 2
+text = '''
+Explain **one** advantage of client side processing to either the customer buying the tickets, or to company who own the website.
+'''
+
+[[question.mark_scheme]]
+label = "11(a)"
+marks = 4
+answer = '''
+- 2.99
+- nonUKprice
+- numtickets
+- return
+'''
+guidance = '''
+Correct answer only. Penalise spelling if incorrect.
+
+Do not accept £ sign in first bullet point.
+'''
+
+[[question.mark_scheme]]
+label = "11(b)(i)"
+marks = 3
+answer = '''
+- processing done away from the user’s control/Client side processing could be altered
+- Browser may not support client-side language/ scripting could be turned off
+- Booking fee calculation needs to be correct for all locations
+'''
+
+[[question.mark_scheme]]
+label = "11(b)(ii)"
+marks = 2
+answer = '''
+To the customer any 2x1:
+
+- No need to submit to server and wait for response
+- Website will work more quickly for user
+
+To the company any 2x1:
+
+- Reduces load on the server
+- Will need to spend less on processing power/bandwidth
+'''
+
+[[question]]
+number = 12
+marks = 16
+
+[[question.part]]
+label = "12(a)"
+marks = 5
+text = '''
+Hugh has written a recursive function called `thisFunction()` using pseudocode.
+
+```
+01 function thisFunction(theArray, num1, num2, num3)
+02  result = num1 + ((num2 - num1) DIV 2)
+03  if num2 < num1 then
+04    return -1
+05  else
+06    if theArray[result] < num3 then
+07      return thisFunction(theArray, result + 1, num2, num3)
+08    elseif theArray[result] > num3 then
+09      return thisFunction(theArray, num1, result - 1, num3)
+10    else
+11      return result
+12    endif
+13  endif
+14 endfunction
+```
+
+The function `DIV` calculates integer division, e.g. 5 DIV 3 = 1
+
+`theArray` has the following data:
+
+| Index: | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+|---|---|---|---|---|---|---|---|---|
+| Data: | 5 | 10 | 15 | 20 | 25 | 30 | 35 | 40 |
+
+Trace the algorithm, and give the final return value, when it is called with the following statement:
+
+```
+thisFunction(theArray, 0, 7, 35)
+```
+
+You may choose to use the table below to give your answer.
+
+| **Function call** | **num1** | **num2** | **num3** | **result** |
+|---|---|---|---|---|
+| `thisFunction(theArray,0,7,35)` |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+
+Final return value ……
+'''
+
+[[question.part]]
+label = "12(b)"
+marks = 1
+text = '''
+State the name of the standard algorithm `thisFunction()` performs.
+'''
+
+[[question.part]]
+label = "12(c)"
+marks = 4
+text = '''
+Hugh could have written `thisFunction()` using iteration instead of recursion.
+
+Compare **two** differences between recursion and iteration.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "12(d)"
+marks = 6
+text = '''
+The recursive function `thisFunction()` is printed again here for your reference.
+
+```
+01 function thisFunction(theArray, num1, num2, num3)
+02  result = num1 + ((num2 - num1) DIV 2)
+03  if num2 < num1 then
+04    return -1
+05  else
+06    if theArray[result] < num3 then
+07      return thisFunction(theArray, result + 1, num2, num3)
+08    elseif theArray[result] > num3 then
+09      return thisFunction(theArray, num1, result - 1, num3)
+10    else
+11      return result
+12    endif
+```
+
+```
+13  endif
+14 endfunction
+```
+
+Rewrite the function `thisFunction()` so that it uses iteration instead of recursion.
+
+You should write your answer using pseudocode or program code.
+'''
+
+[[question.mark_scheme]]
+label = "12(a)"
+marks = 5
+answer = '''
+1 mark per bullet
+
+- Calculation of result to 3
+- Call with `thisFunction(theArray, num1=4,`
+
+```
+num2=7, num3=35)
+```
+
+- Result = 5
+- call with
+
+```
+thisFunction(theArray,num1=6,num2=7,num3=35)
+```
+
+- (Result = 6) return of value 6
+
+**Function call num1 num2 num3 result**
+
+```
+thisFunction
+```
+
+0 7 35 3
+
+```
+(theArray,0,7,35)
+thisFunction
+```
+
+4 7 35 5
+
+```
+(theArray,4,7,35)
+thisFunction
+```
+
+6 7 35 6
+
+```
+(thisArray,6,7,35)
+```
+
+**Function call**
+
+**num1**
+
+**num2**
+
+**num3**
+
+**result**
+
+```
+thisFunction
+(theArray,0,7,35)
+```
+
+```
+thisFunction
+(theArray,4,7,35)
+```
+
+```
+thisFunction
+(thisArray,6,7,35)
+```
+'''
+guidance = '''
+7
+
+35
+
+3
+
+7
+
+35
+
+5
+
+7
+
+35
+
+6
+'''
+
+[[question.mark_scheme]]
+label = "12(b)"
+marks = 1
+answer = '''
+Binary search
+'''
+
+[[question.mark_scheme]]
+label = "12(c)"
+marks = 4
+answer = '''
+1 mark per bullet to max 4, e.g.
+
+- Recursion uses more memory…
+- …iteration uses less memory
+- Recursion declares new variables /variables are put onto the stack each time…
+
+- …iteration reuses the same variables
+- Recursive can run out of memory/stack space…
+- …while iteration cannot run out of memory
+- Recursion can express a problem more elegantly / in fewer lines of code…
+- …while iteration can take more lines of code / be harder to understand
+- Recursion will be self-referential / will call itself…
+- … whereas iteration does not
+'''
+
+[[question.mark_scheme]]
+label = "12(d)"
+marks = 6
+answer = '''
+1 mark per bullet to max 6
+
+- Retains function call
+- Uses a loop
+- …that will loop until all elements inspected or value found
+- Updates num1 appropriately
+- Updates num2 appropriately
+- Returns -1 in the correct place if the value has not been found
+- Returns the result in the correct place if the value has been found
+
+e.g.
+
+```
+function thisFunction(theArray, num1, num2, num3)
+```
+
+```
+while (true)
+  result = num1 + ((num2 - num1) DIV 2)
+  if num2 < num1 then
+   return -1
+  else
+   if theArray[result] < num3 then
+    num1 = result + 1
+```
+
+```
+   elseif theArray[result] > num3 then
+    num2 = result - 1
+   else
+    return result
+   endif
+  endif
+endwhile
+endfunction
+```
+'''
+
+[[question]]
+number = 13
+marks = 6
+diagram = true
+
+[[question.part]]
+label = "13"
+text = '''
+The Little Man Computer (LMC) instruction set can be used to write programs using assembly language.
+
+**Fig. 3** shows assembly code written using the LMC instruction set.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 3**
+'''
+
+[[question.part]]
+label = "13(i)"
+marks = 1
+text = '''
+Tick **one** box to indicate the programming construct that is **not** used in **Fig. 3**.
+
+Sequence
+
+Selection
+
+Iteration
+'''
+
+[[question.part]]
+label = "13(ii)"
+marks = 1
+text = '''
+When the program is run, 7 is input by the user.
+
+State the value that will be in the memory location `Z` when the program has run with this input.
+'''
+
+[[question.part]]
+label = "13(iii)"
+marks = 4
+text = '''
+Write an equivalent version of the LMC assembly code shown in **Fig. 3** for a procedural programming language.
+
+You should write your code using pseudocode or program code.
+'''
+
+[[question.mark_scheme]]
+label = "13(i)"
+marks = 1
+answer = '''
+- Iteration
+'''
+
+[[question.mark_scheme]]
+label = "13(ii)"
+marks = 1
+answer = '''
+- 5
+'''
+
+[[question.mark_scheme]]
+label = "13(iii)"
+marks = 4
+answer = '''
+1 mark per bullet up to a maximum of 4 marks, e.g:
+
+- Initialise Y and Z AND set X
+- Correct use of IF
+- Correct condition (e.g. if X \>= Y then)
+- Assignment of Z in correct places
+'''
+guidance = '''
+X Y Z variable alternatives are acceptable Solution:
+
+```
+X = input()
+Y = 5
+Z = 0
+if X >= Y then
+   Z = Y
+else
+   Z = X
+Endif
+```
+'''
+
+[[question]]
+number = 14
+marks = 9
+
+[[question.part]]
+label = "14"
+marks = 9
+text = '''
+\*OCR Car Park would like to calculate the parking charges when a car leaves their car park.
+
+They will need to record the time that a car enters and leaves their car park in order to calculate the parking charge.
+
+Discuss the different methods that could be used to collect this data.
+
+In your answer you should include:
+
+- The benefits and drawbacks of each method
+- Ethical implications
+- Legal implications
+
+**END OF QUESTION PAPER**
+'''
+
+[[question.mark_scheme]]
+label = "14"
+marks = 9
+answer = '''
+**Mark Band 3–High Level**\
+**(7-9 marks)**
+
+The candidate demonstrates a thorough knowledge and understanding of relevant data collection methods. They have covered a range of ethical issues and relevant legislation; the material is generally accurate and detailed across all three. The candidate is able to apply their knowledge and understanding directly and consistently to the context provided.\
+Evidence/examples will be explicitly relevant to the explanation. The candidate has used a range of ethical implications and laws to justify their conclusion
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2-Mid Level**\
+**(4-6 marks)**\
+The candidate demonstrates reasonable knowledge and understanding of relevant data collection methods. They have covered ethical issues and relevant legislation; the material is generally accurate but at times underdeveloped.\
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.\
+The candidate has either good consideration of ethical issues or legal issues or a weaker consideration of both. These are used to come to some justification although it may not be completely justifiable.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1-Low Level**\
+**(1-3 marks)**\
+The candidate demonstrates a basic knowledge of relevant data collection methods. They have covered ethical issues or relevant legislation; the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided.\
+The candidate provides comes to a conclusion though there may be little considerations of legal or ethical issues to back it up.
+
+The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+**AO1.1**
+
+- Automatic Number Plate Recognition (ANPR) could be used. This makes use of OCRto turn number plates on camera into digital characters.
+- Use of a token/ticket could be used when cars enter the car park which is time stamped.
+- Staff could be employed to manually record the time cars enter the car park and then again when cars leave.
+- Sensor could be used to detect cars entering / leaving the car park.
+- Photographs of vehicles can be taken when cars enter / leave the car park. These can be time stamped.
+
+**AO2.1**
+
+- Data will be input into an algorithm that will work out the price based on amount of time car has spent in car park.
+- If the car park is considering storing videos / photographs of the cars then they will need to follow current data protection legislation as these may contain faces of people.
+- Car park users may see this as an invasion of privacy. Civil liberty issues as movements are being tracked / monitored.
+- Automated systems are likely to be more reliable and will produce statistical data that
+
+can be analysed better.\
+Manual methods may be prone to human error. Automatic methods will allow for quicker processing than if a human was doing it.
+
+- Lower overheads as no human to employ.
+- They could connect to the other databases (e.g. police and DVLA) to check that cars are genuine (e.g. can check if cars have been stolen)
+- If connecting the cameras over the internet, then this would make them susceptible to hackers and therefore security methods would need to be put in place.
+
+**AO3.3**
+
+- If automated systems are used then this can lead to improved customer satisfaction and lower costs due to streamlined system. However this could lead to less employment in the local area as computer systems taking over jobs.
+- Some people may be afraid of using carpark due to cameras.
+- Data protection laws should mean consumers are protected `o` System secure `o` Data only stored for a short time `o` Only relevant data stored
+'''

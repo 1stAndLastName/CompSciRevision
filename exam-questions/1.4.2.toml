@@ -1,0 +1,2113 @@
+# OCR exam questions for 1.4.2 Data Structures.
+# Copied as text from the question paper and mark scheme PDFs in sources/
+# by tools/extract-exam-questions. Diagrams are not copied. Corrections by
+# hand are fine: the tool will not overwrite this file without --force.
+spec = "1.4.2"
+
+[[question]]
+number = 1
+marks = 40
+
+[[question.part]]
+label = "1(a)"
+marks = 3
+text = '''
+A game is being written that makes use of object-oriented programming. A prototype for one part of the game is being designed that includes a character, a road and a prize to collect.
+
+The road will have 50 spaces that a character can move along. Each space on the road will store a null value or a prize object for the user to collect. Each space is numbered sequentially from the first space (position 0) to the last space (position 49) and will not change during the game. As the player travels down the road, the position the player is on the road will be output.
+
+The road is designed to be a 1-dimensional array with the identifier `road`.
+
+Explain why an array is a suitable data structure to represent the road.
+'''
+
+[[question.part]]
+label = "1(b)"
+text = '''
+The characters and prizes are designed as separate classes. 10 of the spaces on the road will contain an instance of the class `Prize`. The other spaces will be empty.
+
+The class design for `Prize` is here.
+
+```
+class: Prize
+```
+
+```
+attributes:
+private name : string
+private type : string
+private value : integer
+```
+
+```
+methods:
+new()
+getName()
+getType()
+getValue()
+```
+
+`new()` is the constructor method. The name, type and value are passed to the constructor as parameters which then assigns these to the attributes.
+'''
+
+[[question.part]]
+label = "1(b)(i)"
+marks = 2
+text = '''
+The method `getName()` returns the data in the attribute `name`.\
+Write the method `getName()` using pseudocode or program code.
+'''
+
+[[question.part]]
+label = "1(b)(ii)"
+marks = 3
+text = '''
+A global 1-dimensional array, `allPrizes`, stores 10 objects of type `Prize`.
+
+The prize in index 3 has the name “Box”, the type is “money” and the value is 25.
+
+Write pseudocode or program code to create a new object for this prize and store it in index 3 of
+
+```
+allPrizes.
+```
+'''
+
+[[question.part]]
+label = "1(b)(iii)"
+marks = 3
+text = '''
+The game starts with 10 prizes. Each prize is allocated to one space on the road.
+
+An algorithm needs designing that will generate a random space on the road for each prize. Each road space can only store one prize.
+
+Describe the decisions that will need to be made in this algorithm and how these will affect the program flow.
+'''
+
+[[question.part]]
+label = "1(c)"
+text = '''
+The class design for `Character` is here.
+
+```
+class: Character
+```
+
+```
+attributes:
+private name : string
+private money : integer
+private experience : integer
+private roadPosition : integer
+```
+
+```
+methods:
+new()
+getName()
+getMoney()
+getExperience()
+getRoadPosition()
+changePosition()
+updateValues()
+```
+
+The four get methods return the associated attribute.
+
+The number of moves is passed to `changePosition()` as a parameter. The method adds this value to the character’s position on the road.
+
+The type and value of an object are passed to `updateValues()` as parameters. If the object is money the value is added to the character’s money. If the type is experience the value is added to experience. If the type is neither money or experience no changes are made.
+'''
+
+[[question.part]]
+label = "1(c)(i)"
+marks = 5
+text = '''
+`new()` is the constructor method. The name of the character is passed into the constructor as a parameter. The constructor then initialises both the experience and road position of the character to 0 and initialises the amount of money to 5.
+
+Write the constructor method for `Character` using either pseudocode or program code.
+
+You do not need to declare the class, the attributes or any other methods.
+'''
+
+[[question.part]]
+label = "1(c)(ii)"
+marks = 5
+text = '''
+The type and value of a prize are passed as parameters to the method `updateValues`. If the type is money the value is added to the character’s money. If the type is experience then the value is added to the experience. If the type is neither money or experience no changes are made.
+
+For example, for the Character `player1:`
+
+`player1.updateValues("money",10)` updates player1’s money by 10
+
+`player1.updateValues("experience",5)` updates player1’s experience by 5
+
+`player1.updateValues("foo",9)` has no effect on player1.
+
+Write pseudocode or program code for the method `updateValues()`.
+'''
+
+[[question.part]]
+label = "1(d)"
+marks = 6
+text = '''
+This incomplete pseudocode algorithm:
+
+- creates a new character with the name Jamal
+- loops until the character reaches the end of the road
+- generates a random number of spaces to move between 1 and 4 (including 1 and 4)
+- moves the character and checks if the new space has a prize
+- updates the character attributes if there is a prize
+- outputs the character’s new attribute values.
+
+Complete the pseudocode algorithm.
+
+```
+character1 = new …… ("Jamal")
+newPosition = 0
+while newPosition < ……
+  move = random(1, 4) /this will generate a random number between 1 and 4
+  character1.changePosition(move)
+  newPosition = character1.getRoadPosition()
+  if newPosition < 50 and road[……] != null then
+    prizeType = road[newPosition].getType()
+    valueAmount = road[newPosition].getValue()
+    character1.updateValues(……, valueAmount)
+    print("Congratulations you are in position", newPosition, "and found",
+      road[newPosition].getName())
+    print("Money =", character1.getMoney(), "and experience =",
+      character1. …… ())
+  endif
+……
+print("You reached the end of the road")
+```
+'''
+
+[[question.part]]
+label = "1(e)"
+marks = 4
+text = '''
+The procedure `displayRoad()` outputs the contents of each space in the road. The number of each space is output with either:
+
+- the word “empty” if there is no prize
+- the name of the prize if there is a prize.
+
+```
+01  procedure displayRoad()
+02     for x = 0 to 60
+03        print("Space", y)
+04        if road[x] == null then
+05         print("empty")
+06        elseif
+07         print(road[x].getValue())
+08        endif
+09     next x
+10  endprocedure
+```
+
+The algorithm contains errors.
+
+Give the line number of **four** different errors and write the corrected line for each error.
+
+**Error 1**
+
+Error line 1
+
+Correction
+
+**Error 2**
+
+Error line 2
+
+Correction
+
+**Error 3**
+
+Error line 3
+
+Correction
+
+**Error 4**
+
+Error line 4
+
+Correction
+'''
+
+[[question.part]]
+label = "1(f)"
+marks = 9
+text = '''
+A programmer is going to create a prototype for one small part of the game. Both `road` and `allPrizes` will be needed throughout the whole prototype. The programmer is considering making these global arrays as she thinks it will reduce the development time. Another programmer has suggested that doing this may create some problems when the rest of the game is created at a later stage.
+
+Compare the use of global and local variables in this program.
+
+You should include the following in your answer:
+
+- the use of local and global variables
+- alternative methods to using global variables
+- the appropriateness of each to this program design.
+'''
+
+[[question.mark_scheme]]
+label = "1(a)"
+marks = 3
+answer = '''
+1 mark each to max 3. Max 2 for generic answers with no relation to scenario. e.g.
+
+- Has a set/fixed number of values
+- …and the number of spaces in the road will not change
+- Stores data of one type
+- … as the array is only made up of prize objects
+- Stores data linearly
+- … match the linear nature of the road
+- Array contents are mutable
+- … so prizes can be added/removed from the road
+- A single indentifier is used to directly index
+- … any position in the road
+- Can be iterated by index
+- … to perform an operation on all road positions
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many responses were too vague, showing little knowledge of the properties of arrays. Relatively few candidates appeared to be able to make explicit links to the scenario to achieve full marks.
+'''
+
+[[question.mark_scheme]]
+label = "1(b)(i)"
+marks = 2
+answer = '''
+1 mark each
+
+- Function/subroutine with identifier `getName` taking **no** parameters
+- Returning `name`
+
+e.g.
+
+```
+public function
+def getName(self):
+getName()
+return name          return self.__name
+endfunction
+public getName(){    function getName() {
+return name          return this.name
+```
+
+} }
+'''
+guidance = '''
+BP1 Do not award procedure or method
+
+BP1 Allow self as an additional parameter if Python is used.
+
+BP1 If an access modifier is given for the method, it must be public and not private.
+
+BP2 Do not allow any modified name attribute to be returned.
+
+**Examiner’s Comments**
+
+While many candidates had little difficulty giving code for a `getter()` there were a number of common errors. Some candidates used a private access modifier when a `getter()` needs to be public. There was often erroneous use of ‘procedure’ whereas a `getter()` is a function that must return a value.\
+Some candidates tried to set values within the `getter()` function when it should only have returned the class attribute value.
+'''
+
+[[question.mark_scheme]]
+label = "1(b)(ii)"
+marks = 3
+answer = '''
+1 mark each
+
+- New instance of `prize` …
+- … with “Box”, “money” and 25 as parameters
+- Assigned to `allPrizes` index 3
+
+e.g.
+
+```
+allPrizes[3] = new prize("Box", "money",
+25)
+allPrizes[3] = prize.new("Box", "money",
+25)
+allPrizes[3] = prize("Box", "money", 25)
+```
+'''
+guidance = '''
+MP2 allow any order of parameters
+
+"`Box`" and "`Money`" must be strings and `25` must be an integer
+
+Allow `prize.new()` as new is given as the constructor method in the class diagram
+
+**Examiner’s Comments**
+
+Many candidates struggled with the instantiation of an object. Where candidates made an attempt to instantiate some did not use a string for “box” and “money” or did not give 25 as an integer but instead gave the string “25”.
+'''
+
+[[question.mark_scheme]]
+label = "1(b)(iii)"
+marks = 3
+answer = '''
+1 mark for each bullet to maximum 3 e.g.
+
+- **Decision** - check whether the space already has a prize allocated …
+- **Action if true** - another space/number will need to be generated
+- **Action if false** - the prize will be stored here
+
+- **Decision** - check if all 10 prizes have been allocated …
+- **Action if true** - the algorithm needs to stop generating numbers
+- **Action if false** - a new number/space needs to be generated and checked
+'''
+guidance = '''
+Give:
+
+- 1 mark for stating a decision
+- 1 mark for the action required if true
+- 1 mark for the action required if false
+
+**Examiner’s Comments**
+
+There were only two reasonable decisions that could be given from the scenario details. Candidates needed to make it clear that a decision with a Boolean output was present that would dictate two potential outcomes. Some candidates quoted actions such as ‘randomly assign space for prize’ which did not represent a decision. Many responses described the mechanics of setting up the game and the random spaces but did not highlight the program conditions/decisions as required.
+'''
+
+[[question.mark_scheme]]
+label = "1(c)(i)"
+marks = 5
+answer = '''
+1 mark each
+
+- Constructor header (any suitable name e.g. new, constructor, create, init)
+- …taking **one** parameter only
+- Initialising name to the parameter
+- Initialising money to 5
+- Initialising experience to 0 and roadPosition to 0
+
+e.g.
+
+```
+public procedure new(pName)
+name = pName
+```
+
+**Pseudocode** `experience = 0`\
+**example:** `roadPosition = 0`
+
+```
+money = 5
+endprocedure
+def __init__(self, pName):
+self.__name = pName
+```
+
+**Python**
+
+```
+self.__experience = 0
+```
+
+**Example:**
+
+```
+self.__roadPosition = 0
+self.__money = 5
+public Character(string
+pName) {
+string name = pName;
+```
+
+**C# Example:** `int experience = 0;`
+
+```
+int roadPosition = 0;
+int money = 5;
+ }
+```
+'''
+guidance = '''
+Allow minor changes to identifiers as long as purpose is clear.
+
+Allow
+
+```
+procedure new(pName)
+this.name = pName
+```
+
+…\
+(or similar e.g. self.name)
+
+Allow two parameters if one is self and the response is clearly in Python.
+
+The parameter name should be different to the attribute name.
+
+**Examiner’s Comments**
+
+It was clear that those candidates with limited OOP programming knowledge found the writing of a relatively simple constructor method difficult. Those with relevant programming experience often found this to be a very straightforward question. Common errors included passing additional values to set the `experience,` `roadPosition` and `money` attributes rather than setting them to the constant values indicated in the question.
+'''
+
+[[question.mark_scheme]]
+label = "1(c)(ii)"
+marks = 5
+answer = '''
+1 mark each
+
+- Procedure/method header …
+- … taking **two** parameters, type (or similar) followed by value (or similar) …
+- … compare type parameter with "`money`"
+- … compare type parameter with "`experience`"
+- … both attributes updated correctly and nothing else modified
+
+e.g.
+
+```
+public procedure updateValues(pType,
+```
+
+```
+pValue)
+if pType == "money" then
+money = money + pValue
+elseif pType == "experience"
+experience = experience + pValue
+endif
+endprocedure
+
+def updateValues(self, pType, pValue):
+if pType == "money":
+money += pValue
+elif pType == "experience":
+experience += pValue
+```
+'''
+guidance = '''
+Do not allow Function for BP1
+
+BP2 parameters must be given in the correct order to match the calls to `updateValues()` in the question.
+
+“`money`” and “`experience`” must be string values
+
+**Examiner’s Comments**
+
+The `updateValues` procedure again proved problematic for candidates with limited OOP experience. No marks were given for the first mark point if a function was declared as there was no return value. Parameter names needed to be fit for purpose, understandable,
+
+and had to match the order given in the question scenario to work for the given example calls.
+'''
+
+[[question.mark_scheme]]
+label = "1(d)"
+marks = 6
+answer = '''
+1 mark for each completed space
+
+```
+character1 = new Character("Jamal")
+newPosition = 0
+while newPosition < 50
+move = random(1, 4)
+character1.changePosition(move)
+newPosition =
+character1.getRoadPosition()
+if newPosition < 50 and
+road[newPosition] != null
+then
+prizeType = road[newPosition].getType()
+valueAmount =
+road[newPosition].getValue()
+character1.updateValues(prizeType,
+valueAmount)
+print("Congratulations you are in
+position",
+```
+
+```
+newPosition, "and found",
+road[newPosition].getName())
+print("Money", character1.getMoney(),
+"and
+experience", character1.getExperience())
+endif
+endwhile
+print("You reached the end of the road")
+```
+'''
+guidance = '''
+Allow `road.length / len(road)` instead of `50`
+
+Allow `<=49` instead of `< 50`
+
+**Examiner’s Comments**
+
+Nearly all candidates achieved some marks, and a majority scored five or six marks.
+'''
+
+[[question.mark_scheme]]
+label = "1(e)"
+marks = 4
+answer = '''
+1 mark each
+
+- (Line 02) `for x = 0 to 49`
+- (Line 03) `print("Space", x)`
+- (Line 06) `else / elseif road[x] <>`
+
+```
+null
+```
+
+- (Line 07) `print(road[x].getName())`
+'''
+guidance = '''
+Line `07` allow `print(road[x].name)`
+
+**Examiner’s Comments**
+
+Many candidates scored three or four marks but in general candidates found it harder to identify errors in the code than to complete code in the previous question. Some candidates didn’t give the line number but rewrote the incorrect line before giving the corrected line, which was acceptable, although not ideal given the scaffolding.
+'''
+
+[[question.mark_scheme]]
+label = "1(f)"
+marks = 9
+answer = '''
+**Mark Band 3 – High level (7-9 marks)**\
+The candidate demonstrates a thorough knowledge and understanding of global variables and the alternatives; the material is generally accurate and detailed.\
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation. There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2 – Mid level (4-6 marks)**\
+The candidate demonstrates reasonable knowledge and understanding of global variables and the alternatives; the material is generally accurate but at times underdeveloped.\
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed.\
+Evidence/examples are for the most part implicitly relevant to the explanation.\
+The candidate provides a reasonable discussion, the majority of which is focused. Evaluative comments are, for the most part appropriate, although one or two opportunities for development are missed.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1 – Low Level (1-3 marks)**\
+The candidate demonstrates a basic knowledge of global variables and the alternatives with limited understanding shown; the material is basic and contains some inaccuracies. The candidates makes a limited attempt to apply acquired knowledge and understanding to the context provided. The candidate provides a limited discussion which is narrow in focus. Judgements if made are weak and unsubstantiated.
+
+The information is basic and comunicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence
+
+may not be clear.
+
+**0 mark**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+**AO1: Knowledge and Understanding**\
+**Indicative content**
+
+- Global variables are created when the program starts, all subroutines can access/update the contents
+- Local variables are created in the subroutine they are created in, they are not accessible directly from any other subroutine
+- Local variables are removed from memory when the subroutine ends.
+
+- Local variables can be passed as parameters to a function to be updated, and then returned to override the original local variable
+- Local variables can be passed by reference to a subroutine to allow the content of the variable to be updated
+
+**AO2: Application**
+
+- The variables will be stored in memory throughout the whole code execution. However, the amount of data they are storing is relatively low so would not use a lot of memory.
+- When the game is expanded, the amount of data may increase so it could be memory intensive, especially if graphics are used in the game.
+- Both arrays are needed throughout the whole game so keeping them as global will make writing the code easier as the programmer will not need to keep passing them as parameters and setting return values.
+- Only one part of the game is being created initially and therefore the use of global variables would not affect the efficiency greatly. However, when the program expands, it could cause accuracy / testing / debugging and maintenance problems.
+
+**AO3: Evaluation**
+
+- As this is only a prototype, the use of global variables would be beneficial.
+- However, when the game expands, the use of global variables could create issues such as running out of memory, coupling, testing & debugging problems and maintenance problems.
+- The programmer may be best to keep the variables as local and then pass them between the different subroutines as parameters byVal and byRef.
+
+**Examiner’s Comments**
+
+Most responses were Level 2 for definitions and some expansion to passing parameters. Very few candidates were able to go into depth about alternatives to global variables such as passing by value and passing by reference in detail or extending to issues such as scalability within a larger more extended game. Few candidates picked up on the fact that this was a more limited prototype that was likely to be expanded on which would require more consideration to be given to variable scope.
+'''
+
+[[question]]
+number = 2
+marks = 10
+diagram = true
+
+[[question.part]]
+label = "2(a)"
+marks = 2
+text = '''
+**Fig. 8** shows a binary search tree that contains the names of different towns in Ireland.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 8**
+
+The binary search tree is held in a 2-dimensional array called `towns` with 8 rows and 3 columns.
+
+Write a line of program code or pseudocode to declare the array `towns`.
+'''
+
+[[question.part]]
+label = "2(b)(i)"
+marks = 4
+text = '''
+In the 2-dimensional array `towns`:
+
+- the **first** column contains a pointer to the left side
+- the **second** column contains the data
+- the **third** column contains a pointer to the right side.
+
+Leaf nodes have the pointer `null`.
+
+Complete the table showing the contents of the `towns` array to store the binary search tree shown in **Fig. 8**.
+
+| `Left` | `Data` | `Right` |
+|---|---|---|
+|   | `Sligo` |   |
+|   | `Dublin` |   |
+|   | Cork |   |
+|   | `Waterford` |   |
+|   | `Galway` |   |
+|   | `Limerick` |   |
+|   | `Tralee` |   |
+|   | `Dundalk` |   |
+
+```
+0
+1
+```
+
+2
+
+```
+3
+4
+5
+6
+ 7
+```
+'''
+
+[[question.part]]
+label = "2(b)(ii)"
+marks = 4
+text = '''
+**Four** more towns are added to the binary search tree shown in **Fig. 8** in this order:
+
+Mallow
+
+Cavan
+
+Tuam
+
+Wexford
+
+Complete this binary search tree by adding the new towns to it.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 8**
+'''
+
+[[question.mark_scheme]]
+label = "2(a)"
+marks = 2
+answer = '''
+- Typed as array/string and set to the variable
+
+```
+towns
+```
+
+- 2 dimensions set to 8 and 3 **in brackets**
+
+**Examples**
+
+```
+array towns(8,3)
+string towns[][] = new string [8][3]
+array towns [8][3] as string
+```
+
+| **null** | Tralee | **null** |   |
+|---|---|---|---|
+| 1 Mark |   |   |   |
+| **null** | Dundalk | **null** |   |
+|   |   |   |   |
+
+6
+
+7
+'''
+guidance = '''
+For MP1 accept any suitable attempt at typing as an array, for example `towns = [], towns( )`
+
+For MP2 accept any **suitable** attempt to set to 2
+
+dimensions of the correct size
+
+Allow 7, 2 as array index
+
+Allow column major notation\
+i.e. `array towns [3,8]`
+
+**Examiner’s Comments**
+
+Many candidates were able to gain full marks with most being able to gain one. Many candidates did not specify the number of elements in the array which was given in the question and tended to give responses such as towns = \[ \] and as such only gained one mark.
+'''
+
+[[question.mark_scheme]]
+label = "2(a)(ii)"
+marks = 4
+answer = '''
+1 mark for each correct town.
+
+*[Image in the original mark scheme, not shown here.]*
+'''
+guidance = '''
+If same town added more than once BOD if one in the right place
+
+Ignore basic spelling mistakes and case
+
+Towns must be to left or right of the node above - DNA nodes straight below.
+
+**Examiner’s Comments**
+
+This was generally well answered and many candidates gained full marks with many candidates writing out the alphabet beneath the question to aid then in placing the new towns.
+'''
+
+[[question]]
+number = 3
+marks = 22
+diagram = true
+
+[[question.part]]
+label = "3(a)"
+marks = 5
+text = '''
+Sundip writes an algorithm to carry out addition and subtraction. The algorithm will use an initially empty stack with the identifier `numbers` and will take input from the user.
+
+The action the algorithm takes depends on the value input by the user. These actions are listed in **Fig. 2**.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 2**
+
+Complete the pseudocode here to implement Sundip’s algorithm.
+
+```
+do
+   value = input("Enter a value")
+   if …… then
+       num = numbers.pop()
+       print(num)
+   elseif value == "A" or …… then
+       numone = numbers.pop()
+       numtwo = numbers.pop()
+       if value == "A" then
+           numbers.push……
+       elseif value == "S" then
+           numbers.push(numtwo – numone)
+       endif
+   else
+       numbers.push(……)
+   endif
+until value == ……
+```
+'''
+
+[[question.part]]
+label = "3(b)(i)"
+marks = 3
+text = '''
+Complete the diagram to show the state of the stack after each value is entered into the algorithm. The letters will complete an action stated in **Fig. 2**.
+
+The state of the stack after the first value, 8, has been completed for you.
+
+*[Diagram in the original paper, not shown here.]*
+'''
+
+[[question.part]]
+label = "3(b)(ii)"
+marks = 3
+text = '''
+Complete the following table to give the output from this algorithm when the following set of inputs are entered by the user. The letters will complete an action stated in **Fig. 2**.
+
+|   |   |   |   |   |   |
+|---|---|---|---|---|---|
+|   | **Input data (from left to right)** |   |   | **Output** |   |
+|   |   |   |   |   |   |
+| **9 3 A E** |   |   |   |   |   |
+| **10 5 A 8 S E** |   |   |   |   |   |
+| **25 5 S 2 3 A S E** |   |   |   |   |   |
+'''
+
+[[question.part]]
+label = "3(b)(iii)"
+marks = 3
+text = '''
+If the user enters **4 2 S A E** , the algorithm will not work correctly.
+
+Explain what problem this input data will cause and why the problem occurs.
+'''
+
+[[question.part]]
+label = "3(c)"
+text = '''
+A stack is one data structure that is available for Sundip to use. She could also use a queue, list, linked list, array or tuple.
+'''
+
+[[question.part]]
+label = "3(c)(i)"
+marks = 2
+text = '''
+Describe **one** difference between a stack and a queue.
+'''
+
+[[question.part]]
+label = "3(c)(ii)"
+marks = 2
+text = '''
+Describe **one** difference between an array and a list.
+'''
+
+[[question.part]]
+label = "3(c)(iii)"
+marks = 1
+text = '''
+State **how a** tuple is different to a list.
+'''
+
+[[question.part]]
+label = "3(c)(iv)"
+marks = 3
+text = '''
+Describe how the **second** item in a linked list would be accessed using pointer values.
+'''
+
+[[question.mark_scheme]]
+label = "3(a)"
+marks = 5
+answer = '''
+- value == "E"
+- value == "S"
+- (numone+numtwo)
+- value
+- "E"
+'''
+guidance = '''
+All string values must be in quotes. Allow single or double quotes.
+
+Don’t allow single = for MP1&2. Penalise once and FT for multiple occurrences.
+
+Case needs to match that used in the question
+
+Needs to have brackets for MP3
+
+do\
+value = input("Enter a value")
+
+if value == "E" then\
+num = numbers.pop()\
+print(num)\
+elseif value == "A" or value == "S" then\
+numone = numbers.pop()\
+numtwo = numbers.pop()\
+if value == "A" then\
+numbers.push(numone + numtwo)\
+elseif value == "S" then\
+numbers.push(numtwo - numone)\
+endif\
+else\
+numbers.push(value)\
+endif\
+until value == "E"
+
+**Examiner’s Comments**
+
+Generally well answered with most candidates being able to gain between 2 and 5 marks on this question.
+'''
+
+[[question.mark_scheme]]
+label = "3(b)(i)"
+marks = 3
+answer = '''
+- 8, 7
+- 15
+- 15,6
+'''
+guidance = '''
+One mark per stack diagram
+
+**Examiner’s Comments**
+
+This question was generally well answered although some candidates struggled to understand the concept of a stack and how data is pushed on to it and popped from it.
+'''
+
+[[question.mark_scheme]]
+label = "3(b)(ii)"
+marks = 3
+answer = '''
+- 12
+- 7
+
+- 15
+'''
+guidance = '''
+**Examiner’s Comments**
+
+This was generally well answered, with the biggest misunderstanding being the way the subtraction occurs.
+'''
+
+[[question.mark_scheme]]
+label = "3(b)(iii)"
+marks = 3
+answer = '''
+- S causes the two values inputted to be popped and only one value to be pushed back / 4 and 2 are popped and 2 is pushed
+- A causes an attempt to pop **two values but** **only one present / not two values there**
+- Causing a **stack** underflow
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many candidates were able to gain at least one mark on this question for stating that the addition would only be able to pop one number. The candidates who gained full marks were able to state the type of error correctly and explain why there was only one value able to be popped after the subtraction.
+'''
+
+[[question.mark_scheme]]
+label = "3(c)(i)"
+marks = 2
+answer = '''
+- Stack is LIFO / FILO
+- Queue is FIFO / LILO
+- Stack uses one pointer (for head)
+- Queue uses two pointers (head and tail)
+- Stack, data is popped/pushed from the top
+- Queue, data is dequeued from the from the startand enqueued onto the back / a queue can be circular
+'''
+guidance = '''
+Mark in pairs
+
+Accept descriptions of LIFO / FIFO for MP1 and 2
+
+**Examiner’s Comments**
+
+Generally well answered with the most popular answer being that a stack is LIFO and a queue is FIFO.
+'''
+
+[[question.mark_scheme]]
+label = "3(c)(ii)"
+marks = 2
+answer = '''
+- Array is of fixed/defined size / static
+- List size can be changed / no defined size /dynamic
+- Array holds data of single data type
+- List can hold data of multiple / different types
+'''
+guidance = '''
+Mark in pairs
+
+**Examiner’s Comments**
+
+Generally well answered, although some candidates confused a list with a linked list.
+'''
+
+[[question.mark_scheme]]
+label = "3(c)(iii)"
+marks = 1
+answer = '''
+- A tuple cannot be changed **at runtime** / a tupleis immutable
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Generally well answered, with a tuple being immutable being the most common answer.
+'''
+
+[[question.mark_scheme]]
+label = "3(c)(iv)"
+marks = 3
+answer = '''
+- **Go to** the first position indicated by the startpointer
+- From the first position, **read** the next pointervalue…
+- …follow this pointer value and **access** the data item
+'''
+guidance = '''
+Accept answers relating to locations given by pointers
+
+Allow acceptable diagram illustrating the same points
+
+**Examiner’s Comments**
+
+For this question candidates were asked how the second item in a linked list would be accessed using the pointers but many just gave descriptions of a linked list having pointers and data without saying how the data in the second item would be accessed.
+'''
+
+[[question]]
+number = 4
+marks = 4
+
+[[question.part]]
+label = "4"
+marks = 4
+text = '''
+Describe how an array can be used to store and access data in a stack data structure.
+'''
+
+[[question.mark_scheme]]
+label = "4"
+marks = 4
+answer = '''
+1 mark per bullet to max 4
+
+- (Stack) Pointer points to the last element added to the stack / top of the stack
+- New data is added to the pointer position / pointer+1…
+- …check for overflow condition
+- …pointer is then incremented
+- Data is removed from pointer/pointer-1 position…
+- …check for underflow condition
+- …pointer is then decremented
+
+- Elements can be accessed through Push() and Pop() methods that are implemented
+'''
+guidance = '''
+Note: Answers must relate to an array implementation which means that a stack pointer must be implemented.
+
+**Examiner’s Comments**
+
+Candidates need to be mindful of the fact that an array is a static data structure with a predetermined size. This meant that responses that explained how lists could be used to append and remove items were not given marks. This is an area where candidates who only have programming experience of using lists in Python often struggle.
+
+Implementing a stack in an array requires a stack pointer. Those candidates who appreciated this and who clearly had practical experience of modelling\
+push()/pop() operations on a stack were able to articulate how the stack would access array locations at the stack pointer.
+
+Exemplar 3
+
+*[Image in the original mark scheme, not shown here.]*
+
+This exemplar was one of the few responses to show a clear insight as to how an array can be used to store and access a stack. It makes it clear that a stack pointer is required and goes on to explain how the stack pointer is manipulated when push()/pop() operations are performed.
+
+*[Image in the original mark scheme, not shown here.]*
+
+**Misconception**
+
+Many candidates were not clear about the difference between an array and a list:
+
+- An array is a static structure whose size cannot be changed.
+- Lists are dynamic and support items being removed or appended.
+'''
+
+[[question]]
+number = 5
+marks = 14
+
+[[question.part]]
+label = "5(a)"
+text = '''
+A programmer uses a queue data structure to store data.
+'''
+
+[[question.part]]
+label = "5(a)(i)"
+marks = 1
+text = '''
+Tick **one** box that describes how a queue operates.
+
+Last In First Out
+
+First In First Out
+'''
+
+[[question.part]]
+label = "5(a)(ii)"
+marks = 2
+text = '''
+The figure below shows a queue data structure that contains a list of names. Alex is at the front of the queue.
+
+| Alex | Kofi | Ben | Sundip | Tom |   |   |   |
+|---|---|---|---|---|---|---|---|
+
+The operations that can be used on the queue are:
+
+- `enqueue()` – This will add data that is passed in as a parameter to the queue.
+- `dequeue()` – This will return the first element in the queue.
+
+Show the contents of the queue after these operations have been performed:
+
+```
+enqueue("Charlie")
+dequeue()
+enqueue("Ling")
+dequeue()
+enqueue("Sara")
+```
+'''
+
+[[question.part]]
+label = "5(b)"
+text = '''
+A stack is a type of data structure.
+
+A stack is implemented using these variables:
+
+- `items` – This is used to store an array that contains the data.
+- `top` – This is an integer value pointing to the last item of data that was inserted. `pop()` is one operation that can be performed on a stack. This will remove an item from the top of the stack, or – 1 if the stack is empty.
+'''
+
+[[question.part]]
+label = "5(b)(i)"
+marks = 4
+text = '''
+Complete the pseudocode function for the `pop()` operation.
+
+```
+function pop()
+
+  if top == …… then
+
+    return –1
+
+  else
+
+    item = items[……]
+
+    top = top – ……
+
+    return ……
+
+  endif
+
+endfunction
+```
+'''
+
+[[question.part]]
+label = "5(b)(ii)"
+marks = 7
+text = '''
+A function called `reverse` uses a stack called `theStack` to reverse data that is passed in as a parameter called `name`. For example, the `name` “Jack” would be returned as “kcaJ” by the function.
+
+`theStack` uses these operations which are already defined as global scope in the program:
+
+- `push()` – This will add data that is passed in as a parameter to the stack.
+- `pop()` – This will remove and return the item on top of the stack.
+
+Write the function `reverse` so that it:
+
+- accepts the `name` as a parameter
+- uses `push()` to add each character in the `name` to `theStack` separately uses `pop()` to return each character from theStack and add it to a variable called
+-
+
+```
+reverseName
+```
+
+outputs the variable `reverseName` once all characters have been popped from
+
+-
+
+```
+theStack.
+```
+
+You should write your function using pseudocode or program code.
+'''
+
+[[question.mark_scheme]]
+label = "5(a)(i)"
+marks = 1
+answer = '''
+First In First Out
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Most candidates correctly identified that a queue is a ‘First in First Out’ data structure.
+'''
+
+[[question.mark_scheme]]
+label = "5(a)(ii)"
+marks = 2
+answer = '''
+| Ben | Sundip | Tom | Charlie | Ling | Sara |   |   |
+|---|---|---|---|---|---|---|---|
+
+1 Mark: Adding, Charlie, Ling and Sara in correct order 1 Mark: Exclusively removing Alex and Kofi.
+'''
+guidance = '''
+Accept:
+
+|   |   | Ben | Sundip | Tom | Charlie | Ling | Sara |
+|---|---|---|---|---|---|---|---|
+
+**Examiner’s Comments**
+
+This question was generally answered well with most candidates achieving both marks. Some candidates did not correctly dequeue from the front of the queue, or enqueue to the rear.
+'''
+
+[[question.mark_scheme]]
+label = "5(b)(i)"
+marks = 4
+answer = '''
+```
+function pop()
+```
+
+```
+  if top == 0 then
+    return -1
+  else
+    item = items[top]
+    top = top – 1
+    return item
+  endif
+end function
+```
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many candidates were given full marks for this question, although some did not correctly return ‘item’ and incorrectly stated ‘items’ would be returned.
+'''
+
+[[question.mark_scheme]]
+label = "5(b)(ii)"
+marks = 3
+answer = '''
+- Correctly declaring the function **reverse** to include passing in **name** as a parameter
+- Correct logic to calculate the number of pushes required
+- Correct use of a loop to push all characters onto the stack separately
+- Creating a local variable **reverseName** to hold the reversed string
+- Correct use of a loop to pop all characters from the stack (in the reverse order)
+- Correct logic to add each popped character to the **reverseName** variable
+- Correctly returning the **reverseName** variable
+'''
+guidance = '''
+Example solution
+
+```
+function reverse(name)
+  reverseName = ""
+
+  for nameCount = 0 to name.Length–1
+    theStack.push(name[nameCount])
+  next nameCount
+
+  for nameCount = 0 to name.Length–1
+    reverseName = reverseName +
+theStack.pop()
+  next nameCount
+
+  return reverseName
+end function
+```
+
+Give full marks for alternative solutions that would work fully.
+
+Allow FT for any duplicate identifiers named incorrectly or using the incorrect case
+
+**Examiner’s Comments**
+
+Although some candidates answered this question well, others were only given 1 or 2 of the available 7 marks. Many candidates that lost marks did not push and/or pop characters correctly, and many did not return a value for the final mark. Candidates should also be reminded that the correct spelling and case of identifiers are required in questions of this type. Some candidates added spaces in identifier names or used a different case to the identifiers stated in the question and therefore, were not given marks.
+
+*[Image in the original mark scheme, not shown here.]*
+
+**Assessment for learning**
+
+Candidates need to understand the importance of maintaining the spelling, case and use of spaces etc in identifiers in questions which ask for functions to be written.
+'''
+
+[[question]]
+number = 6
+marks = 1
+
+[[question.part]]
+label = "6"
+marks = 1
+text = '''
+A bubble sort will sort an array of 50 integer values called `numberArray`.
+
+State why the integer values are stored in an array instead of separate variables.
+'''
+
+[[question.mark_scheme]]
+label = "6"
+marks = 1
+answer = '''
+1 mark for:
+
+- Can refer to all 50 only using one identifier / all values can be indexed in one array
+- The numbers can be passed as a single parameter
+- Does not need 50 variables to be declared/passed
+'''
+guidance = '''
+**Examiner’s Comments**
+
+The concept of having a single indexable identifier seemed to be poorly understood with few candidates gaining the mark. While many candidates understood that an array can be iterated through, they did not link this to the fact that elements in an array are indexable. Similarly, unqualified points such as ‘an array is easier to sort’ were not given marks for the same reason.
+
+There was a common misconception that an array would use far less memory space than 50 separate variables. There would be minimal difference since each separate value would take the same amount of storage space as the corresponding value in an array. The only overhead for separate variables would be the extra pointers to the memory locations for each, compared to one pointer for an array.
+'''
+
+[[question]]
+number = 7
+marks = 3
+diagram = true
+
+[[question.part]]
+label = "7(a)"
+text = '''
+**Fig. 5** shows a graph data structure representing a small section of a parcel delivery network. Each node represents an address where deliveries need to be made. The edges show the possible routes and distances between these deliveries.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 5**
+'''
+
+[[question.part]]
+label = "7(a)(i)"
+marks = 1
+text = '''
+State **one** way a directed graph is different to an undirected graph.
+'''
+
+[[question.part]]
+label = "7(a)(ii)"
+marks = 1
+text = '''
+State **one** way a graph data structure is different to a tree data structure.
+'''
+
+[[question.part]]
+label = "7(b)"
+marks = 1
+text = '''
+Give **one** reason why the graph is a visualisation of the problem.
+'''
+
+[[question.mark_scheme]]
+label = "7(a)(i)"
+marks = 1
+answer = '''
+1 mark\
+e.g.\
+In directed **arcs/edges** may only go in 1 direction / in undirected **arcs/edges** can go in both directions
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Very few candidates had a clear grasp of the relevant terminology to clearly identify that an edge/arc is given a specific direction in a directed graph. Many responses either erroneously talked about paths between nodes (too vague as there can be many routes between two nodes located in different parts of a graph) or graphs being weighted.
+'''
+
+[[question.mark_scheme]]
+label = "7(a)(ii)"
+marks = 1
+answer = '''
+1 mark
+
+- More than one path is allowed in a graph
+- Graphs do not have a root node
+- Graphs can be weighted
+- Graphs can have loops/cycles
+'''
+guidance = '''
+Allow answers where candidates have given the reverse. e.g. a tree does not have loops.
+
+**Examiner’s Comments**
+
+Most candidates gave clear responses that indicated either that a tree has a root whereas a graph does not, or graphs can contain cycles whereas trees do not. There were a surprising number of candidates who thought trees were limited to a maximum of two child
+
+nodes, showing a lack of understanding of generalised tree structures with hierarchies (e.g. directory tree).
+'''
+
+[[question.mark_scheme]]
+label = "7(b)"
+marks = 1
+answer = '''
+1 mark e.g.
+
+- Symbols are used to represent the address
+- The edges represent possible connections between addresses not the actual physical routes
+'''
+guidance = '''
+Allow other suitable answers that are in context of the problem
+
+**Examiner’s Comments**
+
+Very few candidates were able to give suitable answers within the context of the problem. The question was asking why the graph in Fig 5 was a visualisation. Few candidates identified that it was because the letters at the nodes represented delivery addresses, while the weights on the edges represented the road distances between the addresses. Most candidates gave descriptions of visualisation in general rather than answering in context.
+'''
+
+[[question]]
+number = 8
+marks = 2
+
+[[question.part]]
+label = "8"
+marks = 2
+text = '''
+Give **one** benefit and **one** drawback of declaring an array as a global variable instead of a local variable.
+
+Benefit
+
+Drawback
+'''
+
+[[question.mark_scheme]]
+label = "8"
+marks = 2
+answer = '''
+1 mark for benefit, 1 mark for drawback\
+e.g.\
+Benefits:
+
+- Variable doesn’t need passing as a parameter (byref)
+- You don’t need to return a value
+- Can be accessed from any function / anywhere in the program
+
+Drawback:
+
+- Increases memory usage (as it is used until full program execution is over)
+- Alterations within the function may have unwanted side effects elsewhere in the program.
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many candidates found it easier to describe a benefit than to give a drawback. The most commonly identified benefit was that the array would have global scope (and would therefore not need to be passed as a parameter), but often the descriptions given were too vague, e.g. ‘can be accessed anywhere’. The correct technical vocabulary is required.
+
+Drawbacks were poorly described. Potential side effects and resultant complexity debugging were frequently alluded to as ‘accidental change’ but not fully developed
+
+into complete qualified points.
+
+There was also a frequent misconception that you cannot have multiple variables with the same name, which is not true. When a local variable is declared with the same name as a global variable that already exists, it takes precedence within the local scope.
+'''
+
+[[question]]
+number = 9
+marks = 2
+
+[[question.part]]
+label = "9"
+marks = 2
+text = '''
+Given the following procedure:
+
+```
+01 procedure generate(number)
+02      a = 0
+03      while number > 0
+04         if number MOD 2 == 0 then
+05            a = a + 2
+06            print(a)
+07            number = number – 2
+08         else
+09            a = a + 1
+10            print(a)
+11            number = number – 1
+12         endif
+13      endwhile
+14 endprocedure
+```
+
+Describe the purpose of the `MOD` operator on line `04` of the procedure `generate`.
+'''
+
+[[question.mark_scheme]]
+label = "9"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g.:
+
+- Modulo division
+- Finds the remainder after a division
+- Used to determine if `a` is an odd or even number
+'''
+guidance = '''
+**Examiner’s Comments**\
+Candidates who successfully identified that a remainder was calculated found it harder to determine that its purpose was to see if the number was even or odd.
+
+*[Image in the original mark scheme, not shown here.]*
+
+**Misconception**
+
+Some candidates think that a modulo division calculation resulting in 0 means that there is no remainder. Where the result of modulo division is 0 it means that the remainder is 0.
+'''
+
+[[question]]
+number = 10
+marks = 10
+
+[[question.part]]
+label = "10(a)"
+marks = 3
+text = '''
+A veterinary surgery uses a two dimensional array to store bookings for customers to bring in their animal to see the vet. There are ten possible booking slots during each day.
+
+An example of the two dimensional array is shown in **Fig. 1**.
+
+- The first column stores the booking slot number, ranging between 1 and 10.
+- The second column stores the time of the appointment.
+- The third column stores the customerID of the customer who has booked that slot.
+
+| 1 | 9:00 | 5877RC |
+|---|---|---|
+| 2 | 9:30 | 9655AS |
+| 3 | 10:00 |   |
+| 4 | 10:30 | 8754TT |
+| 5 | 11:00 |   |
+| 6 | 11:30 | 8745SD |
+| 7 | 13:00 | 9635GH |
+| 8 | 13:30 |   |
+| 9 | 14:00 | 9874PL |
+| 10 | 14:30 | 9658SV |
+
+**Fig. 1**
+
+If a customerID has been entered for a booking slot then the booking slot has been taken. If no customerID has been entered then the booking slot is available for booking.
+
+When customers make an appointment they often ask for the first available booking slot.
+
+Describe how a linear search could be used for this purpose.
+'''
+
+[[question.part]]
+label = "10(b)"
+marks = 7
+text = '''
+A function `findFirst`, is used to find the first available appointment.
+
+Write the function `findFirst` that will find the first available appointment and return the booking slot number. If no appointments are available then the function should return "`-1`".
+
+You should write your function using pseudocode or program code.
+'''
+
+[[question.mark_scheme]]
+label = "10(a)"
+marks = 3
+answer = '''
+1 mark per bullet up to a maximum of 3 marks, e.g.:
+
+- To start from the beginning / first booking slot
+- Search each slot in order / sequentially
+- Search until the first empty slot is found
+'''
+guidance = '''
+**Examiner’s Comments**\
+This question was generally not well answered. Candidates found it difficult to articulate a clear and concise set of steps that take place during a linear search. Many responses were vague and not directly related to a linear search being performed on the data presented in the table.
+'''
+
+[[question.mark_scheme]]
+label = "10(b)"
+marks = 7
+answer = '''
+1 mark per bullet up to a maximum of 7 marks, e.g.:
+
+- Defining the `findFirst` function correctly
+- Suitable logic for checking the first time slot
+- Suitable logic for checking the next time slot…
+- Suitable loop to check all time slots
+- Suitable logic for returning the available time slot
+- Suitable logic for returning -1 if no time slots available
+- Suitable use of variable names and indentation
+'''
+guidance = '''
+**Example solution:**
+
+```
+function findFirst()
+   count = 0
+   do
+     found = false
+     if customerID[2, count] == "" then
+       found = true
+     else
+       count = count + 1
+     endif
+   until count == 10 or found == true
+   if found == True
+     return customerID[0,count]
+   else
+     return -1
+   endif
+endfunction
+```
+
+There are many different ways that this function could have been achieved. Therefore other alternative methods should be given credit.
+
+**Examiner’s Comments**\
+A number of candidates started by defining a procedure rather than defining a function. Indentation was not always consistent with the constructs being used. Candidates seemed to have difficulty with referencing two dimensional structures. Algorithms that require two dimensional data frequently appear on this paper and candidates need to have extensive practical\
+programming experience solving problems using these structures.
+
+**Exemplar 2**
+
+*[Image in the original mark scheme, not shown here.]*
+
+A well-structured pseudocode response that uses indentation and variable naming well. The logic of the loop to check each item in sequence for an empty entry is clear, as is the indexing into the 2-Dimensional table structure.
+
+**Exemplar 3**
+
+*[Image in the original mark scheme, not shown here.]*
+
+To contrast with Exemplar 2, this exemplar shows a lack of pseudocode with a response written mostly in prose English, with inconsistent indentation and a lack of clear variable naming.
+
+*[Image in the original mark scheme, not shown here.]*
+
+**Assessment for learning**
+
+Candidates frequently benefit from having extensive practical programming experience when answering pseudocode questions.
+
+Past paper questions can provide a context for problems for implementation. For this question candidates could either be asked to code a two dimensional table structure for the data in **Fig 1** and to then implement the linear search, or they code be provided with a scaffolded partially complete solution with the table defined and the stem of a function given.
+
+Routinely taking past paper questions that can be practically implemented is an effective way to make sure that candidates have relevant experience.
+'''
+
+[[question]]
+number = 11
+marks = 4
+
+[[question.part]]
+label = "11"
+marks = 4
+text = '''
+Trudi would like to sort an array of numbers into order.
+
+The numbers before they have been sorted can be seen here.
+
+| 89 | 25 | 75 | 37 | 45 |
+|---|---|---|---|---|
+
+Trudi will use a bubble sort to put these numbers into order from smallest to largest.
+
+Show the first pass of the bubble sort. You should clearly show each comparison made.
+'''
+
+[[question.mark_scheme]]
+label = "11"
+marks = 4
+answer = '''
+1 mark for each correct row up to a maximum of 4 marks.
+
+| 89 | 25 | 75 | 37 | 45 |
+|---|---|---|---|---|
+| 25 | 89 | 75 | 37 | 45 |
+| 25 | 75 | 89 | 37 | 45 |
+| 25 | 75 | 37 | 89 | 45 |
+| 25 | 75 | 37 | 45 | 89 |
+
+1 mark 1 mark 1 mark 1 mark
+'''
+guidance = '''
+Marks should be awarded for correct swapping of adjacent items that are out of order. Therefore if the previous step is incorrect but the candidate has followed through with the correct answer then marks should be awarded.
+
+**Examiner’s Comments**\
+There were a number of responses that included clear diagrams illustrating the first pass of a bubble sort on the given data. Very few candidates confused bubble
+
+sort with other types of sorting algorithm so most achieved full marks for this question.
+'''
+
+[[question]]
+number = 12
+marks = 16
+
+[[question.part]]
+label = "12(a)"
+text = '''
+A business uses an array with the identifier `wNames` to store workers’ names. A variable with the identifier top is used to store the index of the last element to be added to the array, which is also the element which will next be removed.
+
+```
+wNames
+```
+
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 |
+|---|---|---|---|---|---|---|
+| Kirstie | Martyn | Louise | Alex | Anna |   |   |
+
+```
+top
+```
+
+4
+'''
+
+[[question.part]]
+label = "12(a)(i)"
+marks = 1
+text = '''
+State the name of the type of data structure described above.
+'''
+
+[[question.part]]
+label = "12(a)(ii)"
+marks = 4
+text = '''
+Using pseudocode, write an algorithm that allows the user to enter a name which is then pushed onto the data structure above, checking first that the data structure is not full.
+'''
+
+[[question.part]]
+label = "12(b)"
+text = '''
+The same workers’ names are stored in a binary search tree which is ordered alphabetically.
+
+Kirstie is set as the root node, with Martyn, Louise, Alex and Anna added one by one.
+
+Kirstie
+'''
+
+[[question.part]]
+label = "12(b)(i)"
+marks = 4
+text = '''
+Complete the tree diagram above to show where Martyn, Louise, Alex and Anna would be added to this binary search tree.
+'''
+
+[[question.part]]
+label = "12(b)(ii)"
+marks = 3
+text = '''
+Describe the process of using the binary search tree above to search for the name “Zoe”.
+'''
+
+[[question.part]]
+label = "12(b)(iii)"
+marks = 2
+text = '''
+Compare the efficiency of a binary search tree to a linked list when searching for data.
+'''
+
+[[question.part]]
+label = "12(b)(iv)"
+marks = 2
+text = '''
+Compare the efficiency of a binary search tree to a hash table when searching for data.
+'''
+
+[[question.mark_scheme]]
+label = "12(a)(i)"
+marks = 1
+answer = '''
+Stack
+'''
+guidance = '''
+Correct answer only
+'''
+
+[[question.mark_scheme]]
+label = "12(a)(ii)"
+marks = 4
+answer = '''
+- Input name from user
+- Check if stack is full e.g.(top \<=5)
+- If not, update top pointer
+- Correctly push name to index referenced by top
+'''
+guidance = '''
+Example answer
+
+```
+new = input("enter a name : ")
+if top <=5 then
+    top = top + 1
+    wNames[top] = new
+end if
+```
+'''
+
+[[question.mark_scheme]]
+label = "12(b)(i)"
+marks = 4
+answer = '''
+1 mark per name inserted in correct place in diagram
+'''
+guidance = '''
+*[Image in the original mark scheme, not shown here.]*
+'''
+
+[[question.mark_scheme]]
+label = "12(b)(ii)"
+marks = 3
+answer = '''
+- Compare with Kirstie – Zoe is larger so go right
+- Compare with Martyn - Zoe is larger so go right
+- No right element so stop/not found
+'''
+guidance = '''
+Allow FT from b(i)
+'''
+
+[[question.mark_scheme]]
+label = "12(b)(iii)"
+marks = 2
+answer = '''
+- Binary tree more efficient than linked list
+- Do not need to check every value / tree removes half values each time
+'''
+guidance = '''
+Allow reference to big O for second mark.\
+Linked List O(n), Binary Tree O(log n)
+'''
+
+[[question.mark_scheme]]
+label = "12(b)(iv)"
+marks = 2
+answer = '''
+- Binary tree less efficient than hash table
+- Hash table can find data immediately / without checking other values.
+'''
+guidance = '''
+Allow reference to big O for second mark.\
+Binary tree O(log n) Hash table O(1)
+'''
+
+[[question]]
+number = 13
+marks = 16
+diagram = true
+
+[[question.part]]
+label = "13(a)"
+marks = 6
+text = '''
+A breadth-first traversal can be performed on both a tree and a graph.
+
+Show how a breadth-first traversal is performed on the following binary tree.
+
+*[Diagram in the original paper, not shown here.]*
+'''
+
+[[question.part]]
+label = "13(b)"
+text = '''
+Some of the characters in the game will move and interact independently. Taylor is going to use graphs to plan the movements that each character can take within the game.
+
+DancerGold is one character. The graph shown in **Fig. 1** shows the possible movements that DancerGold can make.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 1**
+
+DancerGold’s starting state is represented by node A. DancerGold can take any of the paths to reach the end state represented by node G.
+
+The number on each path represents the number of seconds each movement takes.
+
+The number in bold below each node is the heuristic value from A.
+'''
+
+[[question.part]]
+label = "13(b)(i)"
+marks = 2
+text = '''
+Define the term heuristic in relation to the A\* algorithm.
+'''
+
+[[question.part]]
+label = "13(b)(ii)"
+marks = 8
+text = '''
+Perform an A\* algorithm on the graph shown in **Fig. 1** to find the shortest path from the starting node to the end node. Show your working, the nodes visited and the distance. You may choose to use the table below to give your answer.
+
+| **Node** | **Distance** **travelled** | **Heuristic** | **Distance travelled** **+** **Heuristic** | **Previous node** |
+|---|---|---|---|---|
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+
+Final path:
+
+Distance:
+'''
+
+[[question.mark_scheme]]
+label = "13(a)"
+marks = 6
+answer = '''
+1 mark per bullet to max 6
+
+- Visit root node **M**
+- Visit **E** and **S**
+- Visit **C** and **J** (from E)
+- …then **P** and **V** (from S)
+- Visit **G** and **K** (from J)
+- Visit **L** (from **K**)
+'''
+
+[[question.mark_scheme]]
+label = "13(b)(i)"
+marks = 2
+answer = '''
+1 mark per bullet to max 2\
+e.g:
+
+- A rule of thumb / estimate / guess
+- That estimates the distance / cost from each node to the destination node
+- To speed up the process of finding a solution
+- …by identify which paths to follow first
+'''
+
+[[question.mark_scheme]]
+label = "13(b)(ii)"
+marks = 8
+answer = '''
+| **Node** | **Distance** **travelled** | **Heuristic** | **Distance** **travelled** **+** **Heuristic** | **Previous** **node** | **MARKING** **GUIDANCE** |
+|---|---|---|---|---|---|
+| A (✓) | 0 | 90 | 90 |   | **1 MARK** |
+| B (✓) | ∞ 21 | 80 | 101 | A | **1 MARK** |
+| C (✓) | ∞ 42 | 65 | 107 | A | **1 MARK** |
+
+| D (✓) | ∞ 42+12=54 | 50 | 104 | C | **1 MARK** |
+|---|---|---|---|---|---|
+| E | ∞ 21+40=61 | 50 | 111 | B | **1 MARK** |
+| F (✓) | ∞ 42+12+23=77 | 30 | 107 | D | **1 MARK** |
+| G | ∞ 42+12+23+33=110 | 0 | 110 | F | **1 MARK** |
+
+Final path = A,C,D,F,G and Distance = 110 (1 Mark)
+'''
+
+[[question]]
+number = 14
+marks = 16
+diagram = true
+
+[[question.part]]
+label = "14(a)"
+text = '''
+Kira is creating a computer game where the user can play against the computer.
+
+In each turn, each character can make one move from a selection of possible moves.
+
+Kira uses a tree data structure shown in **Fig. 1** to identify the range of possible moves the computer can make from starting position A. Each connection is a move, with each node representing the result of the move.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 1**
+
+Kira wants to make some changes to the data that is stored in the tree structure shown in **Fig. 1**.
+'''
+
+[[question.part]]
+label = "14(a)(i)"
+marks = 3
+text = '''
+The move represented by node ‘E’ needs to be deleted.
+
+Describe the steps an algorithm will follow to delete node ‘E’ from the tree.
+'''
+
+[[question.part]]
+label = "14(a)(ii)"
+marks = 3
+text = '''
+The move represented by the node ‘K’ needs to be added. Node ‘K’ needs to be joined to node ‘G.’
+
+Describe the steps the algorithm will follow to add node ‘K’ to the right of node ‘G’.
+'''
+
+[[question.part]]
+label = "14(b)"
+marks = 4
+text = '''
+Kira could have used a graph data structure to represent the moves in her game.
+
+Give **two** similarities and **two** differences between a tree and a graph data structure.
+
+Similarity 1
+
+Similarity 2
+
+Difference 1
+
+Difference 2
+'''
+
+[[question.part]]
+label = "14(c)"
+marks = 1
+text = '''
+State why the tree shown in **Fig. 1** is **not** an example of a binary search tree.
+'''
+
+[[question.part]]
+label = "14(d)"
+marks = 1
+text = '''
+State what type of pointers are used to store nodes I, F, J and H so they do not point to any other nodes.
+'''
+
+[[question.part]]
+label = "14(e)"
+marks = 4
+text = '''
+Kira wants the program to traverse the tree to evaluate the range of possible moves. She is considering using a breadth-first traversal or a depth-first (post-order) traversal.
+
+Show how a breadth-first traversal would traverse the tree shown in **Fig. 1**.
+
+**END OF QUESTION PAPER**
+'''
+
+[[question.mark_scheme]]
+label = "14(a)(i)"
+marks = 3
+answer = '''
+1 mark per bullet to max 3
+
+- Search the tree to find the location of Node E / by example of search
+- Replace the content of node E with blank/null/equivalent
+- Make node A point to the node H
+- Add node E to the empty node list
+'''
+
+[[question.mark_scheme]]
+label = "14(a)(ii)"
+marks = 3
+answer = '''
+1 mark per bullet to max 3
+
+- Search the tree to find the location of node G / by example of search
+- Create a new node with value K
+- Add a pointer from node G to the new node
+- Make node K point to null/equivalent
+'''
+
+[[question.mark_scheme]]
+label = "14(b)"
+marks = 4
+answer = '''
+1 mark per similarity to max 2
+
+- Both consists of nodes
+- Both are connected by edges/links
+- Both are non-linear data structures
+- Both are dynamic data structures
+
+1 mark per difference to max 2
+
+- Tree is 1-directional whereas a graph is 2- directional
+- Tree has a root node whereas a graph does not have a (clear) root node
+- Tree will not have cycles whereas graphs can contain cycles
+- Tree will not be weighted whereas edges in a graph can be weighted
+'''
+
+[[question.mark_scheme]]
+label = "14(c)"
+marks = 1
+answer = '''
+One node (node A) has more than 2 connections Nodes aren’t ordered (e.g. F is C’s left child)
+'''
+
+[[question.mark_scheme]]
+label = "14(d)"
+marks = 1
+answer = '''
+1 mark for identification
+
+- Null pointers
+'''
+
+[[question.mark_scheme]]
+label = "14(e)"
+marks = 4
+answer = '''
+1 mark per bullet
+
+- Take **A** as starting node
+- Visit **B**, **C** and **E**
+- Visit **D, F, G** and **H**
+
+- Visit **I** and **J**
+'''
+guidance = '''
+Allow the reverse ordering from right to left e.g. A; E, C, B; H, G, F, D; J, I
+'''

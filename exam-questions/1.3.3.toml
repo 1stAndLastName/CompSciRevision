@@ -1,0 +1,940 @@
+# OCR exam questions for 1.3.3 Networks.
+# Copied as text from the question paper and mark scheme PDFs in sources/
+# by tools/extract-exam-questions. Diagrams are not copied. Corrections by
+# hand are fine: the tool will not overwrite this file without --force.
+spec = "1.3.3"
+
+[[question]]
+number = 1
+marks = 8
+
+[[question.part]]
+label = "1(a)"
+marks = 2
+text = '''
+A company wants more customers to be able to find their website on the internet.
+
+When customers contact the company, their computers will use a number of protocols such as TCP/IP and HTTP to make connections with other devices over the internet.
+
+Explain what a protocol is and why they are important in network communications.
+'''
+
+[[question.part]]
+label = "1(b)"
+marks = 6
+text = '''
+Describe **three** different pieces of networking hardware in a client-server network apart from the clients and servers themselves.
+
+1
+
+2
+'''
+
+[[question.mark_scheme]]
+label = "1(a)"
+marks = 2
+answer = '''
+1 mark per bullet to max 2:
+
+1 mark for:
+
+- A set of rules for communication/ transmission/transfer of data between devices
+
+1 mark **max** from:
+
+- The sending system has no direct control over the way the receiving system responds
+- Allows standardisation as different devices have different OS/hardware
+- Protocols allow for data to be exchanged in a predictable way/ in the correct format
+'''
+guidance = '''
+Not ‘**a** rule’ - must be plural
+
+MP1 not a set of **instructions**
+
+MP1 accept **standards / an agreement**
+
+**Examiner’s Comments**
+
+Most candidates were able to explain that a protocol is a set of rules for communication between devices. Few then went on to explain what that meant and so the majority of candidates gained one mark.
+'''
+
+[[question.mark_scheme]]
+label = "1(b)"
+marks = 6
+answer = '''
+1 mark for hardware and 1 mark for expansion to 6 marks max
+
+- **Router** e.g.
+- Connect networks together
+- Assign IP address to devices
+- Examines data packets and forwards them
+
+- **Cable/ Ethernet** e.g.
+- Carries digital data from one device/NIC to the next
+- Connects wired devices to the network
+
+- **Gateway** e.g.
+- Connects different types of network
+- Translates protocols from one network to another
+
+- **Bridge** e.g.
+- Connects different network segments
+
+- **Repeater**
+- Receives a signal and retransmits it
+
+- **Network Interface** **Card / NIC** e.g.
+- Gives each device a MAC address / unique ID
+- Allows a computer system to interface with a network
+
+- **Wireless Access** **Point / WAP** e.g.
+- Allows wireless devices to communicate with each other
+- Sends and receives radio waves
+- Examines data packets and forwards them
+
+- **Switch** e.g.
+- Connects multiple wired devices to the network
+- Receives data and forwards it to the intended recipient
+- Examines data packets and forwards them
+- Routes based on MAC addresses
+
+- **Hub** e.g.
+- Receives data from a device and broadcasts it to **all**
+
+devices connected to it
+
+- **Modem** e.g.
+- Changes a signal from digital to analogue
+
+- **Firewall** e.g.
+- Filters traffic coming in and out of a network
+'''
+guidance = '''
+2 marks max each.
+
+Allow any suitable expansion.
+
+Mark in pairs.
+
+Allow:\
+**Proxy server** e.g.
+
+- Sits between user and computer to route requests through an external server
+- Creates separation between a user and the site/service
+- Protects your security/anonymity by hiding IPs
+
+**Examiner’s Comments**
+
+The majority of candidates could give three different pieces of networking hardware but many were unable to
+
+then describe what they did with many putting connects devices for the description of each piece of hardware.
+'''
+
+[[question]]
+number = 2
+marks = 10
+
+[[question.part]]
+label = "2"
+text = '''
+A small manufacturing business uses networked computers with closed source application software installed.
+
+All computers owned by the business are connected together into a Local Area Network (LAN). Various network protocols are used in this network.
+'''
+
+[[question.part]]
+label = "2(i)"
+marks = 3
+text = '''
+Give **three** advantages to the business of connecting computers together in a LAN.
+
+1
+
+2
+
+3
+'''
+
+[[question.part]]
+label = "2(ii)"
+marks = 2
+text = '''
+Explain what is meant by a network protocol.
+'''
+
+[[question.part]]
+label = "2(iii)"
+marks = 2
+text = '''
+Give the names of **two** protocols that may be used in a LAN.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "2(iv)"
+marks = 3
+text = '''
+Explain why protocol layering is used.
+'''
+
+[[question.mark_scheme]]
+label = "2(i)"
+marks = 3
+answer = '''
+e.g.
+
+- Share hardware (e.g. printers)
+- Share files
+- Share Internet connection
+- Centralised security
+- Log on / access files from any machine on the LAN
+- Central maintenance
+- Central backup / storage
+- Central installation / update of programs
+- Can monitor user activity
+- Can control access levels / Centralised useradmin
+- Access an intranet
+'''
+guidance = '''
+Mark first answer in each answer space
+
+**Examiner’s Comments**
+
+This question challenged many candidates who were unable to give three advantages to the business and instead gave 3 benefits of a LAN over a WAN which was not what the question required. The candidates who did manage to gain full marks were able to give clear advantages to a business of having their machines networked in a LAN.
+
+*[Image in the original mark scheme, not shown here.]*
+'''
+
+[[question.mark_scheme]]
+label = "2(ii)"
+marks = 2
+answer = '''
+- A set of rules / an agreement
+- Used to ensure the (proper / successful) **transfer of data** between devices / used to govern the **transmission /** **communication** between devices
+- May specify format of data / error checking / etc
+'''
+guidance = '''
+Allow suitable example of contents of a protocol for MP3
+
+Do not award a rule - must be plural
+
+**Examiner’s Comments**
+
+This was generally well answered and many candidates were able to gain both marks
+'''
+
+[[question.mark_scheme]]
+label = "2(iii)"
+marks = 2
+answer = '''
+1 mark per protocol listed e.g.
+
+- HTTP / Hypertext Transfer Protocol
+- HTTPS / Hypertext Transfer Protocol Secure
+- TCP / Transmission Control Protocol
+- IP / Internet Protocol
+- UDP / User Datagram Protocol
+- FTP / File Transfer Protocol
+- Ethernet
+- WPA / Wi-Fi Protected Access
+- DHCP / Dynamic Host Configuration Protocol
+- SMTP / Simple Mail Transfer Protocol
+- POP / Post Office Protocol
+- IMAP / Internet Message Access Protocol
+- RDP / Remote Desktop Protocol
+- VoIP / Voice over Internet Protocol
+'''
+guidance = '''
+Mark first answer in each answer space
+
+If mentioned one protocol with 2 versions e.g. IPv4 & IPv6
+
+- only 1 mark
+
+If they’ve written the protocol in full but got any word wrong, no mark awarded
+
+**Examiner’s Comments**
+
+Generally well answered and it was interesting to see the different protocols candidates were able to name. Some candidates named two of the layers in TCP/IP instead of protocols which gained them no marks.
+'''
+
+[[question.mark_scheme]]
+label = "2(iv)"
+marks = 3
+answer = '''
+- To apply protocols in order / one after the other
+- To provide independence of layers / Layers can be modified without affecting other layers / Layers are self- contained
+- Hides details from previous or next layer(s) / is an abstraction
+- Each layer is well defined / does a specific job
+- Breaks **tasks** down into manageable units
+
+/ Groups similar protocols together
+
+- Improved troubleshooting (easier identification of the layer that causes the issue)
+- Each layer only communicates with adjacent layers/ simplifies interfacing
+- Hardware/software can be manufactured to fit into one specific layer
+- Allows for standards for individual tasks/layers to be developed / for compatibility
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Protocol layering has appeared in questions in previous papers, but many candidates were not able to explain why they are layered. Some candidates gave a description of the layers in TCP/IP without saying why it was layered.
+'''
+
+[[question]]
+number = 3
+marks = 13
+
+[[question.part]]
+label = "3(a)"
+text = '''
+Zac has an accountancy business. He is moving into an office that has enough space for up to five members of staff. Zac would like to install a Local Area Network (LAN) to allow his staff to work together.
+'''
+
+[[question.part]]
+label = "3(a)(i)"
+marks = 2
+text = '''
+A LAN uses packet switching.
+
+Describe **one** difference between packet switching and circuit switching.
+'''
+
+[[question.part]]
+label = "3(a)(ii)"
+marks = 2
+text = '''
+Explain why packet switching is more suitable for a computer network than circuit switching.
+'''
+
+[[question.part]]
+label = "3(b)"
+marks = 9
+text = '''
+Zac has hired a company that will advise him on what type of LAN he should set up.
+
+Discuss how Zac could set up a peer-to-peer network and a client-server network.
+
+You should refer to the following in your answer:
+
+- how the computers in each type are connected
+- the benefits of each type
+- the drawbacks of each type
+- the suitability of each type.
+'''
+
+[[question.mark_scheme]]
+label = "3(a)(i)"
+marks = 2
+answer = '''
+`o` In circuit switching dedicated hardware resources are used for each connection `o` In packet switching hardware is used for multiple different connections.
+
+`o` In circuit switching the data is sent along one route/stream. `o` In packet switching packets of data may be sent along multiple different routes/packets
+
+may not be in order
+
+- Circuit switching is less secure if data is intercepted
+- Packet switching, data is more secure if intercepted/not all packets will be intercepted
+'''
+guidance = '''
+Marks answers in pairs
+
+**Examiner’s Comments**
+
+Many candidates achieved both marks for this question with most of the responses describing the different routes taken by the data. The candidates who did less well on this question did not understand differences between packet switching and circuit switching.
+'''
+
+[[question.mark_scheme]]
+label = "3(a)(ii)"
+marks = 2
+answer = '''
+- Computer networks would involve multiple connections happening concurrently
+- In packet switching hardware is not tied up with each unique connection / can handle multiple connections simultaneously
+- Computers pass vast amounts of data which may encounter transmission errors
+- Packet switching means only resending individual packets instead of the whole data stream
+- Computers may be transmitting business critical data
+- Packet switching means any network hardware failures can be mitigated by routing around it.
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many candidates lost marks for the second part of Question 6 (a) (ii), despite achieving both marks for the first part 6 (a) (i). A lot of incorrect answers gave a very similar response to the first part of the question instead of explaining why the differences that packet switching has, make it more suitable for a computer network. Common correct answers explained that packet switching can route around hardware failures as the data is not sent along a single route.
+'''
+
+[[question.mark_scheme]]
+label = "3(b)"
+marks = 2
+answer = '''
+**Mark Band 3–High Level** **(7–9 marks)**\
+The candidate demonstrates a thorough knowledge and understanding of both peer to peer and client server and can give valid application of both in this scenario. All
+
+detail are generally accurate and relevant.\
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2-Mid Level** **(4–6 marks)**\
+The candidate demonstrates reasonable knowledge and understanding of client server and peer to peer; the material is generally accurate but at times underdeveloped. The candidate may not have applied both to this scenario. The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed.\
+Evidence/examples are for the most part implicitly relevant to the explanation.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1-Low Level** **(1–3 marks)**\
+The candidate demonstrates a basic knowledge of client/server or peer to peer and has made some attempt at applying this knowledge. the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply
+
+acquired knowledge and understanding to the context provided.\
+The candidate provides nothing more than an unsupported assertion.
+
+The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 mark**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+AO1\
+P2P:
+
+- Each computer can act independently
+- Each computer is responsible for it’s own security and login
+- Each computer will maintain and possibly share its own connected hardware (printer/external storage/internet connection)
+
+- Each computer will maintain and possibly share its own secondary storage
+- If a computer is powered down it’s shared resources will not be available.
+- There are no resources not shared by a peer machine
+- Adding a machine is simple
+- Very little administration is needed
+
+Client Server:
+
+- All network functionality can be provided by servers.
+- A server is a process running on a machine, usually dedicated to providing these services.
+- A server machine is designed to never be powered down.
+- Login/security is handled centrally
+- Shared storage may be managed by a server
+- Shared resources (printer/internet connection etc) my be managed by a server
+- If a server process or machine fails, network functionality, including the ability login is lost
+- Adding a new machine can mean installing specialist client software and setting up OS policies.
+- IT skills and a lot of time are needed to administer a client server network
+
+AO2\
+P2P:
+
+- As Zak is looking to expand his staff, P2P would offer flexibility in adding staff ad hoc.
+- Zak’s company is still small and may struggle to pay for the IT administrator skills needed for a client server
+
+Client Server:
+
+- As Zak’s firm is an accountancy firm it will have sensitive customer data
+- Client server would allow stronger centralised security
+- As Zak is taking on multiple staff, they may wish to work collaboratively, which shared storage would allow.
+- Zak could share a single printer/other hardware with all staff and not worry about an individual computer being switched on.
+
+AO3: Candidates can conclude either method, but to score in the top MB must have a clear line of reasoning to justify their choice.
+
+**Examiner’s Comments**
+
+Candidates were assessed on the quality of their extended response in this question. Although most candidates were able to give a few advantages and disadvantages of the different types of network, few made suitable links to the scenario.
+
+Some candidates discussed different topologies which was not relevant to the question. Candidates that were given high marks for this question focused more on the scenario, and made clear links between this and the benefits and drawbacks of the different solutions.
+
+Exemplar 3
+
+*[Image in the original mark scheme, not shown here.]*
+
+The candidate response is well structured. The candidate has firstly highlighted how the computers are connected for each type of network and discussed the advantages and disadvantages. The advantages and disadvantages are well balanced and there are clear links to the scenario throughout.
+
+The candidate has made a recommendation on the most suitable type of network for the scenario, highlighting the
+
+key advantages and showing clear reasoning.
+
+The conclusion emphasises the key points and gives a clear justification.
+'''
+
+[[question]]
+number = 4
+marks = 7
+
+[[question.part]]
+label = "4"
+text = '''
+Anika’s computer runs a multi-tasking operating system. She has access to a printer and a broadband internet connection through a wireless connection. The operating system uses scheduling algorithms such as first come first served and round-robin.
+
+Anika uses an encrypted messaging program to communicate with her friends. The computer uses the TCP/IP stack.
+'''
+
+[[question.part]]
+label = "4(i)"
+marks = 5
+text = '''
+Explain what happens at the application layer of the TCP/IP stack when using this program.
+'''
+
+[[question.part]]
+label = "4(ii)"
+marks = 2
+text = '''
+Explain what happens at the link layer (sometimes referred to as the “network interface layer”, “network access layer” or simply the “network layer”) of the TCP/IP stack when using this program.
+'''
+
+[[question.mark_scheme]]
+label = "4(i)"
+marks = 5
+answer = '''
+- Protocol to be used is decided based on the application
+- E.g. HTTPS **for** **browser based** **service** / SMTP/IMAP **for messaging** **service**
+- Adds encryption
+- Passes on to transport layer to **send**
+- Gets data from transport layer **when** **receiving**
+- Unpacks message ready for display / removes headers or other non-viewable data
+- Decrypts message
+'''
+guidance = '''
+For BP2, don’t allow HTTP (question mentions\
+encryption). Don’t allow a list of protocols which aren’t relevant to the question. Don’t allow a protocol without its use
+
+**Examiner’s Comments**\
+Very few students could explain what happens at the application layer and answers tended to be about splitting data into packets. Some candidates did mention that encryption would take place but didn’t go on to mention decryption when receiving data. Those candidates that identified that protocols are applied here were unable to give a specific example and simply listed protocols they knew, but without context.
+'''
+
+[[question.mark_scheme]]
+label = "4(ii)"
+marks = 2
+answer = '''
+- Receives (layered) data from internet layer **to send**
+- MAC addresses are added to the packet
+- Passes and receives data across wireless network (to WAN / other machine)
+- Passes (layered) data back up to internet layer **when receiving**
+'''
+guidance = '''
+Wireless access given in question stem
+
+**Examiner’s Comments**\
+Very few candidates were able to gain 2 marks on this question. Some candidates talked about transmitting data via cables, despite wireless being mentioned in the question.
+'''
+
+[[question]]
+number = 5
+marks = 5
+
+[[question.part]]
+label = "5(a)"
+marks = 1
+text = '''
+Modern computer systems use networking in order to share hardware, software and data.
+
+Networking uses protocols such as TCP/IP.
+
+State what is meant by the term ‘protocol’.
+'''
+
+[[question.part]]
+label = "5(b)"
+text = '''
+The protocol TCP/IP uses a 4-layer stack.
+'''
+
+[[question.part]]
+label = "5(b)(i)"
+marks = 2
+text = '''
+Complete the table below to show the 4 layers in the TCP/IP stack.
+
+| Application |
+|---|
+|   |
+|   |
+| Link |
+'''
+
+[[question.part]]
+label = "5(b)(ii)"
+marks = 2
+text = '''
+Explain **one** advantage of using layers in the protocol TCP/IP.
+'''
+
+[[question.mark_scheme]]
+label = "5(a)"
+answer = '''
+- A set of rules (for communication)
+
+1 (AO1.1 ) (1)
+'''
+guidance = '''
+Do not accept instructions instead of rules
+
+**Examiner’s Comments**\
+This question was answered well.
+'''
+
+[[question.mark_scheme]]
+label = "5(b)(i)"
+answer = '''
+1 mark for each completed row up to a maximum of 2 marks:
+
+Application
+
+2 (AO1.1 ) (2)
+
+| **Transport** |
+|---|
+| **Network** |
+| Link |
+'''
+guidance = '''
+- Accept in any order
+- Accept Internet instead of Network
+
+**Examiner’s Comments**\
+Most candidates achieved both marks for this question. The order of the layers was not important to get both marks and many candidates gave “Transport” and “Network” as the two missing layers. Some candidates gave “Internet” in place of “Network” which was also acceptable.
+'''
+
+[[question.mark_scheme]]
+label = "5(b)(ii)"
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g:
+
+- Allows different layers to be worked on independently
+- Allows layers to be replaced/upgraded without affecting others
+- Allows for layers from different providers to be used interchangeably
+
+2 (AO1.2 ) (2)
+'''
+guidance = '''
+**Examiner’s Comments**\
+This question was generally not answered well. Candidates that did gain marks, focused on the concept of layers being independent. Many candidates missed this concept and did not achieve the marks.
+
+Candidates should be careful to use the correct terminology for questions of this type.
+'''
+
+[[question]]
+number = 6
+marks = 30
+
+[[question.part]]
+label = "6(a)"
+text = '''
+A hotel uses a computer system to keep track of room bookings. The hotel staff are able to query a database to discover which rooms are booked or which rooms are free.
+
+The hotel’s computer network uses a client-server model.
+'''
+
+[[question.part]]
+label = "6(a)(i)"
+marks = 3
+text = '''
+Describe what is meant by the term ‘client-server’ in this context.
+'''
+
+[[question.part]]
+label = "6(a)(ii)"
+marks = 2
+text = '''
+Give **two** advantages of client-server compared to peer-to-peer.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "6(b)"
+marks = 3
+text = '''
+The hotel’s network uses multiple switches.
+
+Explain the purpose of a network switch.
+'''
+
+[[question.part]]
+label = "6(c)"
+marks = 9
+text = '''
+\* The hotel is concerned about the security of its computer network.
+
+Discuss the threats which potentially exist to the hotel’s computer network and how these threats could be eliminated or reduced.
+'''
+
+[[question.part]]
+label = "6(d)"
+text = '''
+The hotel stores data about rooms, customers and bookings in a database. Each customer can book multiple rooms and each room can be booked multiple times.
+'''
+
+[[question.part]]
+label = "6(d)(i)"
+marks = 4
+text = '''
+Draw an Entity Relationship Diagram for this database.
+'''
+
+[[question.part]]
+label = "6(d)(ii)"
+marks = 3
+text = '''
+Define what is meant by the term ‘foreign key’, giving **one** example of where a foreign key would be used in the hotel booking database.
+
+Definition
+
+Example
+'''
+
+[[question.part]]
+label = "6(d)(iii)"
+marks = 4
+text = '''
+Describe **two** different ways that hashing could be used in this database.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "6(e)"
+marks = 2
+text = '''
+The hotel booking database enforces referential integrity.
+
+Explain what is meant by the term ‘referential integrity’ and how this could potentially be broken.
+'''
+
+[[question.mark_scheme]]
+label = "6(a)(i)"
+marks = 3
+answer = '''
+- Client computers connect to server
+- Server provides access to a resource/service
+- In this case hotel staff use client computers to connect to database on server (or other sensible example).
+'''
+
+[[question.mark_scheme]]
+label = "6(a)(ii)"
+marks = 2
+answer = '''
+e.g.
+
+- only one point of failure
+- easier to manage users/access
+- Easier to backup
+- Easier to keep data secure.
+- Technicians can more easily remotely install / monitor.
+'''
+
+[[question.mark_scheme]]
+label = "6(b)"
+marks = 3
+answer = '''
+- Joins computers/devices together on a LAN
+
+- Receives packets/data
+- Recipient’s address is given in packet header/it uses the mac address
+- Send packets/data
+- Out the correct port /to the specific computer device
+'''
+
+[[question.mark_scheme]]
+label = "6(c)"
+marks = 9
+answer = '''
+**Mark Band 3–High Level (7-** **9 marks)**\
+The candidate demonstrates a thorough knowledge and understanding of network security. The material is generally accurate and detailed.
+
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation.
+
+The candidate provides a thorough discussion which is well balanced. Evaluative comments are consistently relevant and well-considered.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2-Mid Level (4-6** **marks)**\
+The candidate demonstrates reasonable knowledge and understanding of network security; the material is generally accurate but at times underdeveloped.
+
+The candidate is able to apply their knowledge and understanding directly to the context provided although
+
+one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.
+
+The candidate provides a sound discussion, the majority of which is focused. Evaluative comments are for the most part appropriate, although one or two opportunities for\
+development are missed.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1-Low Level (1-** **3 marks)**\
+The candidate demonstrates a basic knowledge of network security; the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided.\
+The candidate provides a limited discussion which is narrow in focus. Judgments if made are weak and unsubstantiated. The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+AO1\
+Malware and viruses are software that can have a negative impact on computer systems\
+Spyware and keyloggers can record information entered and send back to a third party\
+Phishing attacks attempt to steal data by fraudulently appearing as legitimate emails asking for secure information\
+Denial of Service Attacks can overload a computer system with traffic and effectively disable access for legitimate users
+
+AO2\
+Hotel’s systems could be disrupted by DDOS attacks so no external bookings able to be made.\
+Phishing and spyware attacks may compromise visitor security and result in financial loss\
+Malware, viruses could destroy hotel data\
+Theft of customer data would be an issue under Data Protection Act / GDPR for which the hotel could be prosecuted
+
+AO3\
+Education for staff and customers is important to deal with recognising and dealing with threats\
+Up to date software, limitations of use of devices such as USB sticks and restricted access to wireless networks can all limit risks.\
+Use of Firewall to restrict traffic entering and leaving the network.\
+Should be balanced against customer experience; will customers return if they have no access to It facilities?
+'''
+
+[[question.mark_scheme]]
+label = "6(d)(i)"
+marks = 4
+answer = '''
+- Customer, Room and Booking entities, must be singular
+- Customer joined to Booking
+
+and Room joined to booking and no other links
+
+- Customer to Booking relationship indicated as one-many -Room to Booking relationship indicated as one-many
+'''
+guidance = '''
+*[Image in the original mark scheme, not shown here.]*
+'''
+
+[[question.mark_scheme]]
+label = "6(d)(ii)"
+marks = 3
+answer = '''
+- A field that links to a (primary) key in a second table
+- Example : Customer ID / RoomID…
+- … in Booking table
+'''
+
+[[question.mark_scheme]]
+label = "6(d)(iii)"
+marks = 4
+answer = '''
+- Hashing for security
+- …e.g. hash passwords in database
+- …to make sure they cannot be read if they are stolen
+- Hashing for direct access
+- …e.g. Customer/Room/Boo king records can be quickly accessed
+- …by using hash of index as address
+'''
+
+[[question.mark_scheme]]
+label = "6(e)"
+marks = 2
+answer = '''
+- Database/relationship s are consistent / each foreign key links to an existing/valid primary key
+- Suitable example of being broken (e.g. if primary key is deleted/updated, foreign keys are no longer valid / changes should be cascaded)
+'''
+guidance = '''
+Accept example that is not related to the database given (as this is an AO1 question)
+'''
+
+[[question]]
+number = 7
+marks = 4
+
+[[question.part]]
+label = "7"
+marks = 4
+text = '''
+In order to view a website, a user enters a website address into their web browser such as\
+[web address]. The website will then be displayed onto the user’s screen.
+
+Explain how the Domain Name System (DNS) plays a role in websites being loaded.
+'''
+
+[[question.mark_scheme]]
+label = "7"
+marks = 4
+answer = '''
+1 mark per bullet up to a maximum of 4 marks
+
+- DNS is used to resolve IP corresponding to URL
+
+- Request sent to DNS resolver.
+- Resolver checks its cache and if it doesn’t hold the URL, it passes it in to the TLD Name server which checks its cache and returns the answer or passes on to the..
+- Authoritative Name Server.
+- The IP address is returned back up to the requesting client.
+- Or an error if no resolution can be found.
+'''
+guidance = '''
+Award the mark for checking of cache at any of the stages but limit to one mark for this aspect.
+'''
+
+[[question]]
+number = 8
+marks = 9
+
+[[question.part]]
+label = "8"
+marks = 9
+text = '''
+\*A company has six solicitors working in two offices in different locations. They work with the general public and help them solve any sensitive legal issues they may be facing.
+
+The solicitors would like to set up a computer network to allow them to work together more effectively.
+
+Discuss the benefits and drawbacks of computer networking to the company.
+
+You should refer to the following in your answer:
+
+- Different networking methods
+- Cost implications
+- Security implications
+
+**END OF QUESTION PAPER**
+'''
+
+[[question.mark_scheme]]
+label = "8"
+marks = 9
+answer = '''
+**Mark Band 3–High Level** **(7-9 marks)**\
+The candidate demonstrates a thorough knowledge and understanding of networking methods and cost and security implications. The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation.\
+The candidate is able to evaluate different methods of network and how they would be beneficial to the business and come to a reasoned conclusion.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2-Mid Level** **(4-6 marks)**\
+The candidate demonstrates reasonable knowledge and
+
+understanding of networking methods and cost and security implications and is able to talk about some of the attributes of each; the material is generally accurate but at times underdeveloped. The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed.\
+Evidence/examples are for the most part implicitly relevant to the explanation. The candidate makes a reasonable attempt to explain how different aspects of networks would be beneficial to the business however they may not always be accurate. They will come to a conclusion although their justifications may not be clear.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1-Low Level** **(1-3 marks)**\
+The candidate demonstrates a basic knowledge of networking methods and cost and security implications and may be able to recall the attributes of one or more with limited understanding shown; the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided.\
+The candidate has some explanation of the benefits or drawbacks to the business although the accuracy may
+
+be limited and their conclusions not clear
+
+The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+**Knowledge**
+
+- As firm is on multiple sites it will need to be connected via a WAN
+- Each office would have its own LAN
+- Use of Client/Server network which will allow `o` Centralised security `o` Centralised back up `o` Shared resources such as file/print/internet are not tied to a peer computer `o` Extra hardware for client/server would incur extra expense
+- VPN would allow secure access to server in one site from another
+- Cloud computing would allow remote storage of data `o` Would allow sharing of data between sites and client locations `o` Provide extendable storage `o` Built in back up `o` Strong security, but out of firms control
+- Network would allow data and resources such as printers to be shared `o` Sharing resources would allow solicitors easier access to client files `o` Even with strong security, networks bring vulnerability to sensitive data being held
+
+**Application**
+
+- As a solicitor’s firm will deal with sensitive data security concerns would be paramount to clients who have data stored with them `o` Use of VPN may be necessary to provide secure links between offices `o` Data would need to be encrypted `o` Clients may be unhappy with external services such as cloud `o` Strong security measures would bring extra cost, which could push fee’s up
+- Client server set up would require extra equipment `o` Switches/routers/gateways/ servers/NIC/cabling/ WAP `o` Extra costs may push fee’s up
+- A network would give solicitors quicker/immediate access to client files `o` Allows solicitor to quickly switch between clients `o` Allow solicitors to collaborate and help colleagues `o` Allows clients to be seen by solicitors at either office and they would sill have access to their case files `o` Allows solicitors to research old cases from either office
+
+**Evaluation**\
+The candidate could come to either a conclusion of the network being an overall drawback or benefit. However, their reasoning must clearly lead to that conclusion with clear justification.
+'''

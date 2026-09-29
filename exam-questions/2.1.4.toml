@@ -1,0 +1,1688 @@
+# OCR exam questions for 2.1.4 Thinking logically.
+# Copied as text from the question paper and mark scheme PDFs in sources/
+# by tools/extract-exam-questions. Diagrams are not copied. Corrections by
+# hand are fine: the tool will not overwrite this file without --force.
+spec = "2.1.4"
+
+[[question]]
+number = 1
+marks = 4
+
+[[question.part]]
+label = "1"
+marks = 4
+text = '''
+Eve enjoys playing board games. Her favourite board game is called “Pot Luck”. This has a numbered grid of 10 squares by 10 squares. Each square has a number between 1 and 100.
+
+Players place their game counters on square 1. A 30-minute timer is set which counts downwards. Each player rolls two 6-sided dice and then moves their game counter that number of squares. Some squares tell the player to pick up a card. These have instructions on, such as 'Move forward 10 spaces'. If the player lands on one of these squares they move according to the instruction on the card. The first player to land on square 100, is announced as the winner. If no winner is announced before the timer runs out, then it is a draw.
+
+Logical conditions are checked once a player has rolled the dice.
+
+Describe **two** different logical conditions and how the result will affect the outcome of the game.
+
+**Logical Condition 1**
+
+Condition:
+
+Outcome:
+
+**Logical Condition 2**
+
+Condition:
+
+Outcome:
+'''
+
+[[question.mark_scheme]]
+label = "1"
+marks = 4
+answer = '''
+1 mark for condition and 1 mark for outcome to max 4\
+e.g.
+
+- **Condition:** Check if the square has an instruction ...
+- **Outcome:** ... move the player the number of places specified
+
+- **Condition:** Check if they have landed on square 100 ...
+- **Outcome:** ... Announce the player as the winner
+
+- **Condition:** Check if the timer is 0 ...
+- **Outcome:** ... Announce the game as a draw
+'''
+guidance = '''
+Allow other suitable examples that are relevant to the scenario.
+
+The outcome must be related to the condition for a mark to be awarded.
+
+**Examiner’s Comments**
+
+Some candidates did not present clear conditions but gave\
+descriptions of actions to perform within the game such as ‘roll dice’. The condition required an identification within the context of something that would lead to a Boolean result with consequent outcome. For example, if the timer runs out then the game will end in a draw.
+'''
+
+[[question]]
+number = 2
+marks = 40
+
+[[question.part]]
+label = "2(a)"
+marks = 3
+text = '''
+A game is being written that makes use of object-oriented programming. A prototype for one part of the game is being designed that includes a character, a road and a prize to collect.
+
+The road will have 50 spaces that a character can move along. Each space on the road will store a null value or a prize object for the user to collect. Each space is numbered sequentially from the first space (position 0) to the last space (position 49) and will not change during the game. As the player travels down the road, the position the player is on the road will be output.
+
+The road is designed to be a 1-dimensional array with the identifier `road`.
+
+Explain why an array is a suitable data structure to represent the road.
+'''
+
+[[question.part]]
+label = "2(b)"
+text = '''
+The characters and prizes are designed as separate classes. 10 of the spaces on the road will contain an instance of the class `Prize`. The other spaces will be empty.
+
+The class design for `Prize` is here.
+
+```
+class: Prize
+```
+
+```
+attributes:
+private name : string
+private type : string
+private value : integer
+```
+
+```
+methods:
+new()
+getName()
+getType()
+getValue()
+```
+
+`new()` is the constructor method. The name, type and value are passed to the constructor as parameters which then assigns these to the attributes.
+'''
+
+[[question.part]]
+label = "2(b)(i)"
+marks = 2
+text = '''
+The method `getName()` returns the data in the attribute `name`.\
+Write the method `getName()` using pseudocode or program code.
+'''
+
+[[question.part]]
+label = "2(b)(ii)"
+marks = 3
+text = '''
+A global 1-dimensional array, `allPrizes`, stores 10 objects of type `Prize`.
+
+The prize in index 3 has the name “Box”, the type is “money” and the value is 25.
+
+Write pseudocode or program code to create a new object for this prize and store it in index 3 of
+
+```
+allPrizes.
+```
+'''
+
+[[question.part]]
+label = "2(b)(iii)"
+marks = 3
+text = '''
+The game starts with 10 prizes. Each prize is allocated to one space on the road.
+
+An algorithm needs designing that will generate a random space on the road for each prize. Each road space can only store one prize.
+
+Describe the decisions that will need to be made in this algorithm and how these will affect the program flow.
+'''
+
+[[question.part]]
+label = "2(c)"
+text = '''
+The class design for `Character` is here.
+
+```
+class: Character
+```
+
+```
+attributes:
+private name : string
+private money : integer
+private experience : integer
+private roadPosition : integer
+```
+
+```
+methods:
+new()
+getName()
+getMoney()
+getExperience()
+getRoadPosition()
+changePosition()
+updateValues()
+```
+
+The four get methods return the associated attribute.
+
+The number of moves is passed to `changePosition()` as a parameter. The method adds this value to the character’s position on the road.
+
+The type and value of an object are passed to `updateValues()` as parameters. If the object is money the value is added to the character’s money. If the type is experience the value is added to experience. If the type is neither money or experience no changes are made.
+'''
+
+[[question.part]]
+label = "2(c)(i)"
+marks = 5
+text = '''
+`new()` is the constructor method. The name of the character is passed into the constructor as a parameter. The constructor then initialises both the experience and road position of the character to 0 and initialises the amount of money to 5.
+
+Write the constructor method for `Character` using either pseudocode or program code.
+
+You do not need to declare the class, the attributes or any other methods.
+'''
+
+[[question.part]]
+label = "2(c)(ii)"
+marks = 5
+text = '''
+The type and value of a prize are passed as parameters to the method `updateValues`. If the type is money the value is added to the character’s money. If the type is experience then the value is added to the experience. If the type is neither money or experience no changes are made.
+
+For example, for the Character `player1:`
+
+`player1.updateValues("money",10)` updates player1’s money by 10
+
+`player1.updateValues("experience",5)` updates player1’s experience by 5
+
+`player1.updateValues("foo",9)` has no effect on player1.
+
+Write pseudocode or program code for the method `updateValues()`.
+'''
+
+[[question.part]]
+label = "2(d)"
+marks = 6
+text = '''
+This incomplete pseudocode algorithm:
+
+- creates a new character with the name Jamal
+- loops until the character reaches the end of the road
+- generates a random number of spaces to move between 1 and 4 (including 1 and 4)
+- moves the character and checks if the new space has a prize
+- updates the character attributes if there is a prize
+- outputs the character’s new attribute values.
+
+Complete the pseudocode algorithm.
+
+```
+character1 = new …… ("Jamal")
+newPosition = 0
+while newPosition < ……
+  move = random(1, 4) /this will generate a random number between 1 and 4
+  character1.changePosition(move)
+  newPosition = character1.getRoadPosition()
+  if newPosition < 50 and road[……] != null then
+    prizeType = road[newPosition].getType()
+    valueAmount = road[newPosition].getValue()
+    character1.updateValues(……, valueAmount)
+    print("Congratulations you are in position", newPosition, "and found",
+      road[newPosition].getName())
+    print("Money =", character1.getMoney(), "and experience =",
+      character1. …… ())
+  endif
+……
+print("You reached the end of the road")
+```
+'''
+
+[[question.part]]
+label = "2(e)"
+marks = 4
+text = '''
+The procedure `displayRoad()` outputs the contents of each space in the road. The number of each space is output with either:
+
+- the word “empty” if there is no prize
+- the name of the prize if there is a prize.
+
+```
+01  procedure displayRoad()
+02     for x = 0 to 60
+03        print("Space", y)
+04        if road[x] == null then
+05         print("empty")
+06        elseif
+07         print(road[x].getValue())
+08        endif
+09     next x
+10  endprocedure
+```
+
+The algorithm contains errors.
+
+Give the line number of **four** different errors and write the corrected line for each error.
+
+**Error 1**
+
+Error line 1
+
+Correction
+
+**Error 2**
+
+Error line 2
+
+Correction
+
+**Error 3**
+
+Error line 3
+
+Correction
+
+**Error 4**
+
+Error line 4
+
+Correction
+'''
+
+[[question.part]]
+label = "2(f)"
+marks = 9
+text = '''
+A programmer is going to create a prototype for one small part of the game. Both `road` and `allPrizes` will be needed throughout the whole prototype. The programmer is considering making these global arrays as she thinks it will reduce the development time. Another programmer has suggested that doing this may create some problems when the rest of the game is created at a later stage.
+
+Compare the use of global and local variables in this program.
+
+You should include the following in your answer:
+
+- the use of local and global variables
+- alternative methods to using global variables
+- the appropriateness of each to this program design.
+'''
+
+[[question.mark_scheme]]
+label = "2(a)"
+marks = 3
+answer = '''
+1 mark each to max 3. Max 2 for generic answers with no relation to scenario. e.g.
+
+- Has a set/fixed number of values
+- …and the number of spaces in the road will not change
+- Stores data of one type
+- … as the array is only made up of prize objects
+- Stores data linearly
+- … match the linear nature of the road
+- Array contents are mutable
+- … so prizes can be added/removed from the road
+- A single indentifier is used to directly index
+- … any position in the road
+- Can be iterated by index
+- … to perform an operation on all road positions
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many responses were too vague, showing little knowledge of the properties of arrays. Relatively few candidates appeared to be able to make explicit links to the scenario to achieve full marks.
+'''
+
+[[question.mark_scheme]]
+label = "2(b)(i)"
+marks = 2
+answer = '''
+1 mark each
+
+- Function/subroutine with identifier `getName` taking **no** parameters
+- Returning `name`
+
+e.g.
+
+```
+public function def
+getName()         getName(self):
+return
+return name
+self.__name
+endfunction
+public           function
+getName(){        getName() {
+return name       return this.name
+```
+
+} }
+'''
+guidance = '''
+BP1 Do not award procedure or method
+
+BP1 Allow self as an additional parameter if Python is used.
+
+BP1 If an access modifier is given for the method, it must be public and not private.
+
+BP2 Do not allow any modified name attribute to be returned.
+
+**Examiner’s Comments**
+
+While many candidates had little difficulty giving code for a `getter()` there were a number of common errors. Some candidates used a private access modifier when a `getter()` needs to be public. There was often erroneous use of ‘procedure’ whereas a `getter()` is a function that must return a value.\
+Some candidates tried to set values within the `getter()` function when it should only have returned the class attribute value.
+'''
+
+[[question.mark_scheme]]
+label = "2(b)(ii)"
+marks = 3
+answer = '''
+1 mark each
+
+- New instance of `prize` …
+- … with “Box”, “money” and 25 as parameters
+- Assigned to `allPrizes` index 3
+
+e.g.
+
+```
+allPrizes[3] = new prize("Box",
+"money", 25)
+allPrizes[3] = prize.new("Box",
+"money", 25)
+allPrizes[3] = prize("Box",
+"money", 25)
+```
+'''
+guidance = '''
+MP2 allow any order of parameters
+
+"`Box`" and "`Money`" must be strings and `25` must be an integer
+
+Allow `prize.new()` as new is given as the constructor method in the class diagram
+
+**Examiner’s Comments**
+
+Many candidates struggled with the instantiation of an object. Where candidates made an attempt to instantiate some did not use a string for “box” and “money” or did not give 25 as an integer but instead gave the string “25”.
+'''
+
+[[question.mark_scheme]]
+label = "2(b)(iii)"
+marks = 3
+answer = '''
+1 mark for each bullet to maximum 3 e.g.
+
+- **Decision** - check whether the space already has a prize allocated …
+
+- **Action if true** - another space/number will need to be generated
+- **Action if false** - the prize will be stored here
+
+- **Decision** - check if all 10 prizes have been allocated …
+- **Action if true** - the algorithm needs to stop generating numbers
+- **Action if false** - a new number/space needs to be generated and checked
+'''
+guidance = '''
+Give:
+
+- 1 mark for stating a decision
+- 1 mark for the action required if true
+
+- 1 mark for the action required if false
+
+**Examiner’s Comments**
+
+There were only two reasonable decisions that could be given from the scenario details. Candidates needed to make it clear that a decision with a Boolean output was present that would dictate two potential outcomes. Some candidates quoted actions such as ‘randomly assign space for prize’ which did not represent a decision. Many responses described the mechanics of setting up the game and the random spaces but did not highlight the program\
+conditions/decisions as required.
+'''
+
+[[question.mark_scheme]]
+label = "2(c)(i)"
+marks = 5
+answer = '''
+1 mark each
+
+- Constructor header (any suitable name e.g. new, constructor, create, init)
+- …taking **one** parameter only
+- Initialising name to the parameter
+- Initialising money to 5
+- Initialising experience to 0 and roadPosition to 0
+
+e.g.
+
+```
+public procedure
+new(pName)
+name = pName
+```
+
+**Pseudocode**
+
+```
+experience = 0
+```
+
+**example:**
+
+```
+roadPosition = 0
+money = 5
+endprocedure
+def __init__(self,
+pName):
+```
+
+**Python** `self.__name = pName` **Example:** `self.__experience = 0`
+
+```
+self.__roadPosition = 0
+self.__money = 5
+public Character(string
+```
+
+**C#** `pName) {`\
+**Example:** `string name = pName;`
+
+```
+int experience = 0;
+```
+
+```
+int roadPosition = 0;
+int money = 5;
+ }
+```
+'''
+guidance = '''
+Allow minor changes to identifiers as long as purpose is clear.
+
+Allow
+
+```
+procedure new(pName)
+this.name = pName
+```
+
+…\
+(or similar e.g. self.name)
+
+Allow two parameters if one is self and the response is clearly in Python.
+
+The parameter name should be different to the attribute name.
+
+**Examiner’s Comments**
+
+It was clear that those candidates with limited OOP programming knowledge found the writing of a relatively simple constructor method difficult. Those with relevant programming experience often found this to be a very\
+straightforward question. Common errors included passing additional values to set the `experience,`
+
+```
+roadPosition and money
+```
+
+attributes rather than setting them to
+
+the constant values indicated in the question.
+'''
+
+[[question.mark_scheme]]
+label = "2(c)(ii)"
+marks = 5
+answer = '''
+1 mark each
+
+- Procedure/method header …
+- … taking **two** parameters, type (or similar) followed by value (or similar) …
+- … compare type parameter with "`money`"
+- … compare type parameter with
+
+```
+"experience"
+```
+
+- … both attributes updated correctly and nothing else modified
+
+e.g.
+
+```
+public procedure
+updateValues(pType, pValue)
+if pType == "money" then
+money = money + pValue
+elseif pType == "experience"
+experience = experience + pValue
+endif
+endprocedure
+
+def updateValues(self, pType,
+pValue):
+if pType == "money":
+money += pValue
+elif pType == "experience":
+experience += pValue
+```
+'''
+guidance = '''
+Do not allow Function for BP1
+
+BP2 parameters must be given in the correct order to match the calls to `updateValues()` in the question.
+
+“`money`” and “`experience`” must be string values
+
+**Examiner’s Comments**
+
+The `updateValues` procedure again proved problematic for candidates with limited OOP experience. No marks were given for the first mark point if a function was declared as there was no return value. Parameter names needed to be fit for purpose, understandable, and had to match the order given in the question scenario to work for the given example calls.
+'''
+
+[[question.mark_scheme]]
+label = "2(d)"
+marks = 6
+answer = '''
+1 mark for each completed space
+
+```
+character1 = new
+Character("Jamal")
+newPosition = 0
+while newPosition < 50
+move = random(1, 4)
+character1.changePosition(move)
+newPosition =
+character1.getRoadPosition()
+if newPosition < 50 and
+road[newPosition] != null
+then
+prizeType =
+road[newPosition].getType()
+valueAmount =
+road[newPosition].getValue()
+character1.updateValues(prizeType,
+valueAmount)
+```
+
+```
+print("Congratulations you are in
+position",
+newPosition, "and found",
+road[newPosition].getName())
+print("Money",
+character1.getMoney(), "and
+experience",
+character1.getExperience())
+endif
+endwhile
+print("You reached the end of the
+road")
+```
+'''
+guidance = '''
+Allow `road.length /`\
+`len(road)` instead of `50`
+
+Allow `<=49` instead of `< 50`
+
+**Examiner’s Comments**
+
+Nearly all candidates achieved some marks, and a majority scored five or six marks.
+'''
+
+[[question.mark_scheme]]
+label = "2(e)"
+marks = 4
+answer = '''
+1 mark each
+
+- (Line 02) `for x = 0 to 49`
+- (Line 03) `print("Space", x)`
+- (Line 06) `else / elseif road[x]`
+
+```
+<> null
+```
+
+- (Line 07)
+
+```
+print(road[x].getName())
+```
+'''
+guidance = '''
+Line `07` allow
+
+```
+print(road[x].name)
+```
+
+**Examiner’s Comments**
+
+Many candidates scored three or four marks but in general candidates found it harder to identify errors in the code than to complete code in the previous question. Some candidates didn’t give the line number but rewrote the incorrect line before giving the corrected line, which was acceptable, although not ideal given the scaffolding.
+'''
+
+[[question.mark_scheme]]
+label = "2(f)"
+marks = 9
+answer = '''
+**Mark Band 3 – High level (7-9 marks)** The candidate demonstrates a thorough knowledge and understanding of global variables and the alternatives; the material is generally accurate and detailed.\
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation. There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2 – Mid level (4-6 marks)** The candidate demonstrates reasonable knowledge and understanding of global variables and the alternatives; the material is generally accurate but at times\
+underdeveloped.\
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the
+
+explanation.\
+The candidate provides a reasonable discussion, the majority of which is focused. Evaluative comments are, for the most part appropriate, although one or two opportunities for development are missed.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1 – Low Level (1-3 marks)** The candidate demonstrates a basic knowledge of global variables and the alternatives with limited understanding shown; the material is basic and contains some inaccuracies. The candidates makes a limited attempt to apply acquired knowledge and understanding to the context provided. The candidate provides a limited discussion which is narrow in focus.\
+Judgements if made are weak and\
+unsubstantiated.
+
+The information is basic and comunicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 mark**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+**AO1: Knowledge and**\
+**Understanding**\
+**Indicative content**
+
+- Global variables are created when the program starts, all subroutines can access/update the contents
+- Local variables are created in the subroutine they are created in, they are not accessible directly from any other subroutine
+- Local variables are removed from memory when the subroutine ends.
+- Local variables can be passed as parameters to a function to be updated, and then returned to override the original local variable
+- Local variables can be passed by reference to a subroutine to allow the
+
+content of the variable to be updated
+
+**AO2: Application**
+
+- The variables will be stored in memory throughout the whole code execution. However, the amount of data they are storing is relatively low so would not use a lot of memory.
+- When the game is expanded, the amount of data may increase so it could be memory intensive, especially if graphics are used in the game.
+- Both arrays are needed throughout the whole game so keeping them as global will make writing the code easier as the programmer will not need to keep passing them as parameters and setting return values.
+- Only one part of the game is being created initially and therefore the use of global variables would not affect the efficiency greatly. However, when the program expands, it could cause accuracy / testing / debugging and maintenance problems.
+
+**AO3: Evaluation**
+
+- As this is only a prototype, the use of global variables would be beneficial.
+- However, when the game expands, the use of global variables could create issues such as running out of memory, coupling, testing & debugging problems and maintenance problems.
+- The programmer may be best to keep the variables as local and then pass them
+
+between the different subroutines as parameters byVal and byRef.
+
+**Examiner’s Comments**
+
+Most responses were Level 2 for definitions and some expansion to passing parameters. Very few candidates were able to go into depth about alternatives to global variables such as passing by value and passing by reference in detail or extending to issues such as scalability within a larger more extended game. Few candidates picked up on the fact that this was a more limited prototype that was likely to be expanded on which would require more consideration to be given to variable scope.
+'''
+
+[[question]]
+number = 3
+marks = 6
+
+[[question.part]]
+label = "3(a)"
+text = '''
+A programmer has designed a program that includes a reusable program component.
+
+The reusable program component is a function called `isInteger()`. This will take a string as an argument and then check that each digit is between 0 and 9. For example if 103 is input, it will check that the digits 1, 0 and 3 are each between 0 and 9.
+
+The `asc()` function returns the ASCII value of each digit. For example `asc("1")` returns 49.
+
+The ASCII value for 0 is 48. The ASCII value for 9 is 57.
+
+```
+01   function isInteger(number)
+02     result = true
+03     for count = 0 to number.length-1
+04       asciiValue = asc(number.substring(count, 1))
+05         if not(asciiValue >= 48 and asciiValue <= 57) then
+06         result = false
+07       endif
+08     next count
+09     return result
+10   endfunction
+```
+'''
+
+[[question.part]]
+label = "3(a)(i)"
+marks = 1
+text = '''
+Identify **one** identifier used in the function `isInteger()`.
+'''
+
+[[question.part]]
+label = "3(a)(ii)"
+marks = 1
+text = '''
+Give the line number where the branching (selection) construct starts in the function `isInteger()`.
+'''
+
+[[question.part]]
+label = "3(a)(iii)"
+marks = 1
+text = '''
+Give the line number where the iteration construct starts in the function `isInteger()`.
+'''
+
+[[question.part]]
+label = "3(b)"
+marks = 3
+text = '''
+Describe the purpose of the following lines in the function `isInteger()`.
+
+Line 03
+
+Line 04
+
+Line 09
+'''
+
+[[question.mark_scheme]]
+label = "3(a)(i)"
+marks = 1
+answer = '''
+1 mark for:
+
+```
+• isInteger
+• number
+• result
+• count
+• asciiValue
+```
+'''
+guidance = '''
+Penalise excessive spaces in identifiers such as\
+ascii Value\
+instead of asciiValue
+
+**Examiner’s Comments**
+
+This question was generally well done (although slightly less well done than parts (a) (ii) and (a) (iii)), but many candidates did very well. The most common erroneous responses were giving the names of predefined functions/properties or giving relational operators.
+'''
+
+[[question.mark_scheme]]
+label = "3(a)(ii)"
+marks = 1
+answer = '''
+(0)5
+'''
+guidance = '''
+**Examiner’s Comments**
+
+This question required an exact answer only and was answered correctly by the majority of candidates.
+'''
+
+[[question.mark_scheme]]
+label = "3(a)(iii)"
+marks = 1
+answer = '''
+(0)3
+'''
+guidance = '''
+**Examiner’s Comments**
+
+This question also required an exact answer only and was answered correctly by the majority of candidates.
+'''
+
+[[question.mark_scheme]]
+label = "3(b)"
+marks = 3
+answer = '''
+1 mark each
+
+03
+
+- Loop through each of the **characters/digits** in the `number` string (parameter)
+
+04
+
+- Find the ASCII value of the current **character/digit**
+
+09
+
+- Return true if the value is an integer and false otherwise
+'''
+guidance = '''
+**Examiner’s Comments**
+
+This question required the purpose of the lines of code to be described, but many candidates just described the functionally of the lines of code such as ‘line 03 is a counter controlled loop from `0 to` `number.length -1`’. The expected purpose of this line of code was to set up a loop to iterate through each character in the input string parameter.
+
+While many candidates could describe the purpose of at least one of the lines of code given, few could clearly describe the purpose of all three lines.
+'''
+
+[[question]]
+number = 4
+marks = 5
+
+[[question.part]]
+label = "4"
+marks = 5
+text = '''
+A recursive pseudocode function, `recursiveAlgorithm()`, is shown.
+
+```
+01   function recursiveAlgorithm(value)
+02     if value <= 0 then
+03       return 1
+04     elseif value MOD 2 = 0 then
+05       return value + recursiveAlgorithm(value – 3)
+06     else
+07       return value + recursiveAlgorithm(value – 1)
+08     endif
+09   endfunction
+```
+
+Trace the recursive function, `recursiveAlgorithm()`, and give the final return value when called with `recursiveAlgorithm(10)`. You may choose to use the table below to give your answer.
+
+| **Function call** | `value` | `return` |
+|---|---|---|
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+|   |   |   |
+
+Final return value ……
+'''
+
+[[question.mark_scheme]]
+label = "4"
+marks = 5
+answer = '''
+1 mark for final return value 29 (award in working or answer space) 1 mark each for working
+
+- First call with 10 and second call with 7
+- Remainder of calls 6, 3, 2
+- Final call value -1
+- Adding/showing return values (1 + 2 + 3 + 6 + 7 + 10)
+
+e.g.
+
+| **Function call** | `value` | `return` |
+|---|---|---|
+| `recursiveAlgorithm(10)` | `10` | `29` |
+| `recursiveAlgorithm(7)` | `7` | `19` |
+| `recursiveAlgorithm(6)` | `6` | `12` |
+| `recursiveAlgorithm(3)` | `3` | `6` |
+| `recursiveAlgorithm(2)` | `2` | `3` |
+| `recursiveAlgorithm(–1)` | `–1` | `1` |
+'''
+guidance = '''
+The table is given as guidance, but actual process may be presented in different ways.
+
+**Examiner’s Comments**
+
+While many candidates continue to find recursion a challenging topic there were many who encouragingly achieved full marks. Weaker candidates traced the initial sequence of calls but found it harder to identify the last call to
+
+```
+recursiveAlgorithm(-1) that
+```
+
+triggered the base case and then found it harder again to calculate the unwind sequence.
+'''
+
+[[question]]
+number = 5
+marks = 2
+
+[[question.part]]
+label = "5(i)"
+marks = 1
+text = '''
+The array `numbers` contains 356 numbers to be sorted by the bubble sort algorithm.
+
+State the maximum number of passes a bubble sort would need to complete to sort 356 numbers into order.
+'''
+
+[[question.part]]
+label = "5(ii)"
+marks = 1
+text = '''
+State the name of **one** other sorting algorithm.
+'''
+
+[[question.mark_scheme]]
+label = "5(i)"
+marks = 1
+answer = '''
+355
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many candidates did not appreciate that a bubble sort will require a
+
+maximum of n -1 passes in the worst case since the first item in the list will be in position after that number of passes and so would not require an additional pass. The most common incorrect responses were 356, and 3562 which confused the worst case time complexity O(n<sup>2</sup>) with the number of passes.
+'''
+
+[[question.mark_scheme]]
+label = "5(ii)"
+marks = 1
+answer = '''
+Insertion sort
+'''
+guidance = '''
+Accept any valid sorting algorithm e.g. Merge sort, Quick sort
+
+**Examiner’s Comments**
+
+Nearly all candidates could identify an additional sorting algorithm with the most common response being ‘Insertion sort’.
+'''
+
+[[question]]
+number = 6
+marks = 4
+
+[[question.part]]
+label = "6"
+text = '''
+Taylor is designing a program for a client who would like to simulate earthquakes on major cities around the world in 3D. The client would like to be able to view any stage of an earthquake such as:
+
+1. the build-up of the earthquake\
+2. the earthquake taking place\
+3. the aftershocks of the earthquake.\
+The client would also like to be able to play the simulation at different speeds. For example, a slow, normal or fast speed.
+
+The program will need to accept inputs from the user before playing the simulation.
+'''
+
+[[question.part]]
+label = "6(i)"
+marks = 2
+text = '''
+Identify **two** different inputs for this program.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "6(ii)"
+marks = 2
+text = '''
+One decision point in the program will be to decide if the user inputs are suitable or not.
+
+Identify **two** other example decision points in this program.
+
+1
+
+2
+'''
+
+[[question.mark_scheme]]
+label = "6(i)"
+marks = 2
+answer = '''
+1 mark per bullet e.g.
+
+- stage (e.g. stage 1, stage 2, stage 3)
+- city name (e.g. London)
+- speed (e.g. slow, normal, fast)
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Most candidates successfully identified the relevant potential inputs of city/stage/speed from the given scenario. Some candidates suggested alternative inputs such as ‘magnitude of earthquake’ which were also given marks as they were valid inputs for a simulation relating to earthquakes.
+'''
+
+[[question.mark_scheme]]
+label = "6(ii)"
+marks = 2
+answer = '''
+1 mark per bullet to max 2, e.g.
+
+- Does the build-up stage need to be shown?
+- Does the earthquake taking place needs to be shown?
+- Does the aftershock stage needs to be shown?
+'''
+guidance = '''
+Allow other suitable examples
+
+**Examiner’s Comments**
+
+Few candidates were given full marks for this question. There was some repetition of checking user input values, which was given in the stem of the question. There were also many statements of possible calculations rather than clearly expressed conditions or questions. More successful responses included decisions such as ‘have buildings of a certain typ e survived the earthquake?’.
+'''
+
+[[question]]
+number = 7
+marks = 4
+
+[[question.part]]
+label = "7"
+marks = 4
+text = '''
+A program uses a bubble sort to sort data into ascending numerical order.
+
+The data is stored in a 0-indexed 1-dimensional array.
+
+Show each stage of a bubble sort to sort this data into ascending numerical order:
+
+| 1 | 5 | 3 | 9 | 2 | 7 |
+|---|---|---|---|---|---|
+
+You should clearly show and label each pass in your answer.
+'''
+
+[[question.mark_scheme]]
+label = "7"
+marks = 4
+answer = '''
+1 mark per bullet
+
+- 1<sup>st</sup> swap of 5 and 3
+- Remainder of first pass
+- Pass 2
+- Pass 3
+
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|   | 1 |   |   | 5 |   |   | 3 |   |   | 9 |   |   | 2 |   |   | 7 |   |
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| 1 | **3** | **5** | 9 | 2 | 7 |   |   |   |   |   |   |   |   |   |   |   |   |
+| 1 | 3 | 5 | **2** | **9** | 7 |   |   |   |   |   |   |   |   |   |   |   |   |
+| 1 | 3 | 5 | 2 | **7** | **9** |   |   |   |   |   |   |   |   |   |   |   |   |
+| 1 | 3 | 2 | 5 | 7 | 9 |   |   |   |   |   |   |   |   |   |   |   |   |
+| 1 | 2 | 3 | 5 | 7 | 9 |   |   |   |   |   |   |   |   |   |   |   |   |
+
+End of pass 1
+
+End of pass 2
+
+End of pass 3
+'''
+guidance = '''
+Candidates do not need to show each swap, so if the candidate has clearly shown the end of pass 1, they have met the first two marking points.
+
+Marks can be awarded for correctly showing the results of each pass.
+
+**Examiner’s Comments**
+
+Most candidates clearly showed the steps that would take place in a bubble sort for the date given, with most achieving full marks. Some candidates did not explicitly label each pass as required in the question, but marks were given where the passes could be implied.
+
+Few candidates described the principles of a bubble sort instead of applying it to the data given.
+'''
+
+[[question]]
+number = 8
+marks = 5
+
+[[question.part]]
+label = "8(a)"
+marks = 2
+text = '''
+Given the following procedure:
+
+```
+01 procedure generate(number)
+02      a = 0
+03      while number > 0
+04         if number MOD 2 == 0 then
+05            a = a + 2
+06            print(a)
+07            number = number – 2
+08         else
+09            a = a + 1
+10            print(a)
+11            number = number – 1
+12         endif
+13      endwhile
+14 endprocedure
+```
+
+Explain why `=` is used on line 11 of the procedure `generate` instead of `==`.
+'''
+
+[[question.part]]
+label = "8(b)"
+marks = 1
+text = '''
+State the values printed by the procedure `generate` when `number` = 7.
+'''
+
+[[question.part]]
+label = "8(c)"
+marks = 2
+text = '''
+Describe the purpose of the `MOD` operator on line `04` of the procedure `generate`.
+'''
+
+[[question.mark_scheme]]
+label = "8(a)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g.:
+
+- = is used as the `number` variable is being assigned a value…
+- …== is not used as the program is not checking if the variable is equal to a value
+'''
+guidance = '''
+Accept:
+
+- = is an assignment operator
+- == is a comparison operator.
+
+**Examiner’s Comments**\
+Most candidates were correctly able to distinguish between assignment and equality.
+'''
+
+[[question.mark_scheme]]
+label = "8(b)"
+marks = 1
+answer = '''
+- 1,3,5,7
+'''
+guidance = '''
+**Examiner’s Comments**\
+Candidates who answered the previous part of the question generally went on to score full credit for a second trace of the algorithm with a different calling argument value.
+'''
+
+[[question.mark_scheme]]
+label = "8(c)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g.:
+
+- Modulo division
+- Finds the remainder after a division
+
+- Used to determine if `a` is an odd or even number
+'''
+guidance = '''
+**Examiner’s Comments**\
+Candidates who successfully identified that a remainder was calculated found it harder to
+
+determine that its purpose was to see if the number was even or odd.
+
+*[Image in the original mark scheme, not shown here.]*
+
+**Misconception**
+
+Some candidates think that a modulo division calculation resulting in 0 means that there is no remainder. Where the result of modulo division is 0 it means that the remainder is 0.
+'''
+
+[[question]]
+number = 9
+marks = 3
+
+[[question.part]]
+label = "9"
+marks = 3
+text = '''
+The following pseudocode procedure performs an insertion sort on the array parameter.
+
+```
+01 procedure insertionSort(dataArray:byRef)
+02  for i = 1 to dataArray.Length - 1
+03    temp = dataArray[i]
+04    tempPos = i – 1
+05    exit = false
+06    while tempPos >= 0 and exit == false
+07      if dataArray[tempPos] < temp then
+08        dataArray[tempPos + 1] = dataArray[tempPos]
+09        tempPos = tempPos - 1
+10      else
+11        exit = true
+12      endif
+13    endwhile
+14    dataArray[tempPos + 1] = temp
+15  next i
+16 endprocedure
+```
+
+State whether the procedure `insertionSort` sorts the data into ascending or descending order and explain your choice.
+'''
+
+[[question.mark_scheme]]
+label = "9"
+marks = 3
+answer = '''
+1 mark pet bullet to max 3
+
+- Descending order
+- Line 07
+
+```
+(dataArray[tempos]<temp) has
+```
+
+the comparison…
+
+- …that checks if current position is less than item to insert and…
+- …breaks out of loop when current position is less than or equal to item to insert
+'''
+
+[[question]]
+number = 10
+marks = 10
+
+[[question.part]]
+label = "10(a)"
+marks = 9
+text = '''
+Poppy would like to use a bubble sort to sort 250 000 numbers into order from lowest to highest.
+
+Currently the first five numbers before they have been sorted are:
+
+| 195 584 | 167 147 | 158 187 | 160 125 | 184 236 |
+|---|---|---|---|---|
+
+Currently the last five numbers before they have been sorted are:
+
+| 1058 | 19 558 | 1915 | 20 215 | 15 |
+|---|---|---|---|---|
+
+\* Discuss how a bubble sort works and how efficient it will be when sorting these 250 000 items into order from lowest to highest.
+'''
+
+[[question.part]]
+label = "10(b)"
+marks = 1
+text = '''
+State the number of comparisons that will need to be made in the first pass of the bubble sort.
+'''
+
+[[question.mark_scheme]]
+label = "10(a)"
+marks = 9
+answer = '''
+**Mark Band 3 – High level (7-9 marks)** The candidate demonstrates a thorough knowledge and understanding of bubble sorts; the material is generally accurate and detailed. The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation. The candidate is able to weigh up the use of bubble sorts within the context which results in a supported and realistic judgment as to whether it is suitable to use within the context.There is a well- developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2 – Mid level (4-6 marks)** The candidate demonstrates reasonable knowledge and understanding of bubble sorts; the material is generally accurate but at times underdeveloped.The candidate is able to apply their knowledge and understanding directly to the context provided although one
+
+or two opportunities are missed.\
+Evidence/examples are for the most part implicitly relevant to the explanation. The candidate makes a reasonable attempt to come to a conclusion showing some recognition of influencing factors that would determine whether it is possible to use bubble sorts in this context.\
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence
+
+**Mark Band 1 – Low Level (1-3 marks)** The candidate demonstrates a basic knowledge of bubble sorts with limited understanding shown; the material is basic and contains some inaccuracies. The candidates makes a limited attempt to apply acquired knowledge and understanding to the context provided. The candidate provides nothing more than an unsupported\
+assertion.The information is basic and comunicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+**Knowledge and Understanding**
+
+- All adjacent items are compared against each other.
+- The biggest number in the adjacent pair is swapped over with the smallest number. A temp variable is used to hold the data while it’s being moved.
+- When a swap is made a flag is set.
+- This is repeated for all adjacent values, known as one pass.
+- At the end of one pass, the largest item should appear at the end of the list.
+- If at the end of the list the flag has been set the flag is unset and the algorithm starts from the beginning of the list again.
+
+- When the algorithm gets to the end of the list and the flag is unset the list is sorted.
+
+**Application**
+
+- As there are 250,000 items a bubble sort would perform very slowly as a lot of passes will need to be made in order to sort the items.
+- Bubble sorts are better suited to data sets where the items are almost/partly sorted. However the smaller numbers are currently towards the end and the larger numbers are towards the start.
+- This will therefore increase the amount of comparisons / passes/swaps required which will therefore slow the performance of the sort down.
+
+**Evaluation**
+
+- The algorithm is easy to implement as the number of lines of code is less than other standard sorting algorithms.
+- Although a bubble sort will be able to sort the items into order, it will take longer than other sorting algorithms due to the number of items and the current order or items in the unsorted list.
+'''
+
+[[question.mark_scheme]]
+label = "10(b)"
+answer = '''
+- 249,999
+
+1 A02.2 (1)
+'''
+
+[[question]]
+number = 11
+marks = 32
+diagram = true
+
+[[question.part]]
+label = "11(a)"
+marks = 2
+text = '''
+A printer buffer is a storage area that holds the data, known as jobs, that are to be printed by a printer.
+
+A simulation of the printer buffer uses a queue data structure to store jobs that are waiting to be printed. The queue is not circular.
+
+The printer buffer is represented as a zero-indexed 1D array with the identifier `buffer`.
+
+**Fig. 2** shows the current contents of the queue `buffer` and its pointers.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 2**
+
+State the purpose of the pointers `queueHead` and `queueTail`.
+
+```
+queueHead
+```
+
+```
+queueTail
+```
+'''
+
+[[question.part]]
+label = "11(b)"
+marks = 5
+text = '''
+The function `dequeue` outputs and removes the next data item in the queue.
+
+The procedure `enqueue` adds the job passed as a parameter to the queue.
+
+Show the final contents of the queue and pointer values after the following instructions have been run on the queue `buffer` shown in **Fig. 2**.
+
+```
+dequeue()
+
+dequeue()
+
+enqueue(job-128)
+
+dequeue()
+
+enqueue(job-129)
+```
+
+*[Diagram in the original paper, not shown here.]*
+'''
+
+[[question.part]]
+label = "11(c)"
+text = '''
+The array, `buffer` and pointer values are declared with global scope.
+'''
+
+[[question.part]]
+label = "11(c)(i)"
+marks = 5
+text = '''
+The function `dequeue` returns `null` if the array is empty, and the contents of the next element if not empty. The queue is not circular.
+
+Write an algorithm, using pseudocode or program code, for the function `dequeue()`.
+'''
+
+[[question.part]]
+label = "11(c)(ii)"
+marks = 6
+text = '''
+The function `enqueue` returns -1 if there is no space at the end of the queue to add data, and returns 1 if the parameter was added to `buffer`. The array `buffer` contains a maximum of 100 elements.
+
+Write an algorithm, using pseudocode or program code, for the function `enqueue()`.
+'''
+
+[[question.part]]
+label = "11(c)(iii)"
+marks = 8
+text = '''
+In the main program of the simulation the user is asked whether they want to add an item to the queue or remove an item.
+
+If they choose to add an item they have to input the job name, and the function `enqueue` is called.
+
+If they choose to remove an item, the function `dequeue` is called and the job name is output.
+
+Appropriate messages are output if either action cannot be run because the queue is either empty or full.
+
+Write, using pseudocode or program code, an algorithm for the main program of the simulation.
+'''
+
+[[question.part]]
+label = "11(d)"
+marks = 3
+text = '''
+The queue is changed to make it a circular queue.
+
+Describe how the functions `enqueue` and `dequeue` will need to be changed to allow `buffer` to work as a circular queue.
+'''
+
+[[question.part]]
+label = "11(e)"
+marks = 3
+text = '''
+Some print jobs can have different priorities. The higher the priority the sooner the job needs to be printed.
+
+Describe how the program could be changed to deal with different priorities.
+'''
+
+[[question.mark_scheme]]
+label = "11(a)"
+marks = 2
+answer = '''
+1 mark per pointer
+
+- queueHead: Point to the first element in the queue / next element to remove
+- queueTail: Point to the last element in the queue
+'''
+
+[[question.mark_scheme]]
+label = "11(b)"
+marks = 5
+answer = '''
+1 mark per bullet up to max 5
+
+- first 3 jobs removed
+- 128 and 129 added in positions 4 and 5 respectively
+- no additional jobs
+- queueHead being 3 (FT errors)
+- queueTail being 5 (FT errors)
+
+*[Image in the original mark scheme, not shown here.]*
+'''
+guidance = '''
+The underlying implementation of the queue has not been specified, so allow alternative valid answers. e.g.\
+queueHead = 0\
+queueTail = 2\
+Location 2: 129\
+Location 1: 128\
+Location 0: 127
+'''
+
+[[question.mark_scheme]]
+label = "11(c)(i)"
+marks = 5
+answer = '''
+1 mark per bullet to max 5
+
+- Function declaration
+- Checking if queue is empty
+- …returning `null`
+- (Otherwise) incrementing `queueHead`
+- …returning `buffer[queueHead-1]`
+
+e.g.
+
+```
+function dequeue()
+  if queueHead > queueTail then
+   return null
+  else
+   queueHead = queueHead + 1
+   return buffer[queueHead-1]
+  endif
+endfunction
+```
+'''
+guidance = '''
+Note: Accept alternative valid underlying implementation answers e.g. Shifting all elements in queue forward.
+'''
+
+[[question.mark_scheme]]
+label = "11(c)(ii)"
+marks = 6
+answer = '''
+1 mark per bullet to max 6
+
+- Function declaration taking parameter
+- Checking if queue is full
+- …returning -1
+- (Otherwise) incrementing queueTail
+- Adding newJob to buffer(queueTail)
+- Returning 1
+
+e.g.
+
+```
+function enqueue(newJob)
+  if queueTail == 99 then
+   return -1
+  else
+   queueTail = queueTail + 1
+   buffer[queueTail] = newJob
+   return 1
+```
+
+```
+  endif
+endfunction
+```
+'''
+
+[[question.mark_scheme]]
+label = "11(c)(iii)"
+marks = 8
+answer = '''
+1 mark per bullet to max 8
+
+- Inputting user choice
+- If enqueue chosen input job name
+- …call enqueue with input value as parameter
+- …check if return value is -1 and output full
+- …otherwise output message that item is added
+- If dequeue chosen
+- …call dequeue **and** save returned value
+- …output returned value (jobname) if not null
+- …or output queue is empty
+
+e.g.
+
+```
+main()
+  choice = input("Add or remove?")
+  if choice == "ADD" then
+   jobname = input("Enter job name")
+   returnValue = enqueue(jobname)
+   if returnValue == -1 then
+    print("Queue full")
+   else
+    print("Job added")
+   endif
+  else
+   returnValue = dequeue()
+   if returnValue == null then
+    print("Queue empty")
+   else
+    output returnValue
+   endif
+  endif
+endmain
+```
+'''
+guidance = '''
+Allow equivalent checks / logic
+'''
+
+[[question.mark_scheme]]
+label = "11(d)"
+marks = 3
+answer = '''
+1 mark per bullet to 3
+
+- Check if either head or tail are incremented to above 99
+- … set to be 0 instead
+- When checking if array is full check if (queueTail == queueHead – 1) OR (queueTail==99 AND queueHead==0)
+'''
+guidance = '''
+Credit equivalent modulo arithmetic solution
+'''
+
+[[question.mark_scheme]]
+label = "11(e)"
+marks = 3
+answer = '''
+1 mark per bullet to max 3, e.g.
+
+- Use a different structure e.g. a linked list
+
+- …items can be added at different points in the linked list depending on priority
+- …by changing the pointers to items needing priority
+- Have different queues for different priorities
+- …add the job to the queue relevant to its priority
+- …print all the jobs in the highest priority queue first
+'''
+guidance = '''
+Allow other suitable descriptions that show how the program could be amended.
+'''
+
+[[question]]
+number = 12
+marks = 3
+
+[[question.part]]
+label = "12(a)"
+marks = 1
+text = '''
+Given the following procedure:
+
+```
+procedure maths(number)
+   a = (number DIV 10) * 10
+   b = a + 10
+   if (number – a) >= (b – number) then
+     print(b)
+   else
+     print(a)
+   endif
+endprocedure
+```
+
+State the value printed by the procedure `maths` if `number=10`
+'''
+
+[[question.part]]
+label = "12(b)"
+marks = 1
+text = '''
+State the value printed by the procedure `maths` if `number=27`
+'''
+
+[[question.part]]
+label = "12(c)"
+marks = 1
+text = '''
+State the value printed by the procedure `maths` if `number=14`
+
+**END OF QUESTION PAPER**
+'''
+
+[[question.mark_scheme]]
+label = "12(a)"
+answer = '''
+- 10
+
+1
+
+A03.2 (1)
+'''
+
+[[question.mark_scheme]]
+label = "12(b)"
+answer = '''
+- 30
+
+1
+
+A03.2 (1)
+'''
+
+[[question.mark_scheme]]
+label = "12(c)"
+answer = '''
+- 10
+
+1
+
+A03.2 (1)
+'''

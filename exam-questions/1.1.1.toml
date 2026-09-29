@@ -1,0 +1,967 @@
+# OCR exam questions for 1.1.1 Structure and function of the processor.
+# Copied as text from the question paper and mark scheme PDFs in sources/
+# by tools/extract-exam-questions. Diagrams are not copied. Corrections by
+# hand are fine: the tool will not overwrite this file without --force.
+spec = "1.1.1"
+
+[[question]]
+number = 1
+marks = 8
+
+[[question.part]]
+label = "1(a)"
+marks = 4
+text = '''
+The stored program concept uses the Fetch-Decode-Execute cycle to get the next instruction from memory and then execute it.
+
+Describe what happens during the **fetch** stage of the Fetch-Decode-Execute cycle.
+
+You should state the different registers and buses that are used in your answer.
+'''
+
+[[question.part]]
+label = "1(b)"
+marks = 1
+text = '''
+One of the instructions that may be fetched and executed as part of this cycle is a branch instruction.
+
+State the name of the register that would be altered in the **execute** phase during a branch instruction.
+'''
+
+[[question.part]]
+label = "1(c)"
+marks = 3
+text = '''
+Three ways of improving the performance of a CPU are increasing the clock speed, adding more cores and using pipelining.
+
+Explain how pipelining improves the performance of a CPU.
+'''
+
+[[question.mark_scheme]]
+label = "1(a)"
+marks = 4
+answer = '''
+1 mark per bullet to max 4:
+
+- The **contents** of the Program Counter/PC are **copied/sent** to the Memory Address Register/ MAR
+- The address is **sent/transferred** along the address bus
+- The control unit **sends/transfers** a (read) signal along the control bus
+- Contents stored in the memory address are **sent/transferred** along the data bus
+- Contents (from memory) are stored in the Memory Data Register/MDR
+- ...and **sent/copied** to the Current Instruction Register/ CIR
+- The Program Counter/PC is incremented
+'''
+guidance = '''
+Accept IR/Instruction Register for CIR/Current instruction Register
+
+Accept MBR/Memory Buffer Register for MDR/Memory Data Register
+
+**Examiner’s Comments**
+
+Candidates who had good knowledge of the FDE cycle were able to gain 3 or 4 marks on this question. Some candidates did not have a good understanding of what a register or a bus is and tended to say they did something other than transport or temporarily store. Many however gave clear and correct responses.
+
+*[Image in the original mark scheme, not shown here.]*
+
+**Misconception**
+
+Some candidates gave responses which mentioned a register fetching the data or passing data. A register is a temporary store for\
+data/instructions/addresses and as such doesn’t fetch or pass anything.
+
+Exemplar 1
+
+*[Image in the original mark scheme, not shown here.]*
+
+This candidate has shown a clear understanding of the role of the buses and registers in the fetch part of the FDE cycle.
+'''
+
+[[question.mark_scheme]]
+label = "1(b)"
+marks = 1
+answer = '''
+- Program Counter / PC
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Candidates who understood the FDE
+
+cycle gained the mark. Those that did not tended to mention a register used in the fetch or decode stages.
+'''
+
+[[question.mark_scheme]]
+label = "1(c)"
+marks = 3
+answer = '''
+1 mark per bullet:
+
+- Allows the next instruction to be fetched **whilst** the previous one is being decoded/executed /allows the overlapping of different parts of the FDE
+- It **increases** throughput / **increases** the number of **instructions** processed **in a** **set period of time**
+- It prevents the CPU having to wait / prevents idle components
+'''
+guidance = '''
+DNA responses that talk about the FDE running **faster**.\
+Allow a diagram demonstrating pipelining for MP1.
+
+Allow ‘it will take less time to do the same amount of instructions’ for MP2
+
+BOD ‘processes’ for ‘instructions’ for MP2.\
+DNA ‘more efficient’ on its own for MP2
+
+DNA points if clearly discussing multiple cores.
+
+**Examiner’s Comments**
+
+Many candidates were able to gain a mark for an instruction being fetched at the same time as another is decoded. Some candidates discussed multiple cores which were mentioned in the question stem but did not apply to this question. Candidates should have access to previous mark schemes.
+'''
+
+[[question]]
+number = 2
+marks = 5
+diagram = true
+
+[[question.part]]
+label = "2"
+marks = 5
+text = '''
+Here is a diagram of a computer system.
+
+*[Diagram in the original paper, not shown here.]*
+
+Identify each of the labelled components in this computer system.
+
+| **A** |   |
+|---|---|
+| **B** |   |
+| **C** |   |
+| **D** |   |
+| **E** |   |
+'''
+
+[[question.mark_scheme]]
+label = "2"
+marks = 5
+answer = '''
+1 Mark for each labelled component.
+
+| A | Data Bus |
+|---|---|
+| B | MAR / Memory Address Register |
+| C | PC / Program Counter |
+| D | MDR / Memory Data Register |
+| E | ACC / Accumulator |
+'''
+guidance = '''
+Accept MBR / Memory Buffer Register for D
+
+**Examiner’s Comments**
+
+This question was generally answered well. Most candidates were able to identify the data bus, Memory Address Register (MAR) and Memory Data Register (MDR), although some candidates were not able to identify the Program Counter (PC) and/or the Accumulator (ACC).
+'''
+
+[[question]]
+number = 3
+marks = 9
+
+[[question.part]]
+label = "3"
+marks = 9
+text = '''
+Most modern computers are designed using Von Neumann Architecture. However, in some cases Harvard Architecture may be preferred.
+
+Discuss the difference between Von Neumann Architecture and Harvard Architecture.
+
+You should refer to the following in your answer:
+
+- the different approaches each architecture takes to storing instructions and data
+- the benefits of using a Von Neumann Architecture approach
+- the benefits of using a Harvard Architecture approach.
+'''
+
+[[question.mark_scheme]]
+label = "3"
+marks = 2
+answer = '''
+**Mark Band 3- High Level**\
+**(7-9 marks)**\
+The candidate demonstrates a thorough knowledge and\
+understanding of both Von Neumann
+
+and Harvard architectures.\
+All detail is generally accurate and relevant.\
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided.\
+Evidence/examples will be explicitly relevant to the explanation. The candidate will come to a clear conclusion that must be justified by their comments.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2- Mid Level**\
+**(4-6 marks)**\
+The candidate demonstrates reasonable knowledge and\
+understanding of Von Neumann and Harvard architectures; the material is generally accurate but at times underdeveloped. The candidate may not have applied both to this scenario. The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.\
+The candidate will attempt to come to a conclusion, although it may not be fully justified by their answer.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1- Low Level**\
+**(1-3 marks)**\
+The candidate demonstrates a basic knowledge of Von Neumann and Harvard architectures. The material is basic and contains some\
+inaccuracies.\
+The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided.
+
+The candidate provides nothing more than an unsupported assertion.
+
+The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 mark**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+AO1\
+Harvard Architecture:
+
+- Uses separate memory for data and instructions.
+
+- Uses separate data and address buses for each piece of memory
+- Can read/write data and instructions simultaneously
+
+Von Neumann Architecture:
+
+- Uses one physical piece of memory for both data and instructions
+- Uses one data and one address bus.
+- Can only read/write data or instructions, not both at the same time
+
+AO2
+
+- Von Neumann design is less complex. Development of one is cheaper. Harvard design is more complex as it requires two buses. Development is more expensive. More CPU pins are required; a complex motherboard is required with doubling of memory.
+- Harvard Architecture free data memory cannot be used for instructions and vice-versa
+
+AO3
+
+- Harvard architecture allows for faster processing as instructions and data are simultaneously fetched/executed.
+- Harvard splits memory between instruction and data in a static way, meaning you could run out of one memory with unused memory in the other area.
+- Von Neumann architecture allows for dynamic allocation between instruction and data
+
+- Large programs with small data (Computer games) or small programs with large data (video editing) can be equally catered for
+
+**Examiner’s Comments**
+
+Candidates were assessed on the quality of their extended response in this question. Most of the candidates were clear on the basic difference between Harvard and Von Neumann architecture, but many did not discuss this in detail or did not use the correct terminology. Some candidates confused the different architectures and contradicted points in their discussion.
+
+Exemplar 1
+
+*[Image in the original mark scheme, not shown here.]*
+
+This candidate response was given 5 marks. There are some valid points about both Von Neumann and Harvard Architecture, but the points made are not fully developed with limited application. This response was therefore given a mark within the mid- level band.
+
+*[Image in the original mark scheme, not shown here.]*
+
+**Assessment for learning**
+
+Questions with the command word ‘discuss’ require candidates to give a balanced discussion and provided a suitable conclusion which justifies their comments. Opportunities to practise these questions will support candidates to do better on these style questions.
+'''
+
+[[question]]
+number = 4
+marks = 4
+
+[[question.part]]
+label = "4"
+marks = 4
+text = '''
+OCRSystems are designing a new CPU for a computer system that will be used for video rendering. Part of the video rendering process is when the video is exported. This is when the computer combines all of the separate video elements together to form the final video.
+
+Describe **two** factors that affect the performance of the CPU.
+
+1
+
+2
+'''
+
+[[question.mark_scheme]]
+label = "4"
+marks = 2
+answer = '''
+- Clock Speed …
+- … The speed at which the fetch decode execute cycle is completed/ the speed a single core can execute instructions
+
+- Number of cores/ independent processing units …
+
+- …that can fetch decode execute **at the same time**
+
+- Cache size…
+- … memory that contains recently/frequently used instructions/data
+- …memory that has a faster R/W speed than RAM
+- …memory that is closer to/onboard the CPU
+'''
+guidance = '''
+One mark for stating the factor, mark for expanding the factor
+
+- Accept cycles for “FDE Cycles”
+
+**Examiner’s Comments**
+
+Most candidates were able to identify two factors that could affect the performance of the CPU, but many were not given all 4 marks as they did not fully describe why each factor would affect the performance. See Exemplar 1, which was given full marks.
+
+Exemplar 1
+
+*[Image in the original mark scheme, not shown here.]*
+
+The candidate gives two valid factors that would affect performance and then explains why each of the two factors would affect performance. They use appropriate terminology in their response.
+'''
+
+[[question]]
+number = 5
+marks = 12
+
+[[question.part]]
+label = "5(a)"
+marks = 2
+text = '''
+A charity is concerned that the performance of a computer is not sufficient and wishes to replace the processor.
+
+Give **two** features of a replacement processor that would increase the typical performance of the computer.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "5(b)"
+text = '''
+The processor contains registers including the accumulator and the program counter. The contents of these registers are modified during the Fetch-Decode-Execute cycle.
+'''
+
+[[question.part]]
+label = "5(b)(i)"
+marks = 2
+text = '''
+Describe how the accumulator is used during the Fetch-Decode-Execute cycle.
+'''
+
+[[question.part]]
+label = "5(b)(ii)"
+marks = 2
+text = '''
+Describe how the program counter is used during the Fetch-Decode-Execute cycle.
+'''
+
+[[question.part]]
+label = "5(b)(iii)"
+marks = 3
+text = '''
+State the name of **three** other registers that are used during the Fetch-Decode-Execute cycle.
+
+1
+
+2
+
+3
+'''
+
+[[question.part]]
+label = "5(c)"
+text = '''
+A charity uses a desktop computer to record financial donations that it receives. The computer contains a single core, 2.4GHz processor with 2MB cache.
+
+A processor uses the Von Neumann architecture.
+'''
+
+[[question.part]]
+label = "5(c)(i)"
+marks = 2
+text = '''
+Describe what is meant by the term ‘Von Neumann architecture’.
+'''
+
+[[question.part]]
+label = "5(c)(ii)"
+marks = 1
+text = '''
+Give **one** way that the Harvard architecture differs from the Von Neumann architecture.
+'''
+
+[[question.mark_scheme]]
+label = "5(a)"
+marks = 2
+answer = '''
+- **Higher/faster** clock speed
+- **More** cores/dual/quad/etc core
+- **More** cache memory.
+'''
+guidance = '''
+Answers must refer to an\
+improvement (more/higher/faster) not just “change the clock speed” Allow discussions of level 1/level 2 cache
+
+sizes for one mark.
+
+Accept valid features of CPUs that would improve performance e.g. Use of:\
+Pipelining\
+Simultaneous Multithreading Do not accept RISC/CISC.
+
+**Examiner’s Comments**\
+Most candidates were able to gain full marks on this question. Less successful responses often mentioned clock speed, cache or cores without referring to an improvement, e.g. higher or faster.
+'''
+
+[[question.mark_scheme]]
+label = "5(b)(i)"
+marks = 2
+answer = '''
+- Holds all input/output
+- Holds **results** of calculations (from the ALU)
+- Checked for conditional branching (e.g. BRZ)
+- Stores data which has come from the MDR/RAM
+'''
+guidance = '''
+**Examiner’s Comments**\
+Most candidates were able to access 1 mark for the result of ALU calculations, but few were able to give two uses. Some confused the accumulator with the program counter and the ALU.
+'''
+
+[[question.mark_scheme]]
+label = "5(b)(ii)"
+marks = 2
+answer = '''
+- Holds the address/location of the next instruction (to be executed/fetched)
+- Contents copied to the MAR at start of FDE
+- Incremented (by one) on every cycle
+- Can be changed by branch/jump instructions
+'''
+guidance = '''
+**Examiner’s Comments**\
+This question was generally well answered by candidates who gave clear responses.
+
+**Misconception**\
+Some candidates thought that the program counter kept track of a count of the number of instructions that had been fetched.
+
+*[Image in the original mark scheme, not shown here.]*
+'''
+
+[[question.mark_scheme]]
+label = "5(b)(iii)"
+marks = 3
+answer = '''
+- Memory Address Register / MAR
+- Memory Data Register / MDR
+- Current Instruction Register / CIR
+- Index Register / IR
+'''
+guidance = '''
+Allow Memory Buffer Register for MDR
+
+**Examiner’s Comments**\
+Most candidates gained full marks on this question and were able to correctly identify three other registers. Some lost marks for saying the ALU or control unit were registers.
+'''
+
+[[question.mark_scheme]]
+label = "5(c)(i)"
+marks = 2
+answer = '''
+- Both data and instructions share the same memory
+
+- Instructions and Data stored in same format
+- A single set of buses / same bus for instructions & data (to connect CPU to Memory and I/O)
+- Has a (single) control unit
+- Has an ALU.
+- Has ways to input and output.
+- Has access to storage,
+- Works sequentially through instructions / follows Fetch- execute cycle
+- (Special) registers within CPU
+- Based on stored program concept
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Many candidates were able to access full marks on this question. This question has been asked in previous papers and candidates should be encouraged to use these to make sure they are clear in their responses. There were many possible responses in the mark scheme to help candidates to gain full marks. Most candidates gained at least 1 mark.
+'''
+
+[[question.mark_scheme]]
+label = "5(c)(ii)"
+marks = 1
+answer = '''
+- Separate memory for data and instructions / Multiple memory units
+- Different (sets of) buses one for instructions & one for data/ instructions and data can be accessed concurrently.
+'''
+guidance = '''
+**Examiner’s Comments**\
+This question was generally answered well by candidates and the majority gave separate areas of memory for data and instructions. Where candidates were not given marks, it was generally because their answer was unclear, e.g. just saying ‘separate memory’.
+'''
+
+[[question]]
+number = 6
+marks = 1
+
+[[question.part]]
+label = "6"
+marks = 1
+text = '''
+State why computer systems store data in binary.
+'''
+
+[[question.mark_scheme]]
+label = "6"
+marks = 1
+answer = '''
+1 mark for any of the following bullet points, e.g:
+
+- Computers use binary logic for on/off or 1/0
+- Computer systems are based on switches/transistors
+- Binary is high tolerance
+'''
+guidance = '''
+**Examiner’s Comments**\
+This question was generally answered well.
+'''
+
+[[question]]
+number = 7
+marks = 4
+
+[[question.part]]
+label = "7"
+text = '''
+Different computing devices in Arnold’s home use different processor architectures.
+
+One processor architecture is the Harvard architecture.
+'''
+
+[[question.part]]
+label = "7(i)"
+marks = 2
+text = '''
+Describe the Harvard architecture.
+'''
+
+[[question.part]]
+label = "7(ii)"
+marks = 2
+text = '''
+Arnold has a smart washing machine.
+
+Explain why the Harvard architecture is suitable for a device like this.
+'''
+
+[[question.mark_scheme]]
+label = "7(i)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g:
+
+- Uses separate memory blocks for instructions and data
+- Has separate buses (data and address) for data and instructions
+- Has fixed memory sizes for data and Instructions
+
+- Instruction memory may be ROM
+'''
+guidance = '''
+Accept unit instead of blocks (BP1)
+
+**Examiner’s Comments**\
+Some candidates were vague in their response and were not clear that Harvard has separate memory blocks. Candidates must be specific in their response.
+'''
+
+[[question.mark_scheme]]
+label = "7(ii)"
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g:
+
+- Fixed instruction size
+- No need for memory to be shared between data and instructions
+- Removes need for secondary storage
+- Instructions would never be changed
+
+2 (AO2.1) (2) Any 2 (Max 2)
+'''
+guidance = '''
+**Examiner’s Comments**\
+This question was not answered well. Many candidates repeated their response to the previous question and did not answer the question correctly. Candidates need to read questions carefully.
+'''
+
+[[question]]
+number = 8
+marks = 4
+diagram = true
+
+[[question.part]]
+label = "8"
+text = '''
+A program written using the Little Man Computer instruction set is shown in **Fig. 1**.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 1**
+
+In Von Neumann Architecture, various registers are used when a program is executed.
+'''
+
+[[question.part]]
+label = "8(i)"
+marks = 2
+text = '''
+State what is meant by the term ‘register’.
+'''
+
+[[question.part]]
+label = "8(ii)"
+marks = 2
+text = '''
+Explain how the accumulator is used when the line `BRP pos` is executed.
+'''
+
+[[question.mark_scheme]]
+label = "8(i)"
+marks = 2
+answer = '''
+- Temporary storage/memory location…
+- …inside the CPU
+- Used for a single specific purpose
+- Faster access speed than RAM / secondary storage
+'''
+
+[[question.mark_scheme]]
+label = "8(ii)"
+marks = 2
+answer = '''
+- Accumulator checked to see if value held is positive or zero
+- If so, BRANCH carried out / jumps to specified location.
+'''
+
+[[question]]
+number = 9
+marks = 11
+
+[[question.part]]
+label = "9(a)"
+marks = 3
+text = '''
+The CPU uses pipelining to improve efficiency.
+
+Explain what is meant by the term ‘pipelining’.
+'''
+
+[[question.part]]
+label = "9(b)"
+text = '''
+OCR Insurance uses a computer system to calculate the price that customers pay for car insurance.
+
+The computer system contains a CPU, GPU, RAM and ROM.
+'''
+
+[[question.part]]
+label = "9(b)(i)"
+marks = 2
+text = '''
+State **two** factors that affect the performance of a CPU.
+
+1
+
+2
+'''
+
+[[question.part]]
+label = "9(b)(ii)"
+marks = 4
+text = '''
+Explain the difference between RAM and ROM, including how these are used by the computer system.
+'''
+
+[[question.part]]
+label = "9(b)(iii)"
+marks = 2
+text = '''
+Describe **one** non-graphical use for a GPU.
+'''
+
+[[question.mark_scheme]]
+label = "9(a)"
+marks = 3
+answer = '''
+- Concurrent processing of multiple instructions
+- One instruction can be fetched while previous isbeing decoded…
+- And the one before is being executed.
+- In case of a branch pipeline is flushed.
+- Increases speed of execution
+'''
+
+[[question.mark_scheme]]
+label = "9(b)(i)"
+marks = 2
+answer = '''
+- Clock speed
+- Number of cores
+- Cache
+'''
+guidance = '''
+Accept\
+Use of pipelining/size of pipeline Use of out of order execution Use of SIMD instructions\
+Integrated graphics processing on CPU
+'''
+
+[[question.mark_scheme]]
+label = "9(b)(ii)"
+marks = 4
+answer = '''
+- RAM is volatile
+
+- Used for storing programs/data/parts of OS currently in use
+- ROM is non volatile
+- Used for storing (e.g.) BIOS / bootstrap
+'''
+
+[[question.mark_scheme]]
+label = "9(b)(iii)"
+marks = 2
+answer = '''
+- Performing complex numerical calculations
+- Calculations on matrices / vectors / multiple data atthe same time
+- …e.g. insurance pricing, modelling risk, calculating bills
+'''
+guidance = '''
+Example has to relate to insurance company
+'''
+
+[[question]]
+number = 10
+marks = 6
+
+[[question.part]]
+label = "10(a)"
+marks = 4
+text = '''
+Amy’s processor makes use of pipelining during the fetch-decode-execute cycle.
+
+The processor’s pipeline consists of the following stages:
+
+- Fetching the instruction from memory
+- Decoding the instruction
+- Executing the instruction.
+
+Instructions A, B, C and D need to be processed.
+
+Identify the stage(s) and instruction(s) run during each pipeline below.
+
+Pipeline 1
+
+Pipeline 2
+
+Pipeline 3
+
+Pipeline 4
+'''
+
+[[question.part]]
+label = "10(b)"
+marks = 2
+text = '''
+Explain why pipelining can improve the performance of the processor.
+'''
+
+[[question.mark_scheme]]
+label = "10(a)"
+marks = 4
+answer = '''
+1 mark for each interval
+
+Interval 1
+
+- A is fetched
+
+Interval 2
+
+- A is decoded
+- B is fetched
+
+Interval 3
+
+- A is executed
+- B is decoded
+- C is fetched
+
+Interval 4
+
+- B is executed
+- C is decoded
+- D is fetched
+'''
+
+[[question.mark_scheme]]
+label = "10(b)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks:
+
+- Reduces/removes latency
+- … CPU is not idle while waiting for next instruction
+- Next instruction is fetched while current one is decoded/executed
+
+- All parts of the processor can be used at any instance in time.
+'''
+
+[[question]]
+number = 11
+marks = 11
+
+[[question.part]]
+label = "11(a)"
+marks = 5
+text = '''
+The table below shows the Little Man Computer instruction set.
+
+| **Mnemonic** | **Instruction** |
+|---|---|
+| `ADD` | Add |
+| `SUB` | Subtract |
+| `STA` |   |
+| `LDA` | Load |
+|   | Branch always |
+| `BRZ` |   |
+| `BRP` |   |
+| `INP` | Input |
+| `OUT` | Output |
+|   | End program |
+
+Complete the table above to show the missing mnemonics and instructions.
+'''
+
+[[question.part]]
+label = "11(b)"
+marks = 6
+text = '''
+Write a program using the Little Man Computer instruction set that will allow a user to input two numbers and then output the larger of the two numbers. The program should loop continuously.
+'''
+
+[[question.mark_scheme]]
+label = "11(a)"
+marks = 5
+answer = '''
+- Store value in accumulator at address given
+- BRA / BR
+- Branch if zero
+- Branch if zero or positive
+- HLT / COB / END
+'''
+guidance = '''
+*[Image in the original mark scheme, not shown here.]*
+'''
+
+[[question.mark_scheme]]
+label = "11(b)"
+marks = 6
+answer = '''
+- Inputs two numbers
+- ..stores at least one of them
+- Comparison / subtraction to decide which is larger
+- Jump / output if num1 larger
+- Jump / output if num2 larger or nums equal
+- Loops back to start after either output
+'''
+guidance = '''
+Example answer\
+start INP\
+STA x\
+INP\
+STA y\
+SUB x\
+BRP first\
+LDA x\
+OUT\
+BRA start\
+first LDA y\
+OUT\
+BRA start\
+x DAT\
+y DAT
+'''
+
+[[question]]
+number = 12
+marks = 7
+diagram = true
+
+[[question.part]]
+label = "12(a)"
+marks = 2
+text = '''
+A company produces CPUs for desktop and laptop computers. Each CPU is designed around the Von Neumann Architecture.
+
+Describe what is meant by the term ‘Von Neumann Architecture’.
+'''
+
+[[question.part]]
+label = "12(b)"
+text = '''
+A CPU will repeatedly run the Fetch-Decode-Execute-cycle shown in **Fig. 1**.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 1**
+'''
+
+[[question.part]]
+label = "12(b)(i)"
+marks = 4
+text = '''
+Describe what happens during the ‘Fetch’ stage shown in **Fig. 1**.
+
+You should refer to the use of specific registers in your answer.
+'''
+
+[[question.part]]
+label = "12(b)(ii)"
+marks = 1
+text = '''
+A CPU may need to stop running the Fetch-Decode-Execute-cycle in order to handle an interrupt.
+
+Tick **one** box to indicate where in **Fig. 1** an interrupt would be handled.
+
+A
+
+B
+
+C
+
+**END OF QUESTION PAPER**
+'''
+
+[[question.mark_scheme]]
+label = "12(a)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g.
+
+- Uses the same memory for data and instructions
+- Uses the same bus for data and instructions
+- Can only fetch either data or instructions at one time/follows FDE
+
+-
+
+b
+
+i
+
+1 mark per bullet up to a maximum of 4 marks, e.g.:
+
+- Data/address is copied from PC to MAR
+
+- PC is incremented (by 1) (this can be in any location from here down)
+- Data in MAR is passed onto the Address Bus
+- Read signal is sent onto the control bus
+- RAM copies the data from the location specified by the address bus onto the data bus
+- Data on the data bus is passed into the MDR
+- Data is copied from the MDR to the CIR
+'''
+guidance = '''
+Allow:
+
+- ALU for arithmetic Logic Unit
+- CPU contains an Arithmetic Logic Unit
+- CPU contains a single Control Unit.
+- Same (Memory) **location** is not acceptable for BP1
+
+The bullets must be in the correct order, except BP2, which can come anywhere from BP2 onwards
+'''
+
+[[question.mark_scheme]]
+label = "12(a)(ii)"
+marks = 1
+answer = '''
+- C
+'''

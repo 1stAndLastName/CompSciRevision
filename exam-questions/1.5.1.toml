@@ -1,0 +1,665 @@
+# OCR exam questions for 1.5.1 Computing related legislation.
+# Copied as text from the question paper and mark scheme PDFs in sources/
+# by tools/extract-exam-questions. Diagrams are not copied. Corrections by
+# hand are fine: the tool will not overwrite this file without --force.
+spec = "1.5.1"
+
+[[question]]
+number = 1
+marks = 6
+
+[[question.part]]
+label = "1(a)"
+marks = 3
+text = '''
+Government bodies have been given additional powers under the Regulation of Investigatory Powers Act.
+
+State **three** additional powers that this law gives to some government bodies.
+
+1
+
+2
+
+3
+'''
+
+[[question.part]]
+label = "1(b)"
+marks = 3
+text = '''
+An investigative firm wants to start investigating cyber security issues. As part of their new roles, employees will be accessing personal data. In order to facilitate this, all employees are enrolled on a course about the Data Protection Act.
+
+Identify **three** principles of the Data Protection Act.
+
+1
+
+2
+
+3
+'''
+
+[[question.mark_scheme]]
+label = "1(a)"
+marks = 3
+answer = '''
+1 mark per bullet to max 3:
+
+- Allows for mass surveillance of communications
+- Allows the **monitoring** of an individual’s internet activities/history
+- Allows covert surveillance to be carried out
+- Can demand access to protected data
+- Can demand that ISPs/businesses give access to customer communications/history
+- Can demand that ISPs/businesses install equipment that facilitate surveillance
+- Can demand that encryption keys are handed over / force individuals to decrypt data
+- Can keep existence of searches and what found private in court
+'''
+guidance = '''
+Allow other suitable answers relating to examples of other types of surveillance e.g. CCTV, directed surveillance.
+
+MP4 relates to password protected data or accessing data protected under the DPA
+
+**Examiner’s Comments**
+
+There were a number of candidates who could not accurately name one additional power.
+'''
+
+[[question.mark_scheme]]
+label = "1(b)"
+marks = 3
+answer = '''
+1 mark per bullet to max 3:
+
+- Data must be processed **fairly/** **lawfully**
+- Data must be **adequate/** **relevant/ not excessive**
+- Data must be **accurate** and (where necessary) **up to date**
+- Data must **not be retained for** **longer than necessary**
+- Data can only be **used for the** **purpose** for which it was collected
+- Data must be **kept secure**
+- Data must be **processed in** **accordance with people’s** **rights**
+- Data must not be transferred outside of the EU without adequate protection / to other countries who do not have equivalent data protection laws
+'''
+guidance = '''
+Accept: Right to see their own data/change if incorrect
+
+**Examiner’s Comments**
+
+This was generally well answered and candidates showed good understanding of the Data Protection Act (DPA) principles.
+'''
+
+[[question]]
+number = 2
+marks = 13
+diagram = true
+
+[[question.part]]
+label = "2(a)"
+text = '''
+A team of programmers create a robot that will be used in a factory. The robot will be able to do the work of multiple humans.
+
+The programmers discuss whether to write the instructions for the robot in assembly language or a high-level language.
+
+The robot provides a web-based interface for users. The home screen webpage for this interface is shown in **Fig.** **4**.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 4**
+'''
+
+[[question.part]]
+label = "2(a)(i)"
+marks = 5
+text = '''
+Complete this HTML code that will display the webpage shown in **Fig. 4**.
+
+```
+<html>
+   <head>
+       <title>Robot User Interface</title>
+   </head>
+   <body>
+       <h1>Robot prime directives</h1>
+       ……
+           <li>Serve the company trust</li>
+           <li>Protect data</li>
+           <li>Uphold standards</li>
+       ……
+   <a …… = "updates.html">Updates</a>
+   <p>……</p>
+   <form action="dologin.php">
+       Password
+       <input type = "……" name="pw">
+       <input type = "……">
+   </form>
+   </body>
+</html>
+```
+'''
+
+[[question.part]]
+label = "2(a)(ii)"
+marks = 3
+text = '''
+Write CSS code that could be used in an external stylesheet to format all text using the \<h1\> tag as white with a red background.
+'''
+
+[[question.part]]
+label = "2(b)"
+text = '''
+The robot’s web interface uses images that show the robot in action. These photographs have been taken using a digital camera.
+
+The programmers do not want other people to download and use these images.
+'''
+
+[[question.part]]
+label = "2(b)(i)"
+marks = 3
+text = '''
+State the name of **one** relevant piece of legislation and describe how this would protect these images.
+
+Legislation
+
+Description
+'''
+
+[[question.part]]
+label = "2(b)(ii)"
+marks = 2
+text = '''
+For other areas of the web interface, the programmers need to use images that they have not created themselves.
+
+Give **two** ways that they could make sure these images are used legally.
+
+1
+
+2
+'''
+
+[[question.mark_scheme]]
+label = "2(a)(i)"
+marks = 5
+answer = '''
+- \<ul\> and \</ul\>
+- href
+- Login
+- text/password
+- submit
+'''
+guidance = '''
+\<html\>\
+\<head\>\
+\<title\>Robot User\
+Interface\</title\>\
+\</head\>\
+\<body\>\
+\<h1\>Robot directives\</h1\> \<ul\>\
+\<li\>Serve the company trust\</li\>\
+\<li\>Protect data\</li\>\
+\<li\>Uphold standards\</li\> \</ul\>\
+\<a\
+href="updates.html"\>Updates\</a\> \<p\>Login\</p\>\
+\<form action="dologin.php"\> Password\
+\<input type = "text"\
+name="pw"\>\
+\<input type = "submit"\> \</form\>\
+\</body\>\
+\</html\>
+
+HTML tags are not case sensitive
+
+Correct answer only
+
+**Examiner’s Comments**
+
+Generally well answered and many candidates gained full marks with most being able to gain at least two.
+'''
+
+[[question.mark_scheme]]
+label = "2(a)(ii)"
+marks = 3
+answer = '''
+- h1 and other code contained in { }
+- color :white;
+- background-color : red; /background: red;
+'''
+guidance = '''
+Ignore presence or lack of \<style\> tags. Ignore lack of semicolons
+
+Penalise misspelling of "color" once and then FT
+
+h1 {\
+color:white;\
+background-color: red;\
+}
+
+White can be #FFFFFF or #FFF Red can be #FF0000 or #F00
+
+**Examiner’s Comments**
+
+Many candidates were able to gain
+
+full marks. The most common reasons candidates lost marks was through the use of quotes around the colour equals instead of colons and for misspelling colour
+'''
+
+[[question.mark_scheme]]
+label = "2(b)(i)"
+marks = 3
+answer = '''
+- Copyright Designs and Patents Act
+
+Any two from:
+
+- Gives the author (the programmers)ownership/copyright of the photographs
+- …no need to apply / this is automatic
+- Others cannot use/distribute / can beprosecuted/fined for using/distributing…
+- …without permission
+- Permission can be granted / bought / licenced
+'''
+guidance = '''
+Must be full name of Act for MP1 FT for versions of Copyright or nothing for MP2-6
+
+**Examiner’s Comments**
+
+Many candidates were able to gain 2 marks but many did not give the full name of the legislation.
+'''
+
+[[question.mark_scheme]]
+label = "2(b)(ii)"
+marks = 2
+answer = '''
+- Ask permission of **author /** **photographer /owner**
+- Use images marked as copyright free (e.g.Creative Commons Licence)
+- Purchase (licence to use) image
+'''
+guidance = '''
+Do not accept just "ask permission"
+
+**Examiner’s Comments**
+
+Many candidates were able to gain 2 marks. It was surprising to see how many believed that you could use copyright images for your business just by crediting the artist.\
+Candidates should be made aware that although crediting the artist may help avoid plagiarism it does not allow you free use of a copyright image.
+'''
+
+[[question]]
+number = 3
+marks = 12
+
+[[question.part]]
+label = "3"
+marks = 12
+text = '''
+The Regulation of Investigatory Powers Act (2000) has been described as both a vital legal tool to ensure the public’s safety and an attack on an individual’s freedoms.
+
+Evaluate the purpose and use of the Act.
+
+You should include:
+
+- the additional powers given under the Act
+- to whom these powers are given
+- the perceived benefits and/or drawbacks of the Act.
+'''
+
+[[question.mark_scheme]]
+label = "3"
+marks = 12
+answer = '''
+**Mark Band 3 – High Level (9–12** **marks)**\
+The candidate demonstrates a thorough knowledge and understanding of The Regulation of Investigatory Powers Act (RIPA) 2000. The material is generally accurate and detailed.
+
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation.
+
+The candidate is able to weigh up both sides of the argument which results in a supported and realistic judgement covering the benefits and drawbacks of the Act. This is well balanced.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2 – Mid Level (5–8 marks)** The candidate demonstrates reasonable knowledge and understanding of The Regulation of Investigatory Powers Act (RIPA) 2000; the material is generally accurate but at times underdeveloped.
+
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence / examples are for the most part implicitly relevant to the explanation.
+
+The candidate makes a reasonable attempt to come to a conclusion showing some recognition of benefits and/or drawbacks. This may not be well- balanced, covering one side significantly more than the other, although both sides will be present.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1 – Low Level (1–4 marks)** The candidate demonstrates a basic knowledge of The Regulation of Investigatory Powers Act (RIPA) 2000; the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided.
+
+The candidate provides nothing more than unsupported assertions. Any conclusion, if present, will be almost entirely one-sided.
+
+The information is basic and
+
+communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 mark**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+The following shows example content that may form part of a candidate’s answer. It is not intended to be an exhaustive resource, nor should a candidate be expected to specifically cover any particular amount of this.
+
+**Knowledge (AO1)**
+
+- Implements additional rights regarding surveillance / monitoring of individuals and acquisition of communications data
+
+- Provides the right for many organisations (including the Police and security services) to do this.
+- Purpose is to detect crime and defend national security (e.g. terrorism, public disorder)
+- Gives access to individuals’ private communications, such as emails, text messages, phone calls, Internet history.
+- Some people feel this is an invasion of their privacy
+
+**Application (AO2)**
+
+- Monitoring can be carried out by far more organisations than just the Police and Security services – for example, local councils, the pension regulator and the Environment Agency are all able to use surveillance or request data about individuals.
+- If files are encrypted, the Act gives powers to force the handover of keys (from individuals or organisations) with a 2 year prison sentence possible on refusal.
+- Wide ranging powers have allowed Police and Security services to intercept criminals’ communications and stop / disrupt crime.
+
+**Evaluation (AO3)**
+
+- In the modern world, it is important that Police and Security services are given the power to deal with electronic communications in this way. Many crimes (e.g. terrorism) can be detected and stopped before they occur, making the public safer.
+- However, some say that it is now a “snooper’s charter”, with more organisations using their powers for minor offences such as detecting
+
+those lying about their address to get children into a better school or fly-tipping.
+
+- Many communication tools (e.g. WhatsApp) now include end-to-end encryption by default so that messages cannot be divulged by the organisation because they do not have access to it. Other encryption tools include plausible deniability.
+
+**Examiner’s Comments**
+
+Responses to this question were varied, some candidates showed a clear understanding of the powers and to whom they are given. Some were aware of the powers but focused on the police or security services in their response. Some went off track, talking about other countries. In general this was not answered well and candidates tended to have a one sided view of the act.
+'''
+
+[[question]]
+number = 4
+marks = 2
+
+[[question.part]]
+label = "4"
+marks = 2
+text = '''
+The Copyright Designs and Patents Act 1988 applies to all videos that are streamed.
+
+Explain how this act applies to the videos.
+'''
+
+[[question.mark_scheme]]
+label = "4"
+marks = 2
+answer = '''
+- Copyright assigned to owner of video automatically on creation
+- Makes it illegal to copy/distribute videos **as your own/without** **permission**
+- Copyright holder can ask for their work to be removed from the streaming platform
+- Membership/licence gives subscribers the agreement to view videos
+- Which may restrict their use (e.g. to whom it is shown or geographical location from which it is accessed).
+'''
+guidance = '''
+**Examiner’s Comments**\
+Most candidates were able to gain 1 mark for this question, but few went on to gain a second mark.
+'''
+
+[[question]]
+number = 5
+marks = 9
+
+[[question.part]]
+label = "5"
+marks = 9
+text = '''
+\* Many technologists predict that in the future, shops on the high street will use facial recognition to identify customers before they walk into a shop.
+
+Discuss the possible benefits and drawbacks of technology being used in this way.
+
+You should refer to the following in your answer:
+
+- The benefits and drawbacks to both the customers and businesses
+- Moral and ethical issues
+- Legal issues
+'''
+
+[[question.mark_scheme]]
+label = "5"
+marks = 9
+answer = '''
+**Mark Band 3–High Level**\
+**(7-9 marks)**\
+The candidate has weighed up benefits and drawbacks of the technology and has applied the moral, legal and ethical
+
+issues to both the customer and the business; the material is generally accurate and detailed.\
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation.\
+The candidate will have come to a fully justified conclusion.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2-Mid Level**\
+**(4-6 marks)**\
+The candidate has weighed up benefits and drawbacks of the technology. They will have explored some of the moral, legal and ethical issues but they may not be equally spread across both the customer and the business; the material is generally accurate but at times underdeveloped.\
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed.\
+Evidence/examples are for the most part implicitly relevant to the explanation. The candidate will have come to a conclusion although they may not fully justify it.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1-Low Level**\
+**(1-3 marks)**\
+The candidate identifies some of the benefits and drawbacks, though they have probably shown little consideration of the legal, ethical and moral issues; the material is basic and contains some inaccuracies.\
+The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided. The candidate may not reach a recognisable conclusion.
+
+(AO2.1) (2) (AO3.3) (3)
+
+The information is basic and\
+communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+**Knowledge: Benefits**\
+Customer:
+
+- Personalised offers
+
+Business:
+
+- Targeted adverts
+- Able to track movement habits of customers
+- Provide more personalised shopping experiences.
+
+**Drawbacks**\
+Customer:
+
+- Personal intrusion
+- Invasion of privacy
+- Pressured selling
+
+Business:
+
+- Cost of infra structure
+- Viewed as invading personal privacy
+
+**Moral and Ethical issues**
+
+- Violation of civil liberties
+- Recording people on the street who are not going into the shop
+
+**Legal issues:**
+
+- under data protection laws the shop would need to `o` Keep any data recorded secure `o` Personal data should be accurate and up to date
+
+**Application:**\
+**Benefits**\
+Customer:
+
+- Personalised experience will lead to more convenient shopping trips
+- Staff will give personalised service
+
+Business:
+
+- Tracking movement of customers means able to identify best opening times
+
+- Tracking customers around shop allows better analysis of popular products
+- Use of modern technology will make the shop be seen as forward thinking.
+
+**Drawbacks**\
+Customer:
+
+- Customers may not want to be “pressured” meaning they decide not to shop there anymore.
+- Tracking data could be hacked and used by criminals
+
+Business:
+
+- Extra hardware costs may lead to higher prices/competitors undercut them.
+- Customers who feel their privacy has been invaded may “vote with their feet”
+
+**Moral and Ethical issues**
+
+- Abuse of civil liberties could damage reputation of shop
+
+**Legal issues:**
+
+- Shop may need to add extra software to blur out faces of non-customers
+- Shop will need to spend more money on data protection compliance, leading to higher costs.
+
+**Evaluation:**\
+Benefits
+
+- Increased revenue from directed sales offset extra costs from hardware/legal obligations
+- Improved reputation through use of modern technologies may attract more customers
+
+Drawbacks:
+
+- Loss of customer base due to customers unhappy with “pushy techniques”
+- Poor public opinion from invasive advertising puts new customers off.
+
+**Examiner’s Comments**\
+Candidates were assessed on the quality of their extended response in this question.
+
+Most candidates understood the basic concept of storing personal details being a violation of customers civil liberties. Few candidates had a balanced discussion and focused too heavily on the negative aspects of this system therefore being restricted to a mid-level mark.
+'''
+
+[[question]]
+number = 6
+marks = 9
+
+[[question.part]]
+label = "6"
+marks = 9
+text = '''
+\* “The Computer Misuse Act means that computer users are criminalised for simply trying to learn how systems work.”
+
+Discuss whether or not you agree with this statement.
+'''
+
+[[question.mark_scheme]]
+label = "6"
+marks = 9
+answer = '''
+**Mark Band 3–High Level (7-9 marks)** The candidate demonstrates a thorough knowledge and understanding of legislation including the Computer Misuse Act. The material is generally accurate and detailed.
+
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation.
+
+The candidate provides a thorough discussion which is well balanced. Evaluative comments are consistently relevant and well-considered.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2-Mid Level (4-6 marks)** The candidate demonstrates reasonable
+
+knowledge and understanding legislation including the Computer Misuse Act; the material is generally accurate but at times underdeveloped.
+
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed.\
+Evidence/examples are for the most part implicitly relevant to the explanation.
+
+The candidate provides a sound discussion, the majority of which is focused. Evaluative comments are for the most part appropriate, although one or two opportunities for development are missed.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1-Low Level (1-3 marks)** The candidate demonstrates a basic knowledge of legislation including the Computer Misuse Act; the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided.
+
+The candidate provides a limited discussion which is narrow in focus. Judgments if made are weak and unsubstantiated. The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+AO1\
+Computer Misuse Act is legislation aimed at criminalising unauthorised access to a computer system Three stages:\
+Unauthorised access to a computer system\
+Unauthorised access with intent to commit further offences\
+Unauthorised modification of computer material\
+Punishable by up to twelve months in prison and an unlimited fine.
+
+AO2\
+Computer users who investigate how systems work require authorisation in order to not break the Act.\
+Examples such as changing a social media post on a friend’s mobile phone potentially breaks all three sections of the Act.\
+Investigation of systems can break the Act without intent, e.g. by changing server logs because of their
+
+actions.\
+Users must be aware of the Act (as with any other law) in order to be responsible.
+
+AO3\
+Material available online (e.g. self study videos) that explain how systems work and teach without the need to investigate using\
+unauthorised access.\
+Investigating systems that you own yourself or have authorisation to access does not break the law. Systems are offered to users with strict conditions attached and investigation is not a legitimate excuse for breaking the law. Ethical / white hat hackers will not break this law because they have authorisation.\
+Grey and black hat hackers will break Computer Misuse Act.
+'''
+
+[[question]]
+number = 7
+marks = 9
+
+[[question.part]]
+label = "7"
+marks = 9
+text = '''
+\* “When it comes to government electronic surveillance, if you have nothing to hide, you have nothing to fear.”
+
+Discuss whether or not you agree with this statement. You should include:
+
+- To what extent the UK government is able to monitor electronic communications of its citizens
+- Technical measures citizens can take to help prevent their communications being monitored.
+
+**END OF QUESTION PAPER**
+'''
+
+[[question.mark_scheme]]
+label = "7"
+marks = 9
+answer = '''
+**Mark Band 3–High Level (7-9 marks)** The candidate demonstrates a thorough knowledge and understanding of electronic communication monitoring techniques and the social and legal impact of this. The material is generally
+
+accurate and detailed.
+
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation.
+
+The candidate provides a thorough discussion which is well balanced. Evaluative comments are consistently relevant and well-considered.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2-Mid Level (4-6 marks)** The candidate demonstrates reasonable knowledge and understanding electronic communication monitoring techniques and the social and legal impact of this; the material is generally accurate but at times underdeveloped.
+
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed.\
+Evidence/examples are for the most part implicitly relevant to the explanation.
+
+The candidate provides a sound discussion, the majority of which is focused. Evaluative comments are for the most part appropriate, although one or two opportunities for development are missed.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1-Low Level (1-3 marks)** The candidate demonstrates a basic knowledge of electronic communication monitoring techniques and the social and legal impact of this; the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided.
+
+The candidate provides a limited discussion which is narrow in focus. Judgments if made are weak and unsubstantiated. The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+AO1\
+Encryption means that data is scrambled so that if it is intercepted, it cannot be understood.\
+Requires the use of a key to decrypt. Symmetric encryption uses on key
+
+for encrypt/decrypt and so key exchange is problematic.\
+Asymmetric encryption uses different keys (public and private) so no need to exchange keys.\
+Regulation of Investigatory Powers Act (RIPA) gives authorities the power to compel disclosure of encryption keys
+
+AO2\
+Encrypted messages cannot be read by outsiders without the key RIPA gives Police the power to insist on users decrypting messages / handing over the key to allow reading of messages.\
+Many messaging services already include end-to-end encryption by default\
+Use of VPNs to re-route traffic and attempt to escape monitoring possible\
+The ending of encrypted data shows that two parties are passing information they want to keep secret. Techniques like steganography can be used to his the existence of encrypted data.
+
+AO3\
+Monitoring communication runs the risk of revealing secret but non-illegal communications\
+Restricting encryption means that secure sites (eg banks) may struggle to function\
+Legislation (RIPA) already ensures that communications can be monitored if there is just cause Routine monitoring runs the risk of false-positives\
+However, will reduce risk of illegal activities being co-ordinated (e.g. terrorism, drug trafficking).
+'''

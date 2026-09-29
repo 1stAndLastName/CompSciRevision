@@ -1,0 +1,194 @@
+# OCR exam questions for 2.1.5 Thinking concurrently.
+# Copied as text from the question paper and mark scheme PDFs in sources/
+# by tools/extract-exam-questions. Diagrams are not copied. Corrections by
+# hand are fine: the tool will not overwrite this file without --force.
+spec = "2.1.5"
+
+[[question]]
+number = 1
+marks = 4
+
+[[question.part]]
+label = "1"
+text = '''
+A program designer is investigating the use of concurrent processing.
+'''
+
+[[question.part]]
+label = "1(i)"
+marks = 2
+text = '''
+Describe what is meant by the term ‘concurrent processing’.
+'''
+
+[[question.part]]
+label = "1(ii)"
+marks = 2
+text = '''
+Give **two** benefits of using concurrent processing.
+
+1
+
+2
+'''
+
+[[question.mark_scheme]]
+label = "1(i)"
+marks = 2
+answer = '''
+1 mark for each to max 2
+
+- Processes happen at the same time / processes overlap
+- One process can start before another one finishes
+- Each process is given a slice of processor time
+- Different processes can be executed (in parallel) by different processors/cores
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Several candidates confused parallel processing (executing more than one instruction simultaneously) with concurrent processing (where most than one process/task is running at the same time). A lack of technical vocabulary was observed with many candidates giving responses such as ‘many things processed at the same time’, without specifying what the ‘things’ were. Occasionally candidates erroneously thought that processor pipelining was an example of concurrent processing.
+
+While many candidates successfully identified that multiple processes are run simultaneously, fewer went on give the mechanism by which this could be achieved. Where they did so, these included timeslicing switching between different processes on a single processor, or use of multiple cores/parallelism to simultaneously execute different processes.
+'''
+
+[[question.mark_scheme]]
+label = "1(ii)"
+marks = 2
+answer = '''
+1 mark each to max 2\
+e.g.
+
+- More efficient processor use / Less idle time for processor / Greater throughput
+- Long running tasks do not delay short running tasks
+- Tasks requiring preconditions can wait and then resume execution
+- User is able to interact with the computer while other tasks are running
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Candidates found it difficult to give well-qualified responses to this question. Many candidates gave the definition for concurrency running multiple tasks at the same time as a benefit, which was not mark worthy.
+
+Quicker processing/improved performance was not enough on its own without specifying that this was within a given time unit. Concurrent processing does not increase the actual speed of the CPU.\
+Efficiency as a benefit on its own was insufficient, whereas ‘less CPU idle time’ was a well-qualified example of a benefit.
+'''
+
+[[question]]
+number = 2
+marks = 5
+
+[[question.part]]
+label = "2"
+text = '''
+Taylor has written a game which uses concurrent processing.
+'''
+
+[[question.part]]
+label = "2(i)"
+marks = 2
+text = '''
+Describe what is meant by the term ‘concurrent processing’.
+'''
+
+[[question.part]]
+label = "2(ii)"
+marks = 3
+text = '''
+Explain why concurrent processing is needed to allow multiple users to log in and interact with game elements at the same time.
+'''
+
+[[question.mark_scheme]]
+label = "2(i)"
+marks = 2
+answer = '''
+1 mark per bullet to max 2\
+e.g.
+
+- Multiple processes being executed at the same time / appearing to happen simultaneously
+- Giving processes a slice of the processor time
+- Having multiple processors each carrying out a different process
+'''
+
+[[question.mark_scheme]]
+label = "2(ii)"
+marks = 3
+answer = '''
+1 mark per bullet to max 3\
+e.g:
+
+- Game could have large number of requests to the server at a time
+- … server needs to respond in reasonable time
+- … having multiple processors handling the different requests would increase response time
+- Users could override each other’s changes
+- … e.g. needs to handle if someone updates their circus while someone else is visiting
+- …use record locking to stop edits if someone else has access to data
+- Different users will have different response times
+- …therefore the processor can still handle other requests
+- …so that the performance for other users is not affected
+'''
+
+[[question]]
+number = 3
+marks = 9
+
+[[question.part]]
+label = "3"
+marks = 9
+text = '''
+OCR-Tickets wants to sell tickets for their concerts, plays and other events online. A customer should be able to create an account and then be able to log into their account. Once logged in, customers should be able to carry out actions such as setting their preferences and purchasing tickets.
+
+OCR-Tickets have hired a software development company to create the system for them.
+
+\* Discuss the need for concurrent processing in OCR-Ticket’s system and the benefits and drawbacks of using this.
+
+**END OF QUESTION PAPER**
+'''
+
+[[question.mark_scheme]]
+label = "3"
+marks = 9
+answer = '''
+**Mark Band 3 – High level (7-9** **marks)**\
+The candidate demonstrates a thorough knowledge and\
+understanding of concurrent processing; the material is generally accurate and detailed.\
+The candidate is able to apply their knowledge and understanding directly and consistently to the context
+
+provided. Evidence/examples will be explicitly relevant to the explanation. There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2 – Mid level (4-6 marks)** The candidate demonstrates reasonable knowledge and\
+understanding of concurrent processing; the material is generally accurate but at times underdeveloped. The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.\
+The candidate provides a reasonable discussion, the majority of which is focused. Evaluative comments are, for the most part appropriate, although one or two opportunities for development are missed.\
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1 – Low Level (1-3** **marks)**\
+The candidate demonstrates a basic knowledge of concurrent processing with limited understanding shown; the material is basic and contains some inaccuracies. The candidates makes a limited attempt to apply acquired knowledge and understanding to the context provided.\
+The candidate provides a limited discussion which is narrow in focus. Judgements if made are weak and unsubstantiated.\
+The information is basic and comunicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+**AO1: Knowledge and**\
+**Understanding**\
+**Indicative content**
+
+- Processes are happening at the same time/at overlapping times
+- One process may need to start before a second has finished
+
+- Individual processes are threads, each thread has a life line
+- One request will be sent to the server, this will have a thread
+
+**AO2: Application**
+
+- Multiple requests to the server can be made at the same time
+- Programming on server will need to allow multiple threads to manipulate a list of requests
+- Programming will need to restrict access to the database of seats/sales etc.
+- Will allow those reading and writing to manipulate at the same time
+- Record locking will need implementing – more complex programming
+- May be selling alongside other systems, therefore needs to communicate with external systems that will also use record locking to avoid two different external companies accessing and selling the same tickets.
+
+**AO3: Evaluation**
+
+- Will allow for multiple access to the website at the same time by different customers – as it would happen in real life
+- Will allow for multiple ticket sales for the same event without selling the same seat twice
+'''

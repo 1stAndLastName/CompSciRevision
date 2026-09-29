@@ -1,0 +1,740 @@
+# OCR exam questions for 1.4.3 Boolean Algebra.
+# Copied as text from the question paper and mark scheme PDFs in sources/
+# by tools/extract-exam-questions. Diagrams are not copied. Corrections by
+# hand are fine: the tool will not overwrite this file without --force.
+spec = "1.4.3"
+
+[[question]]
+number = 1
+marks = 8
+
+[[question.part]]
+label = "1(a)"
+marks = 4
+text = '''
+Ben installs burglar alarms. The alarm is made up of a door sensor and a motion sensor. When the alarm is set, the siren will sound if either the door sensor or the motion sensor detect movement.
+
+The alarm also has a test mode setting. When the test mode setting is enabled, an engineer can check the sensors are working without the siren going off.
+
+The inputs to the alarm are as follows.
+
+| **Input** | **System** |
+|---|---|
+| A | Door sensor |
+| B | Motion sensor |
+| C | Alarm has been set |
+| D | Test mode enabled |
+
+Draw a logic circuit to show the logic that is used in the burglar alarm to determine if the siren goes off.
+'''
+
+[[question.part]]
+label = "1(b)(i)"
+marks = 1
+text = '''
+Simplify the Boolean expression `¬A v ¬B` using De Morgan's First Law.
+'''
+
+[[question.part]]
+label = "1(b)(ii)"
+marks = 1
+text = '''
+Simplify the Boolean expression `¬(¬B)` using double negation.
+'''
+
+[[question.part]]
+label = "1(b)(iii)"
+marks = 2
+text = '''
+Simplify the Boolean expression `(A v B) ∧ (A v C)` using distribution.
+'''
+
+[[question.mark_scheme]]
+label = "1(a)"
+marks = 4
+answer = '''
+1 mark for each correct area **including labelled inputs**
+
+*[Image in the original mark scheme, not shown here.]*
+
+**Alternatives (1 mark per area):**
+
+*[Image in the original mark scheme, not shown here.]*
+'''
+guidance = '''
+Max 3 if any additional gates.
+
+NOT gate must have only one input, AND/OR gates must have two inputs NOT gate must have circle
+
+Ignore any names on gates
+
+**Examiner’s Comments**
+
+There were a range of marks on this question. More successful candidates gave all four gates accurately, but most candidates were able to gain at least one or two marks. Some candidates were unaware of what a logic circuit was and instead produced a range of different diagrams including flow charts.
+'''
+
+[[question.mark_scheme]]
+label = "1(b)(i)"
+marks = 1
+answer = '''
+`¬ (A ∧ B)`
+'''
+guidance = '''
+Accept NOT (A AND B) / other correct notations e.g.
+
+¬ must be the correct way round
+
+**Examiner’s Comments**
+
+Many candidates gained full marks with the most common error being `¬(A v B)`
+'''
+
+[[question.mark_scheme]]
+label = "1(b)(ii)"
+marks = 1
+answer = '''
+B
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Almost all candidates were able to gain a mark on this question.
+'''
+
+[[question.mark_scheme]]
+label = "1(b)(iii)"
+marks = 2
+answer = '''
+- 1 mark for A
+- 1 mark for v `(B ∧ C)`
+
+`A v (B ∧ C)`
+'''
+guidance = '''
+Doesn’t need brackets
+
+Allow other correct notation e.g. A+B.C
+
+Allow either order e.g. `(B∧C) v A`
+
+Allow Av(BC) / AvBC
+
+**Examiner’s Comments**
+
+The majority of candidates recognised that distribution meant that there was only one A following simplification but the most common error for the second mark was again to use OR instead of AND for B AND C
+'''
+
+[[question]]
+number = 2
+marks = 6
+diagram = true
+
+[[question.part]]
+label = "2(a)"
+text = '''
+A logic gate diagram is shown below.
+
+*[Diagram in the original paper, not shown here.]*
+'''
+
+[[question.part]]
+label = "2(a)(i)"
+marks = 2
+text = '''
+Complete the truth table for this logic gate diagram.
+
+| **A** | **B** | **Q** |
+|---|---|---|
+| **0** | **0** |   |
+| **0** | **1** |   |
+| **1** | **0** |   |
+| **1** | **1** |   |
+'''
+
+[[question.part]]
+label = "2(a)(ii)"
+marks = 1
+text = '''
+What single gate is this logic gate diagram equivalent to?
+'''
+
+[[question.part]]
+label = "2(b)"
+marks = 3
+text = '''
+Draw the logic gate diagram for this expression:\
+`Q = (A v ¬B) ∧ C`
+'''
+
+[[question.mark_scheme]]
+label = "2(a)(i)"
+marks = 2
+answer = '''
+| **A** | **B** | **Q** |
+|---|---|---|
+| **0** | **0** | **0** |
+| **0** | **1** | **1** |
+| **1** | **0** | **1** |
+| **1** | **1** | **0** |
+
+- 1 Mark for the first 2 rows
+- 1 mark for the last 2 rows
+'''
+guidance = '''
+**Examiner’s Comments**
+
+The majority of candidates were able to correctly complete the truth table for both marks.
+'''
+
+[[question.mark_scheme]]
+label = "2(a)(ii)"
+marks = 1
+answer = '''
+XOR
+'''
+guidance = '''
+Accept “Exclusive OR”
+
+**Examiner’s Comments**
+
+Most candidates correctly stated the correct single logic gate (XOR).
+'''
+
+[[question.mark_scheme]]
+label = "2(b)"
+marks = 3
+answer = '''
+*[Image in the original mark scheme, not shown here.]*
+
+- A going into an OR game
+- B going into a NOT gate with the output going into the OR gate
+- Output of the OR gate going into an AND gate with C
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Most candidates were able to draw the three logic gates correctly, although some did not make it clear the difference between an ‘and’ gate and an ‘or’ gate in their diagram.
+'''
+
+[[question]]
+number = 3
+marks = 9
+diagram = true
+
+[[question.part]]
+label = "3(a)"
+text = '''
+A computer scientist has created the following logic circuit shown in **Fig. 6**.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 6**
+'''
+
+[[question.part]]
+label = "3(a)(i)"
+marks = 2
+text = '''
+Give the Boolean expression that represents the logic circuit shown in **Fig. 6**. Do not attempt to simplify the expression.
+'''
+
+[[question.part]]
+label = "3(a)(ii)"
+marks = 3
+text = '''
+Complete the truth table for the logic circuit shown in **Fig. 6.**
+
+|   |   |   |   |   |   |   |   |   |   |   |   |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+|   | **A** |   |   | **B** |   |   | **C** |   |   | **P** |   |
+|   |   |   |   |   |   |   |   |   |   |   |   |
+| 0 | 0 | 0 |   |   |   |   |   |   |   |   |   |
+| 0 | 0 | 1 |   |   |   |   |   |   |   |   |   |
+| 0 | 1 | 0 |   |   |   |   |   |   |   |   |   |
+| 0 | 1 | 1 |   |   |   |   |   |   |   |   |   |
+| 1 | 0 | 0 |   |   |   |   |   |   |   |   |   |
+| 1 | 0 | 1 |   |   |   |   |   |   |   |   |   |
+| 1 | 1 | 0 |   |   |   |   |   |   |   |   |   |
+| 1 | 1 | 1 |   |   |   |   |   |   |   |   |   |
+'''
+
+[[question.part]]
+label = "3(b)"
+marks = 4
+text = '''
+The following Karnaugh map represents another logic circuit.
+
+*[Diagram in the original paper, not shown here.]*
+
+Use this Karnaugh map to find the simplified expression for this circuit.
+
+You should highlight the map as appropriate and write the expression here.
+'''
+
+[[question.mark_scheme]]
+label = "3(a)(i)"
+marks = 2
+answer = '''
+- `¬ (A ∨ B)` / NOT (A OR B)
+
+- ∨ C / XOR C
+'''
+guidance = '''
+First MP requires brackets, NOT A or B is incorrect.
+
+Can be written in different order (e.g. C XOR NOT (B OR A) as long as logically correct.
+
+Accept
+
+**Examiner’s Comments**
+
+This question was generally well answered, although some candidates confused AND and OR
+'''
+
+[[question.mark_scheme]]
+label = "3(b)"
+marks = 4
+answer = '''
+- Correct highlighting on K map as shown
+- / NOT A AND NOT C…
+- D / A AND NOT D…
+- …∨ / + / OR joining the 2 correct expressions together
+'''
+guidance = '''
+*[Image in the original mark scheme, not shown here.]*
+
+Do not penalise candidates who attempt to simplify even further (e.g. NOT A AND NOT C = NOT (A OR C)
+
+using De Morgan's).
+
+MP1 - correct answer only
+
+MP4 is dependent on MP2 & 3
+
+**Examiner’s Comments**
+
+There were many candidates who were able to gain full marks on this question. Those who did not showed a lack of understanding of grouping on a Karnaugh map, either grouping to include zeros or missing the wrapping group and adding another group in for the top row.
+'''
+
+[[question]]
+number = 4
+marks = 7
+diagram = true
+
+[[question.part]]
+label = "4(a)"
+marks = 4
+text = '''
+Elliott has designed a logic circuit. The expression he has created for the logic circuit is:
+
+Q = `(A ∧ ¬B) ∨ (¬A ∧ C ∧ D) ∨ (A ∧ B)`
+
+Complete the Karnaugh Map below to simplify this expression. Show your working.
+
+*[Diagram in the original paper, not shown here.]*
+
+Simplified expression:
+'''
+
+[[question.part]]
+label = "4(b)"
+marks = 3
+text = '''
+Draw a Logic diagram for the following expression:
+
+`Q = ¬(A ∧ B) ∨ (C ∧¬ D)`
+
+*[Diagram in the original paper, not shown here.]*
+'''
+
+[[question.mark_scheme]]
+label = "4(a)"
+marks = 4
+answer = '''
+Solution:
+
+*[Image in the original mark scheme, not shown here.]*
+
+1 mark per bullet up to a maximum of 4 marks:
+
+- 1 mark for filling in the table correctly
+- 1 mark for the group shown in red
+- 1 mark for the group shown in green
+- 1 mark for the simplified expression `A ∨ (C ∧ D)`
+'''
+guidance = '''
+Brackets are not required for the simplified expression
+
+**Examiner’s Comments**\
+This question was answered well with many candidates achieving all 4 marks. Some completed the table correctly but were not able to simplify the expression appropriately.
+'''
+
+[[question.mark_scheme]]
+label = "4(b)"
+marks = 3
+answer = '''
+*[Image in the original mark scheme, not shown here.]*
+
+1 mark per bullet up to a maximum of 3 marks:
+
+- An AND gate taking A and B as inputs with the output connecting to a NOT gate
+- An AND gate taking C and the NOT of D as the inputs
+
+- An OR gate taking the outputs of the NOT and AND gates
+'''
+guidance = '''
+Allow NAND gate as alternative for BP1
+
+**Examiner’s Comments**\
+As with the first part of this question, this was answered well. Most candidates used the same gates that are shown in the mark scheme, although equivalent gates were accepted. Some candidates lost marks for not being clear on the type of gate they had decided on.
+
+**Exemplar 2**
+
+*[Image in the original mark scheme, not shown here.]*
+
+Exemplar 2 was given full marks. This candidate has gained all 3 marks as the gates are correct and are clearly drawn to avoid confusion. Each gate also has the correct number of inputs and outputs in all three instances.
+
+**Logic gate guidance**\
+To make sure full credit is given for the answers provided, it is essential that the drawings are clear enough to distinguish one gate from another. Some gates look similar, so the lines and symbols need to be clear enough to establish which gate has been used.
+'''
+
+[[question]]
+number = 5
+marks = 13
+diagram = true
+
+[[question.part]]
+label = "5(a)"
+text = '''
+*[Diagram in the original paper, not shown here.]*
+
+The logic circuit above has two inputs (**A, B**) and two outputs (**S, C**).
+'''
+
+[[question.part]]
+label = "5(a)(i)"
+marks = 2
+text = '''
+Give the Boolean expressions for the outputs **S** and **C**.
+
+**S ≡**
+
+**C ≡**
+'''
+
+[[question.part]]
+label = "5(a)(ii)"
+text = '''
+Complete the truth table for this logic circuit.
+
+| **A** | **B** | **S** | **C** |
+|---|---|---|---|
+| 0 | 0 |   |   |
+| 0 | 1 |   |   |
+| 1 | 0 |   |   |
+| 1 | 1 |   |   |
+'''
+
+[[question.part]]
+label = "5(a)(iii)"
+marks = 4
+text = '''
+Describe how this logic circuit can be adapted to add together two 4-bit binary numbers.
+'''
+
+[[question.part]]
+label = "5(b)"
+text = '''
+All users of a computer system have a unique username and password. The computer system has implemented two-factor authentication so that users must respond to either an email or text message containing a secret code to be able to access the system.
+
+Let:
+
+A be a Boolean value for if a user enters a valid username
+
+B be a Boolean value for if a user enters a password that matches their username
+
+C be a Boolean value for if a user is able to respond to an email containing a secret code
+
+D be a Boolean value for if a user is able to respond to a text message containing a secret code
+
+Q be a Boolean value for if entry to the computer system is allowed
+
+Complete the Boolean expression below:
+
+**Q ≡**
+'''
+
+[[question.part]]
+label = "5(c)"
+text = '''
+Another Boolean expression for a logic system is shown below:
+
+`Q ≡ ¬ (¬ A ∧ ¬ B)`
+'''
+
+[[question.part]]
+label = "5(c)(i)"
+marks = 2
+text = '''
+Simplify this Boolean expression so that it does not include any negation. You must explain which Boolean algebra rule(s) you are using at each step.
+'''
+
+[[question.mark_scheme]]
+label = "5(a)(i)"
+marks = 2
+answer = '''
+`S = A ⊻ B`\
+`C = A ∧ B`
+'''
+guidance = '''
+Accept alternative symbols for AND /XOR
+'''
+
+[[question.mark_scheme]]
+label = "5(a)(ii)"
+marks = 2
+answer = '''
+- 1 mark for S column
+- 1 mark for C column
+'''
+guidance = '''
+| **A** | **B** | **S** | **C** |
+|---|---|---|---|
+| 0 | 0 | 0 | 0 |
+| 0 | 1 | 1 | 0 |
+| 1 | 0 | 1 | 0 |
+| 1 | 1 | 0 | 1 |
+'''
+
+[[question.mark_scheme]]
+label = "5(a)(iii)"
+marks = 4
+answer = '''
+- Logic circuit adds together 2 binary digits / half adder
+- S gives sum, C gives carry
+- Two half adders can be joined together…
+- …with an OR gate
+- to form full adder
+- 4 full adders can be used to add two four bit numbers
+- Carry out on one joined to carry in on next
+'''
+
+[[question.mark_scheme]]
+label = "5(b)"
+marks = 3
+answer = '''
+`Q ≡ A ∧ B`\
+∧\
+`(C ∨ D)`
+'''
+guidance = '''
+`Q ≡ A ∧ B ∧ (C ∨ D)`
+
+Accept alternative symbols for AND / OR\
+e.g. Q = A AND B AND (C OR D) Brackets must be included for 3<sup>rd</sup> point\
+Allow XOR for bullet point 3 Any additional symbols max 2 marks
+'''
+
+[[question.mark_scheme]]
+label = "5(c)"
+marks = 2
+answer = '''
+- Identification of De Morgan’s and/or double negation rule
+- Correct final answer to give A v B
+'''
+
+[[question]]
+number = 6
+marks = 11
+diagram = true
+
+[[question.part]]
+label = "6(a)(i)"
+marks = 3
+text = '''
+Complete the Karnaugh map below for the Boolean expression `(¬ A ∧ ¬ B) ∨ ( A ∧ ¬ B)`
+
+*[Diagram in the original paper, not shown here.]*
+'''
+
+[[question.part]]
+label = "6(a)(ii)"
+marks = 2
+text = '''
+Use the Karnaugh map to find a simplified Boolean expression that is equivalent to (`¬ A ∧ ¬ B) ∨ ( A` ∧ ¬ B)
+'''
+
+[[question.part]]
+label = "6(b)(i)"
+marks = 2
+text = '''
+State the purpose of a D-type flip-flop circuit.
+'''
+
+[[question.part]]
+label = "6(b)(ii)"
+marks = 4
+text = '''
+Describe the inputs and outputs used by a D-type flip-flop circuit, explaining how the inputs are used to control the outputs.
+'''
+
+[[question.mark_scheme]]
+label = "6(a)(i)"
+marks = 3
+answer = '''
+- left column filled with 1s (`¬ A` ∧ `¬ B`) …
+- right column filled with 1s ( A ∧ `¬ B`)…
+- …Middle 2 columns filled with zero or blank
+'''
+guidance = '''
+*[Image in the original mark scheme, not shown here.]*
+'''
+
+[[question.mark_scheme]]
+label = "6(a)(ii)"
+marks = 2
+answer = '''
+- `¬ B` / NOT B
+- Karnaugh map used to show 1s highlighted with overlap
+'''
+guidance = '''
+*[Image in the original mark scheme, not shown here.]*
+'''
+
+[[question.mark_scheme]]
+label = "6(b)(i)"
+marks = 2
+answer = '''
+- Delay / store a value…
+- …of 1 bit
+- When a signal is given
+'''
+
+[[question.mark_scheme]]
+label = "6(b)(ii)"
+marks = 4
+answer = '''
+- Data input
+- Clock input
+- Q output
+- When clock input goes high…
+- …Q changes to D
+- NOT Q is reverse of Q
+'''
+
+[[question]]
+number = 7
+marks = 4
+diagram = true
+
+[[question.part]]
+label = "7"
+marks = 4
+text = '''
+Daniel is an engineer. He has created the following logic circuit shown in **Fig. 4**.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 4**
+
+Complete the truth table below for the logic circuit shown in **Fig. 4**.
+
+| **A** | **B** | **C** | **D** | **X** |
+|---|---|---|---|---|
+| 0 | 0 | 0 |   |   |
+| 0 | 0 | 1 |   |   |
+| 0 | 1 | 0 |   |   |
+| 0 | 1 | 1 |   |   |
+| 1 | 0 | 0 |   |   |
+| 1 | 0 | 1 |   |   |
+| 1 | 1 | 0 |   |   |
+| 1 | 1 | 1 |   |   |
+'''
+
+[[question.mark_scheme]]
+label = "7"
+marks = 4
+answer = '''
+
+'''
+guidance = '''
+Award 1 mark for each group of 4 1’s / 0’s.
+'''
+
+[[question]]
+number = 8
+marks = 5
+
+[[question.part]]
+label = "8"
+marks = 5
+text = '''
+Albert runs a competition each week in his local village hall. So that Albert can contact the winner he would like a program for the winner to enter their telephone number which is then checked and written into a text file.
+
+The rules for Albert’s program are as follows:
+
+1. The telephone number is entered. This is checked to ensure that the first digit is a 0\
+2. If the first digit is not a 0 then a message saying “Needs To Start With 0” is printed\
+If the first digit is a 0 then the telephone number is passed into a pre-existing function called 3. `checkLength` as a parameter. This will return `true` if the length of the telephone number is long enough\
+4. If the telephone number is long enough then it is written into a text file called `"winner.txt"` 5. If the telephone number is not long enough then a message saying “Not Long Enough” is printed.
+
+Complete the procedure `competitionWinner` so that it meets the rules of Albert’s program.
+
+You should write your procedure using pseudocode or program code.
+
+```
+procedure competitionWinner()
+```
+
+```
+endprocedure
+```
+
+**END OF QUESTION PAPER**
+'''
+
+[[question.mark_scheme]]
+label = "8"
+marks = 5
+answer = '''
+1 mark per bullet up to a maximum of 5 marks, e.g.:
+
+- Suitable logic for inputting the telephone number
+- Suitable logic for ensuring the telephone number starts with a 0
+- Suitable logic for passing the telephone number into the function `checkLength`
+- If `true`, suitable logic for opening and closing
+
+```
+winner.txt
+```
+
+- …suitable logic for writing the telephone number to
+
+```
+winner.txt
+```
+
+- Suitable logic for printing “Needs To Start With 0” and "Not Long Enough"
+'''
+guidance = '''
+Example Solution:
+
+```
+procedure competitionWinner()
+telNum = input("Enter Telephone Number")
+if telNum[0] == "0" then
+length = checkLength(telNum)
+   if length == true then
+myfile = openWrite("winner.txt")
+myfile.writeLine(telNum)
+myfile.close()
+   else
+    print ("Not Long Enough")
+   endif
+   else
+     print (“Needs To Start With
+0”)
+   endif
+endprocedure()
+```
+'''

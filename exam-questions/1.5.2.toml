@@ -1,0 +1,520 @@
+# OCR exam questions for 1.5.2 Moral and ethical Issues.
+# Copied as text from the question paper and mark scheme PDFs in sources/
+# by tools/extract-exam-questions. Diagrams are not copied. Corrections by
+# hand are fine: the tool will not overwrite this file without --force.
+spec = "1.5.2"
+
+[[question]]
+number = 1
+marks = 12
+
+[[question.part]]
+label = "1"
+marks = 12
+text = '''
+The Regulation of Investigatory Powers Act (2000) has been described as both a vital legal tool to ensure the public’s safety and an attack on an individual’s freedoms.
+
+Evaluate the purpose and use of the Act.
+
+You should include:
+
+- the additional powers given under the Act
+- to whom these powers are given
+- the perceived benefits and/or drawbacks of the Act.
+'''
+
+[[question.mark_scheme]]
+label = "1"
+marks = 12
+answer = '''
+**Mark Band 3 – High Level (9–12** **marks)**\
+The candidate demonstrates a thorough knowledge and\
+understanding of The Regulation of Investigatory Powers Act (RIPA) 2000. The material is generally accurate and detailed.
+
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation.
+
+The candidate is able to weigh up both sides of the argument which results in a supported and realistic judgement covering the benefits and drawbacks of the Act. This is well balanced.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2 – Mid Level (5–8** **marks)**\
+The candidate demonstrates reasonable knowledge and\
+understanding of The Regulation of Investigatory Powers Act (RIPA) 2000; the material is generally accurate but at times underdeveloped.
+
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence / examples are for the most part implicitly relevant to the explanation.
+
+The candidate makes a reasonable attempt to come to a conclusion showing some recognition of benefits and/or drawbacks. This may not be
+
+well-balanced, covering one side significantly more than the other, although both sides will be present.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1 – Low Level (1–4** **marks)**\
+The candidate demonstrates a basic knowledge of The Regulation of Investigatory Powers Act (RIPA) 2000; the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and\
+understanding to the context provided.
+
+The candidate provides nothing more than unsupported assertions. Any conclusion, if present, will be almost entirely one-sided.
+
+The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 mark**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+The following shows example content that may form part of a candidate’s answer. It is not intended to be an exhaustive resource, nor should a candidate be expected to specifically cover any particular amount of this.
+
+**Knowledge (AO1)**
+
+- Implements additional rights regarding surveillance / monitoring of individuals and acquisition of communications data
+- Provides the right for many organisations (including the Police and security services) to do this.
+- Purpose is to detect crime and defend national security (e.g. terrorism, public disorder)
+- Gives access to individuals’ private communications, such as emails, text messages, phone calls, Internet history.
+- Some people feel this is an invasion of their privacy
+
+**Application (AO2)**
+
+- Monitoring can be carried out by far more organisations than just the Police and Security services – for example, local councils, the pension regulator and the Environment Agency are all able to use surveillance or request data about individuals.
+- If files are encrypted, the Act gives powers to force the handover of keys (from individuals or organisations) with a 2 year prison sentence possible on refusal.
+- Wide ranging powers have allowed Police and Security services to intercept criminals’
+
+communications and stop / disrupt crime.
+
+**Evaluation (AO3)**
+
+- In the modern world, it is important that Police and Security services are given the power to deal with electronic communications in this way. Many crimes (e.g. terrorism) can be detected and stopped before they occur, making the public safer.
+- However, some say that it is now a “snooper’s charter”, with more organisations using their powers for minor offences such as detecting those lying about their address to get children into a better school or fly-tipping.
+- Many communication tools (e.g. WhatsApp) now include end-to-end encryption by default so that messages cannot be divulged by the organisation because they do not have access to it. Other encryption tools include plausible deniability.
+
+**Examiner’s Comments**
+
+Responses to this question were varied, some candidates showed a clear understanding of the powers and to whom they are given. Some were aware of the powers but focused on the police or security services in their response. Some went off track, talking about other countries. In general this was not answered well and candidates tended to have a one sided view of the act.
+'''
+
+[[question]]
+number = 2
+marks = 9
+
+[[question.part]]
+label = "2"
+marks = 9
+text = '''
+\* Amit is studying Computer Science at university. He has been asked to write an assignment on Artificial Intelligence (AI).
+
+Discuss the extent to which you think computer systems will inherit the biases and discrimination of their programmers as the use of AI increases.
+
+You should include the following in your answer:
+
+- the meaning of AI
+- examples of when AI may be affected by bias
+- the measures that can be taken to prevent people being affected by bias in AI.
+'''
+
+[[question.mark_scheme]]
+label = "2"
+answer = '''
+**Mark Band 3–High Level (7-9** **marks)**\
+The candidate demonstrates a thorough knowledge and
+
+9 (AO1.1) (2), (AO1.2)
+
+understanding of artificial intelligence, machine learning and how biases can be inherited. The material is generally accurate and detailed.
+
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation.
+
+The candidate provides a thorough discussion which is well balanced. Evaluative comments are consistently relevant and well-considered.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2-Mid Level (4-6 marks)** The candidate demonstrates reasonable knowledge and\
+understanding of artificial intelligence, machine learning and/or how biases can be inherited; the material is generally accurate but at times underdeveloped.
+
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.
+
+The candidate provides a sound discussion, the majority of which is focused. Evaluative comments are for the most part appropriate, although one or two opportunities for development are missed.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1-Low Level (1-3 marks)** The candidate demonstrates a basic knowledge of some aspects of artificial intelligence or machine
+
+(2), (AO2.1) (2), (AO3.3). (3)
+
+learning; the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided.
+
+The candidate provides a limited discussion which is narrow in focus. Judgments if made are weak and unsubstantiated. The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+AO1\
+Artificial intelligence is used for computer systems that are required to perform tasks that normally require
+
+human intelligence. AI is generally programmed. Machine learning is where a machine improves its performance/output through experience/access to data. Machine learning is a subset of AI.
+
+AO2\
+AI follows programming so if a program contains biases then so will the AI outcomes. Programmers must be aware of this and tackle it during design/implementation/testing. Machine learning bias depends on data given. Larger data sets are generally more inclusive/less biased but must be aware of data that is itself biased. Candidates may give examples that meet this.
+
+AO3\
+Thorough testing, multiple\
+programmers and scrutiny of data sets are essential to ensure that unconscious biases are not inherited. If not thoroughly considered then biases will certainly be inherited. Datasets for machine learning need to be large enough to be representative but not so large that data is not able to be checked.
+
+**Examiner’s Comments**\
+There were a wide range of responses to this question and a wide range of marks given. The most successful responses were able to address all parts of the question and could give the meaning of AI as well as some relevant examples of AI bias. They were also able to give at least one measure that could be taken. Many candidates used self-driving cars as their only example and should be encouraged to explore the use of AI in different fields. Some confused the AI being biased with people being biased against AI. Many candidates were unable to give relevant measures for preventing bias. Candidates should be encouraged to make sure they include all points the question asked for, in their answer.
+'''
+
+[[question]]
+number = 3
+marks = 9
+
+[[question.part]]
+label = "3"
+marks = 9
+text = '''
+\* Many technologists predict that in the future, shops on the high street will use facial recognition to identify customers before they walk into a shop.
+
+Discuss the possible benefits and drawbacks of technology being used in this way.
+
+You should refer to the following in your answer:
+
+- The benefits and drawbacks to both the customers and businesses
+- Moral and ethical issues
+- Legal issues
+'''
+
+[[question.mark_scheme]]
+label = "3"
+marks = 9
+answer = '''
+**Mark Band 3–High Level**\
+**(7-9 marks)**\
+The candidate has weighed up benefits and drawbacks of the technology and has applied the moral, legal and ethical issues to both the customer and the business; the material is generally accurate and detailed.\
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation. The candidate will have come to a fully justified conclusion.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2-Mid Level**\
+**(4-6 marks)**\
+The candidate has weighed up benefits and drawbacks of the technology. They will have explored some of the moral, legal and ethical issues but they may not be equally spread across both the customer and the business; the material is generally accurate but at times underdeveloped.
+
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.\
+The candidate will have come to a conclusion although they may not fully justify it.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1-Low Level**\
+**(1-3 marks)**\
+The candidate identifies some of the benefits and drawbacks, though they have probably shown little\
+consideration of the legal, ethical and moral issues; the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided.\
+The candidate may not reach a recognisable conclusion.
+
+The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+**Knowledge: Benefits**\
+Customer:
+
+- Personalised offers
+
+Business:
+
+- Targeted adverts
+- Able to track movement habits of customers
+- Provide more personalised shopping experiences.
+
+**Drawbacks**\
+Customer:
+
+- Personal intrusion
+- Invasion of privacy
+- Pressured selling
+
+Business:
+
+- Cost of infra structure
+- Viewed as invading personal privacy
+
+**Moral and Ethical issues**
+
+- Violation of civil liberties
+
+- Recording people on the street who are not going into the shop
+
+**Legal issues:**
+
+- under data protection laws the shop would need to `o` Keep any data recorded secure `o` Personal data should be accurate and up to date
+
+**Application:**\
+**Benefits**\
+Customer:
+
+- Personalised experience will lead to more convenient shopping trips
+- Staff will give personalised service
+
+Business:
+
+- Tracking movement of customers means able to identify best opening times
+- Tracking customers around shop allows better analysis of popular products
+- Use of modern technology will make the shop be seen as forward thinking.
+
+**Drawbacks**\
+Customer:
+
+- Customers may not want to be “pressured” meaning they decide not to shop there anymore.
+- Tracking data could be hacked and used by criminals
+
+Business:
+
+- Extra hardware costs may lead to higher prices/competitors undercut them.
+
+- Customers who feel their privacy has been invaded may “vote with their feet”
+
+**Moral and Ethical issues**
+
+- Abuse of civil liberties could damage reputation of shop
+
+**Legal issues:**
+
+- Shop may need to add extra software to blur out faces of non-customers
+- Shop will need to spend more money on data protection compliance, leading to higher costs.
+
+**Evaluation:**\
+Benefits
+
+- Increased revenue from directed sales offset extra costs from hardware/legal obligations
+- Improved reputation through use of modern technologies may attract more customers
+
+Drawbacks:
+
+- Loss of customer base due to customers unhappy with “pushy techniques”
+- Poor public opinion from invasive advertising puts new customers off.
+
+**Examiner’s Comments**\
+Candidates were assessed on the quality of their extended response in this question.
+
+Most candidates understood the basic concept of storing personal details being a violation of customers civil liberties. Few candidates had a balanced discussion and focused too
+
+heavily on the negative aspects of this system therefore being restricted to a mid-level mark.
+'''
+
+[[question]]
+number = 4
+marks = 9
+
+[[question.part]]
+label = "4"
+marks = 9
+text = '''
+\* “The Computer Misuse Act means that computer users are criminalised for simply trying to learn how systems work.”
+
+Discuss whether or not you agree with this statement.
+'''
+
+[[question.mark_scheme]]
+label = "4"
+marks = 9
+answer = '''
+**Mark Band 3–High Level (7-9** **marks)**\
+The candidate demonstrates a thorough knowledge and\
+understanding of legislation including the Computer Misuse Act. The material is generally accurate and detailed.
+
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation.
+
+The candidate provides a thorough discussion which is well balanced. Evaluative comments are consistently relevant and well-considered.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2-Mid Level (4-6 marks)** The candidate demonstrates reasonable knowledge and\
+understanding legislation including the Computer Misuse Act; the material is generally accurate but at times underdeveloped.
+
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.
+
+The candidate provides a sound discussion, the majority of which is focused. Evaluative comments are for the most part appropriate, although one or two opportunities for development are missed.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1-Low Level (1-3 marks)** The candidate demonstrates a basic knowledge of legislation including the Computer Misuse Act; the material is basic and contains some\
+inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided.
+
+The candidate provides a limited discussion which is narrow in focus. Judgments if made are weak and unsubstantiated. The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+AO1\
+Computer Misuse Act is legislation aimed at criminalising unauthorised access to a computer system Three stages:\
+Unauthorised access to a computer system\
+Unauthorised access with intent to commit further offences\
+Unauthorised modification of computer material\
+Punishable by up to twelve months in prison and an unlimited fine.
+
+AO2\
+Computer users who investigate how systems work require authorisation in order to not break the Act.\
+Examples such as changing a social media post on a friend’s mobile phone potentially breaks all three sections of the Act.\
+Investigation of systems can break the Act without intent, e.g. by changing server logs because of their actions.\
+Users must be aware of the Act (as with any other law) in order to be responsible.
+
+AO3\
+Material available online (e.g. self study videos) that explain how systems work and teach without the need to investigate using\
+unauthorised access.\
+Investigating systems that you own yourself or have authorisation to access does not break the law. Systems are offered to users with strict conditions attached and investigation is not a legitimate excuse for breaking the law. Ethical / white hat hackers will not break this law because they have authorisation.\
+Grey and black hat hackers will break Computer Misuse Act.
+'''
+
+[[question]]
+number = 5
+marks = 9
+
+[[question.part]]
+label = "5"
+marks = 9
+text = '''
+\* “When it comes to government electronic surveillance, if you have nothing to hide, you have nothing to fear.”
+
+Discuss whether or not you agree with this statement. You should include:
+
+- To what extent the UK government is able to monitor electronic communications of its citizens
+- Technical measures citizens can take to help prevent their communications being monitored.
+'''
+
+[[question.mark_scheme]]
+label = "5"
+marks = 9
+answer = '''
+**Mark Band 3–High Level (7-9** **marks)**\
+The candidate demonstrates a thorough knowledge and\
+understanding of electronic communication monitoring techniques and the social and legal impact of this. The material is generally accurate and detailed.
+
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation.
+
+The candidate provides a thorough discussion which is well balanced. Evaluative comments are consistently relevant and well-considered.
+
+There is a well-developed line of reasoning which is clear and logically
+
+structured. The information presented is relevant and substantiated.
+
+**Mark Band 2-Mid Level (4-6 marks)** The candidate demonstrates reasonable knowledge and\
+understanding electronic\
+communication monitoring techniques and the social and legal impact of this; the material is generally accurate but at times underdeveloped.
+
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.
+
+The candidate provides a sound discussion, the majority of which is focused. Evaluative comments are for the most part appropriate, although one or two opportunities for development are missed.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1-Low Level (1-3 marks)** The candidate demonstrates a basic knowledge of electronic\
+communication monitoring techniques and the social and legal impact of this; the material is basic and contains some inaccuracies. The candidate makes a limited attempt to apply acquired knowledge and\
+understanding to the context provided.
+
+The candidate provides a limited discussion which is narrow in focus. Judgments if made are weak and unsubstantiated. The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**
+
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+AO1\
+Encryption means that data is scrambled so that if it is intercepted, it cannot be understood.\
+Requires the use of a key to decrypt. Symmetric encryption uses on key for encrypt/decrypt and so key exchange is problematic.\
+Asymmetric encryption uses different keys (public and private) so no need to exchange keys.\
+Regulation of Investigatory Powers Act (RIPA) gives authorities the power to compel disclosure of encryption keys
+
+AO2\
+Encrypted messages cannot be read by outsiders without the key RIPA gives Police the power to insist on users decrypting messages / handing over the key to allow reading of messages.
+
+Many messaging services already include end-to-end encryption by default\
+Use of VPNs to re-route traffic and attempt to escape monitoring possible The ending of encrypted data shows that two parties are passing information they want to keep secret. Techniques like steganography can be used to his the existence of encrypted data.
+
+AO3\
+Monitoring communication runs the risk of revealing secret but non-illegal communications\
+Restricting encryption means that secure sites (eg banks) may struggle to function\
+Legislation (RIPA) already ensures that communications can be monitored if there is just cause Routine monitoring runs the risk of false-positives\
+However, will reduce risk of illegal activities being co-ordinated (e.g. terrorism, drug trafficking).
+'''
+
+[[question]]
+number = 6
+marks = 9
+
+[[question.part]]
+label = "6"
+marks = 9
+text = '''
+\*OCR Car Park would like to calculate the parking charges when a car leaves their car park.
+
+They will need to record the time that a car enters and leaves their car park in order to calculate the parking charge.
+
+Discuss the different methods that could be used to collect this data.
+
+In your answer you should include:
+
+- The benefits and drawbacks of each method
+- Ethical implications
+- Legal implications
+
+**END OF QUESTION PAPER**
+'''
+
+[[question.mark_scheme]]
+label = "6"
+marks = 9
+answer = '''
+**Mark Band 3–High Level**\
+**(7-9 marks)**\
+The candidate demonstrates a thorough knowledge and\
+understanding of relevant data collection methods. They have covered a range of ethical issues and relevant legislation; the material is generally accurate and detailed across all three.\
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation. The candidate has used a range of ethical implications and laws to justify their conclusion
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2-Mid Level**\
+**(4-6 marks)**\
+The candidate demonstrates reasonable knowledge and\
+understanding of relevant data collection methods. They have covered ethical issues and relevant legislation; the material is generally accurate but at times underdeveloped. The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.\
+The candidate has either good consideration of ethical issues or legal issues or a weaker consideration of both. These are used to come to some justification although it may not be completely justifiable.
+
+There is a line of reasoning presented with some structure. The information
+
+presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1-Low Level**\
+**(1-3 marks)**\
+The candidate demonstrates a basic knowledge of relevant data collection methods. They have covered ethical issues or relevant legislation; the material is basic and contains some inaccuracies.\
+The candidate makes a limited attempt to apply acquired knowledge and understanding to the context provided.\
+The candidate provides comes to a conclusion though there may be little considerations of legal or ethical issues to back it up.
+
+The information is basic and communicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+**AO1.1**
+
+- Automatic Number Plate Recognition (ANPR) could be used. This makes use of OCRto turn number plates on camera into digital characters.
+- Use of a token/ticket could be used when cars enter the car park which is time stamped.
+- Staff could be employed to manually record the time cars enter the car park and then again when cars leave.
+- Sensor could be used to detect cars entering / leaving the car park.
+- Photographs of vehicles can be taken when cars enter / leave the car park. These can be time stamped.
+
+**AO2.1**
+
+- Data will be input into an algorithm that will work out the price based on amount of time car has spent in car park.
+- If the car park is considering storing videos / photographs of the cars then they will need to follow current data protection legislation as these may contain faces of people.
+- Car park users may see this as an invasion of privacy. Civil liberty issues as movements are being tracked / monitored.
+- Automated systems are likely to be more reliable and will produce statistical data that can be analysed better. Manual methods may be prone to human error. Automatic methods will allow for quicker processing than if a human was doing it.
+- Lower overheads as no human to employ.
+
+- They could connect to the other databases (e.g. police and DVLA) to check that cars are genuine (e.g. can check if cars have been stolen)
+- If connecting the cameras over the internet, then this would make them susceptible to hackers and therefore security methods would need to be put in place.
+
+**AO3.3**
+
+- If automated systems are used then this can lead to improved customer satisfaction and lower costs due to streamlined system. However this could lead to less employment in the local area as computer systems taking over jobs.
+- Some people may be afraid of using carpark due to cameras.
+- Data protection laws should mean consumers are protected `o` System secure `o` Data only stored for a short time `o` Only relevant data stored
+'''

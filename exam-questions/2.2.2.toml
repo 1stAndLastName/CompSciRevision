@@ -1,0 +1,1170 @@
+# OCR exam questions for 2.2.2 Computational methods.
+# Copied as text from the question paper and mark scheme PDFs in sources/
+# by tools/extract-exam-questions. Diagrams are not copied. Corrections by
+# hand are fine: the tool will not overwrite this file without --force.
+spec = "2.2.2"
+
+[[question]]
+number = 1
+marks = 9
+
+[[question.part]]
+label = "1(a)"
+text = '''
+A group of students are designing a racing car game. The game will allow players to enter their name and then a choice of vehicle. They will then race against other vehicles that will be controlled by the program. Players will use the arrow keys to control their vehicle.
+
+The students use abstraction during the design process.
+'''
+
+[[question.part]]
+label = "1(a)(i)"
+marks = 3
+text = '''
+State what is meant by abstraction **and** describe how it can be used to design the racing car game.
+
+Definition
+
+Use
+'''
+
+[[question.part]]
+label = "1(a)(ii)"
+marks = 3
+text = '''
+Explain why it is beneficial to use abstraction when designing a computer program such as a game.
+'''
+
+[[question.part]]
+label = "1(b)(i)"
+marks = 1
+text = '''
+The group of students use decomposition.
+
+State what is meant by decomposition.
+'''
+
+[[question.part]]
+label = "1(b)(ii)"
+marks = 2
+text = '''
+Describe **one** benefit of using decomposition when designing a computer program such as a game.
+'''
+
+[[question.mark_scheme]]
+label = "1(a)(i)"
+marks = 3
+answer = '''
+1 mark for definition, 1 mark each for each example of use to max 2 (3 overall)\
+**Definition:**
+
+- Removal of unnecessary detail
+
+**Example use:**
+
+- E.g. simplifying scenery
+- E.g. removing internal features of a vehicle that are not needed
+- E.g. simplify physics for vehicle movement
+- E.g. The vehicles may not be drawn to scale
+'''
+guidance = '''
+Allow any reasonable examples for this scenario
+
+For the example use, allow 2 marks for stating a valid example of abstraction with an expansion. For example,“simplify track (1) by taking out the bumps in the road (1)” would be given two marks.
+
+**Examiner’s Comments**
+
+Many candidates scored two marks for defining abstraction and giving one example of its application to the game, but fewer managed to identify a second example for full marks.
+'''
+
+[[question.mark_scheme]]
+label = "1(a)(ii)"
+marks = 3
+answer = '''
+1 mark each to max 2
+
+- Simplifies the problem / algorithm / programming code
+- Faster to create the program code
+- Final program uses less memory/processor time
+- Programmer can focus on core aspects of the game
+- Completed game will be simpler for end users to understand / play
+'''
+guidance = '''
+Do not accept a reiteration of a definition of abstraction.
+
+**Examiner’s Comments**
+
+Some candidates reiterated a definition of abstraction and did not focus on the benefits of abstraction as the question required. Most candidates struggled to give more than one or two benefits. There were also a number of unqualified responses such as ‘saves time’ that did not specify ‘saving coding development time’.
+'''
+
+[[question.mark_scheme]]
+label = "1(b)(i)"
+marks = 1
+answer = '''
+Splitting the problem down into smaller (sub) problems
+'''
+guidance = '''
+**Examiner’s Comments**
+
+Most candidates correctly defined decomposition, but some candidates lost marks for lack of clarity for not specifying that a problem is broken down into sub problems.
+'''
+
+[[question.mark_scheme]]
+label = "1(b)(ii)"
+marks = 2
+answer = '''
+1 mark each to max 2 e.g.
+
+- To break the problem down into individual components
+- …to see which components can be tackled concurrently
+- Identify any resusable program elements …
+- …to avoid creating the same algorithm twice
+- Split the program between individuals
+- … so they can focus on individual elements / to focus on their speciality
+- Identify the subroutines and how they will interract
+- …so everyone knows the requirements for their part of the problem
+- Easier to tackle/focus on one smaller problem at a time…
+- … so this simplifies writing/testing code
+'''
+guidance = '''
+Allow for other valid benefits of using decomposition.
+
+**Examiner’s Comments**
+
+Many candidates identified that decomposition would make it simpler to code individual subproblems but then lacked a clear related expansion. The most popular response was that this allowed workload to be shared between different members of a team to reduce overall development time or to play to team member expertise.
+'''
+
+[[question]]
+number = 2
+marks = 12
+
+[[question.part]]
+label = "2"
+marks = 12
+text = '''
+A company runs a Virtual Learning Environment (VLE). Schools can register students to use the VLE. The students get their own account and the school can view and monitor their students who are registered. There are currently over 10 000 schools registered, each with up to 1000 students.
+
+The students can watch videos, take quizzes and communicate using forums and online chat tools.
+
+The company gathers a large amount of data and wants to use data mining to help them decide how to improve the VLE in the future.
+
+Discuss how the company can use data mining to decide how to improve the VLE.
+
+You should include the following in your answer:
+
+- the characteristics of data mining
+- the benefits of data mining in this scenario
+- the drawbacks of data mining in this scenario.
+'''
+
+[[question.mark_scheme]]
+label = "2"
+marks = 12
+answer = '''
+**Mark Band 3 - High level (9-12** **marks)**\
+The candidate demonstrates a thorough knowledge and\
+understanding of data mining; the material is generally accurate and detailed.\
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation. There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2 - Mid level (5-8 marks)** The candidate demonstrates reasonable knowledge and understanding of data mining; the material is generally accurate but at times underdeveloped.\
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed.
+
+Evidence/examples are for the most part implicitly relevant to the explanation.\
+The candidate provides a reasonable discussion, the majority of which is focused.\
+Evaluative comments are, for the most part appropriate, although one or two opportunities for development are missed.\
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1 - Low Level (1-4** **marks)**\
+The candidate demonstrates a basic knowledge of data mining with limited understanding shown; the material is basic and contains some\
+inaccuracies. The candidates makes a limited attempt to apply acquired knowledge and understanding to the context provided.\
+The candidate provides a limited discussion which is narrow in focus. Judgements if made are weak and unsubstantiated.\
+The information is basic and comunicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 mark**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+**AO1: Knowledge and**\
+**Understanding Indicative content**
+
+- Analysis of patterns and anomalies in large data sets
+- Turns large quantities of data into useful information. These may not be immediately obvious to a casual reader.
+- Resulting information is used to make predictions, to increase revenue, to target advertising and improve services.
+
+**AO2: Application**
+
+- Identify the amount of time students spend on the system
+- Identify the days / times when is it used most? Least?
+- Identify the features/tools students use most and least
+- Identify which questions find the most difficult.
+
+- Identify the time / day of the week when students learn the most
+- Identify which schools are performing better or which areas of the country are performing better.
+- Identify which courses students are enjoying more
+
+**AO3: Evaluation**
+
+- Data mining can spot patterns/trends, however it cannot explain them. Company may still need to do extra research.
+- Students may have privacy concerns about their activities being logged.
+- Requires powerful computers with a lot of processing power to process huge amounts of data.
+- Need to make sure data collection is legal and in terms and conditions
+- Analysis can be costly e.g. may need an external company
+- Security - data being collected requires protection
+- Include more features students use so they will use it more, and gain more revenue
+- Identifying features not used means resources and development can be moved from these onto other areas
+
+**Examiner’s Comments**
+
+Many Level 2 responses\
+demonstrated an ability to define data mining and give relevant examples of its use. Few candidates were able to give an evaluative critique as to the effectiveness of data mining for this scenario.
+
+Many candidates struggled to structure their responses. Where candidates did produce a clear structure, they often used paragraphs effectively, starting with a definition, considering benefits and drawbacks, then going on to evaluate within the parameters of the scenario.
+'''
+
+[[question]]
+number = 3
+marks = 9
+diagram = true
+
+[[question.part]]
+label = "3"
+marks = 9
+text = '''
+A computer game has a building containing 7 rooms. There are secret passages between each room. **Fig. 3** shows the rooms and the passages between the rooms represented as a graph data structure.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 3**
+
+The final game will involve multiple computer-controlled characters and interactive elements that make use of artificial intelligence to determine the moves they will make.
+
+The artificial intelligence will use heuristics to determine where the computer-controlled characters will move in the game.
+
+Discuss how heuristics can be used in algorithms.
+
+You should include the following in your answer:
+
+- the purpose of heuristics
+- the benefits and drawbacks of heuristics
+- the suitability of heuristics in algorithms within a computer game.
+'''
+
+[[question.mark_scheme]]
+label = "3"
+marks = 9
+answer = '''
+**Mark Band 3 – High level (7-9** **marks)**
+
+The candidate demonstrates a thorough knowledge and\
+understanding of heuristics; the material is generally accurate and detailed.\
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation.
+
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2 – Mid level (4-6 marks)**
+
+The candidate demonstrates reasonable knowledge and understanding of heuristics; the material is generally accurate but at times underdeveloped.\
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.\
+The candidate provides a reasonable discussion, the majority of which is focused. Evaluative comments are, for the most part appropriate, although one or two opportunities for development are missed.
+
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant
+
+and supported by some evidence.
+
+**Mark Band 1 – Low Level (1-3** **marks)**
+
+The candidate demonstrates a basic knowledge of heuristics with limited understanding shown; the material is basic and contains some\
+inaccuracies. The candidates makes a limited attempt to apply acquired knowledge and understanding to the context provided.\
+The candidate provides a limited discussion which is narrow in focus. Judgements if made are weak and unsubstantiated.
+
+The information is basic and comunicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 mark**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+**AO1: Knowledge and**\
+**Understanding Indicative content**
+
+- Heuristics are used to reduce time taken to solve a problem
+- It is a general ‘rule of thumb’ or an educated guess.
+- It finds a solution which is ‘good enough’ / close to the best solution
+- Heuristic is a weight added to a node/decision
+- E.g. Description of use such as in A\* algorithm as estimate of distance to destination
+
+**AO2: Application**
+
+- Heuristics reduce the time complexity as every possibilities within the game does not need to be examined.
+- Heuristics require skill to implement effectively
+- Used in AI when the exact steps cannot be pre- programmed and decisions need making
+- Due to time-saving, they are not always accurate, the solution e.g. shortest path might not be the most efficient.
+
+**AO3: Evaluation**
+
+- Heuristics are more appropriate with complex time- critical tasks - some aspects of game may require faster
+
+searching/decisions - current graph is not complex or time- critical so not required
+
+- Heuristics are more appropriate with large-scale tasks - game could be large scale and AI algorithms may need to be shortened
+- Games are not life-critical, so a good answer is likely enough, a perfect answer is not necessarily required.
+- Avoid programs running indefinitely - in a computer game there could be too many possibilities so will terminate with a solution faster
+
+**Examiner’s Comments**
+
+Candidates demonstrated reasonable knowledge of heuristics in terms of definition and application to the game. Many candidates identified some benefits and drawbacks and the need to have an accurate heuristic value. Few candidates were able to give a detailed evaluation, or expand to scalability for example, to achieve a Level 3 response.
+'''
+
+[[question]]
+number = 4
+marks = 9
+
+[[question.part]]
+label = "4"
+marks = 9
+text = '''
+A company needs a new computer program that will create schedules for delivery drivers. It will need to identify a possible order that the drivers can deliver items and possible routes they could take.
+
+Discuss how programmers could make use of problem recognition and problem decomposition when designing this system.
+
+You should include the following in your answer:
+
+- a description of both problem recognition and decomposition
+- how each method can be used when designing the solution
+- the benefits of using each method when designing the solution.
+'''
+
+[[question.mark_scheme]]
+label = "4"
+marks = 9
+answer = '''
+**Mark Band 3 – High level**\
+**(7–9 marks)**\
+The candidate demonstrates a thorough knowledge and\
+understanding of both computational thinking methods; the material is generally accurate and detailed. The candidate is able to apply their knowledge and understanding directly and consistently to the context provided. Evidence/examples will be explicitly relevant to the explanation. There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2 – Mid level**\
+**(4–6 marks)**
+
+The candidate demonstrates reasonable knowledge and understanding of both computational thinking methods; the material is generally accurate but at times underdeveloped.\
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.\
+The candidate provides a reasonable discussion, the majority of which is focused. Evaluative comments are, for the most part appropriate, although one or two opportunities for development are missed.\
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence.
+
+**Mark Band 1 – Low Level**\
+**(1–3 marks)**\
+The candidate demonstrates a basic knowledge of both computational thinking methods with limited understanding shown; the material is basic and contains some\
+inaccuracies. The candidates makes a limited attempt to apply acquired knowledge and understanding to the context provided.\
+The candidate provides a limited discussion which is narrow in focus. Judgements if made are weak and unsubstantiated.\
+The information is basic and comunicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 mark**\
+No attempt to answer the question or response is not worthy of credit.
+'''
+guidance = '''
+**AO1: Knowledge and**\
+**Understanding**\
+**Indicative content**
+
+- Problem recognition is identifying that there is a problem to be solved, to determine exactly what the problem is from a description/scenario and to determine if the problem can be solved with computational methods
+- Decomposition is splitting the problem down into subproblems that can be solved independently
+
+**AO2: Application**
+
+- Problem recognition: identifying the need for the scheduling system, what it will take as its inputs, what will need to be output etc.
+- Decomposition: subproblems could include: `o` inputting the requirements `o` generating possible routes `o` evaluating the routes `o` outputting the schedule
+
+**AO3: Evaluation**\
+Computational methods allow the e.g.:
+
+- programmer to determine what the problem, what the challenges may be and what additional information is required before starting to code the solution
+- identification of the key features for programmers to focus on
+- splitting of the task into smaller, more manageable/solvable problems which allows for a solution to be developed quicker
+- design of an effective/efficient solution that makes best use of a processor
+- splitting of a task to allow programmers to focus on areas they specialise in.
+
+**Examiner’s Comments**
+
+Many Level 1 responses gave simplistic definitions of problem recognition and/or decomposition, often with more successful\
+descriptions for decomposition. Relatively few candidates could clearly state that problem recognition starts with identifying inputs and outputs. Some degree of application to the question scenario context was required for Level 2. Most candidates’ marks clustered around Level 2 with 4
+
+or 5 marks. Many generic answers focused on problem recognition and/or decomposition as learnt terms, with associated benefits given, but little more than that, which limited marks to Level 2. For Level 3 an evaluation of ideas relevant to the context of the scenario given was expected.
+
+Some good responses indicated recognition of a pathfinding type problem with a need for shortest path/A\* algorithm, approximation to travelling salesman type solutions or the need to employ heuristics. Candidates giving this level of insight often accessed Level 3.
+'''
+
+[[question]]
+number = 5
+marks = 40
+diagram = true
+
+[[question.part]]
+label = "5(a)"
+text = '''
+A Nonogram is a logic puzzle where a player needs to colour in boxes. The puzzle is laid out as a grid and each square needs to be either coloured black or left white.
+
+The numbers at the side of each row and column tells the player how many of the boxes are coloured in consecutively. Where a row has two or more numbers, there must be a white square between the coloured squares.
+
+*[Diagram in the original paper, not shown here.]*
+
+In this example:
+
+the first column has 1 1, this means there must be two single coloured boxes in this column. There
+
+-  must be at least 1 white box between them.
+- the first row has 2, this means there must be two consecutively coloured boxes in the row.
+
+Juan is creating a program that will store a series of Nonograms for a user to play. The game will randomly select a puzzle and display the blank grid with the numbers for each row and column to the user.
+
+The user plays the game by selecting a box to change its colour. If the box is white it will change to black and if it is black it will change to white. The user can choose to check the answer at any point, and the game will compare the grid to the answers and tell the user if they have got it correct or not.
+
+Juan is creating a structure diagram to design the game.
+'''
+
+[[question.part]]
+label = "5(a)(i)"
+marks = 3
+text = '''
+Complete the structure diagram by adding another layer for New game, Play game and Check answer.
+
+*[Diagram in the original paper, not shown here.]*
+'''
+
+[[question.part]]
+label = "5(a)(ii)"
+marks = 2
+text = '''
+A structure diagram is one method of showing the decomposition of a problem.
+
+Explain why decomposing a problem can help a developer design a solution.
+'''
+
+[[question.part]]
+label = "5(a)(iii)"
+marks = 3
+text = '''
+Identify **one** input, **one** process and **one** output required for the game.
+
+Input
+
+Process
+
+Output
+'''
+
+[[question.part]]
+label = "5(b)"
+text = '''
+Juan uses the structure diagram to create a modular program with a number of subroutines. The program will use two integer 2-dimensional arrays to store the puzzles:
+
+- `puzzle(5,5)` stores the solution
+- `answerGrid(5,5)` stores the user’s current grid.
+
+A `0` represents a white box and a `1` represents a black box.
+'''
+
+[[question.part]]
+label = "5(b)(i)"
+marks = 5
+text = '''
+Juan creates a function, `countRow()`, to count the number of coloured boxes in one row and return the number of consecutive coloured boxes in that row. If there is more than one set of coloured boxes in the row, these are joined together and the string is returned. For example, in the following grid `countRow` for row 0 will return "`2`" as a string, and `countRow` for row 2 will return "`1 1`" as a string. If there are no 1s in a row, then "`0`" is returned as a string.
+
+*[Diagram in the original paper, not shown here.]*
+
+Complete the pseudocode algorithm `countRow()`.
+
+```
+01   function countRow(puzzle:byref, rowNum:byval)
+02   count = 0
+03   output = " "
+04   for i = 0 to ……
+05    if puzzle[rowNum, i] == …… then
+06      count = count + 1
+07    elseif count >= 1 then
+08      output = output + str(……) + " "
+ 09      count = 0
+10    endif
+11   next i
+12   if count>= 1 then
+13      output=output+str(count)
+14   elseif output == "" then
+15      output = "……"
+16   endif
+17   return ……
+ 18 endfunction
+```
+'''
+
+[[question.part]]
+label = "5(b)(ii)"
+marks = 2
+text = '''
+Explain the purpose of line 03 in the function `countRow`.
+'''
+
+[[question.part]]
+label = "5(b)(iii)"
+marks = 3
+text = '''
+Describe the purpose of branching and iteration in the function `countRow`.
+'''
+
+[[question.part]]
+label = "5(b)(iv)"
+marks = 6
+text = '''
+The procedure `displayRowAnswer()` takes `puzzle` as a parameter and outputs the value in each box. Each box in a row is separated by a space. At the end of each row there are two spaces and (by calling the function `countRow` from **part (i)**) the clue values for that row.
+
+For example the puzzle below:
+
+*[Diagram in the original paper, not shown here.]*
+
+Would output:
+
+*[Diagram in the original paper, not shown here.]*
+
+Write pseudocode or program code for the procedure `displayRowAnswer()`.
+'''
+
+[[question.part]]
+label = "5(b)(v)"
+marks = 3
+text = '''
+The function `checkWon()` takes `answerGrid` and `puzzle` as parameters and compares each element in the grids. If they are identical, it returns `true`, otherwise returns `false`.
+
+```
+01   function checkWon(puzzle)
+02   for row = 0 to 4
+03    for column = 0 to 4
+04      if puzzle[row, column] == answerGrid[row, column] then
+ 05       return false
+06      endif
+07    next column
+08   next column
+09   return true
+ 10   endfunction
+```
+
+There are **three** logic errors in the function `checkWon`
+
+State the line number of each error and give the corrected line.
+
+Error 1 line number
+
+Error 1 correction
+
+Error 2 line number
+
+Error 2 correction
+
+Error 3 line number
+
+Error 3 correction
+'''
+
+[[question.part]]
+label = "5(c)"
+marks = 9
+text = '''
+\* Juan passed the two arrays as parameters, but he did consider making them globally accessible.
+
+Compare the use of global and local variables and data structures in this program. Include the use of parameters and program efficiency in your answer.
+'''
+
+[[question.part]]
+label = "5(d)"
+marks = 4
+text = '''
+Juan wants to create a program that will generate new Nonograms with different grid sizes. For example a Nonogram with a 10 × 10 grid or a 5 × 20 grid.
+
+Describe how the program could be written to automatically generate a new Nonogram.
+'''
+
+[[question.mark_scheme]]
+label = "5(a)(i)"
+marks = 12
+answer = '''
+1 mark per box up to a maximum of 3 marks.
+
+- **Select puzzle** and **display** **blank grid** (below new game)
+- **Select box** and **change** **colour of boxes** (below play game)
+- **Compare to answer** and **display correct/incorrect** (below check answer)
+
+e.g.
+
+*[Image in the original mark scheme, not shown here.]*
+'''
+
+[[question.mark_scheme]]
+label = "5(a)(ii)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g:\
+e.g.
+
+- Splits the problem into smaller chunks
+- Smaller problems are more manageable
+- Smaller problems are easier to solve
+- To see where code can be reused in the solution
+- To split tasks between different programmers
+'''
+
+[[question.mark_scheme]]
+label = "5(a)(iii)"
+marks = 3
+answer = '''
+1 mark for input, 1 for process 1 for output\
+e.g.\
+Input:
+
+- Clicking a box
+
+Process:
+
+- Generating new puzzle
+- Checking if block is black
+- Changing block to white
+
+Output:
+
+- Grid with coloured squares
+'''
+
+[[question.mark_scheme]]
+label = "5(b)(i)"
+marks = 5
+answer = '''
+1 mark for each correctly completed statement up to a maximum of 5 marks:
+
+```
+function
+01 countRow(puzzle:byref,
+rowNum:byval)
+02   count = 0
+03   output = " "
+04   for i = 0 To 4
+   if puzzle[rowNum, i]
+05
+== 1
+   then
+06     count = count + 1
+   elseif count >= 1
+07
+then
+08     output = output +
+    str(count) + " "
+09     count = 0
+10    endif
+11   next i
+12   if count>= 1 then
+
+13
+output=ouput+str(count)
+  elseif output == ""
+14
+then
+15     output = "0"
+16   endif
+17   return output
+  18 endfunction
+```
+'''
+guidance = '''
+Accept
+
+for i = 0 to **row.length-1**
+
+for i = 0 to **row.length**
+
+for i=0 to 5
+'''
+
+[[question.mark_scheme]]
+label = "5(b)(ii)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks, e.g:
+
+- Initialise the variable output…
+- …with a space
+- …for use later on in the code…
+- …So it can be used for concatenation later in the code …
+- …to avoid an error being generated
+'''
+
+[[question.mark_scheme]]
+label = "5(b)(iii)"
+marks = 3
+answer = '''
+1 mark per bullet up to a maximum of 3 marks, e.g:
+
+- check the value stored in each index
+- check whether it is at the end of a row
+- check whether each row has been given an output or not
+'''
+
+[[question.mark_scheme]]
+label = "5(b)(iv)"
+marks = 6
+answer = '''
+1 mark per bullet up to a maximum of 6 marks:
+
+- Procedure heading for displayRowAnswer
+- …taking puzzle as parameters
+- Nested loops through all array elements
+- …outputting all rows
+- … at the end of each row calling countRow ….
+- …..with parameters puzzle and the current loop counter
+
+e.g.
+
+```
+procedure
+displayRowAnswer(puzzle)
+  for i = 0 To 4
+   for j = 0 To 4
+    print(puzzle[i, j] + "
+")
+   next j
+   print (" " + countRow
+   (puzzle, i))
+  next i
+endprocedure
+```
+'''
+guidance = '''
+Accept
+
+for i = 0 to **row.length-1**
+
+for i = 0 to **row.length**
+
+for i=0 to **5**
+'''
+
+[[question.mark_scheme]]
+label = "5(b)(v)"
+marks = 3
+answer = '''
+1 mark for clearly identifying each error and giving the correction.
+
+- Line 01 needs `answerGrid` as parameter
+- Line 04 == should be !=
+- Line 08 should be `next row`
+'''
+guidance = '''
+Do not award marks for line numbers alone without stating the error.
+
+Consider 1 mark for not changing line 04 but changing 05 to true and 09 to False
+'''
+
+[[question.mark_scheme]]
+label = "5(c)"
+marks = 9
+answer = '''
+**Mark Band 3 – High level (7-9** **marks)**\
+The candidate demonstrates a thorough knowledge and\
+understanding of local and global variables; the material is generally accurate and detailed.\
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided.\
+Evidence/examples will be explicitly relevant to the explanation. The candidate is able to weigh up the use of both local and global variables which results in a supported and realistic judgment as to whether it is possible to use them in this context. There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2 – Mid level (4-6 marks)** The candidate demonstrates reasonable knoledge and\
+understanding of local and global variables; the material is generally accurate but at times underdeveloped. The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.\
+The candidate makes a reasonable attempt to come to a conclusion showing some recognition of influencing factors that would determine whether it is possible to use local and global variables in this context.\
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence
+
+**Mark Band 1 – Low Level (1-3** **marks)**\
+The candidate demonstrates a basic knowledge of local and global variables with limited understanding shown; the material is basic and contains some inaccuracies. The candidates makes a limited attempt to apply acquired knowledge and understanding to the context provided. The candidate provides nothing more than an unsupported assertion. The information is basic and comunicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+
+-
+
+d
+
+1 mark per bullet to max 4\
+e.g.
+
+- Make use of random numbers
+- Generate an x/horizontal size for the grid
+- Generate a y/vertical size for the grid
+- Loop through each row/column
+- …generate a number between 0 and the number of rows/columns (depending on MP4 answer)
+- Loop through each box
+- …generate a 1 or 0 to store in it
+'''
+guidance = '''
+**AO1: Knowledge and**\
+**Understanding**\
+**Indicative content**\
+Local variables:
+
+- Scope within the module defined within
+- Cannot access externally unless passed as parameter, or returned from function
+- When module is exited, memory of variable is freed
+
+Global variables:
+
+- Scope within the entire program
+- Can access from anywhere
+- Retained in memory permanently
+
+ByRef Points to location of variable ByVal Sends the value
+
+**AO2: Application**
+
+- If global the arrays can be accessed from all modules by direct reference
+- If local to the main, the arrays will need to be passed as parameters byreference
+- Can send ByVal – but not always possible with arrays in some languages
+- Modules are self contained and then can be reused in other programs he wants to create without needing to take the global variables with them
+
+**AO3: Evaluation**\
+e.g.
+
+- +ve Local = memory efficient
+
+- +ve Global = easier programming, simpler to follow, easier to debug
+- -ve Global = memory inefficient, not good programming technique
+- -ve Local = more difficult to trace/debug/follow where the values are passed
+- Relatively small program – don’t know about overall plan for it, it might not be memory intensive, unlikely anyone else is going to access/amend e.g. use as a library – therefore global would not waste significant resources
+'''
+
+[[question]]
+number = 6
+marks = 6
+
+[[question.part]]
+label = "6(a)"
+marks = 4
+text = '''
+Amy’s processor makes use of pipelining during the fetch-decode-execute cycle.
+
+The processor’s pipeline consists of the following stages:
+
+- Fetching the instruction from memory
+- Decoding the instruction
+- Executing the instruction.
+
+Instructions A, B, C and D need to be processed.
+
+Identify the stage(s) and instruction(s) run during each pipeline below.
+
+Pipeline 1
+
+Pipeline 2
+
+Pipeline 3
+
+Pipeline 4
+'''
+
+[[question.part]]
+label = "6(b)"
+marks = 2
+text = '''
+Explain why pipelining can improve the performance of the processor.
+'''
+
+[[question.mark_scheme]]
+label = "6(a)"
+marks = 4
+answer = '''
+1 mark for each interval
+
+Interval 1
+
+- A is fetched
+
+Interval 2
+
+- A is decoded
+- B is fetched
+
+Interval 3
+
+- A is executed
+- B is decoded
+- C is fetched
+
+Interval 4
+
+- B is executed
+- C is decoded
+- D is fetched
+'''
+
+[[question.mark_scheme]]
+label = "6(b)"
+marks = 2
+answer = '''
+1 mark per bullet up to a maximum of 2 marks:
+
+- Reduces/removes latency
+- … CPU is not idle while waiting for next instruction
+- Next instruction is fetched while current one is decoded/executed
+- All parts of the processor can be used at any instance in time.
+'''
+
+[[question]]
+number = 7
+marks = 4
+
+[[question.part]]
+label = "7"
+marks = 4
+text = '''
+Lucas writes a program that makes use of a circular queue. The queue stores the data entered into the program. An array is used to represent the queue.
+
+The program needs two pointers to access and manipulate the data in the queue.
+
+State the purpose of the two pointers and give an appropriate identifier for each.
+
+Pointer 1 purpose
+
+Pointer 1 identifier
+
+Pointer 2 purpose
+
+Pointer 2 identifier
+'''
+
+[[question.mark_scheme]]
+label = "7"
+marks = 4
+answer = '''
+1 mark for the purpose and 1 mark for matching appropriate name (4 marks total), e.g:
+
+- Pointer to the first element in the queue
+- firstElement / any other meaningful name
+- Pointer to the last element in the queue / Pointer to the first free element in the queue
+- lastElement / any other meaningful name
+'''
+guidance = '''
+Must cover purpose and name for 2 marks for each pointer.
+'''
+
+[[question]]
+number = 8
+marks = 2
+
+[[question.part]]
+label = "8"
+marks = 2
+text = '''
+Explain why a quicksort is known as a divide and conquer algorithm.
+'''
+
+[[question.mark_scheme]]
+label = "8"
+marks = 2
+answer = '''
+1 mark per bullet to max 2
+
+- decomposing data sets into smaller subsets
+- and then sorting each split subset
+- until each subset is sorted
+- and then combining the subsets to provide a solution
+'''
+
+[[question]]
+number = 9
+marks = 12
+
+[[question.part]]
+label = "9(a)"
+marks = 9
+text = '''
+\* The game will have thousands of users. Taylor will store data about the users and their actions while playing the game in a large database.
+
+Evaluate how Taylor can use data mining to inform future changes to improve his circus game.
+'''
+
+[[question.part]]
+label = "9(b)"
+marks = 3
+text = '''
+Taylor is creating an online multiplayer game where users can create accounts and build their own circus. Each circus will contain characters such as clowns, animals, magicians and dancers.
+
+Users can set up a new circus in the online world, purchase new characters and visit other users’ circuses.
+
+Taylor uses computational methods to analyse the problem including abstraction.
+
+Describe how Taylor could use abstraction in the design of his online circus game.
+'''
+
+[[question.mark_scheme]]
+label = "9(a)"
+marks = 9
+answer = '''
+**Mark Band 3 – High level (7-9** **marks)**\
+The candidate demonstrates a thorough knowledge and\
+understanding of data mining; the material is generally accurate and detailed.\
+The candidate is able to apply their knowledge and understanding directly and consistently to the context provided.\
+Evidence/examples will be explicitly relevant to the explanation. The candidate is able to weigh up the use of data mining which results in a supported and realistic judgment as to whether it is possible to use them in this context.\
+There is a well-developed line of reasoning which is clear and logically structured. The information presented is relevant and substantiated.
+
+**Mark Band 2 – Mid level (4-6 marks)** The candidate demonstrates reasonable knowledge and understanding of data mining; the material is generally accurate but at times underdeveloped.\
+The candidate is able to apply their knowledge and understanding directly to the context provided although one or two opportunities are missed. Evidence/examples are for the most part implicitly relevant to the explanation.\
+The candidate makes a reasonable attempt to come to a conclusion showing some recognition of influencing factors that would determine whether it is possible to use data mining in this context.\
+There is a line of reasoning presented with some structure. The information presented is in the most part relevant and supported by some evidence
+
+**Mark Band 1 – Low Level (1-3** **marks)**\
+The candidate demonstrates a basic knowledge of data mining with limited understanding shown; the material is
+
+basic and contains some\
+inaccuracies. The candidates makes a limited attempt to apply acquired knowledge and understanding to the context provided.\
+The candidate provides nothing more than an unsupported assertion. The information is basic and comunicated in an unstructured way. The information is supported by limited evidence and the relationship to the evidence may not be clear.
+
+**0 marks**\
+No attempt to answer the question or response is not worthy of credit.
+
+-
+
+b
+
+1 mark per bullet to max 3.\
+e.g.
+
+- Remove unnecessary details / remove character features that are not needed
+- e.g. remove the outside world
+- e.g. Remove complexity from the realistic entities / Simply real-life objects
+- e.g. simplify characters/animals/tents
+- e.g. by representing them with specific objects/shapes
+'''
+guidance = '''
+**AO1: Knowledge and**\
+**Understanding**\
+**Indicative content**
+
+- Data mining searches large amounts of data
+- Searches for relationships between facts/components/events that may not be obvious
+- May include pattern matching algorithms
+- May involve anomaly detection algorithms
+- Used for business modelling
+- Used to plan for future eventualities
+
+**AO2: Application**
+
+- Can look for how people use the website e.g. visiting times, what they click on, how long they spend on certain features, what they do first, which elements are used least
+- Give recommendations for future changes to the game e.g. features to add, or remove
+
+**AO3: Evaluation**\
+Candidates will need to evaluate the benefits and drawbacks of using data mining.\
+e.g.
+
+- Can use to introduce new features
+- Increase use from users
+- Increase revenue by selling features used more often
+- Make the game more appealing
+- Remove features people don’t use
+- Use to target advertising
+- Privacy concerns from users
+- Misuse of information
+'''
+
+[[question]]
+number = 10
+marks = 4
+
+[[question.part]]
+label = "10"
+marks = 4
+text = '''
+OCR-Tickets wants to sell tickets for their concerts, plays and other events online. A customer should be able to create an account and then be able to log into their account. Once logged in, customers should be able to carry out actions such as setting their preferences and purchasing tickets.
+
+OCR-Tickets have hired a software development company to create the system for them.
+
+The system requirements have a number of features that mean they are solvable by computational methods, such as decomposition.
+
+Explain why decomposition can help the development of the program.
+'''
+
+[[question.mark_scheme]]
+label = "10"
+marks = 4
+answer = '''
+1 mark per bullet to max 4\
+e.g.
+
+- Decomposition splits the problem into smaller sub problems
+- Repeated decomposition gives solvable parts
+- The division can lead to the development of subroutines/modules
+- The division can lead to a logical division between programmers/teams
+- ...e.g. one team works on one section and another concurrently on another
+'''
+
+[[question]]
+number = 11
+marks = 7
+diagram = true
+
+[[question.part]]
+label = "11"
+text = '''
+Sally is a classroom teacher. She would like a program to be able to organise where students will sit in her classroom.
+
+A plan of her classroom is shown **in Fig. 1**.
+
+*[Diagram in the original paper, not shown here.]*
+
+**Fig. 1**
+'''
+
+[[question.part]]
+label = "11(i)"
+marks = 3
+text = '''
+State **three** ways that Sally has made use of abstraction in Fig. 1.
+
+1
+
+2
+
+3
+'''
+
+[[question.part]]
+label = "11(ii)"
+marks = 4
+text = '''
+Explain **two** benefits to Sally of using abstraction before creating the programming code.
+
+1
+
+2
+
+**END OF QUESTION PAPER**
+'''
+
+[[question.mark_scheme]]
+label = "11(i)"
+answer = '''
+1 mark per bullet up to a maximum of 3 marks, e.g:
+
+- Classroom displays have been removed
+- People have been removed / simplified with symbols
+- Wall/carpet colours/details have been removed
+- Diagram is not to scale.
+
+3
+
+A02.1 (3)
+'''
+guidance = '''
+Allow other suitable responses that are applied to the scenario in the question.
+'''
+
+[[question.mark_scheme]]
+label = "11(ii)"
+answer = '''
+1 mark per bullet up to a maximum of 2 marks for each benefit (4 marks maximum in total), e.g:
+
+- Reduced development time (1) as factors that can detract from the program can be ignored (1)
+- Program more likely to solve the problem (1) as unnecessary aspects will not detract from the main purpose of the program (1)
+- Reduces complexity of programming code (1) therefore can run on lower spec computers(1)
+
+4
+
+A01.2 (2)
+
+A02.1 (2)
+'''

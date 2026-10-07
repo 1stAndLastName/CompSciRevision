@@ -2150,6 +2150,222 @@ html:not(.js) .fc-inner {
   font-size: 0.75rem;
 }
 
+/* Answering and marking a part ------------------------------------------- */
+
+.written-answer,
+.auto-mark {
+  margin-top: var(--space-4);
+}
+
+.written-answer label,
+.answer-box label,
+.part-mark label {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-weight: 600;
+}
+
+.written-answer textarea,
+.answer-line input {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-s);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}
+
+.written-answer textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.answer-box + .answer-box {
+  margin-top: var(--space-4);
+}
+
+.answer-line {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: 32rem;
+}
+
+/* Expressions and values use the mono font, so ∧ ∨ ¬ ⊻ show and digits line up. */
+.answer-line input {
+  font-family: var(--font-mono);
+  font-feature-settings: normal;
+}
+
+.answer-box.is-right input {
+  border-color: var(--accent);
+}
+
+.answer-box.is-wrong input {
+  border-color: var(--danger);
+}
+
+.box-result svg {
+  display: block;
+  width: 1.6rem;
+  height: 1.6rem;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.answer-box.is-right .box-result svg {
+  stroke: var(--accent-text);
+}
+
+.answer-box.is-wrong .box-result svg {
+  stroke: var(--danger);
+}
+
+.symbol-keys {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.symbol-keys .button {
+  min-width: 2.75rem;
+  font-family: var(--font-mono);
+  font-size: var(--step-0);
+}
+
+.auto-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.auto-verdict:not(:empty) {
+  margin-top: var(--space-4);
+}
+
+.auto-verdict p {
+  margin: var(--space-2) 0 0;
+}
+
+.auto-verdict .verdict {
+  display: inline-flex;
+  margin-bottom: 0;
+  font-size: var(--step-0);
+}
+
+.auto-verdict .verdict svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.auto-problem {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.auto-hint {
+  color: var(--muted);
+}
+
+/* Mark points: tick the ones your answer makes. */
+.ms-how {
+  margin: 0;
+  padding: var(--space-3) var(--space-4) 0;
+  color: var(--muted);
+  font-size: var(--step--1);
+}
+
+.ms-points {
+  margin: 0 0 var(--space-3);
+  padding-left: 1.4em;
+}
+
+.js .ms-points.has-ticks {
+  list-style: none;
+  padding-left: 0;
+}
+
+.js .has-ticks .ms-point {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-height: 2.75rem;
+  padding: var(--space-2);
+  margin: 0 calc(-1 * var(--space-2));
+  border-radius: var(--radius-s);
+  cursor: pointer;
+}
+
+.js .has-ticks .ms-point:hover {
+  background: var(--raised);
+}
+
+.ms-point input {
+  flex: none;
+  width: 1.4rem;
+  height: 1.4rem;
+  margin: 0.1rem 0 0;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.ms-point .prose > :last-child {
+  margin-bottom: 0;
+}
+
+.ms-point:has(input:checked) .prose {
+  color: var(--text);
+  font-weight: 550;
+}
+
+.part-mark {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.part-mark label {
+  margin: 0;
+}
+
+.part-mark[hidden] {
+  display: none;
+}
+
+.part-mark input {
+  width: 4.5rem;
+  min-height: 2.75rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-s);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.question-total {
+  margin: var(--space-5) 0 0;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+  font-weight: 650;
+}
+
+.question-total:empty {
+  display: none;
+}
+
 .self-mark {
   display: flex;
   flex-wrap: wrap;

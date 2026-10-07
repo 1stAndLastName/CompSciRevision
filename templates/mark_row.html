@@ -1,9 +1,24 @@
-{# One row of a mark scheme. `row` is set by the loop that includes this. #}
-<div class="ms-row">
+{# One row of a mark scheme. `row`, `show_label` and `ticks` (whether its
+   mark points get tick boxes) are set by the template that includes this. #}
+<div class="ms-row"{% if let Some(marks) = row.marks %} data-row-marks="{{ marks }}"{% endif %}>
   {% if show_label %}
   <p class="ms-label num">{{ row.label }}{% if let Some(text) = row.marks_text() %} <span>({{ text }})</span>{% endif %}</p>
   {% endif %}
-  <div class="prose ms-answer">{{ row.answer_html|safe }}</div>
+  {% for block in row.answer %}
+  {% match block %}
+  {% when AnswerBlock::Text(html) %}
+  <div class="prose ms-answer">{{ html|safe }}</div>
+  {% when AnswerBlock::Points(points) %}
+  <ul class="ms-points{% if ticks %} has-ticks{% endif %}">
+    {% for point in points %}
+    <li class="ms-point">
+      {% if ticks %}<input type="checkbox" class="js-only" id="{{ point.id }}" data-point="{{ point.key }}" aria-labelledby="{{ point.id }}-text">{% endif %}
+      <div class="prose" id="{{ point.id }}-text">{{ point.html|safe }}</div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endmatch %}
+  {% endfor %}
   {% if let Some(guidance) = row.guidance_html %}
   <div class="ms-guidance">
     <p class="ms-guidance-head">Guidance</p>

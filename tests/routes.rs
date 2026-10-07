@@ -2,6 +2,7 @@
 
 use actix_web::http::StatusCode;
 use actix_web::{App, body::to_bytes, test, web};
+use revision_site::exam::AnswerBlock;
 use revision_site::{configure, load_site};
 
 /// Build the app exactly as `main.rs` does and send it one request.
@@ -137,6 +138,29 @@ async fn exam_page_carries_every_question_and_mark_scheme() {
             exam.spec
         );
         assert!(body.contains("static/js/exam.js"));
+        let auto: usize = exam
+            .questions
+            .iter()
+            .flat_map(|q| &q.parts)
+            .filter(|p| p.auto.is_some())
+            .count();
+        assert_eq!(
+            body.matches("data-auto>").count(),
+            auto,
+            "{}: every automatically marked part has answer boxes",
+            exam.spec
+        );
+        // Bullet points in the mark scheme of a part marked by hand get tick boxes.
+        let has_points = exam.questions.iter().flat_map(|q| &q.parts).any(|p| {
+            p.auto.is_none()
+                && p.marks.is_some()
+                && p.mark_scheme.iter().any(|row| {
+                    row.answer
+                        .iter()
+                        .any(|block| matches!(block, AnswerBlock::Points(_)))
+                })
+        });
+        assert_eq!(body.contains("data-point="), has_points, "{}", exam.spec);
         assert!(
             body.contains("static/js/diagrams.js"),
             "exam pages draw their Mermaid diagrams"

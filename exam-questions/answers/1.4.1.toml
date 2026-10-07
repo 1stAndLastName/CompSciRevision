@@ -1,0 +1,108 @@
+# Answers for marking parts of the exam questions automatically, taken from
+# the OCR mark scheme. exam.js marks a part when its answer has one right form.
+#   type = "exact":      values; spaces, commas and case are ignored
+#   type = "words":      words; case and punctuation are ignored
+#   type = "expression": a Boolean expression; any with the same truth table is
+#                        right (with simplest = true, only if it has no more
+#                        operators than the answer)
+# One box is worth the whole part; several boxes are worth 1 mark each.
+spec = "1.4.1"
+
+[[part]]
+label = "1(a)(i)"
+box = [{ type = "exact", accept = ["10000100"] }]
+
+[[part]]
+label = "1(a)(ii)"
+box = [{ type = "words", accept = ["Sign and magnitude"] }]
+
+[[part]]
+label = "2(a)(i)"
+box = [{ type = "exact", accept = ["157"] }]
+
+[[part]]
+label = "2(a)(ii)"
+box = [{ type = "exact", accept = ["-99"] }]
+
+[[part]]
+label = "2(a)(iii)"
+box = [{ type = "exact", accept = ["9D"] }]
+
+[[part]]
+label = "3(a)(i)"
+box = [{ type = "exact", accept = ["BD"] }]
+
+[[part]]
+label = "3(a)(ii)"
+box = [{ type = "exact", accept = ["2AF"] }]
+
+[[part]]
+label = "3(b)(i)"
+box = [{ type = "exact", accept = ["11101011"] }]
+
+[[part]]
+label = "3(b)(ii)"
+box = [{ type = "exact", accept = ["10010101"] }]
+
+[[part]]
+label = "3(e)"
+box = [
+  { label = "Increasing the bits for the mantissa increases the…", type = "words", accept = ["Precision", "Accuracy"] },
+  { label = "Increasing the bits for the exponent increases the…", type = "words", accept = ["Range", "Size", "Magnitude"] },
+]
+
+[[part]]
+label = "7(a)(i)"
+box = [{ type = "exact", accept = ["101101111110"] }]
+
+[[part]]
+label = "7(a)(ii)"
+box = [{ type = "exact", accept = ["-149"] }]
+
+[[part]]
+label = "8(b)(i)"
+box = [{ type = "exact", accept = ["01100001"] }]
+
+[[part]]
+label = "8(b)(ii)"
+box = [{ type = "exact", accept = ["AB"] }]
+
+[[part]]
+label = "8(b)(iii)"
+box = [{ type = "exact", accept = ["10011111"] }]
+
+[[part]]
+label = "8(b)(iv)"
+box = [{ type = "exact", accept = ["10010001"] }]
+
+[[part]]
+label = "9(a)(i)"
+box = [{ type = "exact", accept = ["11100111"] }]
+
+[[part]]
+label = "9(a)(ii)"
+box = [{ type = "exact", accept = ["01101111"] }]
+
+[[part]]
+label = "10(a)(i)"
+box = [{ type = "exact", accept = ["10001001"] }]
+
+[[part]]
+label = "10(a)(ii)"
+box = [{ type = "exact", accept = ["6D"] }]
+
+[[part]]
+label = "10(a)(iii)"
+box = [{ type = "exact", accept = ["AB"] }]
+
+[[part]]
+label = "11(a)"
+box = [{ type = "exact", accept = ["B3"] }]
+
+[[part]]
+label = "11(b)"
+box = [{ type = "exact", accept = ["-101"] }]
+
+[[part]]
+label = "11(d)"
+box = [{ type = "exact", accept = ["236"] }]

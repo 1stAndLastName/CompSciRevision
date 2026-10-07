@@ -1,0 +1,38 @@
+# Answers for marking parts of the exam questions automatically, taken from
+# the OCR mark scheme. exam.js marks a part when its answer has one right form.
+#   type = "exact":      values; spaces, commas and case are ignored
+#   type = "words":      words; case and punctuation are ignored
+#   type = "expression": a Boolean expression; any with the same truth table is
+#                        right (with simplest = true, only if it has no more
+#                        operators than the answer)
+# One box is worth the whole part; several boxes are worth 1 mark each.
+spec = "1.2.4"
+
+[[part]]
+label = "7(i)"
+box = [
+  { label = "Output for 10", type = "exact", accept = ["10"] },
+  { label = "Output for 50", type = "exact", accept = ["60"] },
+  { label = "Output for 120", type = "exact", accept = ["200"] },
+]
+
+[[part]]
+label = "9(b)"
+box = [
+  { label = "Output(s) for inputs 12, 5", type = "exact", accept = ["2, 2"] },
+  { label = "Output(s) for inputs 18, 2", type = "exact", accept = ["9, 0"] },
+  { label = "Output(s) for inputs 16, 4", type = "exact", accept = ["4, 0"] },
+  { label = "Output(s) for inputs 3, 7", type = "exact", accept = ["0, 3"] },
+]
+
+[[part]]
+label = "11(ii)"
+box = [{ type = "words", accept = ["Do until", "Repeat until", "Do until loop", "Repeat until loop", "Post condition", "Post condition loop"] }]
+
+[[part]]
+label = "13(i)"
+box = [{ type = "words", accept = ["Iteration"] }]
+
+[[part]]
+label = "13(ii)"
+box = [{ type = "exact", accept = ["5"] }]

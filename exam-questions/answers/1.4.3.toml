@@ -1,0 +1,36 @@
+# Answers for marking parts of the exam questions automatically, taken from
+# the OCR mark scheme. exam.js marks a part when its answer has one right form.
+#   type = "exact":      values; spaces, commas and case are ignored
+#   type = "words":      words; case and punctuation are ignored
+#   type = "expression": a Boolean expression; any with the same truth table is
+#                        right (with simplest = true, only if it has no more
+#                        operators than the answer)
+# One box is worth the whole part; several boxes are worth 1 mark each.
+spec = "1.4.3"
+
+[[part]]
+label = "1(b)(i)"
+box = [{ type = "expression", answer = "¬(A ∧ B)", simplest = true }]
+
+[[part]]
+label = "1(b)(ii)"
+box = [{ type = "expression", answer = "B", simplest = true }]
+
+[[part]]
+label = "1(b)(iii)"
+box = [{ type = "expression", answer = "A ∨ (B ∧ C)", simplest = true }]
+
+[[part]]
+label = "2(a)(ii)"
+box = [{ type = "words", accept = ["XOR", "XOR gate", "Exclusive OR", "EOR"] }]
+
+[[part]]
+label = "3(a)(i)"
+box = [{ type = "expression", answer = "¬(A ∨ B) ⊻ C" }]
+
+[[part]]
+label = "5(a)(i)"
+box = [
+  { label = "S ≡", type = "expression", answer = "A ⊻ B" },
+  { label = "C ≡", type = "expression", answer = "A ∧ B" },
+]

@@ -26,7 +26,7 @@
     <section class="progress-panel js-only" aria-labelledby="marks-heading">
       <h2 id="marks-heading">Your marks</h2>
       <p class="exam-score num" data-exam-score>No questions marked yet</p>
-      <button type="button" class="button quiet small" data-exam-clear>Clear my marks</button>
+      <button type="button" class="button quiet small" data-exam-clear>Clear my answers and marks</button>
     </section>
     <nav class="exam-jump" aria-label="Questions">
       <h2>Questions</h2>
@@ -53,20 +53,73 @@
       {% endif %}
 
       {% for part in question.parts %}
-      <section class="exam-part" aria-label="Part {{ part.label }}">
+      {% let part_index = loop.index0 %}
+      {% let part_id = format!("{}-{}", question.number, part_index) %}
+      <section class="exam-part" aria-label="Part {{ part.label }}" data-part="{{ part.label }}"{% if let Some(marks) = part.marks %} data-part-marks="{{ marks }}"{% endif %}>
         <p class="exam-part-head num">
           <span class="exam-label">{{ part.label }}</span>
           {% if let (Some(marks), Some(text)) = (part.marks, part.marks_text()) %}<span class="exam-marks"><span aria-hidden="true">[{{ marks }}]</span><span class="visually-hidden">{{ text }}</span></span>{% endif %}
         </p>
         <div class="prose exam-text">{{ part.text_html|safe }}</div>
+
+        {% if let Some(marks) = part.marks %}
+        {% if let Some(boxes) = part.auto %}
+        <div class="auto-mark js-only" data-auto>
+          {% for answer in boxes %}
+          {% let box_index = loop.index0 %}
+          {% let box_id = format!("answer-{}-{}", part_id, box_index) %}
+          <div class="answer-box{% if answer.kind == AnswerKind::Expression %} is-expression{% endif %}" data-box data-type="{{ answer.kind.name() }}" data-accept="{{ answer.accept }}" data-box-marks="{{ answer.marks }}"{% if answer.simplest %} data-simplest{% endif %}>
+            <label for="{{ box_id }}">{% if let Some(label) = answer.label %}{{ label }}{% else %}Your answer{% endif %}</label>
+            <div class="answer-line">
+              <input id="{{ box_id }}" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" data-box-input>
+              <span class="box-result" data-box-result></span>
+            </div>
+            {% if answer.kind == AnswerKind::Expression %}
+            <div class="symbol-keys" role="group" aria-label="Type a Boolean symbol">
+              <button type="button" class="button quiet small" data-symbol="∧" aria-label="AND">∧</button>
+              <button type="button" class="button quiet small" data-symbol="∨" aria-label="OR">∨</button>
+              <button type="button" class="button quiet small" data-symbol="¬" aria-label="NOT">¬</button>
+              <button type="button" class="button quiet small" data-symbol="⊻" aria-label="XOR">⊻</button>
+              <button type="button" class="button quiet small" data-symbol="(" aria-label="Open bracket">(</button>
+              <button type="button" class="button quiet small" data-symbol=")" aria-label="Close bracket">)</button>
+            </div>
+            {% endif %}
+          </div>
+          {% endfor %}
+          <div class="auto-actions">
+            <button type="button" class="button primary small" data-check>Check answer</button>
+            <button type="button" class="button quiet small" data-change hidden>Change my mark</button>
+          </div>
+          <div class="auto-verdict" data-verdict role="status" aria-live="polite"></div>
+        </div>
+        {% else %}
+        <div class="written-answer">
+          <label for="answer-{{ part_id }}">Your answer</label>
+          <textarea id="answer-{{ part_id }}" rows="3" data-answer></textarea>
+        </div>
+        {% endif %}
+        {% endif %}
+
         {% if !part.mark_scheme.is_empty() %}
+        {% let ticks = part.marks.is_some() && part.auto.is_none() %}
         <details class="mark-scheme">
           <summary>Mark scheme <span class="num">{{ part.label }}</span></summary>
+          {% if ticks %}<p class="ms-how js-only">Tick each point your answer makes. Your mark is worked out from your ticks, and you can change it.</p>{% endif %}
           {% for row in part.mark_scheme %}
           {% let show_label = part.mark_scheme.len() > 1 || row.label != part.label %}
           {% include "mark_row.html" %}
           {% endfor %}
         </details>
+        {% endif %}
+
+        {% if let Some(marks) = part.marks %}
+        <div class="part-mark js-only" data-part-mark{% if part.auto.is_some() %} hidden{% endif %}>
+          <label for="mark-{{ part_id }}">Your mark for {{ part.label }}</label>
+          <div class="self-mark-input">
+            <input id="mark-{{ part_id }}" type="number" inputmode="numeric" min="0" max="{{ marks }}" step="1" data-self-mark>
+            <span class="num">out of {{ marks }}</span>
+          </div>
+        </div>
         {% endif %}
       </section>
       {% endfor %}
@@ -74,6 +127,7 @@
       {% if !question.other_mark_scheme.is_empty() %}
       <details class="mark-scheme">
         <summary>Mark scheme: other parts</summary>
+        {% let ticks = false %}
         {% for row in question.other_mark_scheme %}
         {% let show_label = true %}
         {% include "mark_row.html" %}
@@ -81,13 +135,7 @@
       </details>
       {% endif %}
 
-      <div class="self-mark js-only">
-        <label for="mark-{{ question.number }}">Your mark for question {{ question.number }}</label>
-        <div class="self-mark-input">
-          <input id="mark-{{ question.number }}" type="number" inputmode="numeric" min="0" max="{{ question.marks }}" step="1" data-self-mark>
-          <span class="num">out of {{ question.marks }}</span>
-        </div>
-      </div>
+      <p class="question-total js-only num" data-question-total aria-live="polite"></p>
     </article>
     {% endfor %}
   </div>

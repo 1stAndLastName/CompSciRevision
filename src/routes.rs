@@ -10,7 +10,7 @@
 //! when it is exported for GitHub Pages, which serves it from that folder.
 
 use crate::content::{Library, Topic};
-use crate::exam::ExamTopic;
+use crate::exam::{AnswerBlock, AnswerKind, ExamTopic};
 use actix_web::http::StatusCode;
 use actix_web::{HttpResponse, web};
 use askama::Template;

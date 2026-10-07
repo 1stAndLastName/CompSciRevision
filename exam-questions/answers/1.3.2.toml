@@ -1,0 +1,28 @@
+# Answers for marking parts of the exam questions automatically, taken from
+# the OCR mark scheme. exam.js marks a part when its answer has one right form.
+#   type = "exact":      values; spaces, commas and case are ignored
+#   type = "words":      words; case and punctuation are ignored
+#   type = "expression": a Boolean expression; any with the same truth table is
+#                        right (with simplest = true, only if it has no more
+#                        operators than the answer)
+# One box is worth the whole part; several boxes are worth 1 mark each.
+spec = "1.3.2"
+
+[[part]]
+label = "2(c)(ii)"
+box = [{ type = "words", accept = ["CustomerID", "Customer ID", "ProductID", "Product ID"] }]
+
+[[part]]
+label = "4(b)(ii)"
+box = [
+  { label = "Foreign key", type = "words", accept = ["PackageType", "Package Type"] },
+  { label = "Table name", type = "words", accept = ["Membership"] },
+]
+
+[[part]]
+label = "4(b)(iii)"
+box = [{ type = "words", accept = ["Float", "Floating point", "Real"] }]
+
+[[part]]
+label = "4(b)(iv)"
+box = [{ type = "words", accept = ["Adverts"] }]

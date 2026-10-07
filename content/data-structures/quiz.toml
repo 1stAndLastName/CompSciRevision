@@ -1,0 +1,95 @@
+[[question]]
+prompt = "Which structure is immutable?"
+options = ["Tuple", "List", "Array", "Stack"]
+answer = 0
+explanation = "A tuple's items cannot be changed, added or removed after it has been created. Lists, arrays and stacks are mutable: their contents can change."
+spec = "1.4.2(a)"
+difficulty = 1
+
+[[question]]
+prompt = "Which statement about arrays is true?"
+options = ["An array's size is fixed when it is created", "An array can hold items of different data types", "An array grows when an item is added to the end", "An array's first index is always 1"]
+answer = 0
+explanation = "An array is a static structure: its size is set when it is declared. Its elements all have the same type and, in OCR pseudocode, its indexes start at 0. A list is the structure that can grow and hold mixed types."
+spec = "1.4.2(a)"
+difficulty = 1
+
+[[question]]
+prompt = "Items 4, 9 and 2 are pushed onto an empty stack in that order. Then `pop()` is called twice. Which item is left on the stack?"
+options = ["4", "2", "9", "None, the stack is empty"]
+answer = 0
+explanation = "A stack is last in, first out. The first pop returns 2 (the last item pushed) and the second returns 9, leaving 4, which was pushed first."
+spec = "1.4.2(c)"
+difficulty = 1
+
+[[question]]
+prompt = "A circular queue is stored in an array with `maxSize` 6 (positions 0 to 5). The rear pointer is 5. Where does the next item go?"
+options = ["Position 0", "Position 6", "Nowhere: the queue must be full", "Position 5, replacing the rear item"]
+answer = 0
+explanation = "The new rear is `(5 + 1) MOD 6`, which is 0, so the pointer wraps round to the start of the array. The queue is only full if all 6 spaces hold items, which the rear pointer alone does not tell you."
+spec = "1.4.2(c)"
+difficulty = 2
+
+[[question]]
+prompt = "Why is inserting an item into the middle of a linked list quicker than inserting it into the middle of an array?"
+options = ["Only pointers change; no items have to move", "A linked list keeps its items next to each other in memory", "A linked list can be searched with a binary search", "Linked lists are static, so the space is already set aside"]
+answer = 0
+explanation = "To insert into a linked list you store the item in a free node and change two pointers. In an array, every item after the insertion point must move along one place."
+spec = "1.4.2(c)"
+difficulty = 2
+
+[[question]]
+prompt = "Which data structure would be best for an undo feature, which reverses the most recent action first?"
+options = ["A stack", "A queue", "A hash table", "A tuple"]
+answer = 0
+explanation = "Undo needs the most recent action first: last in, first out, which is how a stack works. A queue would undo the oldest action first."
+spec = "1.4.2(b)"
+difficulty = 1
+
+[[question]]
+prompt = "The values 40, 25, 60, 30 and 10 are added in that order to an empty binary search tree. Where does 30 go?"
+options = ["Right child of 25", "Left child of 25", "Left child of 60", "Right child of 40"]
+answer = 0
+explanation = "Start at the root, 40. 30 is smaller, so go left to 25. 30 is larger than 25, so it becomes 25's right child."
+spec = "1.4.2(c)"
+difficulty = 2
+
+[[question]]
+prompt = "Which traversal of a binary search tree outputs its items in ascending order?"
+options = ["In-order", "Pre-order", "Post-order", "Breadth-first"]
+answer = 0
+explanation = "In-order visits the left subtree, then the node, then the right subtree. In a binary search tree everything on the left is smaller and everything on the right is larger, so the items come out sorted."
+spec = "1.4.2(c)"
+difficulty = 2
+
+[[question]]
+prompt = "In a binary search tree, a node with two children is removed. Which value can replace it?"
+options = ["The smallest value in its right subtree", "Its left child, always", "The root of the tree", "The largest value in its right subtree"]
+answer = 0
+explanation = "The smallest value in the right subtree is the node's in-order successor: it is larger than everything on the left and smaller than everything else on the right, so putting it in the gap keeps the tree in order. (The largest value in the left subtree would also work.) The largest value in the right subtree would be bigger than the rest of that subtree, breaking the rule."
+spec = "1.4.2(c)"
+difficulty = 3
+
+[[question]]
+prompt = "A graph has 1000 vertices but each vertex is joined to only 3 others. Which way of storing it uses less memory?"
+options = ["An adjacency list", "An adjacency matrix", "Both use the same", "A 1D array of the vertices"]
+answer = 0
+explanation = "The graph is sparse. An adjacency matrix needs 1000 × 1000 cells whether or not edges exist, while an adjacency list stores only the 3 edges of each vertex."
+spec = "1.4.2(b)"
+difficulty = 2
+
+[[question]]
+prompt = "A hash table has 11 spaces and the hashing function `key MOD 11`. Space 3 already holds an item, and space 4 is empty. Using linear probing, where is the key 25 stored?"
+options = ["Space 4", "Space 3", "Space 2", "Space 25"]
+answer = 0
+explanation = "`25 MOD 11` is 3, but space 3 is taken: a collision. Linear probing puts the item in the next free space, which is 4."
+spec = "1.4.2(c)"
+difficulty = 2
+
+[[question]]
+prompt = "Which structure is used to keep track of vertices still to visit in a breadth-first traversal of a graph?"
+options = ["A queue", "A stack", "A binary search tree", "A hash table"]
+answer = 0
+explanation = "Breadth-first visits vertices in the order they were discovered, nearest first, which is first in, first out: a queue. A depth-first traversal uses a stack."
+spec = "1.4.2(c)"
+difficulty = 2

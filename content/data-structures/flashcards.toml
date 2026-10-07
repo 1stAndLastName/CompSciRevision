@@ -1,0 +1,109 @@
+[[card]]
+front = "What is an array?"
+back = "A static, ordered set of elements of the same data type under one name, each found by its index (starting at 0)."
+spec = "1.4.2(a)"
+
+[[card]]
+front = "How would you refer to one element of a 3D array?"
+back = "With three indexes, such as `readings[2,13,0]`: for example day 2, hour 13, sensor 0."
+spec = "1.4.2(a)"
+
+[[card]]
+front = "What is a record?"
+back = "A group of named fields, which can be of different types, describing one item. A field is accessed with a dot, as in `student.surname`."
+spec = "1.4.2(a)"
+
+[[card]]
+front = "How does a tuple differ from a list?"
+back = "A tuple is immutable: once created, its items cannot be changed, added or removed. A list is mutable and dynamic."
+spec = "1.4.2(a)"
+
+[[card]]
+front = "What is the difference between a static and a dynamic data structure?"
+back = "A static structure (an array) has a fixed size set when it is created. A dynamic structure (a list or linked list) can grow and shrink while the program runs."
+spec = "1.4.2(a)"
+
+[[card]]
+front = "What does each node of a linked list contain?"
+back = "Its data and a pointer to the next node. A start pointer gives the first node and the last node's pointer is null."
+spec = "1.4.2(b)"
+
+[[card]]
+front = "Describe how to add an item to an ordered linked list."
+back = "Store the item in a free node. Follow the pointers to find its place. Set the new node's pointer to the previous node's old pointer, then set the previous node's pointer to the new node."
+spec = "1.4.2(c)"
+
+[[card]]
+front = "Describe how to remove an item from a linked list."
+back = "Follow the pointers to the node before it, set that node's pointer to the removed node's next pointer so it is skipped, and return the removed node to the free list."
+spec = "1.4.2(c)"
+
+[[card]]
+front = "What is a stack, and which operations does it have?"
+back = "A last in, first out (LIFO) structure. `push` adds to the top, `pop` removes and returns the top item, and `peek` returns it without removing it."
+spec = "1.4.2(b)"
+
+[[card]]
+front = "What are stack overflow and underflow?"
+back = "Overflow is pushing onto a full stack. Underflow is popping from an empty stack."
+spec = "1.4.2(c)"
+
+[[card]]
+front = "What is a queue, and which operations does it have?"
+back = "A first in, first out (FIFO) structure. `enqueue` adds an item at the rear, and `dequeue` removes and returns the item at the front."
+spec = "1.4.2(b)"
+
+[[card]]
+front = "Why use a circular queue instead of a linear queue?"
+back = "In a linear queue, space freed at the front is never reused. A circular queue wraps its pointers round to the start, so all the spaces in the array can be reused."
+spec = "1.4.2(b)"
+
+[[card]]
+front = "How does the rear pointer of a circular queue move when an item is added?"
+back = "`rear = (rear + 1) MOD maxSize`, so it wraps from the last position back to 0."
+spec = "1.4.2(c)"
+
+[[card]]
+front = "Define root, leaf and subtree."
+back = "The root is the top node, with no parent. A leaf is a node with no children. A subtree is a node together with all the nodes below it."
+spec = "1.4.2(b)"
+
+[[card]]
+front = "What rule does a binary search tree follow?"
+back = "Each node has at most two children. Everything in a node's left subtree is smaller than it, and everything in its right subtree is larger."
+spec = "1.4.2(b)"
+
+[[card]]
+front = "Give the orders for pre-order, in-order and post-order traversal."
+back = "Pre-order: node, left, right. In-order: left, node, right. Post-order: left, right, node. In-order visits a binary search tree's items in sorted order."
+spec = "1.4.2(c)"
+
+[[card]]
+front = "How do you remove a node with two children from a binary search tree?"
+back = "Replace its value with its in-order successor, the smallest value in its right subtree (or its in-order predecessor, the largest in its left subtree), then remove that node, which has at most one child."
+spec = "1.4.2(c)"
+
+[[card]]
+front = "What is the difference between a directed and an undirected graph?"
+back = "In a directed graph each edge goes one way only. In an undirected graph each edge can be followed both ways."
+spec = "1.4.2(b)"
+
+[[card]]
+front = "When is an adjacency list better than an adjacency matrix?"
+back = "For a sparse graph (few edges): the list only stores edges that exist, so it uses less memory. A matrix is quicker for checking whether a particular edge exists."
+spec = "1.4.2(b)"
+
+[[card]]
+front = "Which structure does a depth-first traversal use, and which does a breadth-first traversal use?"
+back = "Depth-first uses a stack (or recursion). Breadth-first uses a queue."
+spec = "1.4.2(c)"
+
+[[card]]
+front = "What is a collision in a hash table, and how can linear probing deal with it?"
+back = "A collision is when two keys hash to the same index. Linear probing stores the new item in the next free space, wrapping round to the start of the table if needed."
+spec = "1.4.2(c)"
+
+[[card]]
+front = "How is an item removed from a hash table that uses linear probing?"
+back = "Hash the key and probe until the item is found, then mark its space as deleted rather than empty, so later searches still probe past it."
+spec = "1.4.2(c)"

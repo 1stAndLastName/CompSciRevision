@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block title %}{{ topic.title }}{% endblock %}
+{% block scripts %}<script src="{{ base }}/static/js/diagrams.js" defer></script>{% endblock %}
 {% block main %}
 <nav class="crumbs" aria-label="Breadcrumb">
   <ol><li><a href="{{ base }}/">All topics</a></li></ol>

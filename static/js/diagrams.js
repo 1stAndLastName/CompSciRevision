@@ -77,8 +77,9 @@
               svg.setAttribute("aria-label", "Diagram. A text version follows.");
               // Mermaid shrinks a diagram to fit its box. On a phone that can make
               // the labels too small to read, so stop at 75% and scroll instead.
+              // (A desktop column is wide enough to shrink into without that.)
               var width = svg.viewBox && svg.viewBox.baseVal ? svg.viewBox.baseVal.width : 0;
-              if (width) svg.style.minWidth = Math.round(width * 0.75) + "px";
+              if (width && item.drawing.clientWidth < 600) svg.style.minWidth = Math.round(width * 0.75) + "px";
             }
             item.figure.classList.add("is-drawn");
           })

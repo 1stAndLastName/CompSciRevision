@@ -1,0 +1,104 @@
+[[card]]
+front = "Name the five primitive data types in the OCR specification."
+back = "Integer, real (floating point), character, string and Boolean."
+spec = "1.4.1(a)"
+
+[[card]]
+front = "Why should a phone number be stored as a string rather than an integer?"
+back = "It may start with 0 or contain spaces, which an integer would lose, and it is never used in calculations."
+spec = "1.4.1(a)"
+
+[[card]]
+front = "What range of values can 8 bits hold as unsigned binary?"
+back = "0 to 255. In general, *n* bits hold 0 to 2<sup>n</sup> − 1."
+spec = "1.4.1(b)"
+
+[[card]]
+front = "Convert `0101 1010` to denary."
+back = "64 + 16 + 8 + 2 = 90."
+spec = "1.4.1(b)"
+
+[[card]]
+front = "Why is hexadecimal used?"
+back = "Each hex digit stands for 4 bits, so it is a shorter way to write binary that is easier for people to read and remember, with fewer mistakes."
+spec = "1.4.1(e)"
+
+[[card]]
+front = "Convert `3C` (hexadecimal) to denary."
+back = "3 × 16 + 12 = 60."
+spec = "1.4.1(f)"
+
+[[card]]
+front = "How do you convert binary to hexadecimal?"
+back = "Split the bits into groups of 4 from the right, then write each group as one hex digit. `0101 1010` is `5A`."
+spec = "1.4.1(f)"
+
+[[card]]
+front = "How is a negative number stored in sign and magnitude?"
+back = "The most significant bit is the sign (1 for negative) and the remaining bits hold the size. −90 is `1101 1010`."
+spec = "1.4.1(c)"
+
+[[card]]
+front = "How do you write a negative denary number in two's complement?"
+back = "Write the positive number in binary, flip every bit, then add 1. −90: `0101 1010` → `1010 0101` → `1010 0110`."
+spec = "1.4.1(c)"
+
+[[card]]
+front = "What range can an 8-bit two's complement number hold?"
+back = "−128 to 127. The most significant bit has place value −128."
+spec = "1.4.1(c)"
+
+[[card]]
+front = "Give two advantages of two's complement over sign and magnitude."
+back = "Binary addition and subtraction work directly, so no extra hardware is needed. There is only one representation of zero, so it holds one more number (−128)."
+spec = "1.4.1(c)"
+
+[[card]]
+front = "How do you subtract one binary number from another?"
+back = "Add the two's complement of the second number, and ignore any carry out of the most significant bit."
+spec = "1.4.1(d)"
+
+[[card]]
+front = "What is overflow?"
+back = "When the result of a calculation is too large to fit in the number of bits available, so the stored result is wrong."
+spec = "1.4.1(d)"
+
+[[card]]
+front = "In floating point, what are the mantissa and the exponent?"
+back = "The mantissa holds the significant digits of the number. The exponent says how many places to move the binary point: value = mantissa × 2<sup>exponent</sup>."
+spec = "1.4.1(g)"
+
+[[card]]
+front = "What is the effect of giving more bits to the mantissa, and to the exponent?"
+back = "More mantissa bits give more precision. More exponent bits give a greater range."
+spec = "1.4.1(g)"
+
+[[card]]
+front = "How can you tell whether a floating point number is normalised?"
+back = "The first two bits of the mantissa are different: `01` for a positive number, `10` for a negative number."
+spec = "1.4.1(g)"
+
+[[card]]
+front = "Why are floating point numbers normalised?"
+back = "To store each number as precisely as possible in the bits available, and so each value has only one representation."
+spec = "1.4.1(g)"
+
+[[card]]
+front = "List the steps to add two floating point numbers."
+back = "Make the exponents the same (shift right the mantissa of the number with the smaller exponent), add the mantissas (to subtract, add the two's complement), then normalise the result."
+spec = "1.4.1(h)"
+
+[[card]]
+front = "What is the difference between a logical shift right and an arithmetic shift right?"
+back = "A logical shift fills the gap with 0. An arithmetic shift copies the sign bit, so a two's complement number keeps its sign and is divided by 2."
+spec = "1.4.1(i)"
+
+[[card]]
+front = "What do AND, OR and XOR masks do?"
+back = "An AND mask keeps the bits where the mask is 1 and clears the rest. An OR mask sets bits to 1. An XOR mask flips the bits where the mask is 1."
+spec = "1.4.1(i)"
+
+[[card]]
+front = "Compare ASCII and Unicode."
+back = "ASCII uses 7 bits for 128 characters, mostly English. Unicode uses up to 32 bits per character, enough for every writing system and emoji, and its first 128 codes match ASCII."
+spec = "1.4.1(j)"

@@ -17,10 +17,10 @@ spec = "1.4.3(c)"
 difficulty = 1
 
 [[question]]
-prompt = "Simplify `(A ∧ B) ∨ (A ∧ ¬B)`."
+prompt = "Simplify `(A ∨ B) ∧ (A ∨ ¬B)`."
 options = ["`A`", "`B`", "`A ∧ B`", "`A ∨ B`"]
 answer = 0
-explanation = "Taking out the common factor gives `A ∧ (B ∨ ¬B)`. Since `B ∨ ¬B` is always 1, this becomes `A ∧ 1`, which is `A`. The output is 1 exactly when `A` is 1, whatever `B` is."
+explanation = "Distribution takes out the common `A`: `A ∨ (B ∧ ¬B)`. `B ∧ ¬B` is always 0, so this becomes `A ∨ 0`, which is `A`. The output is 1 exactly when `A` is 1, whatever `B` is."
 spec = "1.4.3(c)"
 difficulty = 2
 
@@ -112,5 +112,22 @@ options = [
 ]
 answer = 0
 explanation = "Adding three 1s gives three, which is 11 in binary. The sum bit is the right-hand 1 and the carry out is the left-hand 1. Using the expressions, `S ≡ A ⊻ B ⊻ Cin` is 1 because an odd number of inputs are 1, and `Cout` is 1 because `A ∧ B` is 1."
+spec = "1.4.3(e)"
+difficulty = 2
+
+[[question]]
+prompt = "A D-type flip-flop holds `Q` = 0. `D` changes to 1 while the clock stays low. What is `Q` now?"
+options = ["0", "1", "It changes back and forth with every change of `D`", "It cannot be known"]
+answer = 0
+shuffle = false
+explanation = "`Q` only takes the value of `D` on a rising edge of the clock. Until the clock rises, `Q` holds its old value, 0, however `D` changes."
+spec = "1.4.3(e)"
+difficulty = 2
+
+[[question]]
+prompt = "In a full adder built from two half adders, what joins the two half adders' carry outputs to give the carry out?"
+options = ["An OR gate", "An AND gate", "A NAND gate", "A NOT gate"]
+answer = 0
+explanation = "There should be a carry out if either half adder produces a carry, so the two carries go into an OR gate. An AND gate would only carry when both did, and a NAND gate would give a carry out when neither half adder carries."
 spec = "1.4.3(e)"
 difficulty = 2

@@ -67,3 +67,18 @@ spec = "1.4.3(a)"
 front = "Describe the logic gate symbols for AND, OR, NOT and XOR."
 back = "AND: flat back with a round, D-shaped front. OR: curved back with a pointed front. NOT: a triangle with a small circle at its point. XOR: an OR shape with an extra curved line across the inputs."
 spec = "1.4.3(d)"
+
+[[card]]
+front = "Name the inputs and outputs of a D-type flip-flop."
+back = "Inputs: data (`D`) and clock. Outputs: `Q`, the stored bit, and `¬Q`, which is always its opposite."
+spec = "1.4.3(e)"
+
+[[card]]
+front = "How can a full adder be built from half adders?"
+back = "One half adder adds `A` and `B`. A second adds that sum to the carry in, giving the final sum. An OR gate combines the two half adders' carries to give the carry out."
+spec = "1.4.3(e)"
+
+[[card]]
+front = "Which groups are not allowed on a Karnaugh map?"
+back = "Groups whose size is not a power of two (such as 3 or 6), groups containing a 0, and groups that are not a single rectangle, such as diagonals and L-shapes. Groups may overlap and wrap around the edges."
+spec = "1.4.3(b)"

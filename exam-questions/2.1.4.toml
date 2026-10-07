@@ -1195,7 +1195,7 @@ Candidates who successfully identified that a remainder was calculated found it 
 
 determine that its purpose was to see if the number was even or odd.
 
-*[Image in the original mark scheme, not shown here.]*
+*[An examiner's marking symbol, not shown here.]*
 
 **Misconception**
 
@@ -1336,7 +1336,6 @@ answer = '''
 [[question]]
 number = 11
 marks = 32
-diagram = true
 
 [[question.part]]
 label = "11(a)"
@@ -1350,7 +1349,20 @@ The printer buffer is represented as a zero-indexed 1D array with the identifier
 
 **Fig. 2** shows the current contents of the queue `buffer` and its pointers.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| Index | Value |
+|---|---|
+| 6 | |
+| 5 | |
+| 4 | |
+| 3 | job-127 |
+| 2 | job-126 |
+| 1 | job-125 |
+| 0 | job-124 |
+
+queueHead = 0
+queueTail = 3
 
 **Fig. 2**
 
@@ -1387,7 +1399,20 @@ dequeue()
 enqueue(job-129)
 ```
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| | |
+|---|---|
+| 6 | |
+| 5 | |
+| 4 | |
+| 3 | |
+| 2 | |
+| 1 | |
+| 0 | |
+
+queueHead [ ]
+queueTail [ ]
 '''
 
 [[question.part]]
@@ -1469,7 +1494,20 @@ answer = '''
 - queueHead being 3 (FT errors)
 - queueTail being 5 (FT errors)
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| Index | Value |
+|---|---|
+| 6 | |
+| 5 | job-127 |
+| 4 | job-128 |
+| 3 | job-127 |
+| 2 | |
+| 1 | |
+| 0 | |
+
+queueHead = 3
+queueTail = 5
 '''
 guidance = '''
 The underlying implementation of the queue has not been specified, so allow alternative valid answers. e.g.\

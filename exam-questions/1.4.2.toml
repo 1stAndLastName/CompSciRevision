@@ -622,7 +622,6 @@ Most responses were Level 2 for definitions and some expansion to passing parame
 [[question]]
 number = 2
 marks = 10
-diagram = true
 
 [[question.part]]
 label = "2(a)"
@@ -630,7 +629,18 @@ marks = 2
 text = '''
 **Fig. 8** shows a binary search tree that contains the names of different towns in Ireland.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    Sligo["Sligo"] ---|left| Dublin["Dublin"]
+    Sligo ---|right| Waterford["Waterford"]
+    Dublin ---|left| Cork["Cork"]
+    Dublin ---|right| Galway["Galway"]
+    Waterford ---|left| Tralee["Tralee"]
+    Galway ---|left| Dundalk["Dundalk"]
+    Galway ---|right| Limerick["Limerick"]
+```
 
 **Fig. 8**
 
@@ -696,7 +706,18 @@ Wexford
 
 Complete this binary search tree by adding the new towns to it.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    S["Sligo"] ---|left| D["Dublin"]
+    S ---|right| W["Waterford"]
+    D ---|left| C["Cork"]
+    D ---|right| G["Galway"]
+    W ---|left| T["Tralee"]
+    G ---|left| Du["Dundalk"]
+    G ---|right| L["Limerick"]
+```
 
 **Fig. 8**
 '''
@@ -754,7 +775,22 @@ marks = 4
 answer = '''
 1 mark for each correct town.
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    S["Slige"] ---|left| D["Dublin"]
+    S ---|right| W["Waterford"]
+    D ---|left| C["Cork"]
+    D ---|right| G["Galway"]
+    C ---|left| Cv["Cavan"]
+    G ---|left| Du["Dundalk"]
+    G ---|right| L["Limerick"]
+    L ---|left| M["Mallow"]
+    W ---|left| T["Tralee"]
+    W ---|right| Wx["Wexford"]
+    T ---|left| Tu["Tuam"]
+```
 '''
 guidance = '''
 If same town added more than once BOD if one in the right place
@@ -771,7 +807,6 @@ This was generally well answered and many candidates gained full marks with many
 [[question]]
 number = 3
 marks = 22
-diagram = true
 
 [[question.part]]
 label = "3(a)"
@@ -781,7 +816,14 @@ Sundip writes an algorithm to carry out addition and subtraction. The algorithm 
 
 The action the algorithm takes depends on the value input by the user. These actions are listed in **Fig. 2**.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| Value input | Action to take |
+| :--- | :--- |
+| A | • Pop two values from the `numbers` stack<br>• Add the two values<br>• Push the result back onto the `numbers` stack |
+| S | • Pop two values from the `numbers` stack<br>• Subtract the first popped value from the second<br>• Push the result back onto the `numbers` stack |
+| E | • Pop one value from the `numbers` stack<br>• Output this value<br>• End program |
+| Any other value | • Push the input value to the `numbers` stack |
 
 **Fig. 2**
 
@@ -816,7 +858,15 @@ Complete the diagram to show the state of the stack after each value is entered 
 
 The state of the stack after the first value, 8, has been completed for you.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B, corrected by Claude). It may contain mistakes.]*
+
+| Input | 8 | 7 | A | 6 |
+|---|---|---|---|---|
+| | | | | |
+| | | | | |
+| | | | | |
+| | | | | |
+| | 8 | | | |
 '''
 
 [[question.part]]
@@ -1072,11 +1122,23 @@ push()/pop() operations on a stack were able to articulate how the stack would a
 
 Exemplar 3
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> you can create a one dimensional array overlay
+> two pointers under values pointing to the first
+> as the bottom and then another pointing to the last
+> of the top. if an item is popped the item with
+> the under position of the top is deleted and the top
+> pointer's value decreases by one. if you want to add
+> an item you append to the list to the "position" of the
+> top then you should check if top pointer = bottom
+> pointer, no stack is empty, and if (top + 1) is greater than the
+> length of the array to see if the stack is full.
 
 This exemplar was one of the few responses to show a clear insight as to how an array can be used to store and access a stack. It makes it clear that a stack pointer is required and goes on to explain how the stack pointer is manipulated when push()/pop() operations are performed.
 
-*[Image in the original mark scheme, not shown here.]*
+*[An examiner's marking symbol, not shown here.]*
 
 **Misconception**
 
@@ -1299,7 +1361,7 @@ Allow FT for any duplicate identifiers named incorrectly or using the incorrect 
 
 Although some candidates answered this question well, others were only given 1 or 2 of the available 7 marks. Many candidates that lost marks did not push and/or pop characters correctly, and many did not return a value for the final mark. Candidates should also be reminded that the correct spelling and case of identifiers are required in questions of this type. Some candidates added spaces in identifier names or used a different case to the identifiers stated in the question and therefore, were not given marks.
 
-*[Image in the original mark scheme, not shown here.]*
+*[An examiner's marking symbol, not shown here.]*
 
 **Assessment for learning**
 
@@ -1340,14 +1402,26 @@ There was a common misconception that an array would use far less memory space t
 [[question]]
 number = 7
 marks = 3
-diagram = true
 
 [[question.part]]
 label = "7(a)"
 text = '''
 **Fig. 5** shows a graph data structure representing a small section of a parcel delivery network. Each node represents an address where deliveries need to be made. The edges show the possible routes and distances between these deliveries.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    A ---|3| B
+    B ---|7| D
+    B ---|3| E
+    D ---|3| C
+    D ---|11| H
+    C ---|7| E
+    E ---|3| F
+    F ---|7| G
+    G ---|3| H
+```
 
 **Fig. 5**
 '''
@@ -1513,7 +1587,7 @@ guidance = '''
 **Examiner’s Comments**\
 Candidates who successfully identified that a remainder was calculated found it harder to determine that its purpose was to see if the number was even or odd.
 
-*[Image in the original mark scheme, not shown here.]*
+*[An examiner's marking symbol, not shown here.]*
 
 **Misconception**
 
@@ -1627,17 +1701,52 @@ programming experience solving problems using these structures.
 
 **Exemplar 2**
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+approximations = [array]
+function FindFirst(target):
+    length = length(approximations)
+    maximum = -1
+    index = 0
+    found = False
+    while found == False and index < length:
+        if approximations[index] == target:
+            maximum = maximum
+            maximum = approximations[index]
+            found = True
+            break
+        index = index + 1
+    return
+    index
+    end while
+    return
+    maximum
+    end function
+```
 
 A well-structured pseudocode response that uses indentation and variable naming well. The logic of the loop to check each item in sequence for an empty entry is clear, as is the indexing into the 2-Dimensional table structure.
 
 **Exemplar 3**
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> [unclear]
+> [unclear] [unclear] [unclear]
+> If [unclear] appointments available, find first appointment
+> available, if [unclear] [unclear] // If not one appointment
+> [unclear] appointment available, plus is the first
+> [unclear] appointment // If this prints the first
+> appointment.
+> If not no appointments available, return
+> [unclear]
+> [unclear]
+> [unclear]
 
 To contrast with Exemplar 2, this exemplar shows a lack of pseudocode with a response written mostly in prose English, with inconsistent indentation and a lack of clear variable naming.
 
-*[Image in the original mark scheme, not shown here.]*
+*[An examiner's marking symbol, not shown here.]*
 
 **Assessment for learning**
 
@@ -1806,7 +1915,17 @@ answer = '''
 1 mark per name inserted in correct place in diagram
 '''
 guidance = '''
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    K["Kirstie"] ---|left| A["Alex"]
+    K ---|right| M["Martyn"]
+    A ---|left| B[" "]
+    A ---|right| C["Anna"]
+    M ---|left| D["Louise"]
+    M ---|right| E[" "]
+```
 '''
 
 [[question.mark_scheme]]
@@ -1848,7 +1967,6 @@ Binary tree O(log n) Hash table O(1)
 [[question]]
 number = 13
 marks = 16
-diagram = true
 
 [[question.part]]
 label = "13(a)"
@@ -1858,7 +1976,20 @@ A breadth-first traversal can be performed on both a tree and a graph.
 
 Show how a breadth-first traversal is performed on the following binary tree.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B, corrected by Claude Sonnet). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    M["M"] ---|left| E["E"]
+    M ---|right| S["S"]
+    E ---|left| C["C"]
+    E ---|right| J["J"]
+    S ---|left| P["P"]
+    S ---|right| V["V"]
+    J ---|left| G["G"]
+    J ---|right| K["K"]
+    K ---|right| L["L"]
+```
 '''
 
 [[question.part]]
@@ -1868,7 +1999,19 @@ Some of the characters in the game will move and interact independently. Taylor 
 
 DancerGold is one character. The graph shown in **Fig. 1** shows the possible movements that DancerGold can make.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    A["90"] ---|21| B["80"]
+    A ---|42| C["65"]
+    B ---|40| E["50"]
+    B ---|38| D["50"]
+    C ---|12| D
+    D ---|23| F["30"]
+    E ---|55| G["0"]
+    F ---|33| G
+```
 
 **Fig. 1**
 
@@ -1959,7 +2102,6 @@ Final path = A,C,D,F,G and Distance = 110 (1 Mark)
 [[question]]
 number = 14
 marks = 16
-diagram = true
 
 [[question.part]]
 label = "14(a)"
@@ -1970,7 +2112,20 @@ In each turn, each character can make one move from a selection of possible move
 
 Kira uses a tree data structure shown in **Fig. 1** to identify the range of possible moves the computer can make from starting position A. Each connection is a move, with each node representing the result of the move.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    A["A"] --- B["B"]
+    A --- C["C"]
+    A --- E["E"]
+    B --- D["D"]
+    D --- I["I"]
+    C --- F["F"]
+    C --- G["G"]
+    G --- J["J"]
+    E --- H["H"]
+```
 
 **Fig. 1**
 

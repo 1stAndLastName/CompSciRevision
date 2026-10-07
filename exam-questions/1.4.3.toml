@@ -55,11 +55,44 @@ marks = 4
 answer = '''
 1 mark for each correct area **including labelled inputs**
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Claude Sonnet). It may contain mistakes.]*
+
+```mermaid
+flowchart LR
+    A["A"] --> OR1["OR"]
+    B["B"] --> OR1
+    OR1 --> AND1["AND"]
+    C["C"] --> AND1
+    AND1 --> AND2["AND"]
+    D["D"] --> NOT1["NOT"]
+    NOT1 --> AND2
+    AND2 --> Out["Output"]
+```
 
 **Alternatives (1 mark per area):**
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Claude Sonnet). It may contain mistakes.]*
+
+```mermaid
+flowchart LR
+    A["A"] --> OR1["OR"]
+    B["B"] --> OR1
+    C["C"] --> AND1["AND"]
+    D["D"] --> NOT1["NOT"]
+    NOT1 --> AND1
+    OR1 --> AND2["AND"]
+    AND1 --> AND2
+    AND2 --> O1["Output"]
+
+    A2["A"] --> OR2["OR"]
+    B2["B"] --> OR2
+    D2["D"] --> NOT2["NOT"]
+    OR2 --> AND3["AND"]
+    NOT2 --> AND3
+    AND3 --> AND4["AND"]
+    C2["C"] --> AND4
+    AND4 --> O2["Output"]
+```
 '''
 guidance = '''
 Max 3 if any additional gates.
@@ -127,14 +160,35 @@ The majority of candidates recognised that distribution meant that there was onl
 [[question]]
 number = 2
 marks = 6
-diagram = true
 
 [[question.part]]
 label = "2(a)"
 text = '''
 A logic gate diagram is shown below.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Claude Sonnet). It may contain mistakes.]*
+
+```mermaid
+flowchart LR
+    A["A"]
+    B["B"]
+    NOT1["NOT"]
+    NOT2["NOT"]
+    AND1["AND"]
+    AND2["AND"]
+    OR1["OR"]
+    Q["Q"]
+
+    A --> AND1
+    B --> NOT1
+    NOT1 --> AND1
+    A --> NOT2
+    NOT2 --> AND2
+    B --> AND2
+    AND1 --> OR1
+    AND2 --> OR1
+    OR1 --> Q
+```
 '''
 
 [[question.part]]
@@ -204,7 +258,17 @@ Most candidates correctly stated the correct single logic gate (XOR).
 label = "2(b)"
 marks = 3
 answer = '''
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Claude Sonnet). It may contain mistakes.]*
+
+```mermaid
+flowchart LR
+B --> NOT1["NOT"]
+A --> OR1["OR"]
+NOT1 --> OR1
+OR1 --> AND1["AND"]
+C --> AND1
+AND1 --> Q
+```
 
 - A going into an OR game
 - B going into a NOT gate with the output going into the OR gate
@@ -219,14 +283,23 @@ Most candidates were able to draw the three logic gates correctly, although some
 [[question]]
 number = 3
 marks = 9
-diagram = true
 
 [[question.part]]
 label = "3(a)"
 text = '''
 A computer scientist has created the following logic circuit shown in **Fig. 6**.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Claude Sonnet). It may contain mistakes.]*
+
+```mermaid
+flowchart LR
+A["A"] --> OR1["OR"]
+B["B"] --> OR1["OR"]
+OR1["OR"] --> NOT1["NOT"]
+NOT1["NOT"] --> XOR1["XOR"]
+C["C"] --> XOR1["XOR"]
+XOR1["XOR"] --> P["P"]
+```
 
 **Fig. 6**
 '''
@@ -264,7 +337,14 @@ marks = 4
 text = '''
 The following Karnaugh map represents another logic circuit.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| CD \ AB | 00 | 01 | 11 | 10 |
+| :--- | :--- | :--- | :--- | :--- |
+| **00** | 1 | 1 | 1 | 1 |
+| **01** | 1 | 1 | 0 | 0 |
+| **11** | 0 | 0 | 0 | 0 |
+| **10** | 0 | 0 | 1 | 1 |
 
 Use this Karnaugh map to find the simplified expression for this circuit.
 
@@ -301,7 +381,14 @@ answer = '''
 - …∨ / + / OR joining the 2 correct expressions together
 '''
 guidance = '''
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| CD \ AB | 00 | 01 | 11 | 10 |
+| :--- | :--- | :--- | :--- | :--- |
+| **00** | 1 | 1 | 1 | 1 |
+| **01** | 1 | 1 | 0 | 0 |
+| **11** | 0 | 0 | 0 | 0 |
+| **10** | 0 | 0 | 1 | 1 |
 
 Do not penalise candidates who attempt to simplify even further (e.g. NOT A AND NOT C = NOT (A OR C)
 
@@ -319,7 +406,6 @@ There were many candidates who were able to gain full marks on this question. Th
 [[question]]
 number = 4
 marks = 7
-diagram = true
 
 [[question.part]]
 label = "4(a)"
@@ -331,7 +417,14 @@ Q = `(A ∧ ¬B) ∨ (¬A ∧ C ∧ D) ∨ (A ∧ B)`
 
 Complete the Karnaugh Map below to simplify this expression. Show your working.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| CD \ AB | 00 | 01 | 11 | 10 |
+| :--- | :--- | :--- | :--- | :--- |
+| **00** | | | | |
+| **01** | | | | |
+| **11** | | | | |
+| **10** | | | | |
 
 Simplified expression:
 '''
@@ -344,7 +437,9 @@ Draw a Logic diagram for the following expression:
 
 `Q = ¬(A ∧ B) ∨ (C ∧¬ D)`
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+The image shows a large rectangle with four points labeled A, B, C, and D vertically aligned on the left edge and one point labeled Q on the right edge.
 '''
 
 [[question.mark_scheme]]
@@ -353,7 +448,15 @@ marks = 4
 answer = '''
 Solution:
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| | AB | AB | AB | AB |
+|---|---|---|---|---|
+| | 00 | 01 | 11 | 10 |
+| CD | 00 | 0 | 0 | 1 | 1 |
+| CD | 01 | 0 | 0 | 1 | 1 |
+| CD | 11 | 1 | 1 | 1 | 1 |
+| CD | 10 | 0 | 0 | 1 | 1 |
 
 1 mark per bullet up to a maximum of 4 marks:
 
@@ -373,7 +476,31 @@ This question was answered well with many candidates achieving all 4 marks. Some
 label = "4(b)"
 marks = 3
 answer = '''
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Claude Sonnet). It may contain mistakes.]*
+
+```mermaid
+flowchart LR
+    A["A"]
+    B["B"]
+    C["C"]
+    D["D"]
+    AND1["AND"]
+    NOT1["NOT"]
+    AND2["AND"]
+    NOT2["NOT"]
+    OR1["OR"]
+    Q["Q"]
+
+    A --> AND1
+    B --> AND1
+    AND1 --> NOT1
+    C --> AND2
+    D --> NOT2
+    NOT2 --> AND2
+    NOT1 --> OR1
+    AND2 --> OR1
+    OR1 --> Q
+```
 
 1 mark per bullet up to a maximum of 3 marks:
 
@@ -390,7 +517,20 @@ As with the first part of this question, this was answered well. Most candidates
 
 **Exemplar 2**
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Claude Sonnet). It may contain mistakes.]*
+
+```mermaid
+flowchart LR
+A["A"] --> AND1["AND"]
+B["B"] --> AND1
+AND1 --> NOT1["NOT"]
+NOT1 --> OR1["OR"]
+C["C"] --> AND2["AND"]
+D["D"] --> NOT2["NOT"]
+NOT2 --> AND2
+AND2 --> OR1
+OR1 --> Q["Q"]
+```
 
 Exemplar 2 was given full marks. This candidate has gained all 3 marks as the gates are correct and are clearly drawn to avoid confusion. Each gate also has the correct number of inputs and outputs in all three instances.
 
@@ -401,12 +541,27 @@ To make sure full credit is given for the answers provided, it is essential that
 [[question]]
 number = 5
 marks = 13
-diagram = true
 
 [[question.part]]
 label = "5(a)"
 text = '''
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Claude Sonnet). It may contain mistakes.]*
+
+```mermaid
+flowchart LR
+    A["A"]
+    B["B"]
+    XOR1["XOR"]
+    AND1["AND"]
+    S["S"]
+    C["C"]
+    A --> XOR1
+    B --> XOR1
+    A --> AND1
+    B --> AND1
+    XOR1 --> S
+    AND1 --> C
+```
 
 The logic circuit above has two inputs (**A, B**) and two outputs (**S, C**).
 '''
@@ -546,7 +701,6 @@ answer = '''
 [[question]]
 number = 6
 marks = 11
-diagram = true
 
 [[question.part]]
 label = "6(a)(i)"
@@ -554,7 +708,14 @@ marks = 3
 text = '''
 Complete the Karnaugh map below for the Boolean expression `(¬ A ∧ ¬ B) ∨ ( A ∧ ¬ B)`
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| CD \ AB | 00 | 01 | 11 | 10 |
+| :--- | :--- | :--- | :--- | :--- |
+| **00** | | | | |
+| **01** | | | | |
+| **11** | | | | |
+| **10** | | | | |
 '''
 
 [[question.part]]
@@ -587,7 +748,14 @@ answer = '''
 - …Middle 2 columns filled with zero or blank
 '''
 guidance = '''
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| CD \ AB | 00 | 01 | 11 | 10 |
+| :--- | :--- | :--- | :--- | :--- |
+| **00** | 1 | 0 | 0 | 1 |
+| **01** | 1 | 0 | 0 | 1 |
+| **11** | 1 | 0 | 0 | 1 |
+| **10** | 1 | 0 | 0 | 1 |
 '''
 
 [[question.mark_scheme]]
@@ -598,7 +766,14 @@ answer = '''
 - Karnaugh map used to show 1s highlighted with overlap
 '''
 guidance = '''
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| CD \ AB | 00 | 01 | 11 | 10 |
+| :--- | :--- | :--- | :--- | :--- |
+| **00** | 1 | 0 | 0 | 1 |
+| **01** | 1 | 0 | 0 | 1 |
+| **11** | 1 | 0 | 0 | 1 |
+| **10** | 1 | 0 | 0 | 1 |
 '''
 
 [[question.mark_scheme]]
@@ -625,7 +800,6 @@ answer = '''
 [[question]]
 number = 7
 marks = 4
-diagram = true
 
 [[question.part]]
 label = "7"
@@ -633,7 +807,16 @@ marks = 4
 text = '''
 Daniel is an engineer. He has created the following logic circuit shown in **Fig. 4**.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Claude Sonnet). It may contain mistakes.]*
+
+```mermaid
+flowchart LR
+    A["A"] --> AND1["AND"]
+    B["B"] --> AND1["AND"]
+    AND1 --> XOR1["XOR"]
+    C["C"] --> XOR1["XOR"]
+    XOR1 --> X["X"]
+```
 
 **Fig. 4**
 

@@ -409,9 +409,11 @@ def table_markdown(table, chars: list[Char]) -> str | None:
     return "\n".join(out)
 
 
-def region_blocks(page, chars: list[Char], box, tables, image_note: str, skip_tables=()) -> tuple[list[tuple[float, str]], bool]:
+def region_blocks(page, chars: list[Char], box, tables, image_note: str, skip_tables=()) -> tuple[list[tuple[float, str]], bool, list[tuple[int, tuple]]]:
     """Markdown blocks for everything inside `box`: tables, images and text.
-    Returns the blocks in reading order and whether an image was found."""
+    Returns the blocks in reading order, whether an image was found, and for
+    each image note (in the same order) its page number and box, so that
+    tools/redraw-exam-diagrams can crop the diagram behind it."""
     x0, top, x1, bottom = box
     blocks: list[tuple[float, str]] = []
     taken: set[int] = set()
@@ -427,22 +429,31 @@ def region_blocks(page, chars: list[Char], box, tables, image_note: str, skip_ta
             if markdown:
                 blocks.append((ttop, markdown))
     has_image = False
+    image_boxes: dict[int, tuple] = {}  # position in `blocks` -> image box
     for image in page.images:
         w, h = image["x1"] - image["x0"], image["bottom"] - image["top"]
         cx, cy = (image["x0"] + image["x1"]) / 2, (image["top"] + image["bottom"]) / 2
         if w >= MIN_IMAGE and h >= MIN_IMAGE and x0 <= cx <= x1 and top <= cy <= bottom:
+            image_boxes[len(blocks)] = (image["x0"], image["top"], image["x1"], image["bottom"])
             blocks.append((image["top"], image_note))
             has_image = True
     rest = [c for c in region if id(c) not in taken]
-    blocks += lines_to_markdown(group_lines(rest), x1)
-    blocks.sort(key=lambda b: b[0])
-    # Drop repeated notes (one diagram can be several images).
-    out = []
-    for block in blocks:
-        if out and block[1] == out[-1][1] and block[1] in (DIAGRAM_NOTE, IMAGE_NOTE):
+    tagged = [(top_, text, image_boxes.get(i)) for i, (top_, text) in enumerate(blocks)]
+    tagged += [(top_, text, None) for top_, text in lines_to_markdown(group_lines(rest), x1)]
+    tagged.sort(key=lambda b: b[0])
+    # Drop repeated notes (one diagram can be several images): the note that
+    # stays covers all of their boxes.
+    out: list[tuple[float, str]] = []
+    boxes: list[tuple] = []
+    for top_, text, image_box in tagged:
+        if out and text == out[-1][1] and text in (DIAGRAM_NOTE, IMAGE_NOTE) and image_box and boxes:
+            a = boxes[-1]
+            boxes[-1] = (min(a[0], image_box[0]), min(a[1], image_box[1]), max(a[2], image_box[2]), max(a[3], image_box[3]))
             continue
-        out.append(block)
-    return out, has_image
+        out.append((top_, text))
+        if image_box:
+            boxes.append(image_box)
+    return out, has_image, [(page.page_number, b) for b in boxes]
 
 
 # ---------------------------------------------------------------------------
@@ -460,6 +471,8 @@ class Part:
     blocks: list[str] = field(default_factory=list)
     marks: int | None = None
     diagram: bool = False
+    # (page number, box) for each diagram note in `blocks`, in order.
+    images: list = field(default_factory=list)
 
 
 @dataclass
@@ -544,9 +557,10 @@ def read_questions(path: Path) -> list[Question]:
                 if owner is None:
                     continue
                 piece_box = (0, edges[piece], page.width, edges[piece + 1])
-                blocks, has_image = region_blocks(page, chars, piece_box, tables, DIAGRAM_NOTE)
+                blocks, has_image, images = region_blocks(page, chars, piece_box, tables, DIAGRAM_NOTE)
                 owner.blocks.extend(markdown for _, markdown in blocks)
                 owner.diagram |= has_image
+                owner.images.extend(images)
                 question_of[id(owner)].pages.add(number)
     for question in questions:
         for part in question.parts:
@@ -585,6 +599,9 @@ class MarkRow:
     marks: int | None = None
     answer: list[str] = field(default_factory=list)
     guidance: list[str] = field(default_factory=list)
+    # (page number, box) for each image note in `answer` / `guidance`, in order.
+    answer_images: list = field(default_factory=list)
+    guidance_images: list = field(default_factory=list)
 
 
 LABEL_TOKEN = re.compile(r"^\(?(\d{1,2}|[a-h]|[ivx]{1,4})\)?\.?$")
@@ -704,10 +721,14 @@ def read_mark_scheme(path: Path) -> tuple[list[MarkRow], dict[int, int]]:
                                 guidance_cells.append((cell, text))
                             else:
                                 answer_cells.append((cell, text))
-                    for target, cells_in in ((current.answer, answer_cells), (current.guidance, guidance_cells)):
+                    for target, image_list, cells_in in (
+                        (current.answer, current.answer_images, answer_cells),
+                        (current.guidance, current.guidance_images, guidance_cells),
+                    ):
                         for cell, text in cells_in:
-                            blocks, _ = region_blocks(page, chars, cell, inner, IMAGE_NOTE)
+                            blocks, _, images = region_blocks(page, chars, cell, inner, IMAGE_NOTE)
                             target.extend(md for _, md in blocks)
+                            image_list.extend(images)
     for row in rows:
         if row.marks is None:
             for block in row.answer:
@@ -792,8 +813,9 @@ def write_topic(entry: dict, mark_scheme: dict, redactions: list[str], force: bo
     lines = [
         f"# OCR exam questions for {spec_number} {point_title(spec_number)}.",
         "# Copied as text from the question paper and mark scheme PDFs in sources/",
-        "# by tools/extract-exam-questions. Diagrams are not copied. Corrections by",
-        "# hand are fine: the tool will not overwrite this file without --force.",
+        "# by tools/extract-exam-questions. Diagrams are not copied as images; run",
+        "# tools/redraw-exam-diagrams to redraw them as text. Corrections by hand are",
+        "# fine: the tool will not overwrite this file without --force.",
         f'spec = "{spec_number}"',
         "",
     ]

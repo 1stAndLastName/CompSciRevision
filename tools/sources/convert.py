@@ -537,7 +537,9 @@ def start_diagram_model():
     raise RuntimeError("the diagram model did not start within 4 minutes")
 
 
-def describe_image(image: Path) -> str:
+def describe_image(image: Path, prompt: str = DIAGRAM_PROMPT, history: list | None = None) -> str:
+    """Ask the local vision model about one image. `history` adds earlier turns
+    (used to ask it to fix Mermaid code that did not parse)."""
     import io
     import urllib.request
     from PIL import Image
@@ -551,8 +553,8 @@ def describe_image(image: Path) -> str:
     body = json.dumps({
         "messages": [{"role": "user", "content": [
             {"type": "image_url", "image_url": {"url": f"data:image/png;base64,{data}"}},
-            {"type": "text", "text": DIAGRAM_PROMPT},
-        ]}],
+            {"type": "text", "text": prompt},
+        ]}] + (history or []),
         "temperature": 0,
         "max_tokens": 1200,
         # Gemma 4 "thinks" first by default and can use up every token before

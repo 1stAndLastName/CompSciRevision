@@ -206,7 +206,13 @@ dataArray[x] and
 
 Exemplar 1
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> It acts as a temporary variable to hold the
+> value of numbers[x] while before numbers[x]
+> is overwritten so the original value is not
+> lost and is instead copied to numbers[x+1]
 
 This exemplar very clearly states exactly how and why the variable `holdValue` is required.
 '''

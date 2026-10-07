@@ -205,7 +205,7 @@ Mark first answer in each answer space
 
 This question challenged many candidates who were unable to give three advantages to the business and instead gave 3 benefits of a LAN over a WAN which was not what the question required. The candidates who did manage to gain full marks were able to give clear advantages to a business of having their machines networked in a LAN.
 
-*[Image in the original mark scheme, not shown here.]*
+*[An examiner's marking symbol, not shown here.]*
 '''
 
 [[question.mark_scheme]]
@@ -442,7 +442,50 @@ Some candidates discussed different topologies which was not relevant to the que
 
 Exemplar 3
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> A peer-to-peer in a peer-to-peer network, computers
+> are connected directly to each other, all connecting
+> to each other either directly or through another
+> computers. This method allows data to be shared
+> easily between computers, as though the data can be
+> sent directly. One of the main benefits of peer-to-peer
+> is that there are no reliance on a server. This
+> means that each computer is independent, if one node
+> fails, the network will still work. Also, peer-to-peer
+> networks require little extra hardware so are cheaper
+> to set up. However, security and backups are harder
+> to implement as each computer needs to be backed
+> up individually. The security of data may be important
+> to the firm as they may hold sensitive information
+> such as bank details.
+> 
+> In a client-server network, then all the client
+> computers are connected to a centrally managed server.
+> The main advantage of a client-server network is that
+> it has centralised management. This means that backups
+> are easily done as they can be done centrally. Also,
+> security measures are easily put in place as the data
+> is all stored in one place. However, these netw
+> 
+> works are more expensive as there is extra
+> hardware required and often, specialist skills are required
+> to manage a server so someone needs to be employed to
+> run the server. Also, there is a huge reliance on the
+> server because if the server fails, the whole network
+> will fail.
+> 
+> For Zoe's business, I think that a peer-to-peer network
+> is more suitable. This is because there are not many
+> people in the office so "peer-to-peer network" would be
+> much easier to set up as peer-to-peer networks are only
+> connected to set up where they are only a few nodes
+> connected. Also, why a peer-to-peer network serves them
+> is the lower expense of setting up a client-server network.
+> The use of a peer-to-peer network also means they can
+> communicate frequently with their clients without
+> having to worry about the reliance on a server.
 
 The candidate response is well structured. The candidate has firstly highlighted how the computers are connected for each type of network and discussed the advantages and disadvantages. The advantages and disadvantages are well balanced and there are clear links to the scenario throughout.
 
@@ -800,7 +843,13 @@ and Room joined to booking and no other links
 - Customer to Booking relationship indicated as one-many -Room to Booking relationship indicated as one-many
 '''
 guidance = '''
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+erDiagram
+    Customer ||--o{ Booking : " "
+    Room ||--o{ Booking : " "
+```
 '''
 
 [[question.mark_scheme]]

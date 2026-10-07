@@ -367,7 +367,14 @@ unnecessary detail, but this did not answer the question. This was a contextual 
 
 Exemplar 2
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> 1. Abstraction of the major cities
+> 
+> 2. The actual earthquake - so showing where [unclear]
+> of the entire process
+> 3. the buildup of the
 
 This exemplar shows a response that has unqualified points that do not show how abstraction can be applied. It highlights factors that could be abstracted, but does not tell us how.
 '''
@@ -526,7 +533,6 @@ It was noticeable that many candidates reiterated definitions of abstraction rat
 [[question]]
 number = 8
 marks = 3
-diagram = true
 
 [[question.part]]
 label = "8"
@@ -538,7 +544,20 @@ In each turn, each character can make one move from a selection of possible move
 
 Kira uses a tree data structure shown in **Fig. 1** to identify the range of possible moves the computer can make from starting position A. Each connection is a move, with each node representing the result of the move.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    A["A"] ---|left| B["B"]
+    A ---|middle| C["C"]
+    A ---|right| E["E"]
+    B ---|left| D["D"]
+    D ---|left| I["I"]
+    C ---|left| F["F"]
+    C ---|right| G["G"]
+    G ---|left| J["J"]
+    E ---|left| H["H"]
+```
 
 **Fig. 1**
 
@@ -566,7 +585,6 @@ Allow other suitable examples that are relevant to the scenario in the question.
 [[question]]
 number = 9
 marks = 7
-diagram = true
 
 [[question.part]]
 label = "9"
@@ -575,7 +593,13 @@ Sally is a classroom teacher. She would like a program to be able to organise wh
 
 A plan of her classroom is shown **in Fig. 1**.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+The image shows a classroom floor plan diagram. At the top is a long rectangle labeled "Storage Units". Below this, there are three rows of three desks each, with the following names on them:
+Row 1: "ZingZing Alter", "Susan Banks", "Matthew Foggin"
+Row 2: "Rob Anderson", "Harry Jefferies", "Naheed Shah"
+Row 3: "Demmi Cunningham", "Alex Oldman", "Rashida Ali"
+At the bottom of the diagram, there is a "Door" on the left, a "White Board" in the center, and a "Teacher Desk" on the right.
 
 **Fig. 1**
 '''

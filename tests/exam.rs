@@ -25,6 +25,29 @@ fn exam_questions_load() {
     }
 }
 
+/// Every diagram redrawn by `tools/redraw-exam-diagrams` says it was made by
+/// an AI model, just before the drawing, and the Mermaid it needs is there.
+#[test]
+fn redrawn_diagrams_are_labelled_as_ai_made() {
+    assert!(Path::new("static/vendor/mermaid-12.0.0.min.js").exists());
+    for entry in fs::read_dir("exam-questions").unwrap() {
+        let path = entry.unwrap().path();
+        let text = fs::read_to_string(&path).unwrap();
+        // `split` cuts the file at every Mermaid block; each piece before one
+        // must end with the label (plus a little space for a line or two).
+        let pieces: Vec<&str> = text.split("```mermaid").collect();
+        for before in &pieces[..pieces.len() - 1] {
+            let tail: String = before.chars().rev().take(200).collect();
+            let tail: String = tail.chars().rev().collect();
+            assert!(
+                tail.contains("by an AI model"),
+                "{}: a Mermaid diagram has no AI label before it",
+                path.display()
+            );
+        }
+    }
+}
+
 const GOOD: &str = r#"
 spec = "1.4.3"
 

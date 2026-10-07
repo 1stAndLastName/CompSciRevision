@@ -137,6 +137,10 @@ async fn exam_page_carries_every_question_and_mark_scheme() {
             exam.spec
         );
         assert!(body.contains("static/js/exam.js"));
+        assert!(
+            body.contains("static/js/diagrams.js"),
+            "exam pages draw their Mermaid diagrams"
+        );
         assert!(body.contains("© OCR"), "the source should be credited");
     }
 }

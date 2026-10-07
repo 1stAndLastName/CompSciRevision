@@ -412,7 +412,13 @@ Many candidates found it difficult to explain the purpose of the `holdValue` var
 
 Exemplar 1
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> It acts as a temporary variable to hold
+> the value of number [x] while before number
+> is overwritten so the original value is not
+> lost and is instead copied to number[x+1]
 
 This exemplar very clearly states exactly how and why the variable `holdValue` is required.
 '''
@@ -777,7 +783,6 @@ answer = '''
 [[question]]
 number = 9
 marks = 32
-diagram = true
 
 [[question.part]]
 label = "9(a)"
@@ -791,7 +796,20 @@ The printer buffer is represented as a zero-indexed 1D array with the identifier
 
 **Fig. 2** shows the current contents of the queue `buffer` and its pointers.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| Index | Value |
+|---|---|
+| 6 | |
+| 5 | |
+| 4 | |
+| 3 | job-127 |
+| 2 | job-126 |
+| 1 | job-125 |
+| 0 | job-124 |
+
+queueHead = 0
+queueTail = 3
 
 **Fig. 2**
 
@@ -828,7 +846,20 @@ dequeue()
 enqueue(job-129)
 ```
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| Index | Value |
+|---|---|
+| 6 | |
+| 5 | |
+| 4 | |
+| 3 | |
+| 2 | |
+| 1 | |
+| 0 | |
+
+queueHead [ ]
+queueTail [ ]
 '''
 
 [[question.part]]
@@ -910,7 +941,20 @@ answer = '''
 - queueHead being 3 (FT errors)
 - queueTail being 5 (FT errors)
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| Index | Value |
+|---|---|
+| 6 | |
+| 5 | job-127 |
+| 4 | job-128 |
+| 3 | job-127 |
+| 2 | |
+| 1 | |
+| 0 | |
+
+queueHead = 3
+queueTail = 5
 '''
 guidance = '''
 The underlying\

@@ -2032,6 +2032,42 @@ html:not(.js) .fc-inner {
   font-size: 0.85em;
 }
 
+/* A Mermaid diagram drawn by diagrams.js, with its code in a
+   "Diagram as text" section underneath. Wide diagrams scroll sideways. */
+.diagram {
+  margin: 0 0 var(--space-4);
+}
+
+.diagram-drawing {
+  overflow-x: auto;
+}
+
+.diagram.is-drawn .diagram-drawing {
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  background: var(--surface);
+}
+
+.diagram-drawing svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.diagram-text summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--accent-text);
+  cursor: pointer;
+}
+
+.diagram-text pre {
+  margin-top: 0;
+}
+
 .mark-scheme {
   margin-top: var(--space-4);
   border: 1px solid var(--border);

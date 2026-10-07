@@ -7,7 +7,6 @@ spec = "1.4.1"
 [[question]]
 number = 1
 marks = 13
-diagram = true
 
 [[question.part]]
 label = "1(a)"
@@ -66,7 +65,13 @@ Calculate the binary addition of these two 8-bit (unsigned) binary numbers.
 
 Show your working.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+0011101111
+100110011 +
+-----------
+```
 '''
 
 [[question.mark_scheme]]
@@ -656,7 +661,16 @@ Many candidates were given the first mark by working out the fixed-point equival
 
 Exemplar 2
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> Show your working. 3
+> 
+> 8 4 2 1 1/2 1/4 1/8 4 2 1
+> 
+> 0 1 1 0 0 1 0 0 1 1
+>
+>
 
 The candidate clearly shows the fixed-point value of 6.25 to gain the first mark. The second mark is given for showing the
 
@@ -810,7 +824,6 @@ Candidates should be encouraged to give a complete answer. Just saying ‘Unicod
 [[question]]
 number = 7
 marks = 13
-diagram = true
 
 [[question.part]]
 label = "7(a)(i)"
@@ -836,7 +849,12 @@ Complete this binary subtraction. Both numbers are 8-bit integer values represen
 
 Show the result in the same format and show your working.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+0110 1101  —
+0011 0100
+```
 '''
 
 [[question.part]]
@@ -950,7 +968,6 @@ This question was mostly well answered. However, some candidates were able to id
 [[question]]
 number = 8
 marks = 9
-diagram = true
 
 [[question.part]]
 label = "8(a)"
@@ -1002,7 +1019,13 @@ Calculate the addition of these two 8-bit (unsigned) binary numbers.
 
 Show your working.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+  11011011
++ 10001001
+-----------
+```
 '''
 
 [[question.mark_scheme]]
@@ -1221,7 +1244,6 @@ If exponents initially matched to 4, final bullet point should only be given if 
 [[question]]
 number = 10
 marks = 14
-diagram = true
 
 [[question.part]]
 label = "10(a)(i)"
@@ -1264,7 +1286,9 @@ marks = 2
 text = '''
 Show the result of applying an XOR mask of 1100 0111 to the byte 0101 1101.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |
 '''
 
 [[question.part]]
@@ -1351,7 +1375,6 @@ answer = '''
 [[question]]
 number = 11
 marks = 5
-diagram = true
 
 [[question.part]]
 label = "11(a)"
@@ -1375,7 +1398,13 @@ Calculate the subtraction of the following two 8-bit binary numbers.
 
 You must show your working.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B, corrected by Claude Sonnet). It may contain mistakes.]*
+
+```text
+11010011
+01111001  -
+__________
+```
 '''
 
 [[question.part]]

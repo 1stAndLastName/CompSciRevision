@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Redraw the diagrams in exam-questions/ as text (Mermaid or tables) with a
+# local AI model. Only new diagrams are redrawn; replaced ones are left alone.
+#
+#   tools/redraw-exam-diagrams              every spec point
+#   tools/redraw-exam-diagrams --only 1.4.3 one spec point
+#
+# Needs tools/.venv (see tools/convert-sources) and the local model in
+# tools/llama.cpp (see the --diagrams notes in tools/convert-sources).
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+# Number GPUs the same way as nvidia-smi, and use the RTX 4070 (not the GTX 1660).
+export CUDA_DEVICE_ORDER=PCI_BUS_ID
+if [ -z "${CUDA_VISIBLE_DEVICES:-}" ] && command -v nvidia-smi >/dev/null; then
+  gpu=$(nvidia-smi --query-gpu=index,name --format=csv,noheader | awk -F', ' '/4070/ {print $1; exit}')
+  export CUDA_VISIBLE_DEVICES="${gpu:-0}"
+fi
+
+exec tools/.venv/bin/python tools/sources/exam_diagrams.py "$@"

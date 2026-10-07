@@ -158,7 +158,15 @@ marks = 5
 answer = '''
 1 mark for each correct match.
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+The image shows a table with two columns: "Scheduling Algorithm" and "Description". There are five rows of algorithms on the left and five rows of descriptions on the right. Blue lines connect the algorithms to their corresponding descriptions, but they are incorrectly matched in the diagram:
+
+- "Round Robin" is connected to the description: "Splits processes into different priority queues based on the amount of processor time they need. It allows them to move between the queues as their characteristics change." (This is actually the description for Multi-level feedback queues).
+- "First come first served" is connected to the description: "Each process is given equal priority and they are processed in the order they arrive." (This is actually the description for First come first served).
+- "Multi-level feedback queues" is connected to the description: "Each process is allocated a fixed amount of CPU time. If the process is not complete it will be suspended and the next process will start." (This is actually the description for Round Robin).
+- "Shortest job first" is connected to the description: "Selects the process that takes the shortest amount of time to complete. The processes are run until they are fully complete." (This is actually the description for Shortest job first).
+- "Shortest remaining time" is connected to the description: "Selects the process that takes the shortest amount of time. The process can't be suspended if another shorter process is added." (This is actually the description for Shortest remaining time).
 '''
 guidance = '''
 **Examiner’s Comments**
@@ -358,7 +366,25 @@ This question was generally answered well, although some candidates were too vag
 
 Exemplar 2
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> TYPE 1
+> 
+> Description ... real-time operating system, which is used when
+> a response is required within a guaranteed time frame
+>
+> Example ... Intensive Care Units, for use when patients need
+> immediate assistance / treatment
+> 
+> TYPE 2
+> 
+> Description ... embedded system, which is stored in the ROM and
+> has limited functionality, as it is used to perform specific
+> tasks.
+>
+> Example ... a smart washing machine, as its instructions are not
+> likely to change
 
 The candidate has been given full marks for this response as they have been clear that real time operating systems respond in a guaranteed time frame, with a suitable example of their use. Some candidates were too vague in their response for\
 descriptions of a real time operating system with answers such as ‘responds quickly’.
@@ -584,7 +610,7 @@ Many candidates were able to gain full marks on this question. Unfortunately, so
 
 run immediately with no reference to priorities.
 
-*[Image in the original mark scheme, not shown here.]*
+*[An examiner's marking symbol, not shown here.]*
 '''
 
 [[question.mark_scheme]]
@@ -893,7 +919,15 @@ This was generally answered well, although some candidates were vague in their r
 
 **Exemplar 1**
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> Basic input output system, responsible
+> for the power on self test (POST) which
+> checks memory and peripheral units are working correctly
+> before used to call the bootstrap, which will load
+> [an]
+> Operating System
 
 Exemplar 1 was given full marks. The candidate achieved the first mark for being clear that the BIOS checks hardware and has provided a suitable example. The second mark has been awarded for explaining that the BIOS loads the operating system. Although it was not essential to mention POST (Power-On-Self-Test) this is useful to explain the process that occurs.
 '''

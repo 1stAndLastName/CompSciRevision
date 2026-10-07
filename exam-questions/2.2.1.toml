@@ -2,6 +2,8 @@
 # Copied as text from the question paper and mark scheme PDFs in sources/
 # by tools/extract-exam-questions. Diagrams are not copied. Corrections by
 # hand are fine: the tool will not overwrite this file without --force.
+# 2023 Section B
+# Test code - Treasure @ 2,2 all
 spec = "2.2.1"
 
 [[question]]
@@ -194,7 +196,16 @@ Sometimes candidates did explain the reasons why `True` and `False` would be ret
 
 Exemplar 1
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> The request() function returns "False" if the array
+> variable is null (i.e. the null pointer is greater than equal to the
+> pre-defined length) and the reference attribute has not been added.
+> The function returns "True" if the query is not null and indicates the item
+> has been added. Their other results can be used to select whether the
+> item pointed to request() has been successfully added by assigning
+> him to a variable : successful = request("x") for example.
 
 This response showed clear understanding of the need to store the result returned by `dequeue()` to be used in the conditional loop test.
 '''
@@ -921,7 +932,27 @@ answer = '''
 
 e.g.
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+c = 1
+while c <= a
+    print(c * a)
+    c = c + 1
+endwhile
+
+c = 0
+while c <= a
+    c = c + 1
+    print(c * a)
+endwhile
+
+c = 0
+while c <= a
+    c = c + 1
+    print(c * a)
+endwhile
+```
 '''
 guidance = '''
 BP2 – Allow any suitable logic for the while loop condition that iterates between 1 and a.
@@ -941,7 +972,15 @@ This question was generally well attempted with marks relatively evenly distribu
 
 Exemplar 1
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+while a > 0:
+    c = 1
+    while c <= a:
+        print(c * a)
+        c = c + 1
+```
 
 This response showed a typical off-by-one error where the candidate had not thought through the logic of the entire response. The condition
 
@@ -1152,7 +1191,20 @@ Competent coders often gave responses worthy of full marks within just a few lin
 
 Exemplar 3
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+def pressGrid(Board):
+    [unclear]
+    x = int(input("enter x"))
+    y = int(input("enter y"))
+    place = Board.getGridItem(x, y)
+    if place.getLevel() == 0:
+        print("No treasure")
+    else:
+        print("Treasure found! [unclear] value is place.getValue()")
+        print("x + y = place.getSum()")
+```
 
 This response clearly shows a logical and well- structured algorithm that uses the appropriate get() methods to access the relevant attributes of the passed parameter object. Candidates who are fluent in the use of OOP can present elegant and concise solutions.
 '''
@@ -1215,7 +1267,7 @@ There were far fewer high level AO3 evaluations
 
 of relative memory use within the context of the scenario when passing byVal/byRef for a relatively large grid object. Good, contextualised responses took the elements of the scenario in section B of the paper and talked about the grid object and passing parameters like x and y coordinates. Responses such as this were relatively rare.
 
-*[Image in the original mark scheme, not shown here.]*
+*[An examiner's marking symbol, not shown here.]*
 
 **Assessment for learning**
 
@@ -1862,7 +1914,7 @@ denary.isInteger == False
 Candidates found Question 4 (b) easier to approach than Question 4 (a). Most could write pseudocode to accept a user input. When validating the input to be a value between 1 and 255, there was incorrect use of relational operators with off -by-one errors on occasion. There was also incorrect use of logical operators where or was used instead of and, and vice- versa. When candidates called\
 `toBinary(inputVal)`, the result was not always stored for later use.
 
-*[Image in the original mark scheme, not shown here.]*
+*[An examiner's marking symbol, not shown here.]*
 
 **Assessment for learning**
 
@@ -2255,7 +2307,6 @@ Those candidates who scored full marks in 7b had little difficulty giving the co
 [[question]]
 number = 15
 marks = 28
-diagram = true
 
 [[question.part]]
 label = "15(a)"
@@ -2266,7 +2317,21 @@ The array is zero based and has 100 locations.
 
 **Fig. 8** shows the current contents of the stack and the first 9 locations of the array.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| Index | Data |
+|---|---|
+| 8 | |
+| 7 | |
+| 6 | |
+| 5 | |
+| 4 | 1 |
+| 3 | 23 |
+| 2 | 6 |
+| 1 | 5 |
+| 0 | 10 |
+
+pointerValue 5
 
 **Fig. 8**
 '''
@@ -2289,7 +2354,21 @@ push(6)
 push(7)
 ```
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| Index | Data |
+|---|---|
+| 8 | |
+| 7 | |
+| 6 | |
+| 5 | |
+| 4 | |
+| 3 | |
+| 2 | |
+| 1 | |
+| 0 | |
+
+pointerValue is shown in a box to the left of the table.
 '''
 
 [[question.part]]
@@ -2410,7 +2489,21 @@ answer = '''
 1 mark for correct data\
 1 mark for correc top of stack pointer
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| Index | Data |
+|---|---|
+| 8 | |
+| 7 | |
+| 6 | |
+| 5 | 7 |
+| 4 | 6 |
+| 3 | 3 |
+| 2 | 6 |
+| 1 | 5 |
+| 0 | 10 |
+
+pointerValue: 6
 '''
 guidance = '''
 **Examiner’s Comments**
@@ -2510,7 +2603,19 @@ Another common error was incrementing the value of the stackPointer before the p
 
 **Exemplar 3**
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+function push(num)
+    if pointerValue == StackArray.length then
+        return false
+    else
+        StackArray[pointerValue] = num
+        pointerValue++
+        return true
+    endif
+endfunction
+```
 
 Candidates are encouraged to present pseudocode solutions with clear indentation to aid readability. No specific language/syntax is expected, but the logic of the solution must be clear.
 '''
@@ -2926,7 +3031,13 @@ Candidates need to be reminded that at this level responses of a ‘quicker’ o
 
 **Exemplar 1**
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> 1. Saves time, as code has already been tested and written
+> so less time need to be tested and written again (more accurate).
+> 2. Easier to debug and test, as code components can be tested
+> individually & (against the own well-defined requirements).
 
 Candidates are expected to fully qualify the points that they make. This response shows clear identification of points followed by qualifying statements.
 '''
@@ -3237,7 +3348,17 @@ Many candidates did not give a clear explanation for a point made, and there wer
 
 **Exemplar 1**
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> 1. Please you do not divide different [unclear] [unclear] [unclear] [unclear]
+> components in [unclear], as one [unclear] [unclear] [unclear] [unclear] [unclear]
+> they are [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear]
+>
+> 2. [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear]
+> [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear]
+> [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear]
+> [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear]
 
 A response that shows a clear point being made with a detailed explanatory expansion for both benefits.
 '''
@@ -3456,7 +3577,6 @@ Few candidates could develop the concept of modularity to the level of interface
 [[question]]
 number = 23
 marks = 4
-diagram = true
 
 [[question.part]]
 label = "23"
@@ -3468,7 +3588,19 @@ Customers should be able to enter the date they want to hire a function room, an
 
 Complete the structure diagram below to show the different component parts of the problem.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    A["Function rooms"] --- B["Check availability"]
+    A --- C["Choose room"]
+    A --- D[" "]
+    A --- E["Check payment"]
+    B --- F[" "]
+    B --- G[" "]
+    E --- H["Check payment details"]
+    E --- I[" "]
+```
 '''
 
 [[question.mark_scheme]]
@@ -3477,7 +3609,19 @@ marks = 4
 answer = '''
 1 mark per box up to a maximum of 4 marks:
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    A["Function rooms"] --- B["Check availability"]
+    A --- C["Choose room"]
+    A --- D["Make payment"]
+    A --- E["Check payment"]
+    B --- F["Enter date"]
+    B --- G["Display available rooms"]
+    E --- H["Check payment details"]
+    E --- I["Send confirmation email"]
+```
 '''
 guidance = '''
 **Examiner’s Comments**\
@@ -3487,7 +3631,6 @@ Candidates needed to apply computational thinking skills to identify the compone
 [[question]]
 number = 24
 marks = 40
-diagram = true
 
 [[question.part]]
 label = "24(a)"
@@ -3496,7 +3639,17 @@ A Nonogram is a logic puzzle where a player needs to colour in boxes. The puzzle
 
 The numbers at the side of each row and column tells the player how many of the boxes are coloured in consecutively. Where a row has two or more numbers, there must be a white square between the coloured squares.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B, corrected by Claude Sonnet). It may contain mistakes.]*
+
+| | | | | | | |
+|---|---|---|---|---|---|---|
+|■|■| | | |2| |
+| |■|■| | |2| |
+| | |■| |■|1|1|
+|■|■|■| | |3| |
+| |■| | | |1| |
+|1|2|3|0|1| | |
+|1|2| | | | | |
 
 In this example:
 
@@ -3518,7 +3671,20 @@ marks = 3
 text = '''
 Complete the structure diagram by adding another layer for New game, Play game and Check answer.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    A["Nonogram"] ---|left| B["New game"]
+    A ---|middle| C["Play game"]
+    A ---|right| D["Check answer"]
+    B ---|left| E[" "]
+    B ---|right| F[" "]
+    C ---|left| G[" "]
+    C ---|right| H[" "]
+    D ---|left| I[" "]
+    D ---|right| J[" "]
+```
 '''
 
 [[question.part]]
@@ -3560,7 +3726,15 @@ marks = 5
 text = '''
 Juan creates a function, `countRow()`, to count the number of coloured boxes in one row and return the number of consecutive coloured boxes in that row. If there is more than one set of coloured boxes in the row, these are joined together and the string is returned. For example, in the following grid `countRow` for row 0 will return "`2`" as a string, and `countRow` for row 2 will return "`1 1`" as a string. If there are no 1s in a row, then "`0`" is returned as a string.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| | | | | |
+|---|---|---|---|---|
+| 1 | 1 | 0 | 0 | 0 |
+| 0 | 1 | 1 | 0 | 0 |
+| 0 | 0 | 1 | 0 | 1 |
+| 1 | 1 | 1 | 0 | 0 |
+| 0 | 1 | 0 | 0 | 0 |
 
 Complete the pseudocode algorithm `countRow()`.
 
@@ -3607,11 +3781,27 @@ The procedure `displayRowAnswer()` takes `puzzle` as a parameter and outputs the
 
 For example the puzzle below:
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| | | | | |
+|---|---|---|---|---|
+| 1 | 1 | 0 | 0 | 0 |
+| 0 | 1 | 1 | 0 | 0 |
+| 0 | 0 | 1 | 0 | 1 |
+| 1 | 1 | 1 | 0 | 0 |
+| 0 | 1 | 0 | 0 | 0 |
 
 Would output:
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| | | | | | | |
+|---|---|---|---|---|---|---|
+| 1 | 1 | 0 | 0 | 0 | | 2 |
+| 0 | 1 | 1 | 0 | 0 | | 2 |
+| 0 | 0 | 1 | 0 | 1 | | 1 | 1 |
+| 1 | 1 | 1 | 0 | 0 | | 3 |
+| 0 | 1 | 0 | 0 | 0 | | 1 |
 '''
 
 [[question.part]]
@@ -3688,7 +3878,20 @@ answer = '''
 
 e.g.
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    A["Nonogram"] --- B["Draw grid"]
+    A --- C["Fill grid"]
+    A --- D["Check answer"]
+    B --- E["Select puzzle"]
+    B --- F["Display blank grid"]
+    C --- G["Select box"]
+    C --- H["Change colour of boxes"]
+    D --- I["Compare to answer"]
+    D --- J["Display correct/incorrect"]
+```
 '''
 
 [[question.mark_scheme]]
@@ -4696,7 +4899,6 @@ the same class will share the same attributes and methods.
 [[question]]
 number = 32
 marks = 32
-diagram = true
 
 [[question.part]]
 label = "32(a)"
@@ -4710,7 +4912,20 @@ The printer buffer is represented as a zero-indexed 1D array with the identifier
 
 **Fig. 2** shows the current contents of the queue `buffer` and its pointers.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| Index | Value |
+|---|---|
+| 6 | |
+| 5 | |
+| 4 | |
+| 3 | job-127 |
+| 2 | job-126 |
+| 1 | job-125 |
+| 0 | job-124 |
+
+queueHead = 0
+queueTail = 3
 
 **Fig. 2**
 
@@ -4747,7 +4962,20 @@ dequeue()
 enqueue(job-129)
 ```
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| Index | Value |
+|---|---|
+| 6 | |
+| 5 | |
+| 4 | |
+| 3 | |
+| 2 | |
+| 1 | |
+| 0 | |
+
+queueHead [ ]
+queueTail [ ]
 '''
 
 [[question.part]]
@@ -4829,7 +5057,20 @@ answer = '''
 - queueHead being 3 (FT errors)
 - queueTail being 5 (FT errors)
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| Index | Value |
+|---|---|
+| 6 | |
+| 5 | job-129 |
+| 4 | job-128 |
+| 3 | job-127 |
+| 2 | |
+| 1 | |
+| 0 | |
+
+queueHead = 3
+queueTail = 5
 '''
 guidance = '''
 The underlying implementation of the queue has
@@ -4982,7 +5223,6 @@ Allow other suitable descriptions that show how the program could be amended.
 [[question]]
 number = 33
 marks = 19
-diagram = true
 
 [[question.part]]
 label = "33(a)"
@@ -4995,7 +5235,23 @@ A null pointer is stored with the value `–1`.
 
 **Fig. 3** shows the current contents of the linked list including the head and free list pointer values.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| index | data | pointer |
+|---|---|---|
+| 0 | 2.6 | 3 |
+| 1 | 3.5 | -1 |
+| 2 | 1.8 | 1 |
+| 3 | 6.9 | 2 |
+| 4 | | 5 |
+| 5 | | 6 |
+| 6 | | 7 |
+| 7 | | 8 |
+| 8 | | 9 |
+| 9 | | -1 |
+
+headPointer: 0
+freeListPointer: 4
 
 **Fig. 3**
 '''
@@ -5020,7 +5276,23 @@ marks = 4
 text = '''
 Show the contents of the linked list from **Fig. 3** and the pointer values when the node with data `6.9` is deleted.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| index | data | pointer |
+|---|---|---|
+| 0 | | |
+| 1 | | |
+| 2 | | |
+| 3 | | |
+| 4 | | |
+| 5 | | |
+| 6 | | |
+| 7 | | |
+| 8 | | |
+| 9 | | |
+
+headPointer [ ]
+freeListPointer [ ]
 '''
 
 [[question.part]]
@@ -5109,7 +5381,23 @@ answer = '''
 
 Solution:
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| Index | data | pointer |
+|---|---|---|
+| 0 | 2..6 | 2 |
+| 1 | 3..5 | -1 |
+| 2 | 1..8 | 1 |
+| 3 | 4..9 | -1 |
+| 4 | | 5 |
+| 5 | | 6 |
+| 6 | | 7 |
+| 7 | | 8 |
+| 8 | | 9 |
+| 9 | | 3 |
+
+headPointer = 0
+freeListPointer = 4
 
 Alternative Solution:
 '''
@@ -5376,7 +5664,6 @@ There are many different ways that this procedure could have been achieved. Ther
 [[question]]
 number = 36
 marks = 20
-diagram = true
 
 [[question.part]]
 label = "36(a)"
@@ -5385,7 +5672,13 @@ Sally is a classroom teacher. She would like a program to be able to organise wh
 
 A plan of her classroom is shown **in Fig. 1**.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+The image shows a floor plan of a classroom. At the top is a "Storage Units" area. Below that are three rows of three desks, each with a student's name:
+Row 1: "ZingZing Alter", "Susan Banks", "Matthew Foggin"
+Row 2: "Rob Anderson", "Harry Jefferies", "Naheed Shah"
+Row 3: "Demmi Cunningham", "Alex Oldman", "Rashida Ali"
+At the bottom of the room, from left to right, are a "Door", a "White Board", and a "Teacher Desk".
 
 **Fig. 1**
 

@@ -219,7 +219,7 @@ Designers could release different versions of the software for different parts o
 
 There were a good range of Level 2 responses with good discussions for at least two of the bullet points and related to different cultures. Some candidates were unable to apply their knowledge to different cultures and instead discussed accessibility concerns. The candidates with Level 3 responses gave good discussions of all three bullet points and related it to different cultures and the athletes. They were also able to discuss how the programmer could go about this.
 
-*[Image in the original mark scheme, not shown here.]*
+*[An examiner's marking symbol, not shown here.]*
 
 **Assessment for learning**
 
@@ -708,7 +708,18 @@ There was a range of marks candidates could access for this question. The questi
 
 Exemplar 2
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> Difference 1 assembly language is translated using
+> an assembler into machine code while high
+> level language use interpreters and compilers
+> to translate
+> 
+> Difference 2 assembly language use mnemonics to
+> program while high level language use a language*
+> closer to english
+> * with syntax
 
 In this response the candidate has given two clear differences and has explained what the difference is for both.
 '''
@@ -790,7 +801,22 @@ This question was well answered by some candidates. The question asks for pseudo
 
 **Exemplar 3**
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> Class Video
+>
+>     private name
+>     private number of views
+>     private star rating
+>
+>     public procedure new(aName)
+>         name = aName
+>         number of views = 0
+>         star rating = 3
+>     end procedure
+>
+> end class
 
 This was a good clear example of an answer given in pseudocode. The candidate has declared the 3 given attributes as private, shown a constructor with one parameter and set name to the parameter and views and rating to 0 and 3. The candidate gained 7 marks.
 '''
@@ -819,7 +845,6 @@ Most candidates were able to gain at least 1 mark for this question. Those who w
 [[question]]
 number = 7
 marks = 12
-diagram = true
 
 [[question.part]]
 label = "7"
@@ -827,7 +852,32 @@ text = '''
 **Fig. 1** shows assembly code written using the Little Man Computer (LMC). The program calculates and outputs the total amount that is donated to a charity in any particular day.\
 Depending on the amount, an additional bonus may be added to each amount donated.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+start          INP
+              STA  donation
+              SUB  hundred
+              BRP  bonus
+
+nobonus        LDA  total
+              ADD  donation
+              STA  total
+              OUT
+              BRA  start
+
+bonus          LDA  total
+              ADD  donation
+              ADD  twenty
+              STA  total
+              OUT
+              BRA  start
+
+hundred        DAT  100
+twenty         DAT  20
+donation       DAT  0
+total          DAT  0
+```
 
 **Fig. 1**
 '''
@@ -947,7 +997,16 @@ Many candidates were able to gain at least 2 marks on this question. Some candid
 
 **Exemplar 1**
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> Pipelining is when a computer can fetch the next
+> instruction whilst the previous is being decoded and the
+> one before that is being executed. There is two types
+> of pipelining: arithmetic and instruction. Pipelining
+> allows multiple instructions to be processed at the
+> same time.
+> [3]
 
 The candidate has clearly described pipelining with correct terminology. They gained full marks for the description of one instruction being decoded while another is fetched and another is executed, as well as describing that it allows multiple instructions to be processed at the same time.
 '''
@@ -1056,7 +1115,6 @@ end class
 [[question]]
 number = 9
 marks = 16
-diagram = true
 
 [[question.part]]
 label = "9(a)"
@@ -1077,7 +1135,31 @@ marks = 4
 text = '''
 A program written using the Little Man Computer instruction set is shown in **Fig. 1**.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+        INP
+        STA   numone
+        INP
+        STA   numtwo
+main     LDA   numone
+        SUB   numtwo
+        BRP   pos
+notpos   LDA   count
+        OUT
+        LDA   numone
+        OUT
+        HLT
+pos       STA   numone
+        LDA   count
+        ADD   one
+        STA   count
+        BRA   main
+numone    DAT
+numtwo    DAT
+one       DAT   1
+count     DAT   0
+```
 
 **Fig. 1**
 
@@ -1154,7 +1236,6 @@ Code finds integer division and remainder.
 [[question]]
 number = 10
 marks = 22
-diagram = true
 
 [[question.part]]
 label = "10(a)"
@@ -1162,7 +1243,43 @@ marks = 2
 text = '''
 Christoff is writing a program to simulate a city using object-oriented programming. He is designing classes to store different types of buildings and their location on the road. He has created the following plan for some of the buildings:
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+classDiagram
+    class building {
+        -numberFloors
+        -width
+        -height
+        +new(pFloors, pWidth, pHeight)
+        +getNumberFloors()
+        +getWidth()
+        +getHeight()
+        +setNumberFloors(pFloors)
+        +setWidth(pWidth)
+        +setHeight(pHeight)
+    }
+    class office {
+        -numDesks : integer
+        -numCompanies : integer
+        +new(pFloors, pWidth, pHeight, pDesks, pCompanies)
+        +getDesks()
+        +getCompanies()
+        +setDesks(pDesks)
+        +setCompanies(pCompanies)
+    }
+    class house {
+        -bedrooms
+        -bathrooms
+        +new(pFloors, pWidth, pHeight, pBedrooms, pBathrooms)
+        +getBedrooms()
+        +getBathrooms()
+        +setBedrooms(pBedrooms)
+        +setBathrooms(pBathrooms)
+    }
+    building <|-- office
+    building <|-- house
+```
 
 The classes `office` and `house` inherit from `building`.
 
@@ -1673,7 +1790,6 @@ implemented in subclass.
 [[question]]
 number = 13
 marks = 6
-diagram = true
 
 [[question.part]]
 label = "13"
@@ -1682,7 +1798,25 @@ The Little Man Computer (LMC) instruction set can be used to write programs usin
 
 **Fig. 3** shows assembly code written using the LMC instruction set.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+INP
+STA X
+SUB Y
+BRP jump
+LDA X
+STA Z
+HLT
+
+jump LDA Y
+STA Z
+HLT
+
+X DAT 0
+Y DAT 5
+Z DAT 0
+```
 
 **Fig. 3**
 '''
@@ -1762,7 +1896,6 @@ Endif
 [[question]]
 number = 14
 marks = 32
-diagram = true
 
 [[question.part]]
 label = "14(a)"
@@ -1776,7 +1909,20 @@ The printer buffer is represented as a zero-indexed 1D array with the identifier
 
 **Fig. 2** shows the current contents of the queue `buffer` and its pointers.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| Index | Value |
+|---|---|
+| 6 | |
+| 5 | |
+| 4 | |
+| 3 | job-127 |
+| 2 | job-126 |
+| 1 | job-125 |
+| 0 | job-124 |
+
+queueHead = 0
+queueTail = 3
 
 **Fig. 2**
 
@@ -1813,7 +1959,20 @@ dequeue()
 enqueue(job-129)
 ```
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| | |
+|---|---|
+| 6 | |
+| 5 | |
+| 4 | |
+| 3 | |
+| 2 | |
+| 1 | |
+| 0 | |
+
+queueHead [ ]
+queueTail [ ]
 '''
 
 [[question.part]]
@@ -1895,7 +2054,20 @@ answer = '''
 - queueHead being 3 (FT errors)
 - queueTail being 5 (FT errors)
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| Index | Value |
+|---|---|
+| 6 | |
+| 5 | job-127 |
+| 4 | job-128 |
+| 3 | job-127 |
+| 2 | |
+| 1 | |
+| 0 | |
+
+queueHead = 3
+queueTail = 6
 '''
 guidance = '''
 The underlying implementation of the queue has not been specified, so allow alternative valid answers.\
@@ -2094,7 +2266,29 @@ answer = '''
 guidance = '''
 Example answer
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+num = 1
+turn = "player 1"
+while num <= 15
+    print(turn + "'s turn")
+    choice = input("how many numbers?")
+    if choice >= 1 and choice <= 3 then
+        for y = 1 to choice
+            print(num)
+            num = num + 1
+        next y
+        //swap turn
+        if turn == "player 1" then
+            turn = "player 2"
+        else
+            turn = "player 1"
+        end if
+    end if
+endwhile
+print(turn + " wins!")
+```
 '''
 
 [[question]]

@@ -71,7 +71,6 @@ Most candidates were given some of the available marks for this question. Most w
 [[question]]
 number = 2
 marks = 5
-diagram = true
 
 [[question.part]]
 label = "2"
@@ -81,7 +80,24 @@ A program stores data in a linked list.
 
 The current contents of the linked list are shown in **Fig. 3**, along with the linked list pointers.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| headPointer | 1 |
+| --- | --- |
+| freeListPointer | 4 |
+
+| location | data | pointer |
+| --- | --- | --- |
+| 0 | "blue" | 6 |
+| 1 | "red" | 0 |
+| 2 | "green" | 8 |
+| 3 | "orange" | NULL |
+| 4 | | 5 |
+| 5 | | 7 |
+| 6 | "grey" | 2 |
+| 7 | | 9 |
+| 8 | "purple" | 3 |
+| 9 | | NULL |
 
 **Fig. 3**
 
@@ -206,7 +222,16 @@ This was a relatively simple algorithm question which candidates could answer us
 
 Exemplar 3
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+userInput = getInput("Enter an integer value :")
+isCheckedValue = doCheck(userInput)
+f = open("test.txt", "w")
+f.write(userInput)
+f.write(isCheckedValue)
+f.close()
+```
 
 In this response the candidate has clearly shown input, calling the doCheck function and assigning the return value to a variable, File is opened and file name is enclosed in quotes and file is closed. The file name is then used to write to the file with the two values.
 '''
@@ -248,7 +273,16 @@ This was a relatively simple algorithm question which candidates could answer us
 
 Exemplar 3
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+userInput = getInput("Enter an integer value :")
+doCheckValue = doCheck(userInput)
+f = open("test.txt", "w")
+f.write(userInput)
+f.write(doCheckValue)
+f.close()
+```
 
 In this response the candidate has clearly shown
 
@@ -258,7 +292,6 @@ input, calling the doCheck function and assigning the return value to a variable
 [[question]]
 number = 4
 marks = 9
-diagram = true
 
 [[question.part]]
 label = "4"
@@ -267,7 +300,14 @@ Sundip writes an algorithm to carry out addition and subtraction. The algorithm 
 
 The action the algorithm takes depends on the value input by the user. These actions are listed in **Fig. 2**.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| Value input | Action to take |
+| :--- | :--- |
+| A | • Pop two values from the numbers stack<br>• Add the two values<br>• Push the result back onto the numbers stack |
+| S | • Pop two values from the numbers stack<br>• Subtract the first popped value from the second<br>• Push the result back onto the numbers stack |
+| E | • Pop one value from the numbers stack<br>• Output this value<br>• End program |
+| Any other value | • Push the input value to the numbers stack |
 
 **Fig. 2**
 '''
@@ -280,7 +320,16 @@ Complete the diagram to show the state of the stack after each value is entered 
 
 The state of the stack after the first value, 8, has been completed for you.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| Input | 8 | 7 | A | 6 |
+|---|---|---|---|---|
+| | | | | |
+| | | | | |
+| | | | | |
+| | | | | |
+| | | | | |
+| 8 | | | | |
 '''
 
 [[question.part]]
@@ -356,14 +405,26 @@ there was only one value able to be popped after the subtraction.
 [[question]]
 number = 5
 marks = 3
-diagram = true
 
 [[question.part]]
 label = "5"
 text = '''
 **Fig. 5** shows a graph data structure representing a small section of a parcel delivery network. Each node represents an address where deliveries need to be made. The edges show the possible routes and distances between these deliveries.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B, checked by Claude Sonnet). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    A ---|3| B
+    B ---|7| D
+    B ---|3| E
+    D ---|3| C
+    D ---|11| H
+    C ---|7| E
+    E ---|3| F
+    F ---|7| G
+    G ---|3| H
+```
 
 **Fig. 5**
 '''
@@ -523,7 +584,7 @@ Those with good knowledge of OOP stood out in terms of giving clear evaluations 
 
 Many did not describe the necessary creation of enqueue and dequeue subroutines in procedural programming for each separate queue or the need to pass queues to or returning queues from subroutines.
 
-*[Image in the original mark scheme, not shown here.]*
+*[An examiner's marking symbol, not shown here.]*
 
 **Misconception**
 
@@ -535,7 +596,6 @@ Candidates need to be clear that each instance of a class is assigned the attrib
 [[question]]
 number = 7
 marks = 12
-diagram = true
 
 [[question.part]]
 label = "7(a)"
@@ -555,7 +615,27 @@ label = "7(b)"
 text = '''
 A programmer creates this function shown in **Fig. 5** using a high-level language.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+function mystery(x,y)
+
+    total = x + y
+
+    while x >= 10 then
+
+        x = x - 10
+
+        y = y - 10
+
+        total = total + x + y
+
+    endwhile
+
+    return total
+
+endfunction
+```
 
 **Fig. 5**
 '''
@@ -792,7 +872,24 @@ Many candidates achieved the last 2 marks for calculating the average and then d
 
 **Exemplar 3**
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+SalesFile = open("Sales.txt")
+numDays = 0
+total = 0
+while not EOF:
+    line = SalesFile.readline()
+    Sales = Float(line)
+    numDays = numDays + 1
+    total = total + Sales
+endwhile
+SalesFile.close()
+print("The number days sales are " + Str(numDays))
+print("The total sales are " + Str(total))
+average = total / numDays
+print("The average sales are " + Str(average))
+```
 
 Exemplar 3 was given full marks. The candidate has gained the first mark for initialising the variables “numofdays” and “total”. The second mark has been awarded for the first line, which opens the sales file and closing the file after the
 
@@ -906,7 +1003,6 @@ end class
 [[question]]
 number = 10
 marks = 4
-diagram = true
 
 [[question.part]]
 label = "10"
@@ -914,7 +1010,31 @@ marks = 4
 text = '''
 A program written using the Little Man Computer instruction set is shown in **Fig. 1**.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+        INP
+        STA  numone
+        INP
+        STA  numtwo
+main     LDA  numone
+        SUB  numtwo
+        BRP  pos
+notpos   LDA  count
+        OUT
+        LDA  numone
+        OUT
+        HLT
+pos       STA  numone
+        LDA  count
+        ADD  one
+        STA  count
+        BRA  main
+numone    DAT
+numtwo    DAT
+one       DAT  1
+count     DAT  0
+```
 
 **Fig. 1**
 
@@ -1296,7 +1416,6 @@ endfunction
 [[question]]
 number = 13
 marks = 6
-diagram = true
 
 [[question.part]]
 label = "13"
@@ -1305,7 +1424,25 @@ The Little Man Computer (LMC) instruction set can be used to write programs usin
 
 **Fig. 3** shows assembly code written using the LMC instruction set.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+INP
+STA X
+SUB Y
+BRP jump
+LDA X
+STA Z
+HLT
+
+jump LDA Y
+STA Z
+HLT
+
+X DAT 0
+Y DAT 5
+Z DAT 0
+```
 
 **Fig. 3**
 '''

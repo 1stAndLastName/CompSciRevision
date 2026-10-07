@@ -553,7 +553,17 @@ Many candidates were able to identify application packages and could give valid 
 
 Exemplar 1
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> Application 1 Word processor
+> 
+> Example of task 1 To write up letters to send to
+> clients / employees.
+> Application 2 Presentation Software
+> 
+> Example of task 2 Could be used to pitch new
+> ideas to the boss business.
 
 The candidate has correctly identified 2 different applications and given a valid use for a business.
 '''
@@ -578,14 +588,33 @@ Candidates who understood that the source code is not available did well on this
 [[question]]
 number = 6
 marks = 12
-diagram = true
 
 [[question.part]]
 label = "6(a)"
 text = '''
 A programmer creates this function shown in **Fig. 5** using a high-level language.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+function mystery(x,y)
+
+    total = x + y
+
+    while x >= 10 then
+
+        x = x - 10
+
+        y = y - 10
+
+        total = total + x + y
+
+    endwhile
+
+    return total
+
+endfunction
+```
 
 **Fig. 5**
 
@@ -1015,7 +1044,6 @@ Candidates were assessed on the quality of their extended response in this quest
 [[question]]
 number = 8
 marks = 7
-diagram = true
 
 [[question.part]]
 label = "8(a)"
@@ -1031,7 +1059,23 @@ label = "8(b)"
 text = '''
 **Fig. 3** shows assembly code written using the LMC instruction set.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+INP
+STA X
+SUB Y
+BRP jump
+LDA X
+STA Z
+HLT
+jump LDA Y
+STA Z
+HLT
+X DAT 0
+Y DAT 5
+Z DAT 0
+```
 
 **Fig. 3**
 '''

@@ -89,7 +89,6 @@ This was generally well answered and candidates showed good understanding of the
 [[question]]
 number = 2
 marks = 13
-diagram = true
 
 [[question.part]]
 label = "2(a)"
@@ -100,7 +99,9 @@ The programmers discuss whether to write the instructions for the robot in assem
 
 The robot provides a web-based interface for users. The home screen webpage for this interface is shown in **Fig.** **4**.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+The image shows a "Robot User Interface" window containing the heading "Robot prime directives" followed by a bulleted list: "Serve the company trust", "Protect data", and "Uphold standards". Below this is an "Updates" link, a "Login" label, a "Password" label next to a text input box, and a "Submit" button.
 
 **Fig. 4**
 '''

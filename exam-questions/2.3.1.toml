@@ -346,7 +346,95 @@ Level 1 responses often just focused on the use of two different loop types. The
 
 Exemplar 2
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+Kari's Algorithm
+function find_file(filename)
+    file_found = false
+    for i = 0 to length(files) - 1 do
+        if files[i].name == filename then
+            file_found = true
+            return files[i]
+        else
+            file_found = false
+        end if
+    end for
+    return file_found == true ? null : "file not found"
+end function
+
+Zara's Algorithm
+function find_file(filename)
+    array data[100]
+    for i = 0 to 99 do
+        if data[i] == filename then
+            return data[i]
+        end if
+    end for
+    return "file not found"
+end function
+```
+
+The solution needs to be used in different programs. Each program will use a different list for where the number lines in the file are located.
+
+Compare the suitability of each algorithm for the given problem.
+
+You should consider the following in your answer:
+- the suitability of the programming technique including the use of loops
+- how efficiently the solution meets the requirements
+
+A candidate's handwritten answer:
+> Kari's algorithm uses big O(n) time complexity.
+> "file_found" is set to true, but the "file_found" variable is set to false
+> in every loop. This means that if the file is found, the program will
+> continue to loop and set "file_found" to false until it reaches the end
+> of the list. This means that if the file is found, the program will
+> continue to loop and set "file_found" to false until it reaches the end
+> of the list. This means that if the file is found, the program will
+> continue to loop and set "file_found" to false until it reaches the end
+> of the list. This means that if the file is found, the program will
+> continue to loop and set "file_found" to false until it reaches the end
+> of the list. This means that if the file is found, the program will
+> continue to loop and set "file_found" to false until it reaches the end
+> of the list. This means that if the file is found, the program will
+> continue to loop and set "file_found" to false until it reaches the end
+> of the list. This means that if the file is found, the program will
+> continue to loop and set "file_found" to false until it reaches the end
+> of the list. This means that if the file is found, the program will
+> continue to loop and set "file_found" to false until it reaches the end
+> of the list. This means that if the file is found, the program will
+> continue to loop and set "file_found" to false until it reaches the end
+> of the list. This means that if the file is found, the program will
+> continue to loop and set "file_found" to false until it reaches the end
+> of the list. This means that if the file is found, the program will
+> continue to loop and set "file_found" to false until it reaches the end
+> of the list. This means that if the file is found, the program will
+> continue to loop and set "file_found" to false until it reaches the end
+> of the list. This means that if the file is found, the program will
+> continue to loop and set "file_found" to false until it reaches the end
+> of the list. This means that if the file is found, the program will
+> continue to loop and set "file_found" to false until it reaches the end
+> of the list. This means that if the file is found, the program will
+> continue to loop and set "file_found" to false until it reaches the end
+> of the list. This means that if the file is found, the program will
+> continue to loop and set "file_found" to false until it reaches the end
+> of the list. This means that if the file is found, the program will
+> continue to loop and set "file_found" to false until it reaches the end
+> of the list. This means that if the file is found, the program will
+> continue to loop and set "file_found" to false until it reaches the end
+> of the list. This means that if the file is found, the program will
+> continue to loop and set "file_found" to false until it reaches the end
+> of the list. This means that if the file is found, the program will
+> continue to loop and set "file_found" to false until it reaches the end
+> of the list. This means that if the file is found, the program will
+> continue to loop and set "file_found" to false until it reaches the end
+> of the list. This means that if the file is found, the program will
+> continue to loop and set "file_found" to false until it reaches the end
+> of the list. This means that if the file is found, the program will
+> continue to loop and set "file_found" to false until it reaches the end
+> of the list. This means that if the file is found, the program will
+> continue to loop and set "file_found" to false until it reaches the end
+> of the list. This means that if the file is found,
 
 This response showed that the candidate has thought about the issues related to the question and had carefully annotated the code when analysing it.
 
@@ -445,7 +533,7 @@ guidance = '''
 
 Half the candidates correctly identified exponential complexity, but common erroneous responses included O(n<sup>2</sup>) or O(2n) instead of O(2<sup>n</sup>).
 
-*[Image in the original mark scheme, not shown here.]*
+*[An examiner's marking symbol, not shown here.]*
 
 **Misconception**
 
@@ -457,7 +545,6 @@ erroneously thought that n<sup>2</sup> or 2<sup>n</sup> demonstrated exponential
 [[question]]
 number = 5
 marks = 13
-diagram = true
 
 [[question.part]]
 label = "5(a)"
@@ -533,7 +620,19 @@ Change the diagram to show the contents of the binary search tree after the foll
 - Task Y with order number 7
 - Task Z with order number 11
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    A["Task A<br/>Order 6"] ---|left| B["Task B<br/>Order 3"]
+    A ---|right| D["Task D<br/>Order 9"]
+    B ---|left| E["Task E<br/>Order 1"]
+    B ---|right| C["Task C<br/>Order 5"]
+    E ---|left| I["Task I<br/>Order 2"]
+    D ---|left| F["Task F<br/>Order 7"]
+    D ---|right| H["Task H<br/>Order 10"]
+    F ---|left| G["Task G<br/>Order 6"]
+```
 '''
 
 [[question.mark_scheme]]
@@ -614,7 +713,22 @@ answer = '''
 1 mark for Task X to right of Task H …\
 … 1 mark for Task Z to left of Task X
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    A["Task A<br/>Order 0"] ---|left| B["Task B<br/>Order 3"]
+    A ---|right| D["Task D<br/>Order 9"]
+    B ---|left| E["Task E<br/>Order 1"]
+    B ---|right| C["Task C<br/>Order 5"]
+    E ---|left| I["Task I<br/>Order 2"]
+    D ---|left| F["Task F<br/>Order 7"]
+    D ---|right| H["Task H<br/>Order 10"]
+    F ---|left| G["Task G<br/>Order 6"]
+    F ---|right| Y["Task Y<br/>Order 7"]
+    H ---|left| X["Task X<br/>Order 13"]
+    X ---|left| Z["Task Z<br/>Order 11"]
+```
 '''
 guidance = '''
 The direction of left/right child nodes must be clear and cannot just be a downward vertical line.
@@ -1243,7 +1357,6 @@ Most responses were Level 2 for definitions and some expansion to passing parame
 [[question]]
 number = 7
 marks = 11
-diagram = true
 
 [[question.part]]
 label = "7(a)"
@@ -1251,7 +1364,20 @@ marks = 7
 text = '''
 A computer game has a building containing 7 rooms. There are secret passages between each room. **Fig.** **3** shows the rooms and the passages between the rooms represented as a graph data structure.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+graph LR
+    A["90"] ---|20| B["80"]
+    A ---|44| C["43"]
+    B ---|13| D["70"]
+    B ---|56| E["20"]
+    C ---|22| E
+    D ---|62| E
+    D ---|80| G["0"]
+    E ---|15| F["8"]
+    F ---|9| G
+```
 
 **Fig. 3**
 
@@ -1322,7 +1448,6 @@ weighted/unweighted. A minimum spanning tree is a subset of a graph that can hav
 [[question]]
 number = 8
 marks = 6
-diagram = true
 
 [[question.part]]
 label = "8(a)"
@@ -1330,7 +1455,13 @@ marks = 2
 text = '''
 The current contents of a queue data structure are shown in **Fig. 4**.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| 20 | 15 | 3 | 2 | | | | |
+|---|---|---|---|---|---|---|---|
+
+headPointer points to the first cell (containing 20).
+tailPointer points to the fifth cell (which is empty).
 
 **Fig. 4**
 
@@ -1488,7 +1619,16 @@ Some candidates erroneously stated that the value at `topStack -` `1` would be r
 
 Exemplar 2
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> Describe the steps in the function pop().
+> 1. Check if stack is empty, if yes return
+> an error as popping is empty.
+> 2. get to top stack - a value and
+> [unclear] the value and deletes it from the stack
+> 3. move pointer at top stack to top stack - a
+> -> top stack = top stack - a
 
 This response shows the candidate returning the value from `topStack -` `1` in step 2. As soon as the function returns a value no further actions are performed within the function, so decrementing `topStack` in point 3 was not given.
 '''
@@ -1545,7 +1685,22 @@ push(15) then ) …
 
 e.g.
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+added = push(15)
+if added = false then
+  print("Not added")
+else
+  print("Added")
+endif
+
+if push(15) then
+  print("Added")
+else
+  print("Not Added")
+endif
+```
 '''
 guidance = '''
 True/False comparisons must be Boolean values and not strings, but allow FT after that.
@@ -1653,7 +1808,21 @@ Nearly half the candidates achieved full marks and clearly demonstrated the step
 
 Exemplar 3
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Claude Sonnet). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+
+> (c) Show how an insertion sort will sort the given data into ascending alphabetical order.
+> "rainbow" | "moon" | "sun" | "stars" | "clouds" | "tornado"
+>
+> rainbow | moon, sun, stars, clouds, tornado
+> moon, rainbow | sun, stars, clouds, tornado
+> moon, rainbow, sun | stars, clouds, tornado
+> [unclear] | clouds, tornado
+> [unclear] | tornado
+> clouds, moon, rainbow, stars, sun, tornado
+>
+> * [unclear]
 
 This exemplar\
 demonstrated the state of the dataset after each pass of the insertion sort. The candidate has separated the sorted and unsorted parts of the list to make the response much clearer.
@@ -1953,7 +2122,20 @@ Competent coders often gave responses worthy of full marks within just a few lin
 
 Exemplar 3
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+def guessGrid(board):
+    [unclear]
+    x = int(input("enter x"))
+    y = int(input("enter y"))
+    place = board.getGridItem(x, y)
+    if place.getLoad() == 0:
+        print("No treasure")
+    else:
+        print("Treasure found! [unclear] at [unclear] place.get")
+        print("it is a " + place.getLoad())
+```
 
 This response clearly shows a logical and well- structured algorithm that uses the appropriate get() methods to access the relevant attributes of the passed parameter object. Candidates who are fluent in the use of OOP can present elegant and concise solutions.
 '''
@@ -2196,7 +2378,20 @@ Most candidates achieved at least 1 mark for taking user input, and then the maj
 
 Exemplar 1
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+Value = Input("entry a number")
+Output = ""
+while Value != 0
+    Output = Str(Value MOD 8) + Output
+    Value = Value DIV 8
+endwhile
+if Output == "" then
+    Output = 0
+endif
+Print(Output)
+```
 
 This candidate response is not language specific but the logic and the operations used are clear. It shows clear logical structure with appropriate indentation of logical blocks. It was given full marks.
 '''
@@ -2318,7 +2513,29 @@ Level 3 responses had far more evaluative AO3 analysis but were few and far betw
 
 Exemplar 2
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> Order is used to evaluate the complexity of an algo
+> in respect to how its performance changes with
+> a change to the size of input. This means be
+> measuring how much longer it takes to complete,
+> how much additional load is placed on components
+> such as memory.
+>
+> Linear complexity means that the time taken is
+> [linear]
+> to the size of the input, and will grow at a
+> linear rate as input size increases.
+>
+> Constant complexity means that no matter the size
+> of input, the time (load) will always be the same
+> regardless of the data being processed.
+>
+> Exponential complexity grows very quickly as inf
+> increases, whilst logarithmic increases, though at a
+>
+>
 
 This response clearly demonstrates that a high scoring Level 3 response is possible within the space provided. The second page of the response shows clear AO3 evaluation between the merits of the three different algorithms and the scenario.
 '''
@@ -2347,7 +2564,7 @@ Many candidates were not precise in describing how the initial data set was repe
 
 merge sort combines two separate ordered lists together, and frequently this was omitted altogether. A number of candidates continued to demonstrate the misconception that data is sorted within sub-lists, rather than by the actual merging of two separate ordered lists together.
 
-*[Image in the original mark scheme, not shown here.]*
+*[An examiner's marking symbol, not shown here.]*
 
 **Misconception**
 
@@ -2387,7 +2604,6 @@ be sortonses were phrased in terms of Big O complexities or the numbers of
 [[question]]
 number = 16
 marks = 24
-diagram = true
 
 [[question.part]]
 label = "16(a)"
@@ -2436,7 +2652,17 @@ marks = 4
 text = '''
 Identify the order that the nodes will be visited in a **depth-first (post-order)** traversal of this binary search tree.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    H["H"] ---|left| C["C"]
+    H ---|right| P["P"]
+    C ---|left| A["A"]
+    C ---|right| F["F"]
+    P ---|left| L["L"]
+    P ---|right| T["T"]
+```
 '''
 
 [[question.part]]
@@ -2454,7 +2680,20 @@ A graph is a type of data structure.
 
 An example graph is shown in **Fig. 1**.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+graph TD
+    A ---|2| C
+    A ---|5| B
+    A ---|10| D
+    B ---|2| E
+    C ---|8| D
+    D ---|4| G
+    E ---|12| G
+    E ---|8| F
+    F ---|1| G
+```
 
 **Fig. 1**
 
@@ -2515,7 +2754,18 @@ answer = '''
 - 5 and 8 in correct order
 - 36 and 55 in correct order
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    22["22"]
+    22 ---|left| 13["13"]
+    22 ---|right| 36["36"]
+    13 ---|left| 5["5"]
+    13 ---|right| 14["14"]
+    36 ---|right| 55["55"]
+    5 ---|right| 8["8"]
+```
 '''
 guidance = '''
 Do not allow nodes to be drawn downwards.
@@ -2610,7 +2860,6 @@ given tree, from leaf A to parent node C.
 [[question]]
 number = 17
 marks = 14
-diagram = true
 
 [[question.part]]
 label = "17(a)"
@@ -2620,7 +2869,23 @@ A program stores data in a linked list.
 
 The current contents of the linked list are shown in **Fig. 3**, along with the linked list pointers.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| location | data | pointer |
+|---|---|---|
+| 0 | "blue" | 6 |
+| 1 | "red" | 0 |
+| 2 | "green" | 8 |
+| 3 | "orange" | NULL |
+| 4 | | 5 |
+| 5 | | 7 |
+| 6 | "grey" | 2 |
+| 7 | | 9 |
+| 8 | "purple" | 3 |
+| 9 | | NULL |
+
+headPointer: 1
+freeListPointer: 4
 
 **Fig. 3**
 
@@ -3021,13 +3286,25 @@ Implementing a stack in an array requires a stack pointer. Those candidates who 
 
 Exemplar 3
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> you can create a one dimensional array and
+> have pointers enter values putting to the first
+> at the bottom and then another putting to the
+> at the top. of an item is popped the item at
+> the index position of the top is deleted and the
+> pointer's value decreases by one. if you want to
+> enter another item you append to the list to the "position of the
+> top then you should check if top pointer = bottom
+> position, so stack is empty, and if (top > n) is greater than the
+> length of the array to see if there is full.
 
 This exemplar was one of the few responses to show a clear insight as to how an array can be used to store and access a stack.
 
 It makes it clear that a stack pointer is required and goes on to explain how the stack pointer is manipulated when push()/pop() operations are performed.
 
-*[Image in the original mark scheme, not shown here.]*
+*[An examiner's marking symbol, not shown here.]*
 
 **Misconception**
 
@@ -3221,7 +3498,7 @@ toBinary(inputVal),
 
 the result was not always stored for later use.
 
-*[Image in the original mark scheme, not shown here.]*
+*[An examiner's marking symbol, not shown here.]*
 
 **Assessment for** **learning**
 
@@ -3576,7 +3853,13 @@ dataArray[x] and
 
 Exemplar 1
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> It acts as a temporary variable to hold
+> value of numbers [x] while before sum
+> is overwritten so the original value is
+> lost and is instead copied to numbers[x+1]
 
 This exemplar very clearly states exactly how and why the variable `holdValue` is required.
 '''
@@ -3765,7 +4048,6 @@ understanding of recursion in 7b rarely gave the correct answer in 7c.
 [[question]]
 number = 26
 marks = 16
-diagram = true
 
 [[question.part]]
 label = "26(a)"
@@ -3777,7 +4059,19 @@ A computer program is being written to store data about students.
 
 Each student is represented by their ID number. The current contents of the binary search tree are:
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    A["2005"] ---|left| B["1920"]
+    A ---|right| C["2350"]
+    B ---|left| D["1500"]
+    B ---|right| E["1985"]
+    C ---|left| F["2100"]
+    C ---|right| G["2560"]
+    E ---|left| H["1952"]
+    E ---|right| I["2000"]
+```
 
 **Fig. 2**
 
@@ -3805,7 +4099,19 @@ Four more students are added to the binary search tree shown in **Fig. 2** in th
 
 Complete the binary search tree here by adding the new students to it.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    A["2005"] ---|left| B["1920"]
+    A ---|right| C["2350"]
+    B ---|left| D["1500"]
+    B ---|right| E["1985"]
+    E ---|left| F["1952"]
+    E ---|right| G["2000"]
+    C ---|left| H["2100"]
+    C ---|right| I["2560"]
+```
 '''
 
 [[question.part]]
@@ -3863,7 +4169,29 @@ answer = '''
 - 2780
 - 2600
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    A["2005"] ---|left| B["1920"]
+    A ---|right| C["2350"]
+    B ---|left| D["1500"]
+    B ---|right| E["1985"]
+    D ---|left| F["1420"]
+    D ---|right| G[" "]
+    E ---|left| H["1952"]
+    E ---|right| I["2000"]
+    C ---|left| J["2100"]
+    C ---|right| K["2560"]
+    J ---|left| L["2050"]
+    J ---|right| M[" "]
+    K ---|left| N[" "]
+    K ---|right| O["2780"]
+    O ---|left| P["2600"]
+    O ---|right| Q[" "]
+    P ---|left| R[" "]
+    P ---|right| S[" "]
+```
 '''
 guidance = '''
 **Examiner’s Comments**
@@ -4084,7 +4412,7 @@ sorting algorithms, but this was seen relatively infrequently,
 
 Where errors were made candidates did not split the data to the atomised level. Many did not fully understand how a merge sort works by merging two separate lists of ordered values together but performed in-place sorts in sub-lists.
 
-*[Image in the original mark scheme, not shown here.]*
+*[An examiner's marking symbol, not shown here.]*
 
 **Misconception**
 
@@ -4094,7 +4422,23 @@ Values in lists \[1, 9\] and \[2, 10\] are not placed in a list \[1, 9, 2, 10\] 
 
 **Exemplar 2**
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+The image shows a handwritten diagram titled "Exemplar 2" illustrating a process of splitting and merging sets of numbers.
+
+At the top, there are three rows of numbers in boxes:
+1. `[2] [12] [1] [9]` and `[3] [5] [15] [7]`
+2. `[2] [12]` and `[1] [9]` and `[3] [5]` and `[15] [7]`
+3. `[2] [12] [1] [9]` and `[3] [5] [15] [7]` (with arrows pointing from the second row to these boxes)
+
+Below these, there is a section labeled "splitting:" showing the numbers grouped:
+`2, 12` and `1, 9` and `3, 5` and `7, 15`
+
+Below that, there is a section labeled "merging:" showing the groups being combined:
+`1, 2, 9, 12` and `3, 5, 7, 15`
+
+At the very bottom, the final merged set is shown:
+`1, 2, 3, 5, 7, 9, 10, 15` (Note: the '10' appears to be a handwritten addition or correction in the final line).
 
 Candidate responses to questions that require ‘showing’ how data sets are ordered by sorting algorithms are best tackled by using clearly annotated diagrams such as this exemplar response.
 '''
@@ -4163,7 +4507,6 @@ Overall, many responses were clustered in Level 2, but a pleasing number of cand
 [[question]]
 number = 28
 marks = 9
-diagram = true
 
 [[question.part]]
 label = "28(a)"
@@ -4171,7 +4514,20 @@ marks = 1
 text = '''
 **Fig. 5** shows a graph data structure representing a small section of a parcel delivery network. Each node represents an address where deliveries need to be made. The edges show the possible routes and distances between these deliveries.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    A ---|3| B
+    B ---|7| D
+    B ---|3| E
+    D ---|3| C
+    D ---|11| H
+    C ---|7| E
+    E ---|3| F
+    F ---|7| G
+    G ---|3| H
+```
 
 **Fig. 5**
 
@@ -4442,7 +4798,26 @@ There are many different ways that this function could have been achieved. There
 
 **Exemplar 2**
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+approximations = [array]
+function FindFirst(i):
+    length = length(approximations.length())
+    maxValue = -1
+    index = 0
+    found = False
+    while found == False and index < length:
+        if approximations[index] > maxValue then
+            maxValue = approximations[index]
+            found = True
+        else
+            index = index + 1
+    endwhile
+    return
+    return maxValue
+end function
+```
 
 A well-structured pseudocode response that uses indentation and variable naming well. The
 
@@ -4450,11 +4825,26 @@ logic of the loop to check each item in sequence for an empty entry is clear, as
 
 **Exemplar 3**
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> [unclear]
+> [unclear] [unclear] [unclear]
+> If [unclear] appointments available, find first appointment
+> available, if [unclear] [unclear] // If not one appointment
+> [unclear] appointment available, plus is the first
+> [unclear] appointment // If this prints the first
+> appointment.
+>
+> If not no appointments available, return
+> -1
+>
+> [unclear]
+> [unclear]
 
 To contrast with Exemplar 2, this exemplar shows a lack of pseudocode with a response written mostly in prose English, with inconsistent indentation and a lack of clear variable naming.
 
-*[Image in the original mark scheme, not shown here.]*
+*[An examiner's marking symbol, not shown here.]*
 
 **Assessment for** **learning**
 
@@ -4612,7 +5002,6 @@ guidance = '''
 [[question]]
 number = 32
 marks = 40
-diagram = true
 
 [[question.part]]
 label = "32(a)"
@@ -4621,7 +5010,15 @@ A Nonogram is a logic puzzle where a player needs to colour in boxes. The puzzle
 
 The numbers at the side of each row and column tells the player how many of the boxes are coloured in consecutively. Where a row has two or more numbers, there must be a white square between the coloured squares.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| | 1 | 2 | 3 | 0 | 1 | |
+|---|---|---|---|---|---|---|
+| 2 | 1 | 1 | | | | |
+| 2 | | 1 | 1 | | | |
+| 1 | | | 1 | | 1 | 1 |
+| 3 | 1 | 1 | 1 | | | |
+| 1 | | 1 | | | | |
 
 In this example:
 
@@ -4643,7 +5040,20 @@ marks = 3
 text = '''
 Complete the structure diagram by adding another layer for New game, Play game and Check answer.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    A["Nonogram"] ---|left| B["New game"]
+    A ---|middle| C["Play game"]
+    A ---|right| D["Check answer"]
+    B ---|left| E[" "]
+    B ---|right| F[" "]
+    C ---|left| G[" "]
+    C ---|right| H[" "]
+    D ---|left| I[" "]
+    D ---|right| J[" "]
+```
 '''
 
 [[question.part]]
@@ -4685,7 +5095,15 @@ marks = 5
 text = '''
 Juan creates a function, `countRow()`, to count the number of coloured boxes in one row and return the number of consecutive coloured boxes in that row. If there is more than one set of coloured boxes in the row, these are joined together and the string is returned. For example, in the following grid `countRow` for row 0 will return "`2`" as a string, and `countRow` for row 2 will return "`1 1`" as a string. If there are no 1s in a row, then "`0`" is returned as a string.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| | | | | |
+|---|---|---|---|---|
+| 1 | 1 | 0 | 0 | 0 |
+| 0 | 1 | 1 | 0 | 0 |
+| 0 | 0 | 1 | 0 | 1 |
+| 1 | 1 | 1 | 0 | 0 |
+| 0 | 1 | 0 | 0 | 0 |
 
 Complete the pseudocode algorithm `countRow()`.
 
@@ -4733,11 +5151,27 @@ The procedure `displayRowAnswer()` takes `puzzle` as a parameter and outputs the
 
 For example the puzzle below:
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| | | | | |
+|---|---|---|---|---|
+| 1 | 1 | 0 | 0 | 0 |
+| 0 | 1 | 1 | 0 | 0 |
+| 0 | 0 | 1 | 0 | 1 |
+| 1 | 1 | 1 | 0 | 0 |
+| 0 | 1 | 0 | 0 | 0 |
 
 Would output:
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| | | | | | | |
+|---|---|---|---|---|---|---|
+| 1 | 1 | 0 | 0 | 0 | | 2 |
+| 0 | 1 | 1 | 0 | 0 | | 2 |
+| 0 | 0 | 1 | 0 | 1 | | 1 | 1 |
+| 1 | 1 | 1 | 0 | 0 | | 3 |
+| 0 | 1 | 0 | 0 | 0 | | 1 |
 
 Write pseudocode or program code for the procedure `displayRowAnswer()`.
 '''
@@ -4808,7 +5242,21 @@ answer = '''
 
 e.g.
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    A["Tetris game"]
+    A ---|left| B["Draw game"]
+    A ---|middle| C["Play game"]
+    A ---|right| D["Check answer"]
+    B ---|left| E["Select puzzle"]
+    B ---|right| F["Display blank grid"]
+    C ---|left| G["Select box"]
+    C ---|right| H["Change colour of boxes"]
+    D ---|left| I["Compare to answer"]
+    D ---|right| J["Display correct/incorrect"]
+```
 '''
 
 [[question.mark_scheme]]
@@ -5047,7 +5495,6 @@ e.g.
 [[question]]
 number = 33
 marks = 19
-diagram = true
 
 [[question.part]]
 label = "33(a)"
@@ -5055,7 +5502,43 @@ marks = 5
 text = '''
 Christoff is writing a program to simulate a city using object-oriented programming. He is designing classes to store different types of buildings and their location on the road. He has created the following plan for some of the buildings:
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+classDiagram
+    class building {
+        -numberFloors
+        -width
+        -height
+        +new(pFloors, pWidth, pHeight)
+        +getNumberFloors()
+        +getWidth()
+        +getHeight()
+        +setNumberFloors(pFloors)
+        +setWidth(pWidth)
+        +setHeight(pHeight)
+    }
+    class office {
+        -numDesks : integer
+        -numCompanies : integer
+        +new(pFloors, pWidth, pHeight, pDesks, pCompanies)
+        +getDesks()
+        +getCompanies()
+        +setDesks(pDesks)
+        +setCompanies(pCompanies)
+    }
+    class house {
+        -Bedrooms
+        -bathrooms
+        +new(pFloors, pWidth, pHeight, pBedrooms, pBathrooms)
+        +getBedrooms()
+        +getBathrooms()
+        +setBedrooms(pBedrooms)
+        +setBathrooms(pBathrooms)
+    }
+    building <|-- office
+    building <|-- house
+```
 
 Part of the declaration for the class `building` is shown.
 
@@ -5322,7 +5805,6 @@ answer = '''
 [[question]]
 number = 36
 marks = 6
-diagram = true
 
 [[question.part]]
 label = "36"
@@ -5332,7 +5814,20 @@ A breadth-first traversal can be performed on both a tree and a graph.
 
 Show how a breadth-first traversal is performed on the following binary tree.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    M["M"] --- E["E"]
+    M --- S["S"]
+    E --- C["C"]
+    E --- J["J"]
+    S --- P["P"]
+    S --- V["V"]
+    J --- G["G"]
+    J --- K["K"]
+    K --- L["L"]
+```
 '''
 
 [[question.mark_scheme]]
@@ -5500,7 +5995,6 @@ O(n) ✓
 [[question]]
 number = 38
 marks = 10
-diagram = true
 
 [[question.part]]
 label = "38"
@@ -5509,7 +6003,19 @@ Some of the characters in a game will move and interact independently. Taylor is
 
 DancerGold is one character. The graph shown in **Fig. 1** shows the possible movements that DancerGold can make.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    A["90"] ---|21| B["80"]
+    A ---|42| C["65"]
+    B ---|40| E["50"]
+    B ---|38| D["50"]
+    C ---|12| D
+    D ---|23| F["30"]
+    E ---|55| G["0"]
+    F ---|33| G
+```
 
 **Fig. 1**
 
@@ -5705,7 +6211,6 @@ answer = '''
 [[question]]
 number = 40
 marks = 10
-diagram = true
 
 [[question.part]]
 label = "40(a)"
@@ -5716,7 +6221,20 @@ In each turn, each character can make one move from a selection of possible move
 
 Kira uses a tree data structure shown in **Fig. 1** to identify the range of possible moves the computer can make from starting position A. Each connection is a move, with each node representing the result of the move.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    A["A"] ---|left| B["B"]
+    A ---|middle| C["C"]
+    A ---|right| E["E"]
+    B ---|left| D["D"]
+    D ---|left| I["I"]
+    C ---|left| F["F"]
+    C ---|right| G["G"]
+    G ---|left| J["J"]
+    E ---|left| H["H"]
+```
 
 **Fig. 1**
 
@@ -6063,7 +6581,6 @@ endfunction
 [[question]]
 number = 42
 marks = 6
-diagram = true
 
 [[question.part]]
 label = "42(a)"
@@ -6075,7 +6592,20 @@ In each turn, each character can make one move from a selection of possible move
 
 Kira uses a tree data structure shown in **Fig. 1** to identify the range of possible moves the computer can make from starting position A. Each connection is a move, with each node representing the result of the move.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+flowchart TD
+    A["A"] ---|left| B["B"]
+    A ---|middle| C["C"]
+    A ---|right| E["E"]
+    B ---|left| D["D"]
+    D ---|left| I["I"]
+    C ---|left| F["F"]
+    C ---|right| G["G"]
+    G ---|left| J["J"]
+    E ---|left| H["H"]
+```
 
 **Fig. 1**
 

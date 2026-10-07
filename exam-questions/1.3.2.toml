@@ -118,7 +118,7 @@ There were some really good responses to this question. More successful candidat
 
 the scenario other than saying the membership was going to increase. There were a number of candidates who confused a database with a table stating that a relational database was a number of related databases and not a number of related tables.
 
-*[Image in the original mark scheme, not shown here.]*
+*[An examiner's marking symbol, not shown here.]*
 
 **Misconception**
 
@@ -126,7 +126,60 @@ The main misconception was to confuse database with table although some candidat
 
 Exemplar 3
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> A flat file database is a type of database that only contains one
+> table. This means that all data is stored in "tables", headed by "headers" and
+> fields. It doesn't require a primary key or to be normalised. A relational database
+> uses multiple tables linked together using foreign keys, which could create a many
+> relationship between different tables in the database.
+> 
+> A flat file database has many advantages. Firstly, it is relatively
+> simple & easy to understand. This is because all records are stored in tables, so
+> all the information is in one place. However, there are drawbacks. If
+> it is a large number - e.g. both multiple cities and approximately, extra records
+> would be wanted. This would lead to a large amount of redundant data
+> being included such as a number [unclear] appearing twice. This would increase
+> the amount of space the database takes up. In other words, it would be difficult
+> to search the database.
+> 
+> A relational database also has many benefits. When a relational database has
+> been normalised, it becomes very efficient & search and easier to use. It will do
+> so well as through the process of normalisation, large amounts of
+> redundant data would be deleted, reducing the [unclear] space "saved" for
+> 
+> [unclear]
+> the database. For example, by storing "cities" for approximately [unclear] number for
+> "country", and "cities" for "country details", the membership details [unclear] could
+> be written and again [unclear] for approximately [unclear] "country", saving
+> [unclear] space.
+> 
+> Overall, a relational database would be much more suitable for large
+> databases. A flat file database is [unclear] for [unclear] e.g. with 100 records, if
+> the first 10,000 records in the [unclear] online [unclear] will be [unclear] difficult
+> to locate specific records when searching, as there would be far too much
+> redundant data, [unclear], and the file size would be [unclear] large if
+> extra details are included each time an appointment is made. However,
+> if [unclear] want to use a relational database, there would be much less
+> redundant data, [unclear] [unclear] for the file size and [unclear] [unclear] for
+> each record, as [unclear] [unclear] [unclear] will be used in
+> a relational database. [unclear] [unclear] [unclear] [unclear] will be used in
+> a relational database. [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear]
+> [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear]
+> [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear]
+> [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear]
+> [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear]
+> [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear]
+> [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear]
+> [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear]
+> [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear]
+> [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear]
+> [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear]
+> [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear]
+> [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear]
+> [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear] [unclear]
+> [unclear] [unclear] [unclear] [unclear] [
 
 The candidate has shown good application to the scenario as well as benefits and drawbacks of both database types. They have made a valid\
 recommendation which is justified.
@@ -135,7 +188,6 @@ recommendation which is justified.
 [[question]]
 number = 2
 marks = 8
-diagram = true
 
 [[question.part]]
 label = "2(a)"
@@ -162,7 +214,14 @@ One product can be ordered multiple times in the same order or ordered by multip
 
 Complete the entity relationship diagram to show the relationships between the Product, Customer and Order entities.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+erDiagram
+    Customer
+    Product
+    Order
+```
 '''
 
 [[question.part]]
@@ -226,11 +285,24 @@ answer = '''
 
 **Solution 1:**
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+erDiagram
+    Customer ||--o{ Order : " "
+    Order }o--|| Product : " "
+```
 
 **Solution 2:**
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+erDiagram
+    Customer ||--o{ Order : " "
+    Order ||--|{ OrderLine : " "
+    OrderLine }|--|{ Product : " "
+```
 '''
 guidance = '''
 Ignore any relationship between customer and product.
@@ -248,7 +320,7 @@ Candidates were expected to indicate the relationships. Some candidates used eit
 
 Some candidates used a link entity to avoid a many to many relationship between product and order or indicated a relationship of one product to many orders. Either of these responses were acceptable.
 
-*[Image in the original mark scheme, not shown here.]*
+*[An examiner's marking symbol, not shown here.]*
 
 **Assessment for learning**
 
@@ -402,7 +474,6 @@ Very well answered and most candidates could identify the DateAccessed field as 
 [[question]]
 number = 4
 marks = 22
-diagram = true
 
 [[question.part]]
 label = "4(a)"
@@ -445,7 +516,25 @@ A video streaming service uses a relational database. An extract of the data fro
 
 `Membership` contains data about current memberships that customers hold and `package` contains data about different streaming packages available.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| Username | FirstName | StartDate | PackageType |
+| --- | --- | --- | --- |
+| User001 | Amaya | 08/05/2016 | Premium |
+| User002 | Amit | 06/06/2019 | Basic |
+| User003 | Tom | 17/08/2019 | Free |
+| User004 | Kareem | 08/08/2017 | Basic |
+| User005 | Sarah | 25/03/2020 | Premium |
+
+Membership
+
+| PackageType | CostPerMonth(£) | Adverts |
+| --- | --- | --- |
+| Premium | 12.99 | false |
+| Basic | 7.99 | true |
+| Free | 0.00 | true |
+
+Package
 
 **Fig. 2**
 '''
@@ -683,7 +772,15 @@ Few candidates were able to gain full marks on this question as many overcomplic
 
 **Exemplar 2**
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> [unclear] Electronic form filled by customer.
+> 
+> [unclear] A electronic form can be processed automatically and
+> details [unclear] customer details automatically added to the
+> database. A electronic form is [unclear] accessible for the customer
+> as it can be filled at home.
 
 The candidate has given a valid method and has given clear and correct suitability by describing that the details could be automatically added to the database and can be filled in from home, which would be a remote location. The candidate gained the full 3 marks.
 '''
@@ -1088,7 +1185,13 @@ answer = '''
 - Customer to Booking relationship indicated as one- many -Room to Booking relationship indicated as one- many
 '''
 guidance = '''
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+erDiagram
+    Customer ||--o{ Booking : ""
+    Room ||--o{ Booking : ""
+```
 '''
 
 [[question.mark_scheme]]

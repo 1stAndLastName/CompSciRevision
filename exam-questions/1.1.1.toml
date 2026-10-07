@@ -60,7 +60,7 @@ Accept MBR/Memory Buffer Register for MDR/Memory Data Register
 
 Candidates who had good knowledge of the FDE cycle were able to gain 3 or 4 marks on this question. Some candidates did not have a good understanding of what a register or a bus is and tended to say they did something other than transport or temporarily store. Many however gave clear and correct responses.
 
-*[Image in the original mark scheme, not shown here.]*
+*[An examiner's marking symbol, not shown here.]*
 
 **Misconception**
 
@@ -69,7 +69,17 @@ data/instructions/addresses and as such doesn’t fetch or pass anything.
 
 Exemplar 1
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> The PC holds the next instruction's address which is
+> copied to the MAR memory address register. The Program
+> Counter is incremented. The address from the MAR is sent
+> on the address bus to main memory. Simultaneously
+> a read/write signal is sent on the control bus to the
+> control unit. The data or instruction goes on the
+> data bus and is copied into the memory data
+> register. It is then copied into the CIR. [4]
 
 This candidate has shown a clear understanding of the role of the buses and registers in the fetch part of the FDE cycle.
 '''
@@ -117,7 +127,6 @@ Many candidates were able to gain a mark for an instruction being fetched at the
 [[question]]
 number = 2
 marks = 5
-diagram = true
 
 [[question.part]]
 label = "2"
@@ -125,7 +134,9 @@ marks = 5
 text = '''
 Here is a diagram of a computer system.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+The image shows a block diagram of a computer system architecture. At the top are three horizontal buses: "Control Bus", "A" (Data Bus), and "Address Bus". Below these is a "CPU" block containing a "Control Unit" (with components B, C, D, CIR, and a "+1" incrementer) and an "ALU" (Arithmetic Logic Unit) with an "E" register. To the right of the CPU is a "RAM" block. Various arrows indicate the flow of data and control signals between the buses, the CPU components, and the RAM.
 
 Identify each of the labelled components in this computer system.
 
@@ -248,11 +259,44 @@ Candidates were assessed on the quality of their extended response in this quest
 
 Exemplar 1
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> Von Neumann and Harvard store data in
+> different ways. They both have separate
+> memory and address buses, however Harvard
+> has separate memory locations for data and
+> instruction while Von Neumann stores all
+> both in the same memory.
+> 
+> Von Neumann is good as it allows for
+> [unclear] writing programs to be run off. A
+> memory is joint, data and instructions
+> can split memory in an efficient way,
+> reducing bottlenecks to the same full like
+> it can happen in Harvard architecture. Also,
+> Von Neumann host programs are written to support
+> a Von Neumann architecture therefore it's
+> easier to set up and use has it has more support
+> from developers. Better for multi-purpose systems.
+> 
+> Harvard is less complex and memory management
+> is simpler. It's good for custom
+> programs as it can run faster if
+> code is written specifically. Very good for
+> embedded systems in which structure can't change.
+> In conclusion they're both useful
+> while Von Neumann is more widely used
+> and better for general purpose computers,
+> Harvard architecture can be good for
+> more simple and specific cases, such
+> as embedded systems, or machines
+> which do not need a general purpose
+> CPU, &
 
 This candidate response was given 5 marks. There are some valid points about both Von Neumann and Harvard Architecture, but the points made are not fully developed with limited application. This response was therefore given a mark within the mid- level band.
 
-*[Image in the original mark scheme, not shown here.]*
+*[An examiner's marking symbol, not shown here.]*
 
 **Assessment for learning**
 
@@ -303,7 +347,18 @@ Most candidates were able to identify two factors that could affect the performa
 
 Exemplar 1
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+A candidate's handwritten answer:
+> 1. Clock Speed, the number of clock cycles
+> that occur per second (in Hertz). The higher
+> the clock speed the more data/instructions executed
+> within a given time frame, increasing performance.
+> 2. The number of cores, the more number of
+> cores a processor has, the more FDE cycles
+> can be conducted simultaneously, so more data
+> instructions are executed at one point, increasing
+> performance.
 
 The candidate gives two valid factors that would affect performance and then explains why each of the two factors would affect performance. They use appropriate terminology in their response.
 '''
@@ -432,7 +487,7 @@ This question was generally well answered by candidates who gave clear responses
 **Misconception**\
 Some candidates thought that the program counter kept track of a count of the number of instructions that had been fetched.
 
-*[Image in the original mark scheme, not shown here.]*
+*[An examiner's marking symbol, not shown here.]*
 '''
 
 [[question.mark_scheme]]
@@ -578,14 +633,37 @@ This question was not answered well. Many candidates repeated their response to 
 [[question]]
 number = 8
 marks = 4
-diagram = true
 
 [[question.part]]
 label = "8"
 text = '''
 A program written using the Little Man Computer instruction set is shown in **Fig. 1**.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+        INP
+        STA  numone
+        INP
+        STA  numtwo
+main     LDA  numone
+        SUB  numtwo
+        BRP  pos
+notpos   LDA  count
+        OUT
+        LDA  numone
+        OUT
+        HLT
+pos       STA  numone
+        LDA  count
+        ADD  one
+        STA  count
+        BRA  main
+numone    DAT
+numtwo    DAT
+one       DAT  1
+count     DAT  0
+```
 
 **Fig. 1**
 
@@ -839,7 +917,20 @@ answer = '''
 - HLT / COB / END
 '''
 guidance = '''
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+| Mnemonic | Instruction |
+| --- | --- |
+| ADD | Add |
+| SUB | Subtract |
+| STA | Store value in accumulator at address given |
+| LDA | Load (to accumulator) |
+| BRA | Branch always |
+| BRZ | Branch if zero |
+| BRP | Branch if zero or positive |
+| INP | Input |
+| OUT | Output |
+| HLT | End program |
 '''
 
 [[question.mark_scheme]]
@@ -874,7 +965,6 @@ y DAT
 [[question]]
 number = 12
 marks = 7
-diagram = true
 
 [[question.part]]
 label = "12(a)"
@@ -890,7 +980,14 @@ label = "12(b)"
 text = '''
 A CPU will repeatedly run the Fetch-Decode-Execute-cycle shown in **Fig. 1**.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```mermaid
+stateDiagram-v2
+    Fetch --> Decode: A
+    Decode --> Execute: B
+    Execute --> Fetch: C
+```
 
 **Fig. 1**
 '''

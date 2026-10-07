@@ -2,6 +2,7 @@
 # Copied as text from the question paper and mark scheme PDFs in sources/
 # by tools/extract-exam-questions. Diagrams are not copied. Corrections by
 # hand are fine: the tool will not overwrite this file without --force.
+#Beeb {
 spec = "1.3.4"
 
 [[question]]
@@ -216,11 +217,22 @@ Although candidates were required to write this response in JavaScript, marks we
 
 Exemplar 3
 
-*[Image in the original mark scheme, not shown here.]*
+*[Image redrawn from the original mark scheme by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+function errorCheck():
+    x = document.getElementById("password").innerHTML
+    if x.length == 8 or x.length == 12 then
+        return True
+    else
+        TypeError = document.getElementById("password").innerHTML
+        .innerHTML = "Password length Error"
+        return y
+```
 
 This candidate response was given full marks. The second part of the ‘if’ statement is not entirely correct, but the overall code provided is very close to each mark scheme point and was therefore given full marks.
 
-*[Image in the original mark scheme, not shown here.]*
+*[An examiner's marking symbol, not shown here.]*
 
 **Assessment for** **learning**
 
@@ -230,7 +242,6 @@ Appendices 5d in the specification gives guidance on what students are expected 
 [[question]]
 number = 3
 marks = 13
-diagram = true
 
 [[question.part]]
 label = "3(a)"
@@ -243,7 +254,9 @@ The robot provides a web-based interface for users. The home screen webpage for 
 
 **4**.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+The image shows a "Robot User Interface" window containing the heading "Robot prime directives" followed by a bulleted list: "Serve the company trust", "Protect data", and "Uphold standards". Below this is a link for "Updates", a "Login" section with a "Password" label, an empty text input box, and a "Submit" button.
 
 **Fig. 4**
 '''
@@ -634,7 +647,6 @@ Do not accept layout/format for HTML as this is too vague and can be used to des
 [[question]]
 number = 5
 marks = 6
-diagram = true
 
 [[question.part]]
 label = "5"
@@ -644,7 +656,27 @@ Shreya is a web developer who creates webpages for a variety of different compan
 
 Shreya has received a webpage written in HTML shown in **Fig. 2.1**.
 
-*[Diagram in the original paper, not shown here.]*
+*[Diagram redrawn from the original paper by an AI model (Gemma 4 12B). It may contain mistakes.]*
+
+```text
+<html>
+<head>
+<title>BBC Computer</title>
+<link rel="stylesheet" type="text/css" href="BBC.css">
+
+</head>
+<body>
+<h1 id="Beeb">History of the BBC Micro Computer</h1>
+
+<h2>BBC Micro Models</h2>
+<ul>
+<li class="model">Model A</li>
+<li class="model">Model B</li>
+</ul>
+
+</body>
+</html>
+```
 
 **Fig. 2.1**
 
